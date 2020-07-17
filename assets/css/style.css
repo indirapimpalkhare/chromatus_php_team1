@@ -1,0 +1,14 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;	
+}
+
+.avoid-overflow{
+	margin-top: 160px;
+}
+@media screen and (max-width: 765px) {
+  .avoid-overflow {margin-top: 230px;}
+ 
+}
+
