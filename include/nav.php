@@ -5,14 +5,14 @@
   <ul class="navbar bg-light navbar-expand-lg nav nav-fill">
     <li class="nav-item">
        <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
-    </li>  
+    </li>
     <li class="nav-item">
       <a class="nav-link text-primary" href="#"><i class="fa fa-envelope ">info@chromatus.com </i></a>
     </li>
     <li class="nav-item">
       <a class="nav-link text-primary" href="tel:7498465144"><i class="fa fa-phone">+91-7498465144</i></a>
     </li>
-    <div class="nav justify-content-center"> 
+    <div class="nav justify-content-center">
     <li class="nav-item">
       <a class="nav-link text-primary" href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
     </li>
@@ -24,12 +24,12 @@
     </li>
   </div>
     <li class="nav-item ">
-      <a href="#" class="nav-link btn btn-primary" >Register/Login</a> 
+      <a href="#" class="nav-link btn btn-primary" >Register/Login</a>
     </li>
   </ul>
   <!--1st Nav Ends-->
   <!--2nd Nav Starts-->
-  <div class="navbar navbar-dark  bg-dark navbar-expand-lg ">
+  <div class="navbar navbar-dark  bg-dark navbar-expand-lg">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
