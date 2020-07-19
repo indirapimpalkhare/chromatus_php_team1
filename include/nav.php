@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
   </button>  
     <li class="nav-item">
-       <a class="navbar-brand" href="#"><img src="assets/images/logo.png"></a>
+       <a class="navbar-brand" href="index.php"><img src="assets/images/logo.png"></a>
     </li>
   	<div class="collapse navbar-collapse" id="navbarSupportedContent1">
     <li class="nav-item">
@@ -45,7 +45,7 @@
        <a class="nav-link" href="#">Why US</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="#">Press Release</a>
+       <a class="nav-link" href="PressRelease.php">Press Release</a>
      </li>
      <li class="nav-item">
        <a class="nav-link" href="#">Blogs</a>
