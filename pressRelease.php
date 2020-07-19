@@ -7,50 +7,49 @@
     </section>
     <div class="main-content">
 
-
-    <div class="checkFloat" >
-
-        <div class="left">
-            <table class="table table-bordered">
-                <thead>
+    <div style="text-align:center;" class="container" >
+        <div class = "row ">
+            <div class="col-md-4 align-self-start ">
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                          <th>Industry</th>
+                        </tr>
+                    </thead>
                     <tr>
-                      <th>Industry</th>
+                        <td> Industry Info </td>
                     </tr>
-                </thead>
-                <tr>
-                    <td> Industry Info </td>
-                </tr>
-            </table>
-
-        </div>
+                </table>
+            </div>
 
 
-        <div class="right border border-dark">
-            <h2>Press Release</h2>
-            <table class="table table-striped table-bordered">
-                <tr>
-                    <td>PR1</td>
-                </tr>
-                <tr>
-                    <td>PR2</td>
-                </tr>
-                <tr>
-                    <td>PR3</td>
-                </tr>
-                <tr>
-                    <td>PR4</td>
-                </tr>
-                <tr>
-                    <td>PR5</td>
-                </tr>
-                <tr>
-                    <td>PR6</td>
-                </tr>
-
-            </table>
+            <div class="col-md-8 align-self-start border border-dark">
+                <h2>Press Release</h2>
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td>PR1</td>
+                    </tr>
+                    <tr>
+                        <td>PR2</td>
+                    </tr>
+                    <tr>
+                        <td>PR3</td>
+                    </tr>
+                    <tr>
+                       <td>PR4</td>
+                    </tr>
+                    <tr>
+                        <td>PR5</td>
+                    </tr>
+                    <tr>
+                        <td>PR6</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-  </div>
+    
+    </div>
     <?php require_once('include/footer.php'); ?>
 
 
