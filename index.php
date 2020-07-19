@@ -2,9 +2,11 @@
 <html lang="en">
   <?php require_once('include/header.php'); ?>
     <body>
-      <section class="header">
+      <header>
         <?php require_once('include/nav.php'); ?>
-      </section>
+      </header>
+
+      
       <div class="main-content">
 
 
