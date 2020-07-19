@@ -6,12 +6,12 @@
         <?php require_once('include/nav.php'); ?>
       </header>
 
-      
+
       <div class="main-content">
 
 
 
-        <div class = "row m-4 pt-4 mt-4">
+        <div class = "row pt-4 mt-4">
           <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel" style="height:200px;">
             <div class="carousel-inner">
               <div class="carousel-item active">
