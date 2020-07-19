@@ -7,13 +7,13 @@
     </section>
     <div class="main-content">
 
-    <div style="text-align:center;" class="container" >
+    <div  class="container" >
         <div class = "row ">
             <div class="col-md-4 align-self-start ">
                 <table class="table table-bordered ">
                     <thead>
                         <tr>
-                          <th>Industry</th>
+                          <th style="text-align:center;" >Industry</th>
                         </tr>
                     </thead>
                     <tr>
@@ -22,29 +22,64 @@
                 </table>
             </div>
 
-
+    
             <div class="col-md-8 align-self-start border border-dark">
-                <h2>Press Release</h2>
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <td>PR1</td>
-                    </tr>
-                    <tr>
-                        <td>PR2</td>
-                    </tr>
-                    <tr>
-                        <td>PR3</td>
-                    </tr>
-                    <tr>
-                       <td>PR4</td>
-                    </tr>
-                    <tr>
-                        <td>PR5</td>
-                    </tr>
-                    <tr>
-                        <td>PR6</td>
-                    </tr>
-                </table>
+                <h2 style="text-align:center;" >Press Release</h2>
+                
+                <div class="card">
+                    <h5 class="card-header">PR1-Heading</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h5 class="card-header">PR2-Heading</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h5 class="card-header">PR3-Heading</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h5 class="card-header">PR4-Heading</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h5 class="card-header">PR5-Heading</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h5 class="card-header">PR6-Heading</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
