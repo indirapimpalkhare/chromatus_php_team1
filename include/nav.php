@@ -1,13 +1,14 @@
 
 <!--Navbar Starts-->
 <div class="fixed-top">
-
+    
       <ul class="navbar navbar-light bg-light navbar-expand-lg nav nav-fill">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-       <a class="navbar-brand" href="index.php"><img class="w-75" src="assets/images/logo.png"></a>
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <li class="nav-item"> <a class="navbar-brand" href="index.php"><img class="w-75" src="assets/images/logo.png"></a></li>
+       
+      
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
         <li class="nav-item">
           <a class="nav-link text-primary" href="mailto:info@chromatus.com"><i class="fa fa-envelope ">info@chromatus.com </i></a>
@@ -69,6 +70,7 @@
           <a class="nav-link text-white" href="#">Contact Us!</a>
         </li>
       </ul>
+
       <form class="form-inline">
 	     <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
 	    <a href="#" class=" form-control btn btn-outline-primary my-2 my-sm-0  " type="submit"><i class="fa fa-search"></i></a>
