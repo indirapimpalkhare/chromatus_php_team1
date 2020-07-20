@@ -40,29 +40,49 @@
       <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar navbar-nav navbar-collapse">
-     <li class="nav-item">
-       <a class="nav-link" href="#">Why US</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="PressRelease.php">Press Release</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="#">Blogs</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="#">Industries</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="#">Contact Us</a>
-     </li>
-     <li class="nav-item">
-     <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <a href="#" class="btn btn-outline-primary my-2 my-sm-0  " type="submit"><i class="fa fa-search"></i></a>
-    </form>
-     </li>
-    </ul>
+  	<div class="container">
+	  	<ul class="navbar navbar-nav navbar-collapse">
+		
+		    <li class="nav-item">
+		       <a class="nav-link" href="#">Why US</a>
+		    </li>
+
+		    <li class="nav-item">
+		       <a class="nav-link" href="PressRelease.php">Press Release</a>
+		    </li>
+
+		    <li class="nav-item">
+		       <a class="nav-link" href="#">Blogs</a>
+		    </li>
+
+		     
+		    <li class="nav-item dropdown">
+		       <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Industries</a>
+		       <div class="dropdown-menu bg-dark ">
+		             <a class="dropdown-item text-white small" href="#">Category1</a>
+		             <div class="dropdown-divider"></div>
+		             <a class="dropdown-item text-white small" href="#">Category2</a>
+		             <div class="dropdown-divider"></div>
+		             <a class="dropdown-item text-white small" href="#">Category3</a>
+		             <div class="dropdown-divider"></div>
+		             <a class="dropdown-item text-white small" href="#">Category4</a>
+		             <div class="dropdown-divider "></div>
+		             <a class="dropdown-item text-white small" href="#">Category5</a>
+		        </div>
+		    </li>
+
+		    <li class="nav-item">
+		       <a class="nav-link" href="#">Contact Us</a>
+		    </li>
+		
+		    <li class="nav-item ">
+		     	<form class="form-inline my-2 my-lg-0">
+		        	<input class="form-control mr-sm-2 float-left" type="search" placeholder="Search" aria-label="Search">
+		        	<a href="#" class="btn btn-outline-primary my-2 my-sm-0  " type="submit"><i class="fa fa-search"></i></a>
+		    	</form>
+		    </li>
+		</ul>
+	</div>
   </div>
   </div>
   <!--2nd Nav Ends-->

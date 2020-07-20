@@ -1,3 +1,27 @@
+<footer>
+	<div class="footer-nav">
+	  <div class="navbar navbar-dark bg-dark navbar-expand-lg">
+	  	<div class="container">
+		    <ul class="navbar navbar-nav navbar-collapse">
+		     <li class="nav-item ml-5">
+		       <a class="nav-link" href="#">Career</a>
+		     </li>
+		     <li class="nav-item">
+		       <a class="nav-link" href="#.php">Contact Us</a>
+		     </li>
+		     <li class="nav-item">
+		       <a class="nav-link" href="#">FAQ's</a>
+		     </li>
+		     <li class="nav-item mr-5">
+		       <a class="nav-link " href="#">Terms & Conditions</a>
+		     </li>
+		    </ul>
+		</div>
+	  </div>
+	</div>
+	  <!--2nd Nav Ends-->
+</footer>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
