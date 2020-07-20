@@ -1,5 +1,5 @@
 <footer>
-	<div class="footer-nav">
+	<div class="footer-nav sticky-bottom">
 	  <div class="navbar navbar-dark bg-dark navbar-expand-lg">
 	  	<div class="container">
 		    <ul class="navbar navbar-nav navbar-collapse">

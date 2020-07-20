@@ -8,10 +8,8 @@
 
 
       <div class="main-content">
-
-
-        <div class="container-fluid">
-          <div class = "row">
+          
+          <div class = "row pt-4 mt-4">
             <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel" style="height:200px;">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -34,34 +32,36 @@
               </a>
             </div>
           </div>
-      </div>
-        <div class = "row m-4 pt-4 mt-4">
-          <div class = "col-md-8 align-self-start">
-            <div class="card">
-              <div class="card-header">
-                Latest Report
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Placeholder</h5>
-                <p class="card-text">Placeholder</p>
-                <a href="#" class="btn btn-primary">Go</a>
+          <div class = "row m-4 pt-4 mt-4">
+            <div class = "col-md-8 align-self-start">
+              <div class="card">
+                <div class="card-header">
+                  Latest Report
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Placeholder</h5>
+                  <p class="card-text">Placeholder</p>
+                  <a href="#" class="btn btn-primary">Go</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class = "col-md-4 align-self-end">
-            <div class="card">
-              <div class="card-header">
-                Press Release
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Placeholder</h5>
-                <p class="card-text">Placeholder</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class = "col-md-4 align-self-end">
+              <div class="card">
+                <div class="card-header">
+                  Press Release
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Placeholder</h5>
+                  <p class="card-text">Placeholder</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+   
+
+
 
 
 
