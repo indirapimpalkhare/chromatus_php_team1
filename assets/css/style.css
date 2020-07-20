@@ -6,9 +6,9 @@
 }
 
 .avoid-overflow{
-	margin-top: 160px;
+	margin-top: 140px;
 }
 @media screen and (max-width: 765px) {
-  .avoid-overflow {margin-top: 230px;}
+  .avoid-overflow {margin-top: 130px;}
  
 }
