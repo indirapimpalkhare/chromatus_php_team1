@@ -66,7 +66,7 @@
 	             <a class="dropdown-item text-white bg-dark small" href="#">Category5</a>
 	        </div>
 	    </li>
-        <li class="nav-item mr-5">
+        <li class="nav-item ">
           <a class="nav-link text-white" href="#">Contact Us!</a>
         </li>
       </ul>
