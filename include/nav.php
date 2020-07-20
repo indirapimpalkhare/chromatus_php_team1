@@ -19,13 +19,13 @@
   	        </li>
   	        <div class="d-flex ml-5 mr-5">
 		   	    <li class="nav-item">
-		   	      <a class="nav-link text-primary" href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
+		   	      <a class="nav-link text-primary mx-sm-2" href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
 		   	    </li>
 		   	    <li class="nav-item ">
-		   	      <a class="nav-link text-primary" href="https://www.facebook.com/Chromatus-2467152553553218" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
+		   	      <a class="nav-link text-primary mx-sm-2" href="https://www.facebook.com/Chromatus-2467152553553218" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
 		   	    </li>
 		   	    <li class="nav-item ">
-		   	      <a class="nav-link text-primary" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
+		   	      <a class="nav-link text-primary mx-sm-2" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
 		   	    </li>
 	   		</div>
   		</ul>

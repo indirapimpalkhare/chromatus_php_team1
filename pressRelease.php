@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once('include/header.php'); ?>
+  
   <body>
     <section class="header">
       <?php require_once('include/nav.php'); ?>
     </section>
+    
     <div class="main-content">
 
     <div  class="container " >
