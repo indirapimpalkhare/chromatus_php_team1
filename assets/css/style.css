@@ -1,8 +1,8 @@
 *{
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;	
-	
+	box-sizing: border-box;
+
 }
 
 .avoid-overflow{
@@ -10,5 +10,11 @@
 }
 @media screen and (max-width: 765px) {
   .avoid-overflow {margin-top: 130px;}
- 
+
+}
+.navbar-nav > li > a {
+	padding-top:5px !important; padding-bottom:5px !important;
+}
+.navbar {
+	min-height:32px !important
 }
