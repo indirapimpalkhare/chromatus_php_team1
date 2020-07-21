@@ -1,14 +1,14 @@
 
 <!--Navbar Starts-->
 <div class="fixed-top">
-    
+
       <ul class="navbar navbar-light bg-light navbar-expand-lg nav nav-fill">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
         </button>
         <li class="nav-item"> <a class="navbar-brand" href="index.php"><img class="w-75" src="assets/images/logo.png"></a></li>
-       
-      
+
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
         <li class="nav-item">
           <a class="nav-link text-primary" href="mailto:info@chromatus.com"><i class="fa fa-envelope ">info@chromatus.com </i></a>
@@ -33,15 +33,15 @@
       </div>
       </ul>
   <!--1st Nav Ends-->
-  
+
   <!--2nd Nav Starts-->
-  
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarsExample05">
-      <div class="container ">
+      <div class="container-fluid ">
       <ul class="navbar-nav ">
         <li class="nav-item mr-4">
           <a class="nav-link text-white" href="#">Why Us!</a>
@@ -78,7 +78,7 @@
       </div>
     </div>
   </nav>
-  
+
   <!--2nd Nav Ends-->
 </div>
 <!--Navbar Ends-->
