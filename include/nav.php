@@ -28,7 +28,7 @@
           </li>
         </div>
         <li class="nav-item  ">
-          <a href="login.php" class="nav-link btn btn-primary " >Register/Login</a>
+          <a href="login.php" class="nav-link btn btn-primary">Register/Login</a>
         </li>
       </div>
       </ul>
@@ -67,7 +67,7 @@
 	        </div>
 	    </li>
         <li class="nav-item mr-4">
-          <a class="nav-link text-white" href="#">Contact Us!</a>
+          <a class="nav-link text-white" href="contact.php">Contact Us!</a>
         </li>
       </ul>
 
