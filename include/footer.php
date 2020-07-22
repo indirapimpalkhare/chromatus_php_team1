@@ -13,7 +13,7 @@
 		       <a class="nav-link" href="faq.php">FAQ's</a>
 		     </li>
 		     <li class="nav-item ">
-		       <a class="nav-link " href="#">Terms & Conditions</a>
+		       <a class="nav-link " href="terms.php">Terms & Conditions</a>
 		     </li>
 		    </ul>
 		</div>
