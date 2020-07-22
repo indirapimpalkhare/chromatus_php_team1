@@ -18,28 +18,30 @@
 .navbar {
 	min-height:32px !important
 }
-.h1{
-	font-size: 55px;
+.heading{
+	font-size: 50px;
 	color:white;
-	margin-top:50px;
-	margin-bottom: 60px;
+	margin-top:8px;
+	margin-bottom: 8px;
+	text-align:center;
 
 
 }
 
-.label{
-	font-size: 25px;
+.label1{
+	font-size: 20px;
+	color:white;
 }
 
-.input-group{
+.input-group_user{
 	margin-top: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 .user-card1 {
-			height: 500px;
+			height: 530px;
 			width: 450px;
-			margin-top: 70px;
-			margin-bottom: 70px;
+			margin-top: 40px;
+			margin-bottom: 80px;
 			background:  #404040;
 			position: relative;
 			display: flex;
@@ -51,9 +53,9 @@
 		}
 
 .user-card2 {
-			height: 700px;
+			height: 750px;
 			width: 450px;
-			margin-top: 40px;
+			margin-top: 25px;
 			margin-bottom: 60px;
 			background:  #404040;
 			position: relative;
@@ -66,18 +68,19 @@
 		}
 
 	.small{
-		font-size:15px;
+		font-size: 15px;
 	}
 	.p{
 		font-size:15px;
 		color:white;
+		
 	}
 	.btn-warning{
 		border-radius:0px;
-		width:280px;
+		width:250px;
 		font-size:20px;
-		margin-top:20px;
-		margin-bottom: 20px;
+		margin-top:5px;
+		margin-bottom: 10px;
 
 	}
 	
