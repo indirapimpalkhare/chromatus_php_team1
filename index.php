@@ -9,9 +9,9 @@
       </header>
 
 
-      <div class="main-content">
+      <div class="main-content" style="padding-top:60px;">
 
-        <div class = "row pt-4 m-4">
+        <div class = "row pt-4 ml-4 mr-4">
           <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel" style="height:200px;">
             <div class="carousel-inner">
               <div class="carousel-item active">
