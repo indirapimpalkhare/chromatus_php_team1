@@ -28,7 +28,7 @@
           </li>
         </div>
         <li class="nav-item  ">
-          <a href="#" class="nav-link btn btn-primary " >Register/Login</a>
+          <a href="login.php" class="nav-link btn btn-primary " >Register/Login</a>
         </li>
       </div>
       </ul>
