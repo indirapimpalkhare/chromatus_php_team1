@@ -47,7 +47,7 @@
           <a class="nav-link text-white" href="#">Why Us!</a>
         </li>
         <li class="nav-item mr-4">
-          <a class="nav-link text-white" href="PressRelease.php">Press Release</a>
+          <a class="nav-link text-white" href="pressRelease.php">Press Release</a>
         </li>
         <li class="nav-item mr-4">
           <a class="nav-link text-white" href="#">Blogs</a>
