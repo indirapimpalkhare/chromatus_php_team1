@@ -12,33 +12,33 @@
 					<div class="user-card2">
 					<div class="row">
 					<div class="col-md-12">
-						<h1 class="text-center text-white">Register</h1>
-						<label class="label control-label text-white"><i class="fa fa-user" aria-hidden="true">Name</i></label>
-						<div class="input-group">
+						<div class="heading">Register</div>
+						<div class="label1"><i class="fa fa-user" aria-hidden="true">Name</i></div>
+						<div class="input-group_user">
 							<input type="text" class="form-control" name="name" placeholder=" Enter Name">
 						</div>
 						
-						<label class="label control-label text-white"><i class="fa fa-envelope" aria-hidden="true">Email</i></label>
-						<div class="input-group">
+						<div class="label1"><i class="fa fa-envelope" aria-hidden="true">Email</i></div>
+						<div class="input-group_user">
 							<input type="text" class="form-control" name="mail" placeholder=" Enter Email">
 						</div>
 
-						<label class="label control-label text-white"><i class="fa fa-phone" aria-hidden="true">Contact No.</i></label>
-						<div class="input-group">
+						<div class="label1"><i class="fa fa-phone" aria-hidden="true">Contact No.</i></div>
+						<div class="input-group_user">
 							<input type="number" class="form-control" name="cno" placeholder="Enter Mobile No.">
 						</div>
 						
 						
-						<label class="label control-label text-white"><i class="fa fa-lock" aria-hidden="true">Password</i></label>
-						<div class="input-group">
+						<div class="label1"><i class="fa fa-lock" aria-hidden="true">Password</i></div>
+						<div class="input-group_user">
 							<input type="Password" class="form-control" name="password" placeholder="Enter Password">
 						</div>
 						
 
 
 
-						<label class="label control-label text-white"><i class="fa fa-lock" aria-hidden="true">Confirm Password</i></label>
-						<div class="input-group">
+						<div class="label1"><i class="fa fa-lock" aria-hidden="true">Confirm Password</i></div>
+						<div class="input-group_user">
 							<input type="password" class="form-control" name="cpassword" placeholder="Enter Confirm Password">
 						</div>
 
