@@ -12,7 +12,7 @@
     
     <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Terms and Conditions</h2></div>
     <div class="linear-bottom">
-              <div class="title-underline"></div>
+        <div class="title-underline"></div>
     </div>
     <div class="container" style="padding:20px;">
        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe nulla sint facere labore voluptatem adipisci et. Velit amet laudantium nostrum, tempore nemo architecto eaque inventore assumenda deserunt. Dolorum, porro.

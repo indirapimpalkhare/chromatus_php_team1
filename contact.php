@@ -226,7 +226,7 @@
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
-                          You must accept our <a href="#">privacy policies</a> before submit your requirement
+                          You must accept our <a href="terms.php">privacy policies</a> before submit your requirement
                         </label>
                       </div>
                     </div>
@@ -243,9 +243,9 @@
                      <div class="footercno" style="margin-top: 15px;color:#0076D9;"><a href="tel:++917498465144"><i class="fa fa-phone" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;+91 7498465144&nbsp;&nbsp;</a></div>
                      <hr>
                      <h4>Follow us on social media</h4><h6>&nbsp;</h6>
-                    <a href="https://www.facebook.com/QYResearchOfficial/" class="fa fa-facebook-official fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
-                    <a href="https://twitter.com/QYResearch_" class="fa fa-twitter-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
-                    <a href="https://www.linkedin.com/company/qyresearch/" class="fa fa-linkedin-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
+                    <a href="https://www.facebook.com/Chromatus-Consulting-100467295012830" class="fa fa-facebook-official fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
+                    <a href="https://twitter.com/Chromatus12" class="fa fa-twitter-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
+                    <a href="https://www.linkedin.com/company/chromatusconsulting" class="fa fa-linkedin-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
                    
                    </div>
               </div>
