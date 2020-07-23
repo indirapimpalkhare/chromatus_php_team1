@@ -28,12 +28,8 @@
           </li>
         </div>
         <li class="nav-item  ">
-<<<<<<< HEAD
 
           <a href="#" data-target="#elegantModalForm" data-toggle="modal" class="nav-link btn btn-primary " >Register/Login</a>
-=======
-          <a href="login.php" class="nav-link btn btn-primary">Register/Login</a>
->>>>>>> 2cb8f6e358c67b913b514d65f66ad5a9710e6e90
         </li>
       </div>
       </ul>
