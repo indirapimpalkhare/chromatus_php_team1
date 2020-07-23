@@ -7,7 +7,7 @@
 		       <a class="nav-link" href="#">Career</a>
 		     </li>
 		     <li class="nav-item">
-		       <a class="nav-link" href="#.php">Contact Us</a>
+		       <a class="nav-link" href="contact.php">Contact Us</a>
 		     </li>
 		     <li class="nav-item">
 		       <a class="nav-link" href="faq.php">FAQ's</a>
