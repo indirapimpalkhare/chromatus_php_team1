@@ -11,25 +11,29 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
         <li class="nav-item">
-          <a class="nav-link text-primary" href="mailto:info@chromatus.com"><i class="fa fa-envelope ">info@chromatus.com </i></a>
+          <a class="nav-link text-primary" href="mailto:info@chromatus.com"><i class="fa fa-envelope ">&nbsp;&nbsp;info@chromatus.com </i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-primary" href="tel:7498465144"><i class="fa fa-phone">+91-7498465144</i></a>
+          <a class="nav-link text-primary" href="tel:7498465144"><i class="fa fa-phone">&nbsp;&nbsp;+91-7498465144</i></a>
         </li>
         <div class="nav justify-content-center">
           <li class="nav-item">
             <a class="nav-link text-primary" href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-primary" href="https://www.facebook.com/Chromatus-2467152553553218" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
+            <a class="nav-link text-primary" href="https://www.facebook.com/Chromatus-Consulting-100467295012830" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-primary" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
           </li>
         </div>
         <li class="nav-item  ">
+<<<<<<< HEAD
 
           <a href="#" data-target="#elegantModalForm" data-toggle="modal" class="nav-link btn btn-primary " >Register/Login</a>
+=======
+          <a href="login.php" class="nav-link btn btn-primary">Register/Login</a>
+>>>>>>> 2cb8f6e358c67b913b514d65f66ad5a9710e6e90
         </li>
       </div>
       </ul>
@@ -48,7 +52,7 @@
           <a class="nav-link text-white" href="#">Why Us!</a>
         </li>
         <li class="nav-item mr-4">
-          <a class="nav-link text-white" href="PressRelease.php">Press Release</a>
+          <a class="nav-link text-white" href="pressRelease.php">Press Release</a>
         </li>
         <li class="nav-item mr-4">
           <a class="nav-link text-white" href="#">Blogs</a>
@@ -68,7 +72,7 @@
 	        </div>
 	    </li>
         <li class="nav-item mr-4">
-          <a class="nav-link text-white" href="#">Contact Us!</a>
+          <a class="nav-link text-white" href="contact.php">Contact Us!</a>
         </li>
       </ul>
 
