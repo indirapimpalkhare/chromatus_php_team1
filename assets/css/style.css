@@ -18,69 +18,25 @@
 .navbar {
 	min-height:32px !important
 }
-.heading{
-	font-size: 50px;
-	color:white;
-	margin-top:8px;
-	margin-bottom: 8px;
-	text-align:center;
 
 
-}
+.form-elegant .font-small {
+    font-size: 0.9rem; }
 
-.label1{
-	font-size: 20px;
-	color:white;
-}
+.form-elegant .z-depth-1a {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+    box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25); }
 
-.input-group_user{
-	margin-top: 10px;
-	margin-bottom: 30px;
-}
-.user-card1 {
-			height: 530px;
-			width: 450px;
-			margin-top: 40px;
-			margin-bottom: 80px;
-			background:  #404040;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			padding: 10px;
-			border-radius: 5px;
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+    box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
 
-		}
+.form-elegant .modal-header {
+    border-bottom: none; }
 
-.user-card2 {
-			height: 750px;
-			width: 450px;
-			margin-top: 25px;
-			margin-bottom: 60px;
-			background:  #404040;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			padding: 10px;
-			border-radius: 5px;
+.modal-dialog .form-elegant .btn .fab {
+    color: #2196f3!important; }
 
-		}
-
-	.small{
-		font-size: 15px;
-	}
-	.p{
-		font-size:15px;
-		color:white;
-		
-	}
-	.btn-warning{
-		border-radius:0px;
-		width:250px;
-		font-size:20px;
-		margin-top:5px;
-		margin-bottom: 10px;
-
-	}
-	
+.form-elegant .modal-body, .form-elegant .modal-footer {
+    font-weight: 350; }
