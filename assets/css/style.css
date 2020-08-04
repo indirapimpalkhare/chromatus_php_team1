@@ -22,8 +22,8 @@ a, a:hover{
 .navbar {
 	min-height:32px !important
 }
-<<<<<<< HEAD
-=======
+
+
 
 .headernav{
 	position: sticky!important;
@@ -35,7 +35,6 @@ a, a:hover{
 	margin-top:8px;
 	margin-bottom: 8px;
 	text-align:center;
->>>>>>> 2cb8f6e358c67b913b514d65f66ad5a9710e6e90
 
 
 .form-elegant .font-small {
@@ -56,10 +55,8 @@ a, a:hover{
 .modal-dialog .form-elegant .btn .fab {
     color: #2196f3!important; }
 
-<<<<<<< HEAD
 .form-elegant .modal-body, .form-elegant .modal-footer {
     font-weight: 350; }
-=======
 	}
 	
 
@@ -109,18 +106,18 @@ a, a:hover{
 }
 
 .form-btn{
+	background: #0076d8!important;
 	display: inline-block;
     margin: 20px 0 30px 0;
     padding: 10px 35px;
     text-align: center;
     border-radius: 3px;
     text-decoration: none!important;
-    background: #0076d8;
-    color: #fff;
+    color: #fff!important;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.15), 0 2px 2px 0 rgba(0,0,0,.1);
     outline: none;
     font-size: 15px;
-     border: none;
+    border: none;
 }
 .form-btn:hover
 {
@@ -170,4 +167,3 @@ background: #c4c2c2;
 background: #182955; 
 }
 /*Scroll Ends*/
->>>>>>> 2cb8f6e358c67b913b514d65f66ad5a9710e6e90
