@@ -5,11 +5,8 @@
     <body>
       <header>
         <?php require_once('include/nav.php'); ?>
-
       </header>
-
-
-      <div class="main-content" style="padding-top:60px;">
+      <div class="main-content ">
 
         <div class = "row pt-4 ml-4 mr-4">
           <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel" style="height:200px;">
@@ -91,5 +88,6 @@
       </div>
 
     <?php require_once('include/footer.php'); ?>
+    
   </body>
 </html>

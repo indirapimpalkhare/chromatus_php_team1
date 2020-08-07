@@ -51,7 +51,7 @@
           <a class="nav-link text-white" href="pressRelease.php">Press Release</a>
         </li>
         <li class="nav-item mr-4">
-          <a class="nav-link text-white" href="#">Blogs</a>
+          <a class="nav-link text-white" href="blogs.php">Blogs</a>
         </li>
        <li class="nav-item mr-4 dropdown">
 	       <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Industries</a>

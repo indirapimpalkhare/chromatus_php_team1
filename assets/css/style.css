@@ -4,7 +4,6 @@
 	box-sizing: border-box;
 
 }
-
 a, a:hover{
 	text-decoration: none;
 }
@@ -144,6 +143,22 @@ a, a:hover{
 
 /*Contact us end*/
 
+/*Blogs Start*/
+.cd2 
+{    
+      padding: 10px 10px 10px 10px;
+      border: 1px solid #dcd1d1ee;
+      height: 260px;
+      margin-right:20px;
+      margin-top: 20px;
+}
+.cd2:hover
+{
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/*Blogs Ends*/
 
 
 /*Scroll Starts*/
