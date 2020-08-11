@@ -1,24 +1,39 @@
 <!doctype html>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
 <html lang="en">
   <?php require_once('include/header.php'); ?>
 
     <body>
-      <header>
+      <header style="padding-bottom:5px;">
         <?php require_once('include/nav.php'); ?>
       </header>
-      <div class="main-content ">
+      <div class="main-content">
 
-        <div class = "row pt-4 ml-4 mr-4">
-          <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel" style="height:200px;">
+        <div class = "row imgbox">
+          <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="assets/images/placeholder1.jpg" class="w-100" style="height:200px;" alt="...">
+                <img src="assets/images/placeholder1.jpg" class="center-fit" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="assets/images/placeholder2.jpg" class="w-100" style="height:200px;" alt="...">
+                <img src="assets/images/placeholder2.jpg" class="center-fit" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="assets/images/placeholder3.jpg" class="w-100" style="height:200px;" alt="...">
+                <img src="assets/images/placeholder3.jpg" class="center-fit" alt="...">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselHomePage" role="button" data-slide="prev">
@@ -88,6 +103,6 @@
       </div>
 
     <?php require_once('include/footer.php'); ?>
-    
+
   </body>
 </html>
