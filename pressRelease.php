@@ -7,85 +7,116 @@
       <?php require_once('include/nav.php'); ?>
     </section>
 
-    <div class="main-content" style="padding-top:60px;">
+    <div class="main-content">
 
     <div  class="container " >
-        <div class = "row ">
-            <div class="col-md-4 align-self-start ">
-                <table class="table table-bordered ">
-                    <thead class="thead-light">
-
+       <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Press Release</h2></div>
+    <div class="linear-bottom">
+        <div class="title-underline"></div>
+    </div>
+        <div class = "row "style="padding:30px;">
+            <div class="col-md-3 align-self-start ">
+                <table class="table table-borderless border">
+                    <thead class="thead-dark">
                         <tr>
-                          <th style="text-align:center;" >Industry</th>
+                          <th class="text-center text-capitalize" >Industries</th>
                         </tr>
                     </thead>
 					<tbody>
                     <tr>
-                        <td> Industry Info </td>
+                        <td style="font-family:system-ui; font-size:14px;opacity:0.8" ><i class="fa fa-magic"></i> Chemical and Materials</td>                
                     </tr>
+                    <tr>
+                        <td style="font-family:system-ui;font-size:14px;opacity:0.8"><i class="fa fa-subway"></i> Automation and Transport</td>
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px; opacity:0.8" ><i class="fa fa-truck"></i> Consumer Goods</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-bolt"></i> Electronics and Semiconductors</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-glass"></i> Foods and Beverages</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-wifi"></i> Internet and Communication</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-life-ring"></i> Life Science</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-child"></i> Sports</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-space-shuttle"></i> Machinery and Equipment</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-dropbox"></i> Packaging</td>                
+                    </tr>
+                    <tr>
+                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-angle-double-right"></i> Miscellaneous</td>                
+                    </tr>
+                    
 					</tbody>
                 </table>
             </div>
 
 
-            <div class="col-md-8 align-self-start border border-dark" style="margin-bottom:50px; padding-bottom:20px;">
-                <h2 style="text-align:center; padding-top:15px;" >Press Release</h2><br>
-
-
+            <div class="col-md-9 align-self-start pr-bg" style="margin-bottom:50px; padding-bottom:20px;">
                 <div class="card" >
-                    <h5 class="card-header">PR-1Heading</h5>
+                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
-                        <h5 class="card-title">Date</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Read more..</a>
+                        <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
 					</div>
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">PR2-Heading</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Date</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Read more..</a>
-                    </div>
+                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+					<div class="card-body text-black">
+                        <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
+					</div>
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">PR3-Heading</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Date</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Read more..</a>
-                    </div>
+                   <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+					<div class="card-body text-black">
+                        <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
+					</div>
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">PR4-Heading</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Date</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Read more..</a>
-                    </div>
+                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+					<div class="card-body text-black">
+                        <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
+					</div>
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">PR5-Heading</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Date</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Read more..</a>
-                    </div>
+                   <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+					<div class="card-body text-black">
+                        <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
+					</div>
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">PR6-Heading</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Date</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Read more..</a>
-                    </div>
+                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+					<div class="card-body text-black">
+                        <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
+					</div>
                 </div>
-                <br>
+                <hr>
                 <div>
                     Page Number : 
                 </div>
