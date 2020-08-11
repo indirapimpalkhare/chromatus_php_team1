@@ -10,7 +10,7 @@
         }
         .center-fit {
             max-width: 100%;
-            max-height: 100vh;
+            max-height: 245vh;
             margin: auto;
         }
     </style>
