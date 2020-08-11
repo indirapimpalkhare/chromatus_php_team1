@@ -31,12 +31,12 @@
         <!--Body-->
         <div class="md-form mb-3">
         
-          <input type="email" id="Form-email1" class="form-control validate">
+          <input type="email" id="Form-email" class="form-control validate">
           <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control validate">
+          <input type="password" id="Form-pass" class="form-control validate">
           <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
           <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1"> Password?</a></p>
         </div>
@@ -79,25 +79,25 @@
         <!--Body-->
         <div class="md-form mb-3">
         
-          <input type="text" id="Form-name" class="form-control validate">
+          <input type="text" id="RForm-name" class="form-control validate">
           <label data-error="wrong" data-success="right" for="Form-name">Your Name</label>
         </div>
 
         <div class="md-form mb-3">
         
-          <input type="email" id="Form-email2" class="form-control validate">
+          <input type="email" id="RForm-email" class="form-control validate">
           <label data-error="wrong" data-success="right" for="Form-email2">Your Email</label>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control validate">
+          <input type="password" id="RForm-pass1" class="form-control validate">
           <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
           
         </div>
 
         <div class="md-form mb-3">
         
-          <input type="password" id="Form-pass2" class="form-control validate">
+          <input type="password" id="RForm-pass2" class="form-control validate">
           <label data-error="wrong" data-success="right" for="Form-pass2">Confirm Password</label>
         </div>
 
