@@ -3,9 +3,10 @@
   <?php require_once('include/header.php'); ?>
 
     <body>
-      <header>
+      
         <?php require_once('include/nav.php'); ?>
-      </header>
+      
+      
       <div class="main-content ">
 
         <div class = "row pt-4 ml-4 mr-4">

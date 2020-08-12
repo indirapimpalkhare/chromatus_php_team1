@@ -4,18 +4,20 @@
     <style type="text/css">
       .cd2 
       {    
-            padding: 10px 10px 10px 10px;
-            border: 1px solid #dcd1d1ee;
-            height: 260px;
-            margin-right:20px;
-            margin-top: 20px;
-            overflow: hidden;
-            text-overflow: ellipsis;
+          padding: 10px 10px 10px 10px;
+          border: 1px solid #dcd1d1ee;
+          height: 260px;
+          margin-right:20px;
+          margin-top: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
       }
       .cd2:hover
       {
-         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       }
+
+
     </style>
     <body>
       <header>
@@ -24,7 +26,7 @@
       </header>
 
 
-      <div class="main-content min-vh-100 ">
+      <div class="main-content min-vh-100">
         
       
         <!-- Blogs -->     
