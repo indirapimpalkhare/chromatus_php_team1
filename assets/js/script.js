@@ -3,10 +3,12 @@ var height = $('#header').height();
 $(window).scroll(function() {
 	if ($(this).scrollTop() > height ) {
 		$('.navbar-container').addClass('fixed-scroll');
+    $('.none').addClass('avoid-overflow');
 	} else {
 		// statement
 		$('.navbar-container').removeClass('fixed-scroll');
-	}
+	  $('.none').removeClass('avoid-overflow');
+  }
 });
 
 

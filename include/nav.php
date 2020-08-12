@@ -79,10 +79,9 @@
   <!--2nd Nav Ends-->
 
 <!--Navbar Ends-->
-<!--avoid-overflow is to avoid Content going under fixed navbar-->
-
-
-
+<div class="none">
+	
+</div>
 <!--register Form-->
 <?php require_once('register-form.php'); ?>
 <!--register Form Ends-->

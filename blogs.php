@@ -40,26 +40,56 @@
           </div>
           <br><br>
             <div  class="container">
-                <div class="row">
-                  <div class="col-md-3 ">
-                    <div id=""><h3 class="text-left text-capitalize ">Category <a class="btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-caret-down"></i></a>
-                    </h3>
-                  </div>
-                    <div class="linear-bottom" style="text-align: left;">
-                      <div class="title-underline"></div>
-                    </div>
-                    <div class="collapse show" id="collapseExample">
-                    <div class="list-group" id="list-tab" role="tablist">
-                      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">All</a>
-                      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Category 1</a>
-                      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Category 2</a>
-                      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Category 3</a>
-                      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Category 4</a>
-                    </div>
-                  </div>
-                  </div>
+                <div class = "row mb-5">
+                            <div class="col-md-3 align-self-start ">
+                                <table class="table table-borderless border">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                          <th class="text-center text-capitalize" >Industries</th>
+                                        </tr>
+                                    </thead>
+                          <tbody>
+                                    <tr>
+                                        <td style="font-family:system-ui; font-size:14px;opacity:0.8" ><i class="fa fa-magic"></i> Chemical and Materials</td>                
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family:system-ui;font-size:14px;opacity:0.8"><i class="fa fa-subway"></i> Automation and Transport</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px; opacity:0.8" ><i class="fa fa-truck"></i> Consumer Goods</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-bolt"></i> Electronics and Semiconductors</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-glass"></i> Foods and Beverages</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-wifi"></i> Internet and Communication</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-life-ring"></i> Life Science</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-child"></i> Sports</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-space-shuttle"></i> Machinery and Equipment</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-dropbox"></i> Packaging</td>                
+                                    </tr>
+                                    <tr>
+                                       <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-angle-double-right"></i> Miscellaneous</td>                
+                                    </tr>
+                                    
+                          </tbody>
+                                </table>
+                            </div>
+
+
                   
-                  <div class="col-md-9 mb-4 " style="margin-top:-14px;">
+                  <div class="col-md-9 align-self-start pr-bg" >
                     <div class="row">
                       <div class="col-md-4 col-sm-6" style="padding:0px;">
                       <div class="card cd2">
