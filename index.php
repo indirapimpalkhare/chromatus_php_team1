@@ -1,28 +1,30 @@
 <!doctype html>
 <style>
-        
+
         .imgbox {
             display: grid;
-            height: 100%;
+            height: auto;
         }
         .center-fit {
+            max-width: 100%;
             min-width: 100%;
-            height: 100vh;
-            margin: auto;
+            height: auto;
+            max-height: inherit;
+
         }
     </style>
 <html lang="en">
   <?php require_once('include/header.php'); ?>
 
-    <body> 
-        <!--Header Start-->     
+    <body>
+        <!--Header Start-->
         <?php require_once('include/nav.php'); ?>
         <!--Header Ends-->
-      <div class="main-content">
 
 
 
-        <div class = "row imgbox">
+
+        <div class = "imgbox">
           <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -45,6 +47,7 @@
             </a>
           </div>
         </div>
+        <div class="main-content">
         <div class = "row m-4 pt-4 mt-4">
           <div class = "col-md-8 align-self-start">
             <div class="card">
