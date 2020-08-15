@@ -9,19 +9,22 @@
     <header>
         <?php require_once('include/nav.php'); ?>
     </header>
-    
+    <br>
     <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Terms and Conditions</h2></div>
     <div class="linear-bottom">
         <div class="title-underline"></div>
     </div>
     <div class="container" style="padding:20px;">
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe nulla sint facere labore voluptatem adipisci et. Velit amet laudantium nostrum, tempore nemo architecto eaque inventore assumenda deserunt. Dolorum, porro.
+       <div style="font-weight:bold;">Online Delivery:</div>
+       The published reports will be delivered by email within 2 to 12 hours of receipt of payment.
        <hr>
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus alias velit facere illum nemo, recusandae, culpa fugiat? Voluptates ea culpa molestiae saepe, reprehenderit quisquam rem deleniti, dignissimos illo quod et!
+       <div style="font-weight:bold;">Physical Delivery:</div>
+       A printed copy of the published report will be sent to you by courier on your given address within three to five working days from the date of receipt of payment (extra charges will be applied as per your geographical location).
        <hr>
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ullam debitis mollitia cum laborum nam, consequuntur commodi, unde animi nobis quos ratione quod laudantium dignissimos perferendis facilis veniam beatae blanditiis?
+       <div style="font-weight:bold;">Cancellation and Refund:</div>
+       No refund will be initiated once the order is placed. However, we may consider offering Chromatus credits that will have to be used within 12 months.
        <hr>
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, doloribus necessitatibus aliquam, fugit quam porro quis sequi sunt earum sed soluta, error rem itaque! Cum ex deleniti nobis! Eaque, harum! 
+       <br>
     </div>
     <?php require_once('include/footer.php'); ?>
     
