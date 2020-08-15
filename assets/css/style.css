@@ -266,3 +266,10 @@ background: #c4c2c2;
 background: #182955; 
 }
 /*Scroll Ends*/
+
+/*PR page*/
+.lbox{
+font-family:system-ui; 
+font-size:14px;
+opacity:0.8;
+}

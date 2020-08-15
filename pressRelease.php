@@ -6,14 +6,15 @@
     <section class="header">
       <?php require_once('include/nav.php'); ?>
     </section>
-
+    <br>
     <div class="main-content">
 
-    <div  class="container " >
-       <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Press Release</h2></div>
-    <div class="linear-bottom">
-        <div class="title-underline"></div>
-    </div>
+        <div  class="container " >
+            <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Press Release</h2></div>
+            <div class="linear-bottom">
+            <div class="title-underline"></div>
+        </div>
+        
         <div class = "row "style="padding:30px;">
             <div class="col-md-3 align-self-start ">
                 <table class="table table-borderless border">
@@ -24,7 +25,7 @@
                     </thead>
 					<tbody>
                     <tr>
-                        <td style="font-family:system-ui; font-size:14px;opacity:0.8" ><i class="fa fa-magic"></i> Chemical and Materials</td>                
+                        <td style="font-family:system-ui;font-size:14px;opacity:0.8" ><i class="fa fa-magic"></i> Chemical and Materials</td>                
                     </tr>
                     <tr>
                         <td style="font-family:system-ui;font-size:14px;opacity:0.8"><i class="fa fa-subway"></i> Automation and Transport</td>
@@ -64,7 +65,7 @@
 
             <div class="col-md-9 align-self-start pr-bg" style="margin-bottom:50px; padding-bottom:20px;">
                 <div class="card" >
-                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                    <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
@@ -73,7 +74,7 @@
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                    <h5 class="card-header" style="background-color:white" >Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
@@ -82,7 +83,7 @@
                 </div>
                 <hr>
                 <div class="card">
-                   <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                   <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
@@ -91,7 +92,7 @@
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                    <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
@@ -100,7 +101,7 @@
                 </div>
                 <hr>
                 <div class="card">
-                   <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                   <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
@@ -109,7 +110,7 @@
                 </div>
                 <hr>
                 <div class="card">
-                    <h5 class="card-header">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
+                    <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
