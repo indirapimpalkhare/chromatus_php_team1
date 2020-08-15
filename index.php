@@ -9,7 +9,7 @@
             max-width: 100%;
             min-width: 100%;
             height: auto;
-            max-height: inherit;
+            max-height: 80vh;
         }
         .our_services{
           margin: 0;
