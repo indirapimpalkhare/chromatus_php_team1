@@ -5,7 +5,7 @@
 			<div class="nav nav-fill navbar-expand-lg ">
 				<div class="navbar-nav mx-auto">
 				    <a class="navbar-brand " href="index.php"><img src="assets/images/logo.png"></a>
-			    </div>	
+			    </div>
    				<div class="collapse navbar-collapse">
 		        <div class="nav-item header-item">
 		          <a class="nav-link  header-link " href="mailto:info@chromatus.com"><i class="fa fa-envelope ">&nbsp;&nbsp;info@chromatus.com </i></a>
@@ -13,7 +13,7 @@
 		        <div class="nav-item header-item">
 		          <a class="nav-link header-link"href="tel:7498465144"><i class="fa fa-phone">&nbsp;&nbsp;+91-7498465144</i></a>
 		        </div>
-		        
+
 		        <div class="nav-item">
 		            <div class="row">
 		            	<div class="nav-item header-item">
@@ -22,13 +22,13 @@
 		         			<a class="header-icon" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
 		        		</div>
 		        	</div>
-		        </div>   
+		        </div>
 			</div>
 				<a href="#" class=" header-btn" id='header-btn'data-target="#elegantModalForm" data-toggle="modal"></a>
-	        
-		</div>    
-		</div>  
-    </section>  
+
+		</div>
+		</div>
+    </section>
   <!--1st Nav Ends-->
 
   <!--2nd Nav Starts-->
@@ -52,15 +52,25 @@
        <li class="nav-item mr-4 dropdown">
 	       	<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Industries</a>
 	       	<div class="dropdown-menu ">
-	             <a class="dropdown-item small" href="#">Category1</a>
+	             <a class="dropdown-item small" href="#">Agriculture</a>
 	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item  small" href="#">Category2</a>
+	             <a class="dropdown-item  small" href="#">Healthcare</a>
 	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item small" href="#">Category3</a>
+	             <a class="dropdown-item small" href="#">Chemicals & Materials</a>
 	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item small" href="#">Category4</a>
+	             <a class="dropdown-item small" href="#">Energy</a>
 	             <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Category5</a>
+	             <a class="dropdown-item small" href="#">Food & Beverages</a>
+							 <div class="dropdown-divider "></div>
+	             <a class="dropdown-item small" href="#">Technology</a>
+							 <div class="dropdown-divider "></div>
+	             <a class="dropdown-item small" href="#">Automotive & Transportation</a>
+							 <div class="dropdown-divider "></div>
+	             <a class="dropdown-item small" href="#">Consumer Goods</a>
+							 <div class="dropdown-divider "></div>
+	             <a class="dropdown-item small" href="#">Aerospace & Defense</a>
+							 <div class="dropdown-divider "></div>
+	             <a class="dropdown-item small" href="#">Machinery & Equipment</a>
 	        </div>
 	    </li>
         <li class="nav-item mr-4">
@@ -80,10 +90,8 @@
 
 <!--Navbar Ends-->
 <div class="none">
-	
+
 </div>
 <!--register Form-->
 <?php require_once('register-form.php'); ?>
 <!--register Form Ends-->
-
-
