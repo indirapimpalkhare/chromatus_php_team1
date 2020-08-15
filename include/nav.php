@@ -1,8 +1,8 @@
 
 <!--Navbar Starts-->
 	<section id="header">
-		<div class="container-fluid">
-			<div class="nav nav-fill navbar-expand-lg ">
+		<div class="">
+			<div class="nav nav-justified navbar-expand-lg mx-5 mt-1 ">
 				<div class="navbar-nav mx-auto">
 				    <a class="navbar-brand " href="index.php"><img src="assets/images/logo.png"></a>
 			    </div>
@@ -38,7 +38,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarsExample05">
-      <div class="container-fluid">
+      <div class="container">
       <ul class="navbar-nav">
         <li class="nav-item mr-4">
           <a class="nav-link " href="#">Why Us!</a>
@@ -90,7 +90,6 @@
 
 <!--Navbar Ends-->
 <div class="none">
-
 </div>
 <!--register Form-->
 <?php require_once('register-form.php'); ?>

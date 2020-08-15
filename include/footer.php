@@ -1,23 +1,38 @@
 <footer>
-
-	  <div class="navbar navbar-dark bg-dark bg-custom-2 navbar-expand-lg">
-	  	<div class="container">
-		    <ul class="navbar navbar-nav navbar-collapse">
-		     <li class="nav-item ">
-		       <a class="nav-link" href="#">Career</a>
-		     </li>
-		     <li class="nav-item">
-		       <a class="nav-link" href="contact.php">Contact Us</a>
-		     </li>
-		     <li class="nav-item">
-		       <a class="nav-link" href="faq.php">FAQ's</a>
-		     </li>
-		     <li class="nav-item ">
-		       <a class="nav-link " href="terms.php">Terms & Conditions</a>
-		     </li>
-		    </ul>
+	<section class="footer-nav">
+	  <nav class="bg-custom-2 ">
+	    	<div class="container">	
+	    		<div class="row">
+		    	<div class=" col-md-6 col-lg-6 col-12">	
+				    <ul class="footer-list">
+					    <li class="footer-list-item ">
+					       <a class="nav-link footer-list-link" href="#">Career</a>
+					    </li>
+					    <span class="footer-link-divider ">|</span>	
+					    <li class="footer-list-item ">
+					       <a class="footer-list-link nav-link" href="contact.php">Contact Us</a>
+					    </li>
+					    <span class="footer-link-divider">|</span>
+					    <li class="footer-list-item ">
+					       <a class="footer-list-link nav-link" href="faq.php">FAQ's</a>
+					    </li>
+					    <span class="footer-link-divider">|</span>
+					    <li class="footer-list-item ">
+					       <a class="footer-list-link nav-link" href="terms.php">Terms & Conditions</a>
+					    </li>
+				    </ul>
+				</div>
+				<div class="col-lg-6 col-md-6 col-12">
+					<div class="footer-list">
+						<div class="copyright-wrapper ">
+							<p class="nav-link">Copyright &copy; 2020 Chromatus. All Rights Reserved.</p>
+						</div>
+					</div>
+				</div> 
+			</div>	 
 		</div>
-	  </div>
+	  </nav>
+	</section>
 
 	  <!--2nd Nav Ends-->
 </footer>

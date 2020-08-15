@@ -11,9 +11,9 @@
 
       <div class="main-content">
         
-      
+      <br>
         <!-- Contact Us -->     
-      
+      <section class="Contact-us">
         <div class="contactus-wrapper">
           <div class="topbanner">
             <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Contact Us</h2></div>
@@ -250,14 +250,15 @@
                    </div>
               </div>
             </div>
-          </div>      
+          </div>
           <br>
+
 
           <!--Contact Us Ends-->
            
           <!-- Location Start -->
 
-          <div class="container-fluid text-center location-container mt-3">
+          <div class="container-fluid text-center location-container">
             <h2 class="text-center text-capitalize topbannerheading">Our Locations</h2>
             <div class="linear-bottom">
                 <div class="title-underline"></div>
@@ -266,11 +267,10 @@
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d472.99137604245936!2d73.80630025699554!3d18.48678401682259!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfbcbc7df805%3A0x9d69dd4f8eec8d18!2sSAI+SHILPA+APARTMENT!5e0!3m2!1sen!2sin!4v1556619517810!5m2!1sen!2sin"></iframe>
             </div>
           </div>
-          <br>
-         
+          
           <!--Location Ends-->
       
-      
+        </section>
       
         </div>
       
