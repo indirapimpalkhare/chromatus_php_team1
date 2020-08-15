@@ -143,7 +143,7 @@
               </div>
 
               <div class="service">
-                <i class="fab fa-android"></i>
+                <i class=""></i>
                 <h2>Competitive Benchmarking</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>
