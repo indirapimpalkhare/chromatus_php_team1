@@ -31,9 +31,3 @@ $(window).resize(function() {
 /*header register btn ends*/
 //Header Ends
 
-/*Scroll up Starts*/
-//Get the button:
-
- 
-
-/*Scroll up Ends*/
