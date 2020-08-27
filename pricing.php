@@ -1,28 +1,29 @@
+
 <!doctype html>
 <html lang="en">
- 
-    <style type="text/css">
- *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Open Sans",sans-serif;
-  text-decoration: none;
-  list-style: none;
-}
+  <?php require_once('include/header.php'); ?>
+      
+      <header>
+        <?php require_once('include/nav.php'); ?>
 
-body{
+      </header>
+<style>
+.pricing-table-wrapper{
  background-color:#fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
-
+@media screen and (max-width:1100px){
+  .pricing-card{
+    flex: 50%;
+  }
+}
 .pricing-table{
   display: flex;
   flex-wrap:wrap
   justify-content: space-around;
-  width: min(1400px, 80%);
+  width: min(1400px, 60%);
   align-items:center;
   margin:auto;
  
@@ -30,9 +31,9 @@ body{
 
 .pricing-card{
   flex: 1;
-  max-width: 340px;
-  height:330px;
-  background-color: #e6f9ff;
+  max-width: 280px;
+  height:380px;
+  background-color: #cce6ff;
   margin: 20px 10px;
   text-align: center;
   cursor: pointer;
@@ -42,7 +43,7 @@ body{
 }
 
 .pricing-card-header{
-  background-color: #0fbcf9;
+  background-color: #4da6ff;
   display: inline-block;
   color: #fff;
   padding: 12px 30px;
@@ -54,12 +55,12 @@ body{
 }
 
 .pricing-card:hover .pricing-card-header{
-  box-shadow: 0 0 0 12em #0fbcf9;
+  box-shadow: 0 0 0 15em #4da6ff;
 }
 
 .price{
   font-size: 70px;
-  color: #0fbcf9;
+  color: #4da6ff;
   margin: 40px 0;
   transition: .2s linear;
 }
@@ -74,17 +75,17 @@ body{
 }
 
 .pricing-card li{
-  font-size: 16px;
+  font-size: 18px;
   padding: 8px 0;
   text-transform: uppercase;
 }
 
 .order-btn{
   display: inline-block;
-  margin-bottom: 15px;
-  margin-top: 26px;
-  border: 2px solid #0fbcf9;
-  color: #0fbcf9;
+  margin-bottom: 18px;
+  margin-top: 15px;
+  border: 2px solid #4da6ff;
+  color: #4da6ff;
   padding: 15px 35px;
   border-radius: 5px;
   text-transform: uppercase;
@@ -93,18 +94,23 @@ body{
 }
 
 .order-btn:hover{
-  background-color: #0fbcf9;
+  background-color: #4da6ff;
   color: #fff;
 }
-
-@media screen and (max-width:1100px){
-  .pricing-card{
-    flex: 50%;
-  }
-}
-
-</style>
-  <div class="pricing-table">
+      </style>
+      
+      <div class="main-content">
+        
+     <section class="Contact-us">
+        <div class="contactus-wrapper">
+          <div class="topbanner">
+            <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Pricing</h2></div>
+            <div class="linear-bottom">
+              <div class="title-underline"></div>
+            </div>
+          </div>
+          
+          <div class="pricing-table">
     <div class="pricing-card">
       <h3 class="pricing-card-header">Basic</h3>
       <div class="price"><sup>$</sup>99<span>/MO</span></div>
@@ -133,5 +139,12 @@ body{
     </div> 
 </div>
  
-</body>
+        <!-- Contact Us -->     
+     
+        </div>
+        <br>
+      </section>
+</div>
+    <?php require_once('include/footer.php'); ?>
+  </body>
 </html>
