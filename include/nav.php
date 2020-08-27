@@ -49,6 +49,9 @@
         <li class="nav-item mr-4">
           <a class="nav-link" href="blogs.php">Blogs</a>
         </li>
+        <li class="nav-item mr-4">
+          <a class="nav-link" href="pricing.php">Pricing</a>
+        </li>
        <li class="nav-item mr-4 dropdown">
 	       	<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Industries</a>
 	       	<div class="dropdown-menu ">
