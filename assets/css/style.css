@@ -226,21 +226,26 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 /*Contact us end*/
 
 /*Blogs Start*/
-.cd2 
+#Blogs-cards > .cd2 
 {    
     padding: 10px 10px 10px 10px;
     border: 1px solid #dcd1d1ee;
     height: 260px;
     margin-right:20px;
-    margin-top: 20px;
+    margin-top: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.cd2:hover
+#Blogs-cards > .cd2:hover
 {
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.lbox{
+	font-family:system-ui;
+	font-size:14px;
+	opacity:0.8
+}
 
 /*Blogs Ends*/
 
@@ -274,6 +279,21 @@ font-size:14px;
 opacity:0.8;
 }
 
-
-
-
+/*PR page End*/
+/*Scroll up Start*/
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+/*Scroll up ends*/

@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en">
-  <?php require_once('include/header.php'); ?>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+        <title>Contact Us - Chromatus Consulting</title>
+    </head>
     <body>
       <header>
         <?php require_once('include/nav.php'); ?>
-
       </header>
-
-
       <div class="main-content">
-        
       <br>
         <!-- Contact Us -->     
       <section class="Contact-us">
@@ -21,9 +27,8 @@
               <div class="title-underline"></div>
             </div>
           </div>
-          <br><br>
-          
-          <div class="container ">
+          <br>
+        <div class="container ">
             <div class="row">
               <div class="col-md-7 col-12 align-self-start">
                 <form method="post">
@@ -237,7 +242,7 @@
               <div class="col-md-4 col-12 ">
                 <h4>Contact Us!</h4>
                      <p>Contact us and we'll get back to you within 24 hours.</p>
-      
+
                      <div class="footercno" style="color:#0076D9;"><a href="mailto:info@chromatus.com " target="_top"><i class="fa fa-envelope" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;info@chromatus.com  </a></div>
                      
                      <div class="footercno" style="margin-top: 15px;color:#0076D9;"><a href="tel:++917498465144"><i class="fa fa-phone" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;+91 7498465144&nbsp;&nbsp;</a></div>
@@ -247,33 +252,32 @@
                     <a href="https://twitter.com/Chromatus12" class="fa fa-twitter-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
                     <a href="https://www.linkedin.com/company/chromatusconsulting" class="fa fa-linkedin-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
                    
-                   </div>
-              </div>
+                </div>
             </div>
-          </div>
-          <br>
+        </div>
+        </div>
+        <br>
 
 
-          <!--Contact Us Ends-->
-           
-          <!-- Location Start -->
+      <!--Contact Us Ends-->
+       
+      <!-- Location Start -->
 
-          <div class="container-fluid text-center location-container">
-            <h2 class="text-center text-capitalize topbannerheading">Our Locations</h2>
-            <div class="linear-bottom">
-                <div class="title-underline"></div>
-            </div><br>
-            <div class="location-div">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d472.99137604245936!2d73.80630025699554!3d18.48678401682259!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfbcbc7df805%3A0x9d69dd4f8eec8d18!2sSAI+SHILPA+APARTMENT!5e0!3m2!1sen!2sin!4v1556619517810!5m2!1sen!2sin"></iframe>
-            </div>
-          </div>
+      <div class="container-fluid text-center location-container">
+        <h2 class="text-center text-capitalize topbannerheading">Our Locations</h2>
+        <div class="linear-bottom">
+            <div class="title-underline"></div>
+        </div><br>
+        <div class="location-div">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d472.99137604245936!2d73.80630025699554!3d18.48678401682259!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfbcbc7df805%3A0x9d69dd4f8eec8d18!2sSAI+SHILPA+APARTMENT!5e0!3m2!1sen!2sin!4v1556619517810!5m2!1sen!2sin"></iframe>
+        </div>
+      </div>
           
           <!--Location Ends-->
       
-        </section>
+    </section>
+    </div>
       
-        </div>
-      
-    <?php require_once('include/footer.php'); ?>
-  </body>
+        <?php require_once('include/footer.php'); ?>
+    </body>
 </html>
