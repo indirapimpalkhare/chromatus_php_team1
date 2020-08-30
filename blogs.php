@@ -12,33 +12,6 @@
 
       <title>Blogs - Chromatus Consulting</title>
 
-      <style type="text/css">
-        #Blogs-cards .cd2 
-        {    
-           
-            border: 1px solid #dcd1d1ee;
-            height: 250px;
-            margin-right:10px;
-            margin-top: 10px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        #Blogs-cards .cd2:hover
-        {
-         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-       @media screen and (max-width: 765px) 
-       {
-         #Blogs-cards .cd2{
-          margin-left: 40px;
-          margin-right: 20px;
-          height: 220px;
-          width: 80%;
-         }
-        }
-
-
-      </style>
     </head>
     <body>
       <header>
@@ -49,9 +22,8 @@
 
       <div class="main-content ">
         
-      <br>
         <!-- Blogs -->     
-      
+        <br>
         <div class="contactus-wrapper">
           <div class="topbanner">
             <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Blogs</h2></div>
@@ -59,136 +31,84 @@
               <div class="title-underline"></div>
             </div>
           </div>
-          <br>
+          
             <div  class="container">
                 <div class = "row mb-5">
-                  <div class="col-md-3 ">
-                      <table class="table table-borderless border">
-                          <thead class="thead-dark">
-                              <tr>
-                                <th class="text-center text-capitalize" >Industries</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                                <td class="lbox"><i class="fa fa-magic"></i> Chemical and Materials</td>                
-                            </tr>
-                            <tr>
-                                <td class="lbox"><i class="fa fa-subway"></i> Automation and Transport</td>
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-truck"></i> Consumer Goods</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-bolt"></i> Electronics and Semiconductors</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-glass"></i> Foods and Beverages</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-wifi"></i> Internet and Communication</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-life-ring"></i> Life Science</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-child"></i> Sports</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-space-shuttle"></i> Machinery and Equipment</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-dropbox"></i> Packaging</td>                
-                            </tr>
-                            <tr>
-                               <td class="lbox"><i class="fa fa-angle-double-right"></i> Miscellaneous</td>                
-                            </tr>
-                          </tbody>
-                      </table>
+                  <div class="col-md-4 ">
+                   <div class="cat-box-wrapper">
+                     <ul class="cat-box-list"> 
+                        <li class="cat-box-heading">Category</li>  
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Chemical and Materials</span></li>   
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Automation and Transport</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Consumer Goods</span></li> 
+                        
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Electronics and Semiconductors</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Foods and Beverages</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Internet and Communication</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Life Science</span></li>             
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Sports</span></li>                
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Machinery and Equipment</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Packaging</span></li>                
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Miscellaneous</span></li> 
+                     </ul>
+                    </div>        
                   </div>
-                  <div class="col-md-9" >
+                  <div class="col-md-8" >
                     <div class="row">
-                      <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </small></p>
+                      <div class="col">
+                        <div class="blog-card">
+                          <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
+                          
+                          <div class="row blog-card-body">
+                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+                            <p class="blog-card-text col-8 col-md-8 col-lg-6 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-8 blog-extra"></div>
+                            <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                          </div>  
+                        </div> 
+                      <hr> 
+                        
+                      <div class="blog-card">
+                        <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
+                      
+                        <div class="row blog-card-body">
+                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+                          <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
-                      </div>
+                       <div class="row">
+                         <div class="col-lg-8"></div>
+                         <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                       </div>
+                      </div> 
+                      <hr>                         
+                      <div class="blog-card">
+                        <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
+                        
+                        <div class="row blog-card-body">
+                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+                          <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                       <div class="row">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                       </div>
+                      <hr>
+                       <div class="blog-card">
+                        <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
+                      
+                        <div class="row blog-card-body">
+                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+                          <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-8"></div>
+                          <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                        </div>
+                      </div> 
+                      <hr>    
                     </div>
-                    <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>
-                      <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div> 
-                      <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>
-                      <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                      <div class="card cd2">
-                        <div class="card-body">
-                          <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                          <h5 class="card-title">Blog title</h5>
-                          <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                        </div>
-                      </div>
-                    </div>                           
                   </div>    
                   </div>
                 </div>

@@ -8,7 +8,7 @@
 
       </header>
 <style>
-.pricing-table-wrapper{
+.pricing-table{
  background-color:#fff;
   min-height: 100vh;
   display: flex;
@@ -97,9 +97,9 @@
   background-color: #4da6ff;
   color: #fff;
 }
-      </style>
+</style>
       
-      <div class="main-content">
+     <div class="main-content " style="">
         
      <section class="Contact-us">
         <div class="contactus-wrapper">
@@ -109,35 +109,36 @@
               <div class="title-underline"></div>
             </div>
           </div>
-          
-          <div class="pricing-table">
-    <div class="pricing-card">
-      <h3 class="pricing-card-header">Basic</h3>
-      <div class="price"><sup>$</sup>99<span>/MO</span></div>
-      <ul>
-        <li><strong>1</strong> Press Release</li>
-      </ul>
-      <a href="contact.php" class="order-btn">Order Now</a>
-    </div>
+        
+		  <div class="pricing-table">
+		    <div class="pricing-card">
+		      <h3 class="pricing-card-header">Basic</h3>
+		      <div class="price"><sup>$</sup>99<span>/MO</span></div>
+		      <ul>
+		        <li><strong>1</strong> Press Release</li>
+		      </ul>
+		      <a href="contact.php" class="order-btn">Order Now</a>
+		    </div>
 
-    <div class="pricing-card">
-      <h3 class="pricing-card-header">Standard</h3>
-      <div class="price"><sup>$</sup>199<span>/MO</span></div>
-      <ul>
-        <li><strong>10</strong> Press Release</li>    
-      </ul>
-      <a href="contact.php" class="order-btn">Order Now</a>
-    </div>
+		    <div class="pricing-card">
+		      <h3 class="pricing-card-header">Standard</h3>
+		      <div class="price"><sup>$</sup>199<span>/MO</span></div>
+		      <ul>
+		        <li><strong>10</strong> Press Release</li>    
+		      </ul>
+		      <a href="contact.php" class="order-btn">Order Now</a>
+		    </div>
 
-    <div class="pricing-card">
-      <h3 class="pricing-card-header">Premium</h3>
-      <div class="price"><sup>$</sup>999<span>/MO</span></div>
-      <ul>
-        <li><strong>100</strong> Press Release</li>  
-      </ul>
-      <a href="contact.php" class="order-btn">Order Now</a>
-    </div> 
-</div>
+		    <div class="pricing-card">
+		      <h3 class="pricing-card-header">Premium</h3>
+		      <div class="price"><sup>$</sup>999<span>/MO</span></div>
+		      <ul>
+		        <li><strong>100</strong> Press Release</li>  
+		      </ul>
+		      <a href="contact.php" class="order-btn">Order Now</a>
+		    </div> 
+		  </div>
+			
  
         <!-- Contact Us -->     
      
