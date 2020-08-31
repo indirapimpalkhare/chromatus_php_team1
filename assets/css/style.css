@@ -483,3 +483,21 @@ opacity:0.8;
   }
 }
 /*Blog card Ends*/
+
+
+/*PR Card starts*/
+
+.pr-card-img{
+	float:right;
+        width : 180px;
+        height : 180px; 
+}
+ 
+.pr-card{
+	transition:0.6s;
+}   
+.pr-card:hover{
+        transform: scale(1.08);
+    
+}
+

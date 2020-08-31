@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('include/header.php'); ?>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+  <title>Press Release - Chromatus Consulting</title>
+</head>
+
 
   <body>
     <section class="header">
@@ -18,7 +30,7 @@
         <div class = "row "style="padding:30px;">
             <div class="col-md-3 align-self-start ">
                 <table class="table table-borderless border">
-                    <thead class="thead-dark">
+                    <thead class="thead" style="background-color:#31768F;color:white;" >
                         <tr>
                           <th class="text-center text-capitalize" >Industries</th>
                         </tr>
@@ -64,54 +76,60 @@
 
 
             <div class="col-md-9 align-self-start pr-bg" style="margin-bottom:50px; padding-bottom:20px;">
-                <div class="card" >
+                <div class="card pr-card" >
                     <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
-					<div class="card-body text-black">
+					<div class="card-body text-black"> 
+                        <img class="pr-card-img" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
                         <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
 					</div>
                 </div>
                 <hr>
-                <div class="card">
+                <div class="card pr-card" >
                     <h5 class="card-header" style="background-color:white" >Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
+                        <img class="pr-card-img" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
                         <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
 					</div>
                 </div>
                 <hr>
-                <div class="card">
+                <div class="card pr-card" >
                    <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
+                        <img class="pr-card-img" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
                         <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
 					</div>
                 </div>
                 <hr>
-                <div class="card">
+                <div class="card pr-card" >
                     <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
+                        <img class="pr-card-img" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
                         <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
 					</div>
                 </div>
                 <hr>
-                <div class="card">
+                <div class="card pr-card" >
                    <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
+                        <img class="pr-card-img" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
                         <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
 					</div>
                 </div>
                 <hr>
-                <div class="card">
+                <div class="card pr-card" >
                     <h5 class="card-header" style="background-color:white">Lorem ipsum dolor sit amet, consectetur adipisicing.</h5>
 					<div class="card-body text-black">
+                        <img class="pr-card-img" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
                         <h6 class="card-title"> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, recusandae beatae? Eligendi voluptatem consequatur nostrum, molestias recusandae rem exercitationem, voluptatibus aliquid doloremque blanditiis praesentium iusto natus autem, minus porro similique!</p>
                         <a href="#" class="btn btn-outline-secondary btn-sm">Read more..</a>
