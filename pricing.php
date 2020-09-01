@@ -23,7 +23,7 @@
   display: flex;
   flex-wrap:wrap
   justify-content: space-around;
-  width: min(1400px, 60%);
+  width: min(1400px, 65%);
   align-items:center;
   margin:auto;
  
@@ -31,7 +31,7 @@
 
 .pricing-card{
   flex: 1;
-  max-width: 280px;
+  max-width: 300px;
   height:380px;
   background-color: #cce6ff;
   margin: 20px 10px;
@@ -142,7 +142,7 @@
         <!-- Contact Us -->     
      
         </div>
-        <br>
+        
       </section>
 </div>
     <?php require_once('include/footer.php'); ?>
