@@ -32,52 +32,31 @@
   <!--1st Nav Ends-->
 
   <!--2nd Nav Starts-->
-	<section class="navbar-container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-custom-2">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+	<section class="navbar-container ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-custom-2">
+    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarsExample05">
       <div class="container-fluid">
       <ul class="navbar-nav">
         <li class="nav-item mr-4">
-          <a class="nav-link " href="#">Why Us!</a>
+          <a class="nav-link link-block " href="#">Why Us!</a>
         </li>
         <li class="nav-item mr-4">
-          <a class="nav-link" href="pressRelease.php">Press Release</a>
+          <a class="nav-link link-block" href="pressRelease.php">Press Release</a>
         </li>
         <li class="nav-item mr-4">
-          <a class="nav-link" href="blogs.php">Blogs</a>
+          <a class="nav-link link-block" href="blogs.php">Blogs</a>
         </li>
         <li class="nav-item mr-4">
-          <a class="nav-link" href="pricing.php">Pricing</a>
+          <a class="nav-link link-block"  href="pricing.php">Pricing</a>
         </li>
-       <li class="nav-item mr-4 dropdown">
-	       	<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Industries</a>
-	       	<div class="dropdown-menu ">
-	             <a class="dropdown-item small" href="#">Agriculture</a>
-	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item  small" href="#">Healthcare</a>
-	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item small" href="#">Chemicals & Materials</a>
-	             <div class="dropdown-divider"></div>
-	             <a class="dropdown-item small" href="#">Energy</a>
-	             <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Food & Beverages</a>
-							 <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Technology</a>
-							 <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Automotive & Transportation</a>
-							 <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Consumer Goods</a>
-							 <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Aerospace & Defense</a>
-							 <div class="dropdown-divider "></div>
-	             <a class="dropdown-item small" href="#">Machinery & Equipment</a>
-	        </div>
+       <li class="nav-item mr-4">
+	       	<a class="nav-link link-block" href="news.php">News</a>
 	    </li>
         <li class="nav-item mr-4">
-          <a class="nav-link " href="contact.php">Contact Us!</a>
+          <a class="nav-link link-block" href="contact.php">Contact Us!</a>
         </li>
       </ul>
 

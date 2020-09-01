@@ -28,5 +28,7 @@ $(window).resize(function() {
   	$('#header-btn').html('<i class="fa fa-sign-in">&nbsp;&nbsp;</i>Register');
   }
 });
+
 /*header register btn ends*/
 //Header Ends
+
