@@ -23,7 +23,7 @@
   display: flex;
   flex-wrap:wrap
   justify-content: space-around;
-  width: min(1400px, 65%);
+  width: min(1400px, 68%);
   align-items:center;
   margin:auto;
  
@@ -107,7 +107,10 @@
             <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Pricing</h2></div>
             <div class="linear-bottom">
               <div class="title-underline"></div>
+              <br>
+              <div style="color:#4da6ff"><h4>All-inclusive Online PR Distribution</h4></div>
             </div>
+
           </div>
         
 		  <div class="pricing-table">

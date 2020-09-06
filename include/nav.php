@@ -41,7 +41,7 @@
       <div class="container-fluid">
       <ul class="navbar-nav">
         <li class="nav-item mr-4">
-          <a class="nav-link link-block " href="#">Why Us!</a>
+          <a class="nav-link link-block " href="why_us.php">Why Us!</a>
         </li>
         <li class="nav-item mr-4">
           <a class="nav-link link-block" href="pressRelease.php">Press Release</a>
