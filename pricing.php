@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <?php require_once('include/header.php'); ?>
@@ -113,35 +112,35 @@
 
           </div>
         
-		  <div class="pricing-table">
-		    <div class="pricing-card">
-		      <h3 class="pricing-card-header">Basic</h3>
-		      <div class="price"><sup>$</sup>99<span>/MO</span></div>
-		      <ul>
-		        <li><strong>1</strong> Press Release</li>
-		      </ul>
-		      <a href="contact.php" class="order-btn">Order Now</a>
-		    </div>
+      <div class="pricing-table">
+        <div class="pricing-card">
+          <h3 class="pricing-card-header">Basic</h3>
+          <div class="price"><sup>$</sup>99<span>/MO</span></div>
+          <ul>
+            <li><strong>1</strong> Press Release</li>
+          </ul>
+          <a href="contact.php" class="order-btn">Order Now</a>
+        </div>
 
-		    <div class="pricing-card">
-		      <h3 class="pricing-card-header">Standard</h3>
-		      <div class="price"><sup>$</sup>199<span>/MO</span></div>
-		      <ul>
-		        <li><strong>10</strong> Press Release</li>    
-		      </ul>
-		      <a href="contact.php" class="order-btn">Order Now</a>
-		    </div>
+        <div class="pricing-card">
+          <h3 class="pricing-card-header">Standard</h3>
+          <div class="price"><sup>$</sup>199<span>/MO</span></div>
+          <ul>
+            <li><strong>10</strong> Press Release</li>    
+          </ul>
+          <a href="contact.php" class="order-btn">Order Now</a>
+        </div>
 
-		    <div class="pricing-card">
-		      <h3 class="pricing-card-header">Premium</h3>
-		      <div class="price"><sup>$</sup>999<span>/MO</span></div>
-		      <ul>
-		        <li><strong>100</strong> Press Release</li>  
-		      </ul>
-		      <a href="contact.php" class="order-btn">Order Now</a>
-		    </div> 
-		  </div>
-			
+        <div class="pricing-card">
+          <h3 class="pricing-card-header">Premium</h3>
+          <div class="price"><sup>$</sup>999<span>/MO</span></div>
+          <ul>
+            <li><strong>100</strong> Press Release</li>  
+          </ul>
+          <a href="contact.php" class="order-btn">Order Now</a>
+        </div> 
+      </div>
+      
  
         <!-- Contact Us -->     
      
