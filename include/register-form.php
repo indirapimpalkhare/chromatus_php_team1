@@ -36,7 +36,7 @@
 
         <div class="md-form pb-3">
           <input type="password" id="Form-pass" class="form-control validate" placeholder=" Password">
-          <br>
+          
           <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1"> Password?</a></p>
         </div>
 
