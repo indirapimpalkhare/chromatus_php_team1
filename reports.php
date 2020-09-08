@@ -1,7 +1,7 @@
 <!doctype html>
 <style>
   .report-wrapper{
-    padding: 100px;
+    padding: 10px;
     padding-left: 500px;
   }
 </style>
@@ -24,27 +24,31 @@
         <?php require_once('include/nav.php'); ?>
 
       </header>
-      <div class="container report-wrapper">
+      <div class="report-wrapper">
         <!-- Side Bar Code -->
         <table class="table table-hover table-sm table-responsive">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Sr. No.</th>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Summary</th>
+              <th scope="col">Created Date</th>
+              <th scope="col">Last Modified</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
+              <td>1</th>
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
-              <td><input class="btn btn-primary" value="Edit"></td>
-              <td><input class="btn btn-primary" value="Delete"></td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td><a href="" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
+              <td><a href="" class="btn btn-primary"><i class="fa fa-trash"></i></a></td>
             </tr>
           </tbody>
       </table>
