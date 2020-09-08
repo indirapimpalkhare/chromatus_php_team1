@@ -1,7 +1,7 @@
 <!doctype html>
 <style>
   .report-wrapper{
-    padding: 10px;
+    padding: 50px;
     padding-left: 500px;
   }
 </style>
@@ -26,7 +26,8 @@
       </header>
       <div class="report-wrapper">
         <!-- Side Bar Code -->
-        <table class="table table-hover table-sm table-responsive">
+        <div class = "table-responsive">
+        <table class="table table-hover table-sm">
           <thead>
             <tr>
               <th scope="col">Sr. No.</th>
@@ -53,6 +54,7 @@
           </tbody>
       </table>
       </div>
+    </div>
       <?php require_once('include/footer.php'); ?>
 
     </body>
