@@ -282,14 +282,44 @@ background: #182955;
 /*Scroll Ends*/
 
 /*PR page*/
-.lbox{
-font-family:system-ui; 
-font-size:14px;
-opacity:0.8;
+.pr-box-list{
+ list-style: none;
+border: 1px solid;
 }
 
+.pr-box-heading{
+  
+  padding: 3px;
+  font-size: 1.5rem;
+  background-color: #2F748E;
+  text-align: center;
+  color: #fff;
 
+}
+.pr-box-item{
+  padding:7px;
+  color:#333;
+  cursor: pointer;
+  font-family:system-ui;
+  font-size:14px;
+  opacity:0.8 
+}
+.pr-box-item:hover{
+  background-color: #aaa;
+}
+.pr-box-item-text{
+  font-size: 1rem;
+}
+@media only screen and (max-width: 1052px) {
+  .pr-box-item-text{
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}
 /*PR page End*/
+
+
 /*Scroll up Start*/
 #myBtn {
   display: none;
@@ -485,19 +515,7 @@ opacity:0.8;
 /*Blog card Ends*/
 
 
-/*PR Card starts*/
 
-.pr-card-img{
-	float:right;
-        width : 180px;
-        height : 180px; 
-}
- 
-.pr-card{
-	transition:0.6s;
-}   
-.pr-card:hover{
-        transform: scale(1.08);
-    
-}
+
+
 
