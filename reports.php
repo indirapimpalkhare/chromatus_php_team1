@@ -2,7 +2,6 @@
 <style>
   .report-wrapper{
     padding: 50px;
-    padding-left: 500px;
   }
 </style>
 <html lang="en">
