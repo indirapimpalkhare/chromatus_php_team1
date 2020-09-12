@@ -18,8 +18,8 @@
       </header>
 
 
-      <div class="main-content" style="padding-top:60px;">
-        <div class="container pb-4">
+      <div class="main-content" style="">
+        <div class="container " style="min-height: 75vh">
           <h1 class="text-center"><u> FAQ's </u></h1>
         <div class="accordion" id="accordionExample">
   <div class="card mb-1">
