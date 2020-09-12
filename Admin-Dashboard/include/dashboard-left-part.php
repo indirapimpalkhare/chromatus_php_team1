@@ -26,7 +26,7 @@
                      </a>
                   </li>
 			         <li class="">
-                     <a href="#">
+                     <a href="view_reports.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">View Reports</span>
                      <span class="pcoded-mcaret"></span>
@@ -38,7 +38,7 @@
                      <span class="pcoded-mtext">Manage Category</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                    <li class="">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -52,7 +52,7 @@
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>         
+                  </li>
                </ul>
          </li>
          <li class="pcoded-hasmenu ">
@@ -82,14 +82,14 @@
                      <span class="pcoded-mtext">Manage Category</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                    <li class="">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>      
+                  </li>
                </ul>
          </li>
          <li class="pcoded-hasmenu ">
@@ -112,16 +112,16 @@
                      <span class="pcoded-mtext">View News</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                    <li class="">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                </ul>
-         </li> 
+         </li>
          <li class="pcoded-hasmenu ">
                <a href="javascript:void(0)">
                <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
@@ -142,16 +142,16 @@
                      <span class="pcoded-mtext">Manage Mails</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                    <li class="">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                </ul>
-         </li> 
+         </li>
          <li class="pcoded-hasmenu ">
                <a href="javascript:void(0)">
                <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
@@ -172,16 +172,16 @@
                      <span class="pcoded-mtext">View FAQ's</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                    <li class="">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                </ul>
-         </li> 
+         </li>
          <li class="pcoded-hasmenu ">
                <a href="javascript:void(0)">
                <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
@@ -202,16 +202,16 @@
                      <span class="pcoded-mtext">View News</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                    <li class="">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
-                  </li>   
+                  </li>
                </ul>
-         </li> 
+         </li>
          <li class="pcoded-hasmenu ">
             <a href="javascript:void(0)">
             <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
@@ -232,16 +232,16 @@
                   <span class="pcoded-mtext">Videos</span>
                   <span class="pcoded-mcaret"></span>
                   </a>
-               </li>   
+               </li>
                 <li class="">
                   <a href="#">
                   <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                   <span class="pcoded-mtext">Trash</span>
                   <span class="pcoded-mcaret"></span>
                   </a>
-               </li>   
+               </li>
             </ul>
-         </li> 
+         </li>
          <li class="pcoded-hasmenu ">
             <a href="javascript:void(0)">
             <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
@@ -262,10 +262,8 @@
                   <span class="pcoded-mtext">Manage User</span>
                   <span class="pcoded-mcaret"></span>
                   </a>
-               </li>      
+               </li>
             </ul>
-         </li>    
+         </li>
    </div>
-</nav>                
-   				 
-               
+</nav>
