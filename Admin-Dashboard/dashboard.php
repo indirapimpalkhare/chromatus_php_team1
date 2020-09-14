@@ -7,7 +7,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       
-      <link rel="icon" href="http://html.codedthemes.com/gradient-able/files/assets/images/favicon.ico" type="image/x-icon">
       <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="files/bower_components/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="files/assets/icon/themify-icons/themify-icons.css">
@@ -42,16 +41,10 @@
       <script src="files/bower_components/jquery/js/jquery.min.js"></script>
       <script src="files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
       <script src="files/bower_components/popper.js/js/popper.min.js"></script>
-      <script src="files/bower_components/bootstrap/js/bootstrap.min.js"></script>
-      <script src="files/assets/pages/widget/excanvas.js"></script>
-	  <script src="files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-      <script src="files/bower_components/modernizr/js/modernizr.js"></script>
+      <script src="files/bower_components/bootstrap/js/bootstrap.min.js"></script> 
+	   <script src="files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script> 
       <script src="files/assets/js/SmoothScroll.js"></script>
       <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="files/bower_components/chart.js/js/Chart.js"></script>
-      <script src="files/assets/pages/widget/amchart/amcharts.js"></script>
-      <script src="files/assets/pages/widget/amchart/serial.js"></script>
-      <script src="files/assets/pages/widget/amchart/light.js"></script>
       <script src="files/assets/js/pcoded.min.js"></script>
       <script src="files/assets/js/navbar-image/vertical-layout.min.js"></script>
       <script src="files/assets/pages/dashboard/custom-dashboard.js"></script>
