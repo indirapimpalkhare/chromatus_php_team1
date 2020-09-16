@@ -282,6 +282,53 @@ background: #182955;
 /*Scroll Ends*/
 
 /*PR page*/
+
+ .pr-card
+{
+  width: 100%;
+
+}
+.pr-card-body{
+  padding: 8px;
+  margin-bottom: 5px;
+}
+.pr-card-title{
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 10px 0px;
+
+}
+.pr-card-image{
+  width: 200px;
+  height: 200px;
+
+}
+.pr-card-text{
+  font-size: 0.9rem;
+  text-align: justify;
+  text-indent: 10%;
+  overflow: hidden;
+
+}
+.pr-card-btn{
+  height: 40px;
+  width: 100px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #1F6283;
+  border: none;
+  text-align: center;
+
+}
+.pr-card-btn:hover{
+  text-decoration: none;
+  color: #fff;
+  box-shadow:  2px 2px 2px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow:  2px 2px 2px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow:  2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+
 .pr-box-list{
  list-style: none;
 border: 1px solid;

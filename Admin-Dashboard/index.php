@@ -6,11 +6,9 @@
    
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />		
-	  <link rel="icon" href="files/assets/images/favicon.ico" type="image/x-icon">
-	  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="files/bower_components/bootstrap/css/bootstrap.min.css">
-      <!--<link rel="stylesheet" type="text/css" href="files/assets/icon/themify-icons/themify-icons.css"> -->
       <link rel="stylesheet" type="text/css" href="files/assets/icon/icofont/css/icofont.css">
       <link rel="stylesheet" type="text/css" href="files/assets/icon/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="files/assets/css/style.css">
@@ -35,7 +33,7 @@
                         <div class="auth-box">
                            <div class="row m-b-20">
                               <div class="col-md-12">
-                                 <h3 class="text-left txt-primary">Sign In</h3>
+                                 <h3 class="text-left txt-primary text-center">Sign In</h3>
                               </div>
                            </div>
                            <hr />
@@ -43,18 +41,18 @@
                               <input type="email" name="admin_id" class="form-control" required placeholder="Your Email Address">
                               <span class="md-line"></span>
                            </div>
-						    <span class="error_msgs" style="color:red;font-size:13px;"><?php echo $name_error; ?></span>
+						    <span class="error_msgs" style="color:red;font-size:13px;"> </span>
                            <div class="input-group">
                               <input type="password" name="password" class="form-control" required placeholder="Password">
                               <span class="md-line"></span>
                            </div>
-						    <span class="error_msgs" style="color:red;font-size:13px;"><?php echo $password_error; ?></span>
+						    <span class="error_msgs" style="color:red;font-size:13px;"> </span>
 						   <div class="row m-t-25 text-left">
                               <div class="col-12">
                                  <div class="checkbox-fade fade-in-primary d-">
                                     <label>
                                     <input type="checkbox" value="">
-                                    <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                    <span class="cr"><i class="cr-icon fa fa-check txt-primary"></i></span>
                                     <span class="text-inverse">Remember me</span>
                                     </label>
                                  </div>
@@ -81,7 +79,6 @@
       <script src="files/bower_components/popper.js/js/popper.min.js"></script>
       <script src="files/bower_components/bootstrap/js/bootstrap.min.js"></script>
       <script src="files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-      <script src="files/bower_components/modernizr/js/modernizr.js"></script>
       <script src="files/bower_components/modernizr/js/css-scrollbars.js"></script>
       <script src="files/bower_components/i18next/js/i18next.min.js"></script>
       <script src="files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>

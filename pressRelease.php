@@ -63,78 +63,73 @@
             <div class="col-md-8">
 			 <div class="row">
                <div class="col">
-                <div class="blog-card" >
-                    <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row blog-card-body">
-                        <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
+                <div class="pr-card" >
+                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
+                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
+					<div class="row pr-card-body">
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
+                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
 					</div>
 					<div class="row">
-                         <div class="col-lg-8"></div>
-                         <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                         <div class="ml-auto mr-3"><a href="pr_description.php" class="pr-card-btn">Read More..</a></div>
                     </div>
                 </div>
 				<hr>
                 
-                <div class="blog-card" >
-                    <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row blog-card-body">
-                        <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="blog-card-text  col-8 col-md-8 col-lg-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
+                <div class="pr-card" >
+                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
+                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
+					<div class="row pr-card-body">
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
+                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
 					</div>
 					<div class="row">
-                         <div class="col-lg-8"></div>
-                         <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
                     </div>
                 </div>
 				<hr>
 				
-                <div class="blog-card" >
-                    <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row blog-card-body">
-                        <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
+                <div class="pr-card" >
+                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
+                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
+					<div class="row pr-card-body">
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
+                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
 					</div>
 					<div class="row">
-                         <div class="col-lg-8"></div>
-                         <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
                     </div>
                 </div>
 				<hr>
 				
-                <div class="blog-card" >
-                    <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row blog-card-body">
-                        <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
+                <div class="pr-card" >
+                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
+                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
+					<div class="row pr-card-body">
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
+                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
 					</div>
 					<div class="row">
-                         <div class="col-lg-8"></div>
-                         <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
                     </div>
                 </div>
 				<hr>
 				
-                <div class="blog-card" >
-                    <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> <i class="fa fa-user fa-0.5x">  By - Author </i>  <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row blog-card-body">
-                        <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
+                 <div class="pr-card" >
+                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
+                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
+					<div class="row pr-card-body">
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
+                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
 					</div>
 					<div class="row">
-                         <div class="col-lg-8"></div>
-                         <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
+                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
                     </div>
                 </div>
 				<hr>
 				
                 <div>
-                    Page Number : 
+                    Page : 
                 </div>
 
             </div>
@@ -145,10 +140,6 @@
 	</div>
 
     </div>
-
-
-
-<!--try-->
 
     <?php require_once('include/footer.php'); ?>
 </body>
