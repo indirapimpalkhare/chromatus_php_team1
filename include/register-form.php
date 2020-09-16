@@ -90,7 +90,7 @@
           <input type="text" id="RForm-company" class="form-control validate" placeholder="Company Name" autocomplete="off">
         </div>
           <div class="form-group col-md-6">
-          <input type="number" id="RForm-number" class="form-control validate" placeholder="Contact Number" autocomplete="off">
+          <input type="text" id="RForm-number" class="form-control validate" placeholder="Contact Number" autocomplete="off">
         </div>
       </div>
 
@@ -281,9 +281,7 @@
       </div>
 
       
-        <div class="form-group">
-          <textarea class="form-control" id="Rform-message" name="message" placeholder="Comments *" rows="3"></textarea>
-        </div>
+        
 
 
         <div class="text-center mb-3">
