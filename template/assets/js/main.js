@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 	Industrious by TEMPLATED
 	templated.co @templatedco
@@ -43,7 +42,6 @@
 				side: 'right'
 			});
 
-=======
 /*
 	Industrious by TEMPLATED
 	templated.co @templatedco
@@ -88,5 +86,4 @@
 				side: 'right'
 			});
 
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 })(jQuery);
