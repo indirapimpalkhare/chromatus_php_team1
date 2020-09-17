@@ -1,11 +1,14 @@
-<<<<<<< HEAD
 <?php
-    require_once("Admin-Dashboard/lib/class/functions.php");
-    $db = new functions();
+  require_once("Admin-Dashboard/lib/class/functions.php");
+  $db = new functions();
+
+  $category = 'All';
+  if(isset($_GET['news-category']))
+  {
+    $category = $_GET['news-category'];    
+  }
 
 ?>
-=======
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,11 +45,11 @@
           
             <div  class="container">
                 <div class = "row mb-3">
-                  <div class="col-md-4 ">
+                  <div class="col-md-3 ">
                    <div class="cat-box-wrapper">
                      <ul class="cat-box-list"> 
-<<<<<<< HEAD
                         <li class="cat-box-heading">Category</li>
+                        <a href="news.php?news-category=All" ><li class="cat-box-item <?php if($category == 'All'){ echo "cat-box-item-active"; } ?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">All</span></li></a>
                         <?php
                               $get_category = $db->fetch_news_category();
                               if(!empty($get_category))
@@ -59,7 +62,7 @@
                                   
 
                         ?>  
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text"><?php echo $result_category ?></span></li>   
+                        <a href="news.php?news-category=<?php echo $result_category ?>"  ><li class="cat-box-item <?php if($category == $result_category){echo "cat-box-item-active"; }?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text"><?php echo $result_category ?></span></li></a>   
                         <?php
                               $counter++;
                               }
@@ -72,142 +75,58 @@
                         <?php
                           }               
                         ?>
-=======
-                        <li class="cat-box-heading">Category</li>  
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Chemical and Materials</span></li>   
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Automation and Transport</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Consumer Goods</span></li> 
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Electronics and Semiconductors</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Foods and Beverages</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Internet and Communication</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Life Science</span></li>             
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Sports</span></li>                
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Machinery and Equipment</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Packaging</span></li>                
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Miscellaneous</span></li> 
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                      </ul>
                     </div>        
                   </div>
-                  <div class="col-md-8" >
+                  <div class="col-md-9" >
                       <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding :0px;">
+                        <?php
+                              if($category == 'All')
+                              {
+                                $get_news=$db->fetch_news_records();
+                              }
+                              else
+                              {
+                              $get_news = $db->fetch_news_records_by_name($category);
+                              }
+                              if(!empty($get_news))
+                              {
+                                  $counter    =   0;
+                                  
+                                  foreach($get_news as $record)
+                                  {
+                                      $result_id        =   $get_news[$counter][0];
+                                      $result_title     =   $get_news[$counter][1];
+                                      $result_category  =   $get_news[$counter][2];
+                                      $result_metadesc  =   $get_news[$counter][3];
+                                      $result_desc      =   $get_news[$counter][4];
+                                      $result_date      =   $get_news[$counter][6];
+                                  
+
+                        ?>  
+                        <div class="col-lg-4 col-md-6 col-sm-6 news-card" id="Blogs-cards" style="padding :5px;">
                         <div class="card cd2">
                           <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </small></p>
+                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $result_date; ?></small></p>
+                            <a href="news-desc.php?news-id=<?php echo $result_id; ?>"><h5 class="card-title"><?php echo $result_title; ?></h5></a>
+                            <p class="card-text"><small><?php echo $result_metadesc; ?> </small></p>
                           </div>
                         </div>
                       </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div> 
-                        <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6" id="Blogs-cards" style="padding:0px;">
-                        <div class="card cd2">
-                          <div class="card-body">
-                            <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i>01-01-2020</small></p>
-                            <h5 class="card-title">News title</h5>
-                            <p class="card-text"><small>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</small></p>
-                          </div>
-                        </div>
-                      </div>                           
+                      <?php
+                              $counter++;
+                              }
+                              
+                          }
+                          else
+                          {
+                        ?> 
+                        <h3 class="text-center">No News Available</h3> 
+                        <?php
+                          }
+                        ?>
+
+                                                   
                     </div>    
                     </div>
                   </div>
