@@ -17,9 +17,15 @@
 		        <div class="nav-item">
 		            <div class="row">
 		            	<div class="nav-item header-item">
+<<<<<<< HEAD
+		            		<a class="header-icon linkedin-icon " href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
+		        	    	<a class="header-icon fb-icon " href="https://www.facebook.com/Chromatus-Consulting-100467295012830" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
+		         			<a class="header-icon twitter-icon" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
+=======
 		            		<a class="header-icon " href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
 		        	    	<a class="header-icon" href="https://www.facebook.com/Chromatus-Consulting-100467295012830" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
 		         			<a class="header-icon" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 		        		</div>
 		        	</div>
 		        </div>

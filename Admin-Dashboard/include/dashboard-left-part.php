@@ -94,13 +94,21 @@
          </li>
          <li class="pcoded-hasmenu ">
                <a href="javascript:void(0)">
+<<<<<<< HEAD
+               <span class="pcoded-micon"><i class="ti-gallery"></i><b></b></span>
+=======
                <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                <span class="pcoded-mtext">News</span>
                <span class="pcoded-mcaret"></span>
                </a>
                <ul class="pcoded-submenu">
                   <li class="">
+<<<<<<< HEAD
+                     <a href="add-news.php">
+=======
                      <a href="#">
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Add News</span>
                      <span class="pcoded-mcaret"></span>
@@ -113,8 +121,20 @@
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
+<<<<<<< HEAD
+                  <li class="">
+                     <a href="manage-news-category.php">
+                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                     <span class="pcoded-mtext">Manage Category</span>
+                     <span class="pcoded-mcaret"></span>
+                     </a>
+                  </li>
+                   <li class="">
+                     <a href="news-trash.php">
+=======
                    <li class="">
                      <a href="#">
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
@@ -155,6 +175,32 @@
          <li class="pcoded-hasmenu ">
                <a href="javascript:void(0)">
                <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
+<<<<<<< HEAD
+               <span class="pcoded-mtext">Home Page</span>
+               <span class="pcoded-mcaret"></span>
+               </a>
+               <ul class="pcoded-submenu">
+                  <li class="">
+                     <a href="#">
+                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                     <span class="pcoded-mtext">Manage</span>
+                     <span class="pcoded-mcaret"></span>
+                     </a>
+                  </li>
+                   <li class="">
+                     <a href="#">
+                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                     <span class="pcoded-mtext">Trash</span>
+                     <span class="pcoded-mcaret"></span>
+                     </a>
+                  </li>
+               </ul>
+         </li>
+         <li class="pcoded-hasmenu ">
+               <a href="javascript:void(0)">
+               <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
+=======
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                <span class="pcoded-mtext">FAQ's</span>
                <span class="pcoded-mcaret"></span>
                </a>

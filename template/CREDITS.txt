@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Image Credits
 
 All images courtesy of Unsplash (https://unsplash.com).
@@ -10,4 +11,18 @@ All images courtesy of Unsplash (https://unsplash.com).
 
 # Video Credits
 
+=======
+# Image Credits
+
+All images courtesy of Unsplash (https://unsplash.com).
+
+- Martin Grincevschi (https://unsplash.com/photos/uCnOENPOBxM)
+- Pete Bellis (https://unsplash.com/photos/eDVQwVMLMgU)
+- Ciprian Lipenschi (https://unsplash.com/photos/OULAwYI3AGs)
+- Michael Dam (https://unsplash.com/photos/mEZ3PoFGs_k)
+- rawpixel.com (https://unsplash.com/photos/izTZ-TtdwCs)
+
+# Video Credits
+
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 Video courtesy of Coverr (http://coverr.co).

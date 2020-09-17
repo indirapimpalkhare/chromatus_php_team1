@@ -61,12 +61,20 @@
                           
                           <div class="row blog-card-body">
                             <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+<<<<<<< HEAD
+                            <p class="blog-card-text col-8 col-md-8 col-lg-8 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                          </div>
+                          <div class="row">
+                            <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
+                          </div>
+=======
                             <p class="blog-card-text col-8 col-md-8 col-lg-6 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                           </div>
                           <div class="row">
                             <div class="col-lg-8 blog-extra"></div>
                             <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
                           </div>  
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                         </div> 
                       <hr> 
                         
@@ -75,12 +83,20 @@
                       
                         <div class="row blog-card-body">
                           <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+<<<<<<< HEAD
+                          <p class="blog-card-text  col-8 col-md-8 col-lg-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div class="row">
+                          <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
+                        </div>
+=======
                           <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
                        <div class="row">
                          <div class="col-lg-8"></div>
                          <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
                        </div>
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                       </div> 
                       <hr>                         
                       <div class="blog-card">
@@ -88,24 +104,41 @@
                         
                         <div class="row blog-card-body">
                           <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+<<<<<<< HEAD
+                          <p class="blog-card-text  col-8 col-md-8 col-lg-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                         <div class="row">
+                            <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
+                         </div>
+=======
                           <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
                        <div class="row">
                             <div class="col-lg-8"></div>
                             <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
                        </div>
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                       <hr>
                        <div class="blog-card">
                         <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
                       
                         <div class="row blog-card-body">
                           <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">         
+<<<<<<< HEAD
+                          <p class="blog-card-text  col-8 col-md-8 col-lg-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                        <div class="row">
+                          <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
+                        </div>
+                        
+=======
                           <p class="blog-card-text  col-8 col-md-8 col-lg-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
                         </div>
                         <div class="row">
                           <div class="col-lg-8"></div>
                           <div class="col-lg-4"><a href="#" class="blog-card-btn">Read More..</a></div>
                         </div>
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                       </div> 
                       <hr>    
                     </div>

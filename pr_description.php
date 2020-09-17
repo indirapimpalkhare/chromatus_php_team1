@@ -17,7 +17,12 @@
     <section class="header">
       <?php require_once('include/nav.php'); ?>
     </section>
+<<<<<<< HEAD
+     <div class="main-content min-vh-100 ">
+     </div>
+=======
     
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
         
     <?php require_once('include/footer.php'); ?>    
 </body>
