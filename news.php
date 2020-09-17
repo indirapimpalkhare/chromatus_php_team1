@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
     require_once("Admin-Dashboard/lib/class/functions.php");
     $db = new functions();
 
 ?>
+=======
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,6 +45,7 @@
                   <div class="col-md-4 ">
                    <div class="cat-box-wrapper">
                      <ul class="cat-box-list"> 
+<<<<<<< HEAD
                         <li class="cat-box-heading">Category</li>
                         <?php
                               $get_category = $db->fetch_news_category();
@@ -68,6 +72,20 @@
                         <?php
                           }               
                         ?>
+=======
+                        <li class="cat-box-heading">Category</li>  
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Chemical and Materials</span></li>   
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Automation and Transport</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Consumer Goods</span></li> 
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Electronics and Semiconductors</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Foods and Beverages</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Internet and Communication</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Life Science</span></li>             
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Sports</span></li>                
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Machinery and Equipment</span></li>
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Packaging</span></li>                
+                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Miscellaneous</span></li> 
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                      </ul>
                     </div>        
                   </div>

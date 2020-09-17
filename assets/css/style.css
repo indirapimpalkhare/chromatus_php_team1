@@ -28,6 +28,7 @@ a, a:hover{
 {
 	color: #333;
 }
+<<<<<<< HEAD
 .linkedin-icon:hover{
 	color: #0e76a8;
 }
@@ -36,6 +37,12 @@ a, a:hover{
 }
 .fb-icon:hover{
 	color: #3b5998;
+=======
+.header-link:hover,.header-icon:hover
+{
+	color: #ff7417;
+
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 }
 .header-item
 {
@@ -85,8 +92,12 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   border-radius: 5px;
 }
 .link-block:hover{
+<<<<<<< HEAD
  background-color: #fff;
  color: #333!important;
+=======
+  text-shadow: 2px 3px rgb(0,0,0,0.8);
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 }
 
 .avoid-overflow{
@@ -540,7 +551,11 @@ border: 1px solid;
 
   padding: 3px;
   font-size: 1.5rem;
+<<<<<<< HEAD
   background-color: #2F748E;
+=======
+  background-color: #333;
+>>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
   text-align: center;
   color: #fff;
 
