@@ -139,6 +139,7 @@
 					}
 				}
 			}
+
 			function add_news_category($news_category)
 			{
 				if($stmt_insert = $this->con->prepare("INSERT INTO `news_category`(`name`) VALUES (?)"))
@@ -228,7 +229,7 @@
 			
 			function permanent_delete_news_category_by_id($delete_id)
 			{
-				if($stmt_delete = $this->con->prepare("delete FROM `news_category` where `newsCategoryID` = ?"))
+				if($stmt_delete = $this->con->prepare("DELETE FROM `news_category` where `newsCategoryID` = ?"))
 				{
 					$stmt_delete->bind_param("i",$delete_id);
 					
@@ -252,6 +253,135 @@
 					else
 					{
 					return false;
+					}
+				}
+			}
+			function update_news_full_details_by_id($news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$news_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `news` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `newsID`= ? "))
+				{
+					$stmt_update->bind_param("ssssss",$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$news_id);
+					
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+			function update_news_category_by_id($category_name,$category_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `news_category` SET `name`= ? where `newsCategoryID`= ?"))
+				{
+					$stmt_update->bind_param("ss",$category_name,$category_id);
+					
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+			function fetch_news_full_details_by_id($news_id)
+			{
+				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `newsID` = ?"))
+				{
+					$stmt_select->bind_param("s",$news_id);
+					$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+					
+					if($stmt_select->execute())
+					{	
+						$data = array();
+						
+						
+						while($stmt_select->fetch())
+						{
+							$data[0] = $news_id;
+							$data[1] = $news_title;  	
+							$data[2] = $news_category;  	
+							$data[3] = $news_metadesc;  	
+							$data[4] = $news_desc;  	
+							$data[5] = $news_permalink;  	
+							$data[6] = $date;
+	
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+			function fetch_news_category_by_id($category_id)
+			{
+				if($stmt_select = $this->con->prepare("SELECT `name` FROM `news_category` where `newsCategoryID` = ?"))
+				{
+					$stmt_select->bind_param("s",$category_id);
+					$stmt_select->bind_result($category_name);
+					
+					if($stmt_select->execute())
+					{	
+						$data = array();
+						
+						
+						while($stmt_select->fetch())
+						{
+							$data[0] = $category_name;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+			//frontend code...
+			function fetch_news_records_by_name($category)
+			{
+				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 AND category = ?"))
+				{
+					$stmt_select->bind_param("s",$category);
+					$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+					
+					if($stmt_select->execute())
+					{	
+						$data = array();
+						$counter	=	0;
+						
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $news_id;
+							$data[$counter][1] = $news_title;  	
+							$data[$counter][2] = $news_category;  	
+							$data[$counter][3] = $news_metadesc;  	
+							$data[$counter][4] = $news_desc;  	
+							$data[$counter][5] = $news_permalink;  	
+							$data[$counter][6] = $date;
+	
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
 					}
 				}
 			}

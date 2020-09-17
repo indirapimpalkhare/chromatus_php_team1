@@ -116,8 +116,8 @@
 																		<th style="width=30;text-align:center;" >News Meta Description</th> 
 																		<th style="width=30;text-align:center;" >Permalink</th> 
 																		<th style="width=30;text-align:center;" >Date</th> 						 
-																		<th style="width=30;text-align:center;">Option</th>	
-																		<th style="width=30;text-align:center;">Option</th>	
+																		<th style="width=30;text-align:center;">Update</th>	
+																		<th style="width=30;text-align:center;">Delete</th>	
 																																
 																	</tr>
 																	
@@ -151,7 +151,7 @@
 																		<td><?php echo $got_news_date ;?></td> 
 																		 
 																		 
-																		<td><a href="/edit-news-details.php?booksjournals-id=<?php echo $got_id; ?>" target="_blank" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+																		<td><a href="edit-news-details.php?news-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
 																			
 																		<td><a href="view-news.php?del_news_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
 																	  </tr>
