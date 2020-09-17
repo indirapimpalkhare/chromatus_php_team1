@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Grid */
 
 	@include grid(3rem);
@@ -21,7 +20,7 @@
 
 	@include breakpoint('<=xsmall') {
 		@include grid(1.25rem, 'xsmall');
-=======
+
 /* Grid */
 
 	@include grid(3rem);
@@ -44,5 +43,5 @@
 
 	@include breakpoint('<=xsmall') {
 		@include grid(1.25rem, 'xsmall');
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
+
 	}

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /// Makes an element's :before pseudoelement a FontAwesome icon.
 /// @param {string} $content Optional content value to use.
 /// @param {string} $where Optional pseudoelement to target (before or after).
@@ -61,7 +61,7 @@
 
 	@return url("data:image/svg+xml;charset=utf8,#{$svg}");
 
-=======
+
 /// Makes an element's :before pseudoelement a FontAwesome icon.
 /// @param {string} $content Optional content value to use.
 /// @param {string} $where Optional pseudoelement to target (before or after).
@@ -124,5 +124,5 @@
 
 	@return url("data:image/svg+xml;charset=utf8,#{$svg}");
 
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
+
 }

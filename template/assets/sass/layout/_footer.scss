@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* Footer */
 
 	#footer {
@@ -75,7 +75,7 @@
 		@include breakpoint('<=xsmall') {
 			@include padding(2rem, 0);
 		}
-=======
+
 /* Footer */
 
 	#footer {
@@ -152,5 +152,5 @@
 		@include breakpoint('<=xsmall') {
 			@include padding(2rem, 0);
 		}
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
+
 	}

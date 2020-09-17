@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Image Credits
 
 All images courtesy of Unsplash (https://unsplash.com).
@@ -11,7 +11,7 @@ All images courtesy of Unsplash (https://unsplash.com).
 
 # Video Credits
 
-=======
+
 # Image Credits
 
 All images courtesy of Unsplash (https://unsplash.com).
@@ -24,5 +24,5 @@ All images courtesy of Unsplash (https://unsplash.com).
 
 # Video Credits
 
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
+
 Video courtesy of Coverr (http://coverr.co).
