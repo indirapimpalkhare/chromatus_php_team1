@@ -2,13 +2,7 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
     <title> Chromatus Consulting | Add</title>
-
-
-=======
-    <title> Chromatus Consulting</title>
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -67,12 +61,10 @@
                                         <tr>
                                           <th scope="col">Sr. No.</th>
                                           <th scope="col">Title</th>
-<<<<<<< HEAD
                                           <th scope="col">Author</th>
                                           <th scope="col">Summary</th>
                                           <th scope="col">Created Date</th>
                                           <th scope="col">Last Modified</th>
-=======
                                           <th scope="col">Category</th>
                                           <th scope="col">Meta Description</th>
                                           <th scope="col">Created Date</th>
@@ -80,7 +72,6 @@
                                           <th scope="col">Image</th>
                                           <th scope="col">Permalink</th>
                                           <th scope="col">Status</th>
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                                           <th>Edit</th>
                                           <th>Delete</th>
                                         </tr>
@@ -93,16 +84,13 @@
                                           <td>@mdo</td>
                                           <td>Otto</td>
                                           <td>@mdo</td>
-<<<<<<< HEAD
                                           <td><a href="" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
                                           <td><a href="" class="btn btn-primary"><i class="fa fa-trash"></i></a></td>
-=======
                                           <td>Otto</td>
                                           <td>@mdo</td>
                                           <td>Otto</td>
                                           <td><a href="edit_blog.php" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
                                           <td><a href="delete_blog.php" class="btn btn-primary"><i class="fa fa-trash"></i></a></td>
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
                                         </tr>
                                       </tbody>
                                   </table>
@@ -136,18 +124,11 @@
     <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="files/assets/js/script.js"></script>
 
-<<<<<<< HEAD
-    <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'decription' );
-    </script>
-=======
+
     <!--script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
                 CKEDITOR.replace( 'decription' );
     </script-->
->>>>>>> 39a426cdaa7dff180f23f1c51831bb99933f2e91
 </body>
 </html>
