@@ -133,10 +133,13 @@
                                             else {
                                               echo "No blogs";
                                             }
-                                                ?>
+
+                                          ?>
+
                                         </tr>
                                       </tbody>
                                   </table>
+                                  <a href='add_blog.php'><i class='fa fa-trash'></i></a>
                                   </div>
                               </div>
                             </div>
