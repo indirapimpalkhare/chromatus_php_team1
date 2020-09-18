@@ -18,7 +18,7 @@
                <span class="pcoded-mcaret"></span>
                </a>
                <ul class="pcoded-submenu">
-                  <li class="">
+                  <li class="add-pr.php">
                      <a href="#">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Add Reports</span>
@@ -26,14 +26,14 @@
                      </a>
                   </li>
 			         <li class="">
-                     <a href="view_reports.php">
+                     <a href="view_pr.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">View Reports</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="manage-pr-category.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Manage Category</span>
                      <span class="pcoded-mcaret"></span>
