@@ -522,7 +522,7 @@
 				}
 			}
 
-		}	//class end
+		//class end
 
 		// ---- BLOGS FUNCTIONS ---- //
 		function add_blog($blog_title,$blog_category,$blog_meta_desc,$blog_desc, $blog_image, $blog_permalink)
@@ -577,6 +577,7 @@
 				}
 			}
 		}
+	}
 		/*
 		function fetch_news_deleted_records()
 		{
