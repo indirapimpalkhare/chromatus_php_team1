@@ -386,8 +386,141 @@
 				}
 			}
 			//News Page Code Ends
+			//Contact Us Code
+			function set_contact($name,$email,$mobno,$companyname,$country,$position,$msg)
+			{
+				if($stmt_insert = $this->con->prepare("INSERT INTO `contact_uc`(`name`, `email`, `mobile`, `company`, `country`, `position`, `message`) VALUES (?,?,?,?,?,?,?)"))
+				{
+					$stmt_insert->bind_param("sssssss",$name,$email,$mobno,$companyname,$country,$position,$msg);
+					
+					if($stmt_insert->execute())
+					{
+						return true;
+					}
+					return false;
+				}
+				
+			}
+
+			function fetch_contact_details()
+			{
+				if($stmt_select = $this->con->prepare("SELECT`contactID`, `name`, `email`, `mobile`, `company`, `country`, `position`, `message`, `date` FROM `contact_uc` where `status` = 1"))
+				{
+					$stmt_select->bind_result($contact_id,$sender_name,$sender_email,$sender_mobile,$sender_company,$sender_country,$sender_position,$msg,$date);
+					
+					if($stmt_select->execute())
+					{	
+						$data = array();
+						$counter	=	0;
+						
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $contact_id;
+							$data[$counter][1] = $sender_name;  	
+							$data[$counter][2] = $sender_email;  	
+							$data[$counter][3] = $sender_mobile;  	
+							$data[$counter][4] = $sender_company;  	
+							$data[$counter][5] = $sender_country;  	
+							$data[$counter][6] = $sender_position;
+							$data[$counter][7] = $msg;
+							$data[$counter][8] = $date;
+	
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+			function fetch_deleted_contact_details()
+			{
+				if($stmt_select = $this->con->prepare("SELECT`contactID`, `name`, `email`, `mobile`, `company`, `country`, `position`, `message`, `date` FROM `contact_uc` where `status` = 0"))
+				{
+					$stmt_select->bind_result($contact_id,$sender_name,$sender_email,$sender_mobile,$sender_company,$sender_country,$sender_position,$msg,$date);
+					
+					if($stmt_select->execute())
+					{	
+						$data = array();
+						$counter	=	0;
+						
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $contact_id;
+							$data[$counter][1] = $sender_name;  	
+							$data[$counter][2] = $sender_email;  	
+							$data[$counter][3] = $sender_mobile;  	
+							$data[$counter][4] = $sender_company;  	
+							$data[$counter][5] = $sender_country;  	
+							$data[$counter][6] = $sender_position;
+							$data[$counter][7] = $msg;
+							$data[$counter][8] = $date;
+	
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+			function delete_mail_by_id($delete_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `contact_uc` SET `status` = 0 where `contactID` = ?"))
+				{
+					$stmt_update->bind_param("s",$delete_id);
+					
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+
 			
+			function permanent_mail_by_id($delete_id)
+			{
+				if($stmt_delete = $this->con->prepare("DELETE FROM `contact_uc` where `contactID` = ?"))
+				{
+					$stmt_delete->bind_param("i",$delete_id);
+					
+					if($stmt_delete->execute())
+					{
+						return false;
+					}
+				}
+			}
 			
+			function restore_deleted_mail_by_id($restore_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `contact_uc` SET `status` = 1 where `contactID` = ?"))
+				{
+					$stmt_update->bind_param("s",$restore_id);
+					
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
 			
 		}	//class end
 ?>

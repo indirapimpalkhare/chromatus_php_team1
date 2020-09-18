@@ -137,21 +137,14 @@
                </a>
                <ul class="pcoded-submenu">
                   <li class="">
-                     <a href="#">
+                     <a href="manage-contact.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">View Mails</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
-                  <li class="">
-                     <a href="#">
-                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                     <span class="pcoded-mtext">Manage Mails</span>
-                     <span class="pcoded-mcaret"></span>
-                     </a>
-                  </li>
                    <li class="">
-                     <a href="#">
+                     <a href="contact-trash.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>

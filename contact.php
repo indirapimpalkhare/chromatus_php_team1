@@ -1,3 +1,54 @@
+<?php
+    require_once("Admin-Dashboard/lib/class/functions.php");
+    $db = new functions();
+    
+    $flag = 0;
+    $email_error_msg = "";
+    $mobno_error_msg = "";
+    $nameErr = "";
+
+    $name        = "";
+    $email       = "";
+    $mobno       = "";
+    $companyname = "";
+    $country     = "";
+    $position    = "";
+    $msg         = "";
+    
+    if(isset($_POST['submit']))
+    {
+        $name        = $_POST['name'];
+        $email       = $_POST['email'];
+        $mobno       = $_POST['mobno'];
+        $companyname = $_POST['companyname'];
+        $country     = $_POST['country'];
+        $position    = $_POST['position'];
+        $msg         = $_POST['message'];
+      
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$name))
+        {
+            $nameErr = "Only letters and white space allowed";
+        }
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+        {
+            $email_error_msg = "Enter Valid Email!!";
+            $flag = 1;
+        }
+        $mobVal = "/^[1-9][0-9]*$/";
+        if(!preg_match($mobVal, $mobno))
+        {
+            $mobno_error_msg = "Enter Valid Mobile No.!!";
+            $flag = 1; 
+        } 
+
+        if($flag == 0)
+        {
+            $db->set_contact($name,$email,$mobno,$companyname,$country,$position,$msg);
+            echo "<script> alert('We Have Received Your Message Successfully!!'); </script>";
+        }
+    }    
+ 
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -35,14 +86,17 @@
                   <div class="form-row">
                       <div class="form-group col-md-6">
                         <input type="text" class="form-control" required id="name" name="name" placeholder="Name*" autocomplete="off">
+                        <span class="text-danger ml-1"><?php echo $nameErr; ?></span>
                       </div>
                       <div class="form-group col-md-6">
                         <input type="text" class="form-control" required id="email" name="email" placeholder="Email*" autocomplete="off">
+                        <span class="text-danger ml-1"><?php echo $email_error_msg; ?></span>
                       </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                           <input type="text" class="form-control" required id="mobno" name="mobno" placeholder="Mobile No*" autocomplete="off">
+                          <span class="text-danger ml-1"><?php echo $mobno_error_msg; ?></span>
                         </div>
                         <div class="form-group col-md-6">
                           <input type="text" class="form-control" required id="companyname" name="companyname" placeholder="Company Name*" autocomplete="off">
@@ -229,13 +283,13 @@
                     </div>
                     <div class="form-group">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                        <input class="form-check-input" type="checkbox" name="terms-check" id="gridCheck" required>
                         <label class="form-check-label" for="gridCheck">
                           You must accept our <a href="terms.php">privacy policies</a> before submit your requirement
                         </label>
                       </div>
                     </div>
-                    <button type="submit" class="btn form-btn">Submit</button>
+                    <button type="submit" name="submit" class="btn form-btn">Submit</button>
                 </form>
               </div>
               <div class="col-sm-1"></div>

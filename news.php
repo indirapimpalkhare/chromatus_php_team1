@@ -108,7 +108,7 @@
                         <div class="card cd2">
                           <div class="card-body">
                             <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $result_date; ?></small></p>
-                            <a href="news-desc.php?news-id=<?php echo $result_id; ?>"><h5 class="card-title"><?php echo $result_title; ?></h5></a>
+                            <a href="news-desc.php?news-id=<?php echo $result_id; ?>"><h5 class="card-title news-card-title"><?php echo $result_title; ?></h5></a>
                             <p class="card-text"><small><?php echo $result_metadesc; ?> </small></p>
                           </div>
                         </div>
@@ -120,8 +120,10 @@
                           }
                           else
                           {
-                        ?> 
-                        <h3 class="text-center">No News Available</h3> 
+                        ?>
+                        <div class="oops-text"> 
+                          <span class="text-center">Oops!! No News Available Right Now!!!!! </span> 
+                        </h5>
                         <?php
                           }
                         ?>

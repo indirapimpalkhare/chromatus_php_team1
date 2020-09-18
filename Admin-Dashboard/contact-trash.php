@@ -1,19 +1,28 @@
 <?php
 	require_once("lib/class/functions.php");
 	$db = new functions();
+	$common_msg1 = "";
+	$common_msg  = "";
 	/*if(!isset($_SESSION['current_admin']))
 	{	
 		header("Location:index.php");
 	}*/
-	$common_msg ="";
-	 if(isset($_GET['del_news_id']))
-	 {
-		$delete_id = $_GET['del_news_id'];		
-		
-		$db->delete_news_details_by_id($delete_id);
-		$common_msg	=	"News record deleted successfully.";
-	 }
 	 
+	 $common_msg ="";
+	if(isset($_GET['del_contact_id']))
+	{
+		$delete_id = $_GET['del_contact_id'];		
+
+		$db->permanent_mail_by_id($delete_id);
+		$common_msg1	="<span style='color:red;font-size:17px;margin-left: 340px;'>Contact record Deleted successfully.</span>";
+	} 
+	if(isset($_GET['restore_contact_id']))
+	{
+		$restore_id = $_GET['restore_contact_id'];		
+
+		$db->restore_deleted_mail_by_id($restore_id);
+		$common_msg	=	"<span style='color:green;font-size:17px;margin-left: 340px;'>Contact record Restored successfully.<span>";
+	}
 
 	 
 ?>
@@ -21,7 +30,7 @@
 <html lang="en">
  
 <head>
-    <title> Admin | News Record </title>
+    <title> Admin | Contact Us Record </title>
 
  
 
@@ -31,7 +40,8 @@
     <meta name="description" content="#" />
     <meta name="keywords" content="#" />
     <meta name="author" content="#" />
- 
+
+    <link rel="icon" href="http://html.codedthemes.com/gradient-able/files/assets/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="files/bower_components/bootstrap/css/bootstrap.min.css">
@@ -79,8 +89,8 @@
 
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10"> News Records</h5>
-                                            <p class="text-muted m-b-10">You can edit your News Records</p>
+                                            <h5 class="m-b-10">Contact Us!!</h5>
+                                            <p class="text-muted m-b-10">You can Manage your Contact Records</p>
                                         </div>
                                     </div>
 
@@ -91,31 +101,34 @@
 
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5> News Records</h5>
-                                                        <span>You Can Edit or Delete Record From here..</span>
+                                                        <h5> Contact Records</h5>
+                                                        <span>You Can Reply or Delete Record From here..</span>
                                                     </div>
 													<div class="form-group row">
 														<div class="col-md-12"> 
-															<div class="common_msg" style="color:red;font-size:17px;margin-left: 340px;">
+															<div class="common_msg">
 																<?php
-																	echo $common_msg;
+																	echo $common_msg.$common_msg1;
 																?>
 															</div>
 														</div>
 													</div> 
 													 <div class="card-block">
                                                         <div class="dt-responsive table-responsive">
-                                                            <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                                                           <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     <tr>
                                                                 
 																		<th style="width=30;text-align:center;" >Sr. No</th>
-																		<th style="width=30;text-align:center;" >News Title</th> 
-																		<th style="width=30;text-align:center;" >News Category</th> 
-																		<th style="width=30;text-align:center;" >News Meta Description</th> 
-																		<th style="width=30;text-align:center;" >Permalink</th> 
-																		<th style="width=30;text-align:center;" >Date</th> 						 
-																		<th style="width=30;text-align:center;">Update</th>	
+																		<th style="width=30;text-align:center;" >Sender Name</th> 
+																		<th style="width=30;text-align:center;" >Sender Email Id</th> 
+																		<th style="width=30;text-align:center;" >Sender Mobile No.</th> 
+																		<th style="width=30;text-align:center;" >Sender Company</th> 
+																		<th style="width=30;text-align:center;" >Sender Country</th>
+																		<th style="width=30;text-align:center;" >Sender Position</th>
+																		<th style="width=30;text-align:center;" >Sender Message</th>
+																		<th style="width=30;text-align:center;" >DateTime</th>					 
+																		<th style="width=30;text-align:center;">Restore</th>	
 																		<th style="width=30;text-align:center;">Delete</th>	
 																																
 																	</tr>
@@ -123,36 +136,41 @@
                                                                 </thead>
                                                                 <tbody>
 																 	<?php
-																	$get_news	=	$db->fetch_news_records();
-																			if(!empty($get_news))
+																	$get_contacts	=	$db->fetch_deleted_contact_details();
+																			if(!empty($get_contacts))
 																			{
 																				$counter	=	0;
 																				
-																				foreach($get_news as $record)
+																				foreach($get_contacts as $record)
 																				{
 																					
-																					$got_id				=   $get_news[$counter][0];	
-																					$got_news_title	    =	$get_news[$counter][1];
-																					$got_news_category	=	$get_news[$counter][2];  
-																					$got_news_metaDesc 	=	$get_news[$counter][3];
-																					$got_news_desc	    =	$get_news[$counter][4]; 
-																					$got_news_permalink =	$get_news[$counter][5];
-																					$got_news_date   	=	$get_news[$counter][6]; 
+																					$got_id			=   $get_contacts[$counter][0];	
+																					$got_name	    =	$get_contacts[$counter][1];
+																					$got_email		=	$get_contacts[$counter][2];  
+																					$got_mobile 	=	$get_contacts[$counter][3];
+																					$got_company	=	$get_contacts[$counter][4]; 
+																					$got_country 	=	$get_contacts[$counter][5];
+																					$got_position   =	$get_contacts[$counter][6];
+																					$got_msg   		=	$get_contacts[$counter][7];
+																					$got_date   	=	$get_contacts[$counter][8]; 
 														
 																					  
 																?>
                                                                     <tr>
                                                                     	<td><?php echo $counter + 1 ;?></td>
-																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_news_title ;?></td> 
-																		<td><?php echo $got_news_category ;?></td> 
-																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_news_metaDesc ;?></td> 
-																		<td><?php echo $got_news_permalink ;?></td> 	 	
-																		<td><?php echo $got_news_date ;?></td> 
+																		<td><?php echo $got_name ;?></td> 
+																		<td><?php echo $got_email ;?></td>
+																		<td><?php echo $got_mobile ;?></td>
+																		<td><?php echo $got_company ;?></td>
+																		<td><?php echo $got_country ;?></td>
+																		<td><?php echo $got_position ;?></td>  
+																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_msg ;?></td> 	 	
+																		<td><?php echo $got_date ;?></td> 
 																		 
 																		 
-																		<td><a href="edit-news-details.php?news-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
-																			
-																		<td><a href="view-news.php?del_news_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+																		<td class="text-center"><a href="contact-trash.php?restore_contact_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x m-auto"></i></a></td>    
+                                                                        <td class="text-center"><a href="contact-trash.php?del_contact_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x m-auto"></i></a></td>
+                                                                      </tr>
 																	  </tr>
 																	<?php
 																		$counter++;
@@ -162,7 +180,7 @@
 																	else
 																	{
 																?>		<tr>
-																			<td colspan="6">No data to list</td>
+																			<td colspan="9" class="text-center">No data to list</td>
 																		</tr>
 																<?php
 																	}				
@@ -188,8 +206,7 @@
 			</div>
             </div>
         </div>
-    </div>
-  
+     
     <script src="files/bower_components/jquery/js/jquery.min.js"></script>
     <script src="files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script src="files/bower_components/popper.js/js/popper.min.js"></script>
@@ -204,7 +221,7 @@
     <script src="files/bower_components/modernizr/js/modernizr.js"></script>
     <script src="files/bower_components/modernizr/js/css-scrollbars.js"></script>
 
-    <!--<script src="files/assets/pages/j-pro/js/custom/form-job.js"></script> -->
+<!--     <script src="files/assets/pages/j-pro/js/custom/form-job.js"></script>  -->
     <script src="files/assets/js/pcoded.min.js"></script>
     <script src="files/assets/js/navbar-image/vertical-layout.min.js"></script>
     <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
