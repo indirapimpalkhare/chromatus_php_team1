@@ -577,7 +577,7 @@
 				}
 			}
 		}
-	}
+	
 		/*
 		function fetch_news_deleted_records()
 		{
@@ -1330,4 +1330,5 @@ function add_news($news_title,$news_category,$news_metadesc,$news_desc,$news_per
 */
 
     // ---- Press release Ends here ----  //
+}
 ?>
