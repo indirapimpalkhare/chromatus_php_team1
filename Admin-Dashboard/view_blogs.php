@@ -86,7 +86,6 @@
                                                   <tr>
                                                     <th scope="col">Sr. No.</th>
                                                     <th scope="col">Title</th>
-                                                    <th scope="col">Author</th>
                                                     <th scope="col">Summary</th>
                                                     <th scope="col">Created Date</th>
                                                     <th scope="col">Last Modified</th>
@@ -94,7 +93,6 @@
                                                     <th scope="col">Meta Description</th>
                                                     <th scope="col">Image</th>
                                                     <th scope="col">Permalink</th>
-                                                    <th scope="col">Status</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                   </tr>
@@ -116,21 +114,22 @@
                                                  $status = $get_blogs[$counter][9];
 
                                                 echo "<tr>";
-                                                echo "<td>".$blogID."</td>";
+                                                $c = $counter + 1;
+                                                echo "<td>".$c."</td>";
                                                 echo "<td>".$blog_title."</td>";
-                                                echo "<td>".$blog_category."</td>";
-                                                echo "<td>".$blog_meta_desc."</td>";
                                                 echo "<td>".$blog_desc."</td>";
                                                 echo "<td>".$date_added."</td>";
                                                 echo "<td>".$datemod."</td>";
+                                                echo "<td>".$blog_category."</td>";
+                                                echo "<td>".$blog_meta_desc."</td>";
                                                 echo "<td>".$blog_image."</td>";
                                                 echo "<td>".$blog_permalink."</td>";
-                                                echo "<td>".$blog_permalink."</td>";
-                                                echo "<td>".$status."</td>";
                                                 echo "<td><a href='edit_blog.php'><i class='fa fa-edit'></i></a></td>";
                                                 echo "<td><a href='edit_blog.php'><i class='fa fa-trash'></i></a></td>";
                                                 echo "</tr>";
+                                                $counter++;
                                               }
+
                                             }
                                             else {
                                               echo "No blogs";
