@@ -77,7 +77,7 @@
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="view_blog_categories.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Manage Category</span>
                      <span class="pcoded-mcaret"></span>

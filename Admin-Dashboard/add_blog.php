@@ -28,18 +28,18 @@
         $blog_meta_desc = $_POST['blog_meta_desc'];
         $blog_desc = $_POST['blog_desc'];
         $blog_image = $_FILES['blog_image']['name'];
-        echo $blog_image;
+        //echo $blog_image;
         $blog_permalink = $_POST['blog_permalink'];
-        if (move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_file)) {
-          echo "The file ". basename($blog_image). " has been uploaded.";
-        } else {
-          echo "Sorry, there was an error uploading your file.";
-        }
 
         if($flag==0)
         {
-            $db->add_blog($blog_title,$blog_category,$blog_meta_desc,$blog_desc, $blog_image, $blog_permalink);
-            $common_msg =   "Blog Added successfully.";
+            if (move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_file)) {
+              $db->add_blog($blog_title,$blog_category,$blog_meta_desc,$blog_desc, $blog_image, $blog_permalink);
+              $common_msg =   "Blog Added successfully.";
+            } else {
+              $common_msg = "Sorry, there was an error adding blog.";
+            }
+
         }
 
     }
