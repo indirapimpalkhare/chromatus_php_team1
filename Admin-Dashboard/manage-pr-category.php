@@ -135,7 +135,82 @@
                                                     </div>     
                                                 </div>
                                             </div>    
-                                        </div>               
+                                        </div> 
+                                        
+                                        <div class="col-sm-12">
+
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5> PR Category</h5>
+                                                        <span>You can Update and Delete your PR Category here...</span>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-12"> 
+                                                            <div class="common_msg" style="color:red;font-size:17px;margin-left: 340px;">
+                                                                <?php
+                                                                    echo $common_msg1;
+                                                                ?>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                     <div class="card-block">
+                                                        <div class="dt-responsive table-responsive">
+                                                            <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
+                                                                <thead>
+                                                                    <tr>
+                                                                
+                                                                        <th style="width=30;text-align:center;" >Sr. No</th>
+                                                                        <th style="width=30;text-align:center;" >PR Category</th>                      
+                                                                        <th style="width=30;text-align:center;">Option</th> 
+                                                                        <th style="width=30;text-align:center;">Option</th> 
+                                                                                                                                
+                                                                    </tr>
+                                                                    
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php
+                                                                    $get_pr_category   =   $db->fetch_pr_category();
+                                                                            if(!empty($get_pr_category))
+                                                                            {
+                                                                                $counter    =   0;
+                                                                                
+                                                                                foreach($get_pr_category as $record)
+                                                                                {
+                                                                                    
+                                                                                    $got_id             =   $get_pr_category[$counter][0]; 
+                                                                                    $got_pr_category  =   $get_pr_category[$counter][1];
+                                                                            
+                                                        
+                                                                                      
+                                                                ?>
+                                                                    <tr>
+                                                                        <td><?php echo $counter + 1 ;?></td>
+                                                                        <td><?php echo $got_pr_category ;?></td> 
+                                                                        <td><a href="edit-news-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+                                                                            
+                                                                        <td><a href="manage-news-category.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                                                      </tr>
+                                                                    <?php
+                                                                        $counter++;
+                                                                        }
+                                                                        
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                ?>      <tr>
+                                                                            <td colspan="2">No data to list</td>
+                                                                        </tr>
+                                                                <?php
+                                                                    }               
+                                                                ?>  
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+  
+                                                </div>
+
+                                            </div>              
                                     </div>
                                 </div>
                             </div>
