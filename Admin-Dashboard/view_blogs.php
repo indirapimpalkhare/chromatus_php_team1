@@ -129,7 +129,7 @@
                                                 echo "<td>".$status."</td>";
                                                 echo "<td><a href='edit_blog.php'><i class='fa fa-edit'></i></a></td>";
                                                 echo "<td><a href='edit_blog.php'><i class='fa fa-trash'></i></a></td>";
-                                                echo "<tr>";
+                                                echo "</tr>";
                                               }
                                             }
                                             else {

@@ -543,7 +543,7 @@
 
 		function get_blogs()
 		{
-			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`,`status` FROM `blog`"))
+			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`,`status` FROM `blog` WHERE `status` = 1"))
 			{
 				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date_added, $datemod, $blog_image, $blog_permalink, $status);
 
@@ -658,12 +658,12 @@
 				}
 			}
 		}
-
-		function add_news_category($news_category)
+*/
+		function add_blog_category($blog_category, $image)
 		{
-			if($stmt_insert = $this->con->prepare("INSERT INTO `news_category`(`name`) VALUES (?)"))
+			if($stmt_insert = $this->con->prepare("INSERT INTO `blog_category` (`name`, `image`) VALUES (?,?)"))
 			{
-				$stmt_insert->bind_param("s",$news_category);
+				$stmt_insert->bind_param("ss",$blog_category,$image);
 
 				if($stmt_insert->execute())
 				{
@@ -671,8 +671,9 @@
 				}
 				return false;
 			}
+
 		}
-		*/
+
 
 		function get_blog_categories()
 		{
@@ -731,9 +732,10 @@
 				}
 			}
 		}
-		function delete_news_category_by_id($delete_id)
+		*/
+		function delete_blog_category_by_id($delete_id)
 		{
-			if($stmt_update = $this->con->prepare("UPDATE `news_category` SET `status` = 0 where `newsCategoryID` = ?"))
+			if($stmt_update = $this->con->prepare("UPDATE `blog_category` SET `status` = 0 where `blogCategoryID` = ?"))
 			{
 				$stmt_update->bind_param("s",$delete_id);
 
@@ -748,7 +750,7 @@
 			}
 		}
 
-
+/*
 		function permanent_delete_news_category_by_id($delete_id)
 		{
 			if($stmt_delete = $this->con->prepare("DELETE FROM `news_category` where `newsCategoryID` = ?"))
@@ -1081,7 +1083,7 @@ function add_pr_category($pr_category)
 					}
 				}
 			}
-            
+
             function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
 			{
 				$date = date("Y-m-d");
@@ -1265,7 +1267,7 @@ function add_pr_category($pr_category)
 					}
 				}
 			}
-			
+
 			//frontend code...
 			function fetch_news_records_by_name($category)
 			{
