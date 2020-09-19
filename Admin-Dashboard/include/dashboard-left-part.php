@@ -18,8 +18,8 @@
                <span class="pcoded-mcaret"></span>
                </a>
                <ul class="pcoded-submenu">
-                  <li class="add-pr.php">
-                     <a href="#">
+                  <li class="">
+                     <a href="add-pr.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Add Reports</span>
                      <span class="pcoded-mcaret"></span>

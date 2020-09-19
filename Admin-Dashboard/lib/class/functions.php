@@ -1081,15 +1081,14 @@ function add_pr_category($pr_category)
 					}
 				}
 			}
-
-/*
-function add_news($news_title,$news_category,$news_metadesc,$news_desc,$news_permalink)
+            
+            function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
 			{
 				$date = date("Y-m-d");
 
-				if($stmt_insert = $this->con->prepare("INSERT INTO `news`(`title`, `category`, `metaDescription`, `description`, `permalink`, `date`) VALUES (?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release`(`title`, `category`, `metaDescription`, `description`, `permalink`, `date`) VALUES (?,?,?,?,?,?)"))
 				{
-					$stmt_insert->bind_param("ssssss",$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+					$stmt_insert->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
 
 					if($stmt_insert->execute())
 					{
@@ -1099,6 +1098,7 @@ function add_news($news_title,$news_category,$news_metadesc,$news_desc,$news_per
 				}
 			}
 
+/*
 			function fetch_news_records()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1"))
@@ -1265,33 +1265,7 @@ function add_news($news_title,$news_category,$news_metadesc,$news_desc,$news_per
 					}
 				}
 			}
-			function fetch_news_category_by_id($category_id)
-			{
-				if($stmt_select = $this->con->prepare("SELECT `name` FROM `news_category` where `newsCategoryID` = ?"))
-				{
-					$stmt_select->bind_param("s",$category_id);
-					$stmt_select->bind_result($category_name);
-
-					if($stmt_select->execute())
-					{
-						$data = array();
-
-
-						while($stmt_select->fetch())
-						{
-							$data[0] = $category_name;
-						}
-						if(!empty($data))
-						{
-							return $data;
-						}
-						else
-						{
-							return false;
-						}
-					}
-				}
-			}
+			
 			//frontend code...
 			function fetch_news_records_by_name($category)
 			{
