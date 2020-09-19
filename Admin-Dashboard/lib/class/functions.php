@@ -703,10 +703,10 @@
 				}
 			}
 		}
-		/*
-		function fetch_news_deleted_category()
+
+		function get_blog_deleted_category()
 		{
-			if($stmt_select = $this->con->prepare("SELECT `newsCategoryID`,`name` FROM `news_category` where `status` = 0"))
+			if($stmt_select = $this->con->prepare("SELECT `blogCategoryID`,`name` FROM `blog_category` where `status` = 0"))
 			{
 				$stmt_select->bind_result($category_id,$category_name);
 
@@ -732,7 +732,7 @@
 				}
 			}
 		}
-		*/
+
 		function delete_blog_category_by_id($delete_id)
 		{
 			if($stmt_update = $this->con->prepare("UPDATE `blog_category` SET `status` = 0 where `blogCategoryID` = ?"))
