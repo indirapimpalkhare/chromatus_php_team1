@@ -161,8 +161,8 @@
                                                                 
                                                                         <th style="width=30;text-align:center;" >Sr. No</th>
                                                                         <th style="width=30;text-align:center;" >PR Category</th>                      
-                                                                        <th style="width=30;text-align:center;">Option</th> 
-                                                                        <th style="width=30;text-align:center;">Option</th> 
+                                                                        <th style="width=30;text-align:center;">Update</th> 
+                                                                        <th style="width=30;text-align:center;">Send to Trash</th> 
                                                                                                                                 
                                                                     </tr>
                                                                     
@@ -184,11 +184,15 @@
                                                                                       
                                                                 ?>
                                                                     <tr>
-                                                                        <td><?php echo $counter + 1 ;?></td>
+                                                                        <td style="text-align:center;"><?php echo $counter + 1 ;?></td>
+                                                                        
                                                                         <td><?php echo $got_pr_category ;?></td> 
-                                                                        <td><a href="edit-news-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+                                                                        
+                                                                        <td style="text-align:center;"><a href="edit-pr-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>           
+                                                                        
+                                                                        <td style="text-align:center;"><a  href="manage-pr-category.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
                                                                             
-                                                                        <td><a href="manage-news-category.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                                                        
                                                                       </tr>
                                                                     <?php
                                                                         $counter++;
