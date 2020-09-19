@@ -12,6 +12,8 @@
     $blog_meta_desc  =  "";
     $blog_desc      =  "";
     $blog_image = "";
+    $target_dir = "img/uploads/";
+
     $blog_permalink =  "";
 
     $common_msg  =  "";
@@ -20,12 +22,19 @@
 
     if(isset($_POST['submit_btn']))
     {
+        $target_file = $target_dir . basename($_FILES["blog_image"]["name"]);
         $blog_title = $_POST['blog_title'];
         $blog_category = $_POST['blog_category'];
         $blog_meta_desc = $_POST['blog_meta_desc'];
         $blog_desc = $_POST['blog_desc'];
-        $blog_image = $_POST['blog_image'];
+        $blog_image = $_FILES['blog_image']['name'];
+        echo $blog_image;
         $blog_permalink = $_POST['blog_permalink'];
+        if (move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_file)) {
+          echo "The file ". basename($blog_image). " has been uploaded.";
+        } else {
+          echo "Sorry, there was an error uploading your file.";
+        }
 
         if($flag==0)
         {
@@ -122,6 +131,13 @@
 
                                                                                 <input type="text" name="blog_title" placeholder="Enter Blog Title" required>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Blog Title</span>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <input type="file" name="blog_image" placeholder="Select Blog Image" required accept="image/*">
+                                                                                <span class="j-tooltip j-tooltip-right-top">Select Blog Image</span>
                                                                             </div>
                                                                         </div>
 

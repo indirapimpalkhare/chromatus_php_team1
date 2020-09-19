@@ -525,13 +525,13 @@
 		//class end
 
 		// ---- BLOGS FUNCTIONS ---- //
-		function add_blog($blog_title,$blog_category,$blog_meta_desc,$blog_desc, $blog_image, $blog_permalink)
+		function add_blog($blog_title,$blog_category,$blog_meta_desc,$blog_desc,$blog_image,$blog_permalink)
 		{
 			$date = date("Y-m-d");
 
 			if($stmt_insert = $this->con->prepare("INSERT INTO `blog`(`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`) VALUES (?,?,?,?,?,?,?,?)"))
 			{
-				$stmt_insert->bind_param("ssssss",$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date,$date, $blog_image, $blog_permalink);
+				$stmt_insert->bind_param("ssssssss",$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date,$date,$blog_image,$blog_permalink);
 
 				if($stmt_insert->execute())
 				{
