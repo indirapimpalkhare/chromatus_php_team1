@@ -672,9 +672,11 @@
 				return false;
 			}
 		}
-		function fetch_news_category()
+		*/
+
+		function get_blog_categories()
 		{
-			if($stmt_select = $this->con->prepare("SELECT `newsCategoryID`,`name` FROM `news_category` where `status` = 1"))
+			if($stmt_select = $this->con->prepare("SELECT `blogCategoryID`,`name` FROM `blog_category` where `status` = 1"))
 			{
 				$stmt_select->bind_result($category_id,$category_name);
 
@@ -700,6 +702,7 @@
 				}
 			}
 		}
+		/*
 		function fetch_news_deleted_category()
 		{
 			if($stmt_select = $this->con->prepare("SELECT `newsCategoryID`,`name` FROM `news_category` where `status` = 0"))
