@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 08:23 PM
+-- Generation Time: Sep 19, 2020 at 07:22 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -107,19 +108,6 @@ CREATE TABLE `homepage` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `industry`
---
-
-CREATE TABLE `industry` (
-  `industryID` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `image` varchar(256) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `news`
 --
 
@@ -197,6 +185,19 @@ CREATE TABLE `press_release` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pr_category`
+--
+
+CREATE TABLE `pr_category` (
+  `prCategoryID` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `image` varchar(256) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subscription`
 --
 
@@ -235,7 +236,10 @@ CREATE TABLE `user` (
   `mobile` int(10) NOT NULL,
   `subscription` varchar(30) DEFAULT NULL,
   `remainingPR` int(11) NOT NULL DEFAULT 0,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0
+  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
+  `company` varchar(30) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `position` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -273,12 +277,6 @@ ALTER TABLE `homepage`
   ADD PRIMARY KEY (`homeSettingID`);
 
 --
--- Indexes for table `industry`
---
-ALTER TABLE `industry`
-  ADD PRIMARY KEY (`industryID`);
-
---
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
@@ -295,6 +293,12 @@ ALTER TABLE `news_category`
 --
 ALTER TABLE `press_release`
   ADD PRIMARY KEY (`prID`);
+
+--
+-- Indexes for table `pr_category`
+--
+ALTER TABLE `pr_category`
+  ADD PRIMARY KEY (`prCategoryID`);
 
 --
 -- Indexes for table `terms_and_conditions`
@@ -346,7 +350,7 @@ ALTER TABLE `homepage`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `news_category`
@@ -359,6 +363,12 @@ ALTER TABLE `news_category`
 --
 ALTER TABLE `press_release`
   MODIFY `prID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pr_category`
+--
+ALTER TABLE `pr_category`
+  MODIFY `prCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `terms_and_conditions`
