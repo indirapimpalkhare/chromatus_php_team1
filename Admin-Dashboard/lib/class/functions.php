@@ -529,7 +529,7 @@
 		{
 			$date = date("Y-m-d");
 
-			if($stmt_insert = $this->con->prepare("INSERT INTO `blogs`(`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`) VALUES (?,?,?,?,?,?,?,?)"))
+			if($stmt_insert = $this->con->prepare("INSERT INTO `blog`(`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`) VALUES (?,?,?,?,?,?,?,?)"))
 			{
 				$stmt_insert->bind_param("ssssss",$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date,$date, $blog_image, $blog_permalink);
 
@@ -543,9 +543,9 @@
 
 		function get_blogs()
 		{
-			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink` FROM `blogs` where `status` = 1"))
+			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`,`status` FROM `blog`"))
 			{
-				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date_added, $datemod, $blog_image, $blog_permalink);
+				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date_added, $datemod, $blog_image, $blog_permalink, $status);
 
 				if($stmt_select->execute())
 				{
@@ -563,6 +563,7 @@
 						$data[$counter][6] = $datemod;
 						$data[$counter][7] = $blog_image;
 						$data[$counter][8] = $blog_permalink;
+						$data[$counter][9] = $status;
 
 						$counter++;
 					}
@@ -577,7 +578,7 @@
 				}
 			}
 		}
-	
+
 		/*
 		function fetch_news_deleted_records()
 		{
@@ -1032,7 +1033,7 @@ function add_pr_category($pr_category)
 					}
 				}
 			}
-            
+
             function update_pr_category_by_id($category_name,$category_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ? where `prCategoryID`= ?"))
@@ -1049,7 +1050,7 @@ function add_pr_category($pr_category)
 					}
 				}
 			}
-            
+
             function fetch_pr_category_by_id($category_id)
 			{
 				if($stmt_select = $this->con->prepare("SELECT `name` FROM `pr_category` where `prCategoryID` = ?"))
@@ -1208,8 +1209,8 @@ function add_news($news_title,$news_category,$news_metadesc,$news_desc,$news_per
 				}
 			}
 
-			
-            
+
+
 			function update_news_full_details_by_id($news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$news_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `news` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `newsID`= ? "))
@@ -1226,7 +1227,7 @@ function add_news($news_title,$news_category,$news_metadesc,$news_desc,$news_per
 					}
 				}
 			}
-			
+
 			function fetch_news_full_details_by_id($news_id)
 			{
 				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `newsID` = ?"))

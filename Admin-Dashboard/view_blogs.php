@@ -104,15 +104,16 @@
       																				foreach($get_blogs as $data)
       																				{
 
-                                                 $blogID = $data[$counter][0];
-                                    						 $blog_title = $data[$counter][1];
-                                    						 $blog_category = $data[$counter][2];
-                                    						 $blog_meta_desc = $data[$counter][3];
-                                    						 $blog_desc = $data[$counter][4];
-                                    						 $date_added = $data[$counter][5];
-                                    						 $datemod = $data[$counter][6];
-                                    						 $blog_image = $data[$counter][7];
-                                    						 $blog_permalink = $data[$counter][8];
+                                                 $blogID = $get_blogs[$counter][0];
+                                    						 $blog_title = $get_blogs[$counter][1];
+                                    						 $blog_category = $get_blogs[$counter][2];
+                                    						 $blog_meta_desc = $get_blogs[$counter][3];
+                                    						 $blog_desc = $get_blogs[$counter][4];
+                                    						 $date_added = $get_blogs[$counter][5];
+                                    						 $datemod = $get_blogs[$counter][6];
+                                    						 $blog_image = $get_blogs[$counter][7];
+                                    						 $blog_permalink = $get_blogs[$counter][8];
+                                                 $status = $get_blogs[$counter][9];
 
                                                 echo "<tr>";
                                                 echo "<td>".$blogID."</td>";
@@ -125,6 +126,7 @@
                                                 echo "<td>".$blog_image."</td>";
                                                 echo "<td>".$blog_permalink."</td>";
                                                 echo "<td>".$blog_permalink."</td>";
+                                                echo "<td>".$status."</td>";
                                                 echo "<td><a href='edit_blog.php'><i class='fa fa-edit'></i></a></td>";
                                                 echo "<td><a href='edit_blog.php'><i class='fa fa-trash'></i></a></td>";
                                                 echo "<tr>";
@@ -139,8 +141,11 @@
                                         </tr>
                                       </tbody>
                                   </table>
-                                  <a href='add_blog.php'><i class='fa fa-trash'></i></a>
+
                                   </div>
+                                  <br>
+                                  <br>
+                                  <a href='add_blog.php'><i class='fa fa-plus'></i>Add Blog</a>
                               </div>
                             </div>
                         </div>
