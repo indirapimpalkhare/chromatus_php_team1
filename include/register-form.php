@@ -1,4 +1,15 @@
+
+
+<?php  
+//index.php
+$connect = mysqli_connect("localhost", "root", "", "chromatus_db");
+$query = "SELECT * FROM user";
+$result = mysqli_query($connect, $query);
+ ?>  
+
+
 <!-- start Model-form-->
+
 <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog cascading-modal" role="document">
@@ -27,21 +38,22 @@
           <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
 
       <!--Body-->
+
       <div class="modal-body mx-2">
         <!--Body-->
         <div class="md-form mb-3">
         
-          <input type="email" id="Form-email" class="form-control validate" placeholder="Email">
+          <input type="email" name="l-email" class="form-control validate" placeholder="Email">
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="Form-pass" class="form-control validate" placeholder=" Password">
+          <input type="password" name="i-password" class="form-control validate" placeholder=" Password">
           
           <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1"> Password?</a></p>
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a">Login </button>
+          <button type="button" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" href="index.php">Login </button>
         </div>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Login
           with:</p>
@@ -64,7 +76,7 @@
                 <p>Not a member? <a href="" class="blue-text">Register</a></p>
                 
               </div>
-              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+              <button type="button" id="submit" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
             </div>
         
       </div>
@@ -72,40 +84,44 @@
 
 
        <!--panel 2-->
-          <div class="tab-pane fade" id="panel2" role="tabpanel">
+
+
+
+      
+        <div class="tab-pane fade" id="panel2" role="tabpanel">
       <!--Body-->
       <div class="modal-body mx-2">
         <!--Body-->
         <div class="form-row">
         <div class="form-group col-md-6">
-        <input type="text" id="RForm-Fname" class="form-control validate" placeholder="First Name" autocomplete="off">
+        <input type="text" name="f_name" class="form-control validate" placeholder="First Name" autocomplete="off">
         </div>
        <div class="form-group col-md-6">
-         <input type="text" id="RForm-Lname" class="form-control validate" placeholder="Last Name" autocomplete="off">
+         <input type="text" name="l_name" class="form-control validate" placeholder="Last Name" autocomplete="off">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" id="RForm-company" class="form-control validate" placeholder="Company Name" autocomplete="off">
+          <input type="text" name="company" class="form-control validate" placeholder="Company Name" autocomplete="off">
         </div>
           <div class="form-group col-md-6">
-          <input type="text" id="RForm-number" class="form-control validate" placeholder="Contact Number" autocomplete="off">
+          <input type="text" name="number" class="form-control validate" placeholder="Contact Number" autocomplete="off">
         </div>
       </div>
 
         <div class="form-row">      
         <div class="form-group col-md-6">
-          <input type="email" id="RForm-email" class="form-control validate" placeholder="Email" autocomplete="off">
+          <input type="email" name="email" class="form-control validate" placeholder="Email" autocomplete="off">
          </div>
         <div class="form-group col-md-6">
-          <input type="password" id="RForm-pass" class="form-control validate" placeholder="Password" autocomplete="off">
+          <input type="password" name="password" class="form-control validate" placeholder="Password" autocomplete="off">
         </div>
       </div>
 
       <div class="form-row">      
         <div class="form-group col-md-6">
-          <select class="form-control" id="RForm-country" name="country" required >
+          <select class="form-control" id="country" name="country" required >
             <option value="" selected="selected">-- Select Country --</option>
                              <option value=""></option>
                              <option value="Afghanistan">Afghanistan</option>
@@ -276,7 +292,7 @@
                           </select>
          </div>
         <div class="form-group col-md-6">
-          <input type="text" id="RForm-pos" class="form-control validate" placeholder="Position" autocomplete="off">
+          <input type="text" id="position" class="form-control validate" placeholder="Position" autocomplete="off">
         </div>
       </div>
 
@@ -285,7 +301,7 @@
 
 
         <div class="text-center mb-3">
-          <button type="button" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a">Submit</button>
+          <button type="button" name="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" href="panel1">Submit</button>
         </div>
 
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign up
@@ -314,6 +330,7 @@
         
       </div>
       </div>
+
       
       </div>
       </div>
@@ -323,3 +340,61 @@
   </div>
 </div>
 <!--end modal-form-->
+
+<script>  
+$(document).ready(function(){
+ $('#panel2').on("submit", function(event){  
+  event.preventDefault();  
+  if($('#f_name').val() == "")  
+  {  
+   alert(" first Name is required");  
+  } 
+  else if($('#l_name').val() == "")  
+  {  
+   alert(" last Name is required");  
+  }  
+  else if($('#company').val() == '')  
+  {  
+   alert("company name  is required");  
+  }  
+  else if($('#number').val() == '')
+  {  
+   alert("number is required");  
+  }
+  else if($('#email').val() == '')
+  {  
+   alert("email is required");  
+  }
+  else if($('#password').val() == '')
+  {  
+   alert("password is required");  
+  }
+  else if($('#country').val() == '')
+  {  
+   alert("country is required");  
+  }
+  else if($('#position').val() == '')
+  {  
+   alert("position is required");  
+  }
+   
+  else  
+  {  
+   $.ajax({  
+    url:"action.php",  
+    method:"POST",  
+    data:$('#panel2').serialize(),  
+    beforeSend:function(){  
+     $('#submit').val("Inserting");  
+    },  
+    success:function(data){  
+     $('#panel2')[0].reset();  
+     $('#elegantModalForm').modal('hide');  
+     $('#user_table').html(data);  
+    }  
+   });  
+  }  
+ });
+
+
+ </script>
