@@ -579,12 +579,12 @@
 			}
 		}
 
-		/*
-		function fetch_news_deleted_records()
+
+		function fetch_blog_deleted_records()
 		{
-			if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 0"))
+			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`,`status` FROM `blog` WHERE `status` = 0"))
 			{
-				$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date_added, $datemod, $blog_image, $blog_permalink, $status);
 
 				if($stmt_select->execute())
 				{
@@ -593,13 +593,16 @@
 
 					while($stmt_select->fetch())
 					{
-						$data[$counter][0] = $news_id;
-						$data[$counter][1] = $news_title;
-						$data[$counter][2] = $news_category;
-						$data[$counter][3] = $news_metadesc;
-						$data[$counter][4] = $news_desc;
-						$data[$counter][5] = $news_permalink;
-						$data[$counter][6] = $date;
+						$data[$counter][0] = $blogID;
+						$data[$counter][1] = $blog_title;
+						$data[$counter][2] = $blog_category;
+						$data[$counter][3] = $blog_meta_desc;
+						$data[$counter][4] = $blog_desc;
+						$data[$counter][5] = $date_added;
+						$data[$counter][6] = $datemod;
+						$data[$counter][7] = $blog_image;
+						$data[$counter][8] = $blog_permalink;
+						$data[$counter][9] = $status;
 
 						$counter++;
 					}
@@ -614,9 +617,10 @@
 				}
 			}
 		}
-		function delete_news_details_by_id($delete_id)
+
+		function delete_blog_details_by_id($delete_id)
 		{
-			if($stmt_update = $this->con->prepare("UPDATE `news` SET `status` = 0 where `newsID` = ?"))
+			if($stmt_update = $this->con->prepare("UPDATE `blog` SET `status` = 0 where `bID` log= ?"))
 			{
 				$stmt_update->bind_param("s",$delete_id);
 
@@ -630,9 +634,9 @@
 				}
 			}
 		}
-		function permanent_delete_news_details_by_id($delete_id)
+		function permanent_delete_blog_details_by_id($delete_id)
 		{
-			if($stmt_delete = $this->con->prepare("delete FROM `news` where `newsId` = ?"))
+			if($stmt_delete = $this->con->prepare("delete FROM `blo`g where `blog_ID` = ?"))
 			{
 				$stmt_delete->bind_param("i",$delete_id);
 
@@ -642,9 +646,10 @@
 				}
 			}
 		}
-		function restore_deleted_news_details_by_id($restore_id)
+
+		function restore_deleted_blog_details_by_id($restore_id)
 		{
-			if($stmt_update = $this->con->prepare("UPDATE `news` SET `status` = 1 where `newsID` = ?"))
+			if($stmt_update = $this->con->prepare("UPDATE `blog` SET `status` = 1 where `blogID` = ?"))
 			{
 				$stmt_update->bind_param("s",$restore_id);
 
@@ -658,7 +663,7 @@
 				}
 			}
 		}
-*/
+
 		function add_blog_category($blog_category, $image)
 		{
 			if($stmt_insert = $this->con->prepare("INSERT INTO `blog_category` (`name`, `image`) VALUES (?,?)"))
@@ -750,8 +755,8 @@
 			}
 		}
 
-/*
-		function permanent_delete_news_category_by_id($delete_id)
+
+		function permanent_delete_blog_category_by_id($delete_id)
 		{
 			if($stmt_delete = $this->con->prepare("DELETE FROM `news_category` where `newsCategoryID` = ?"))
 			{
@@ -764,9 +769,9 @@
 			}
 		}
 
-		function restore_deleted_news_category_by_id($restore_id)
+		function restore_deleted_blog_category_by_id($restore_id)
 		{
-			if($stmt_update = $this->con->prepare("UPDATE `news_category` SET `status` = 1 where `newsCategoryID` = ?"))
+			if($stmt_update = $this->con->prepare("UPDATE `blog_category` SET `status` = 1 where `blogCategoryID` = ?"))
 			{
 				$stmt_update->bind_param("s",$restore_id);
 
@@ -780,6 +785,7 @@
 				}
 			}
 		}
+		/*
 		function update_news_full_details_by_id($news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$news_id)
 		{
 			if($stmt_update = $this->con->prepare("UPDATE `news` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `newsID`= ? "))
