@@ -1015,36 +1015,7 @@
 			}
 
 
-			function permanent_delete_pr_category_by_id($delete_id)
-			{
-				if($stmt_delete = $this->con->prepare("DELETE FROM `pr_category` where `prCategoryID` = ?"))
-				{
-					$stmt_delete->bind_param("i",$delete_id);
-
-					if($stmt_delete->execute())
-					{
-						return false;
-					}
-				}
-			}
-
-			function restore_deleted_pr_category_by_id($restore_id)
-			{
-				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `status` = 1 where `prCategoryID` = ?"))
-				{
-					$stmt_update->bind_param("s",$restore_id);
-
-					if($stmt_update->execute())
-					{
-					return true;
-					}
-					else
-					{
-					return false;
-					}
-				}
-			}
-
+			
             function update_pr_category_by_id($category_name,$category_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ? where `prCategoryID`= ?"))
@@ -1090,20 +1061,16 @@
 				}
 			}
 
-      function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
+            function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
 			{
 				$date = date("Y-m-d");
 				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded`) VALUES (?,?,?,?,?,?)"))
 				{
-					echo "in if";
 					$stmt_insert->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
-					echo "bind";
 					if($stmt_insert->execute())
 					{
-						echo "Hi";
 						return true;
 					}
-					echo $stmt_insert -> error;
 					return false;
 
 				}
@@ -1144,9 +1111,26 @@
 				}
 			}
             //-----------update-----------//
+            
+            function update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `prID`= ? "))
+				{
+					$stmt_update->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
             function fetch_pr_full_details_by_id($pr_id)
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date_added` FROM `press_release` where `prID` = ?"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `prID` = ?"))
 				{
 					$stmt_select->bind_param("s",$pr_id);
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
@@ -1178,12 +1162,14 @@
 					}
 				}
 			}
+            
+            //-----------soft delete-----------//
 
-            function update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id)
+            function delete_pr_details_by_id($delete_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `prID`= ? "))
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `status` = 0 where `prID` = ?"))
 				{
-					$stmt_update->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id);
+					$stmt_update->bind_param("s",$delete_id);
 
 					if($stmt_update->execute())
 					{
@@ -1195,17 +1181,14 @@
 					}
 				}
 			}
-
-
-
-/*
-
-
-			function fetch_news_deleted_records()
+            
+            //-----------trash-----------//
+            
+			function fetch_pr_deleted_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 0"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `status` = 0"))
 				{
-					$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
 
 					if($stmt_select->execute())
 					{
@@ -1214,12 +1197,12 @@
 
 						while($stmt_select->fetch())
 						{
-							$data[$counter][0] = $news_id;
-							$data[$counter][1] = $news_title;
-							$data[$counter][2] = $news_category;
-							$data[$counter][3] = $news_metadesc;
-							$data[$counter][4] = $news_desc;
-							$data[$counter][5] = $news_permalink;
+							$data[$counter][0] = $pr_id;
+							$data[$counter][1] = $pr_title;
+							$data[$counter][2] = $pr_category;
+							$data[$counter][3] = $pr_metadesc;
+							$data[$counter][4] = $pr_desc;
+							$data[$counter][5] = $pr_permalink;
 							$data[$counter][6] = $date;
 
 							$counter++;
@@ -1235,11 +1218,24 @@
 					}
 				}
 			}
-			function delete_news_details_by_id($delete_id)
+			
+			function permanent_delete_pr_details_by_id($delete_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `news` SET `status` = 0 where `newsID` = ?"))
+				if($stmt_delete = $this->con->prepare("delete FROM `press_release` where `prId` = ?"))
 				{
-					$stmt_update->bind_param("s",$delete_id);
+					$stmt_delete->bind_param("i",$delete_id);
+
+					if($stmt_delete->execute())
+					{
+						return false;
+					}
+				}
+			}
+			function restore_deleted_pr_details_by_id($restore_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `status` = 1 where `prID` = ?"))
+				{
+					$stmt_update->bind_param("s",$restore_id);
 
 					if($stmt_update->execute())
 					{
@@ -1251,9 +1247,10 @@
 					}
 				}
 			}
-			function permanent_delete_news_details_by_id($delete_id)
+            
+            function permanent_delete_pr_category_by_id($delete_id)
 			{
-				if($stmt_delete = $this->con->prepare("delete FROM `news` where `newsId` = ?"))
+				if($stmt_delete = $this->con->prepare("DELETE FROM `pr_category` where `prCategoryID` = ?"))
 				{
 					$stmt_delete->bind_param("i",$delete_id);
 
@@ -1263,9 +1260,10 @@
 					}
 				}
 			}
-			function restore_deleted_news_details_by_id($restore_id)
+
+			function restore_deleted_pr_category_by_id($restore_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `news` SET `status` = 1 where `newsID` = ?"))
+				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `status` = 1 where `prCategoryID` = ?"))
 				{
 					$stmt_update->bind_param("s",$restore_id);
 
@@ -1280,45 +1278,14 @@
 				}
 			}
 
+            
 
 
-			function fetch_news_full_details_by_id($news_id)
-			{
-				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `newsID` = ?"))
-				{
-					$stmt_select->bind_param("s",$news_id);
-					$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
 
-					if($stmt_select->execute())
-					{
-						$data = array();
-
-
-						while($stmt_select->fetch())
-						{
-							$data[0] = $news_id;
-							$data[1] = $news_title;
-							$data[2] = $news_category;
-							$data[3] = $news_metadesc;
-							$data[4] = $news_desc;
-							$data[5] = $news_permalink;
-							$data[6] = $date;
-
-						}
-						if(!empty($data))
-						{
-							return $data;
-						}
-						else
-						{
-							return false;
-						}
-					}
-				}
-			}
-
+/*	
 
 			//frontend code...
+        
 			function fetch_news_records_by_name($category)
 			{
 				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 AND category = ?"))
@@ -1355,9 +1322,9 @@
 				}
 			}
 
-
-
 */
+
+
 
     // ---- Press release Ends here ----  //
 }

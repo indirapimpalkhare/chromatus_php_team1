@@ -20,10 +20,10 @@
 	 }
 	 
 	 
-	$news_data		=	array();
-	$news_data		=	$db->fetch_pr_full_details_by_id($pr_id);
+	$pr_data		=	array();
+	$pr_data		=	$db->fetch_pr_full_details_by_id($pr_id);
 			
-	
+
 	$result_title	 	= "";
 	$result_category 	= "";
 	$result_metaDesc    = "";
@@ -67,7 +67,7 @@
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Update PR</title>
+    <title> Chromatus Consulting | Update News</title>
 
  
 
@@ -155,7 +155,7 @@
                                                                             <div class="j-input">
                                                                                 
                                                                                 <select class="custom-select custom-select-lg mb-3" name="pr-category">
-                                                                                  <option selected value="<?php echo $result_category; ?>"><?php echo $pr_category; ?></option>	
+                                                                                  <option selected value="<?php echo $result_category; ?>"><?php echo $result_category; ?></option>	
                                                                                   <option value="">Select PR Category</option>
                                                                                   <?php
                                                                                         $get_category = $db->fetch_pr_category();

@@ -28,7 +28,6 @@
 
         if($flag==0)
         {
-              echo "view";
             $db->add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink);
             $common_msg =   "PR Added successfully.";
         }

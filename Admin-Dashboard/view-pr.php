@@ -136,8 +136,8 @@
 																					$got_pr_category	=	$get_pr[$counter][2];  
 																					$got_pr_metaDesc 	=	$get_pr[$counter][3];
 																					$got_pr_desc	    =	$get_pr[$counter][4]; 
-																					$got_pr_permalink =	$get_pr[$counter][5];
-																					$got_pr_date   	=	$get_pr[$counter][6]; 
+																					$got_pr_permalink   =	$get_pr[$counter][5];
+																					$got_pr_date   	    =	$get_pr[$counter][6]; 
 														
 																					  
 																?>
