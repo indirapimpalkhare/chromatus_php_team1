@@ -1,55 +1,79 @@
 <?php
-    require_once("lib/class/functions.php");
-    $db = new functions();
-    /*if(!isset($_SESSION['current_admin']))
-    {   
-        header("Location:index.php");
-    }*/
-    
-     
-    $pr_title     =  "";
-    $pr_category  =  ""; 
-    $pr_metadesc  =  "";
-    $pr_desc      =  "";
-    $pr_permalink =  "";
-    
-    $common_msg  =  "";
-    $common_msg1 =  "";
-    $flag = 0;
-    
-    if(isset($_POST['submit_btn']))
-    { 
-        $pr_title     =  $_POST['pr-title'];
-        $pr_category  =  $_POST['pr-category']; 
-        $pr_metadesc  =  $_POST['pr-metaDesc'];
-        $pr_desc      =  $_POST['pr-desc'];
-        $pr_permalink =  $_POST['pr-permalink'];
-        
-         
-        if($flag==0)
-        { 
-            
-            $db->add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink);    
-            $common_msg =   "PR Added successfully.";
-        }
-        
-    }
-    
-    
-    
+	require_once("lib/class/functions.php");
+	$db = new functions();
+	/*if(!isset($_SESSION['current_admin']))
+	{	
+		header("Location:index.php");
+	}*/
+	session_start(); 
+	$common_msg	="";
+	$common_msg1="";
+	
+	 if(isset($_GET['pr-id']))
+	 {
+		$pr_id = $_GET['pr-id'];		
+		$_SESSION['pr_id'] = $pr_id;
+	 }
+	 else if(isset($_SESSION['pr_id']))
+	 {
+		 $pr_id = $_SESSION['pr_id'];
+	 }
+	 
+	 
+	$news_data		=	array();
+	$news_data		=	$db->fetch_pr_full_details_by_id($pr_id);
+			
+	
+	$result_title	 	= "";
+	$result_category 	= "";
+	$result_metaDesc    = "";
+	$result_description = "";
+	$result_permalink 	= "";
+
+	
+	if(!empty($pr_data))
+	{	
+		 
+	$result_title				=	$pr_data[1];
+	$result_category			=	$pr_data[2];
+	$result_metaDesc 			=	$pr_data[3];
+	$result_description         =	$pr_data[4];
+	$result_permalink			=	$pr_data[5];
+	 
+			
+	}
+	if(isset($_POST['edit']))
+	{
+		$pr_title		=	$_POST['pr-title'];  
+		$pr_category	=	$_POST['pr-category'];  
+		$pr_metadesc	=	$_POST['pr-metaDesc']; 
+		$pr_desc		=	$_POST['pr-desc']; 
+		$pr_permalink	=	$_POST['pr-permalink'];
+			 
+			if($db->update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id))
+			{
+					  $common_msg	=	"PR Updated Successfully.";
+			}
+			else
+			{
+					$common_msg1	= "Failed";
+					 
+			}
+		
+	}   
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Add PR</title>
+    <title> Chromatus Consulting | Update PR</title>
 
  
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="files/bower_components/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="files/assets/icon/themify-icons/themify-icons.css">
@@ -88,8 +112,8 @@
                                 <div class="page-wrapper">
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10">Add PR</h5>
-                                            <p class="text-muted m-b-10">You can add your PR here..</p>
+                                            <h5 class="m-b-10">Update PR</h5>
+                                            <p class="text-muted m-b-10">You can update your PR here..</p>
                                         </div>
                                     </div>
 
@@ -99,8 +123,8 @@
                                             <div class="col-sm-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                    <h5>Add PR Details</h5>
-                                                    <span>Please Add the PR Details..</span>
+                                                    <h5>Update PR Details</h5>
+                                                    <span>Please fill the PR Details..</span>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12"> 
@@ -122,7 +146,7 @@
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
 
-                                                                                <input type="text" name="pr-title" placeholder="Enter PR Title" required>
+                                                                                <input type="text" value="<?php echo $result_title; ?>" name="pr-title" placeholder="Enter PR Title" required>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter PR Title</span> 
                                                                             </div>
                                                                         </div>
@@ -131,7 +155,8 @@
                                                                             <div class="j-input">
                                                                                 
                                                                                 <select class="custom-select custom-select-lg mb-3" name="pr-category">
-                                                                                  <option selected value="">Select PR Category</option>
+                                                                                  <option selected value="<?php echo $result_category; ?>"><?php echo $pr_category; ?></option>	
+                                                                                  <option value="">Select PR Category</option>
                                                                                   <?php
                                                                                         $get_category = $db->fetch_pr_category();
                                                                                         if(!empty($get_category))
@@ -140,11 +165,11 @@
                                                                                             
                                                                                             foreach($get_category as $record)
                                                                                             {
-                                                                                                $result_category  =   $get_category[$counter][1];
+                                                                                                $result_cate  =   $get_category[$counter][1];
                                                                                             
 
                                                                                   ?>
-                                                                                  <option value="<?php echo $result_category ?>"><?php echo $result_category ?></option>
+                                                                                  <option value="<?php echo $result_cate; ?>"><?php echo $result_cate; ?></option>
                                                                                   <?php
                                                                                         $counter++;
                                                                                         }
@@ -169,20 +194,21 @@
                                                                         
                                                                          <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <textarea name="pr-metaDesc"  placeholder="Enter Meta Description" required ></textarea>
+                                                                                <textarea  name="pr-metaDesc"  placeholder="Enter Meta Description" required ><?php echo $result_metaDesc; ?></textarea>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Meta Description</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <textarea name="pr-desc" class="ckeditor" placeholder="Enter Description" ></textarea>
+                                                                                <textarea name="pr-desc" class="ckeditor" placeholder="Enter Description" ><?php echo $result_description; ?></textarea>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Description</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
                                                                                 <select class="custom-select custom-select-lg mb-3" name="pr-permalink">
-                                                                                  <option selected>Select Permalink</option>
+                                                                                  <option selected value="<?php echo $result_permalink; ?>"><?php echo $result_permalink; ?></option>
+                                                                                  <option >Select Permalink</option>
                                                                                   <option value="">perma1</option>
                                                                                   <option value="">perma2</option>
                                                                                   <option value="">perma3</option>
@@ -198,8 +224,8 @@
                                                                 </div>
 
                                                                 <div class="j-footer"> 
-                                                                    <input type="submit" value="Submit" name="submit_btn" class="btn btn-primary" />        
-                                                                    <button type="reset" class="btn btn-default m-r-20">Reset</button>
+                                                                    <input type="submit" value="Update" name="edit" class="btn btn-primary" />
+                                                                    <a href="view-news.php" class="btn btn-primary">Back</a>
                                                                 </div>
 
                                                             </form>
