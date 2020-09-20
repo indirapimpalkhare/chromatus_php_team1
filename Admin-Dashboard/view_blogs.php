@@ -6,11 +6,11 @@
 		header("Location:index.php");
 	}*/
 	$common_msg ="";
-	 if(isset($_GET['del_blog_id']))
+	 if(isset($_GET['blog_id']))
 	 {
-		$delete_id = $_GET['del_blog_id'];
+		$delete_id = $_GET['blog_id'];
 
-		//$db->delete_news_details_by_id($delete_id);
+		$db->delete_blog_details_by_id($delete_id);
 		$common_msg	=	"News record deleted successfully.";
 	 }
 ?>
@@ -124,8 +124,8 @@
                                                 echo "<td>".$blog_meta_desc."</td>";
                                                 echo "<td>".$blog_image."</td>";
                                                 echo "<td>".$blog_permalink."</td>";
-                                                echo "<td><a href='edit_blog.php'><i class='fa fa-edit'></i></a></td>";
-                                                echo "<td><a href='edit_blog.php'><i class='fa fa-trash'></i></a></td>";
+                                                echo "<td><a href='edit_blog.php?blog_id=".$blogID."'><i class='fa fa-edit'></i></a></td>";
+                                                echo "<td><a href='view_blogs.php?blog_id=".$blogID."'><i class='fa fa-trash'></i></a></td>";
                                                 echo "</tr>";
                                                 $counter++;
                                               }

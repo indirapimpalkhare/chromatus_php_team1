@@ -148,7 +148,7 @@
                                                                             <th scope="col">Meta Description</th>
                                                                             <th scope="col">Image</th>
                                                                             <th scope="col">Permalink</th>
-                                                                            <th>Edit</th>
+                                                                            <th>Restore</th>
                                                                             <th>Delete</th>
                                                                           </tr>
                                                                         </thead>
@@ -183,8 +183,8 @@
                                                                         echo "<td>".$blog_meta_desc."</td>";
                                                                         echo "<td>".$blog_image."</td>";
                                                                         echo "<td>".$blog_permalink."</td>";
-                                                                        echo "<td class='text-center'><a href='trash_blog.php?restore_blog_id='".$blogID."' class='delete_option'><i class='fa fa-repeat fa-2x'></i></a></td>";
-                                                                        echo "<td class='text-center'><a href='trash_blog.php?del_blog_id='".$blogID."' class='delete_option'><i class='fa fa-trash fa-2x'></i></a></td>";
+                                                                        echo "<td class='text-center'><a href='trash_blog.php?restore_blog_id=".$blogID."' class='delete_option'><i class='fa fa-repeat fa-2x'></i></a></td>";
+                                                                        echo "<td class='text-center'><a href='trash_blog.php?del_blog_id=".$blogID."' class='delete_option'><i class='fa fa-trash fa-2x'></i></a></td>";
                                                                         echo "</tr>";
                                                                         $counter++;
                                                                       }
