@@ -1,8 +1,8 @@
 
 
 <?php  
-//index.php
-$connect = mysqli_connect("localhost", "root", "", "chromatus_db");
+
+$connect = mysqli_connect("localhost", "root", "", "db_chromatus");
 $query = "SELECT * FROM user";
 $result = mysqli_query($connect, $query);
  ?>  
