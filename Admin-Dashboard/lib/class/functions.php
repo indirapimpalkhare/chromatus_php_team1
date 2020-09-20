@@ -1089,23 +1089,26 @@
 					}
 				}
 			}
-            
-            function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
+
+      function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
 			{
 				$date = date("Y-m-d");
-
-				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release`(`title`, `category`, `metaDescription`, `description`, `permalink`, `Addeddate`) VALUES (?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded`) VALUES (?,?,?,?,?,?)"))
 				{
+					echo "in if";
 					$stmt_insert->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
-
+					echo "bind";
 					if($stmt_insert->execute())
 					{
+						echo "Hi";
 						return true;
 					}
+					echo $stmt_insert -> error;
 					return false;
+
 				}
 			}
-        // -------view------- //    
+        // -------view------- //
             function fetch_pr_records()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `status` = 1"))
@@ -1175,7 +1178,7 @@
 					}
 				}
 			}
-            
+
             function update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `prID`= ? "))
@@ -1193,11 +1196,11 @@
 				}
 			}
 
-         
+
 
 /*
 
-            
+
 			function fetch_news_deleted_records()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 0"))
