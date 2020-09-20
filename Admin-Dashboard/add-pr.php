@@ -30,7 +30,7 @@
         { 
             
             $db->add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink);    
-            $common_msg =   "Press Release Added successfully.";
+            $common_msg =   "PR Added successfully.";
         }
         
     }
@@ -42,7 +42,7 @@
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Add News</title>
+    <title> Chromatus Consulting | Add PR</title>
 
  
 
@@ -88,8 +88,8 @@
                                 <div class="page-wrapper">
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10">Add Press Release</h5>
-                                            <p class="text-muted m-b-10">You can add your Press Release here..</p>
+                                            <h5 class="m-b-10">Add PR</h5>
+                                            <p class="text-muted m-b-10">You can add your PR here..</p>
                                         </div>
                                     </div>
 
@@ -99,8 +99,8 @@
                                             <div class="col-sm-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                    <h5>Add Press Release Details</h5>
-                                                    <span>Please Add the Press Release Details..</span>
+                                                    <h5>Add PR Details</h5>
+                                                    <span>Please Add the PR Details..</span>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12"> 
@@ -122,8 +122,8 @@
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
 
-                                                                                <input type="text" name="pr-title" placeholder="Enter Press Release Title" required>
-                                                                                <span class="j-tooltip j-tooltip-right-top">Enter Press Release Title</span> 
+                                                                                <input type="text" name="pr-title" placeholder="Enter PR Title" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter PR Title</span> 
                                                                             </div>
                                                                         </div>
                                                                     
@@ -131,7 +131,7 @@
                                                                             <div class="j-input">
                                                                                 
                                                                                 <select class="custom-select custom-select-lg mb-3" name="pr-category">
-                                                                                  <option selected value="">Select Press Release Category</option>
+                                                                                  <option selected value="">Select PR Category</option>
                                                                                   <?php
                                                                                         $get_category = $db->fetch_pr_category();
                                                                                         if(!empty($get_category))

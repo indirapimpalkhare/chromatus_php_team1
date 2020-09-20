@@ -928,7 +928,7 @@
 
 
 
-function add_pr_category($pr_category)
+            function add_pr_category($pr_category)
 			{
 				if($stmt_insert = $this->con->prepare("INSERT INTO `pr_category`(`name`) VALUES (?)"))
 				{
@@ -1089,12 +1089,12 @@ function add_pr_category($pr_category)
 					}
 				}
 			}
-
+            
             function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
 			{
 				$date = date("Y-m-d");
 
-				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release`(`title`, `category`, `metaDescription`, `description`, `permalink`, `date`) VALUES (?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release`(`title`, `category`, `metaDescription`, `description`, `permalink`, `Addeddate`) VALUES (?,?,?,?,?,?)"))
 				{
 					$stmt_insert->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
 
@@ -1105,8 +1105,48 @@ function add_pr_category($pr_category)
 					return false;
 				}
 			}
+            
+            function fetch_pr_records()
+			{
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `status` = 1"))
+				{
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+						$counter	=	0;
+
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $pr_id;
+							$data[$counter][1] = $pr_title;
+							$data[$counter][2] = $pr_category;
+							$data[$counter][3] = $pr_metadesc;
+							$data[$counter][4] = $pr_desc;
+							$data[$counter][5] = $pr_permalink;
+							$data[$counter][6] = $date;
+
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+            
+
+         
 
 /*
+
+            
 			function fetch_news_records()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1"))

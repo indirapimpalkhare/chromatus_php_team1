@@ -26,7 +26,7 @@
                      </a>
                   </li>
 			         <li class="">
-                     <a href="view_pr.php">
+                     <a href="view-pr.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">View Reports</span>
                      <span class="pcoded-mcaret"></span>
