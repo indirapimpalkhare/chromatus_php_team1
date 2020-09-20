@@ -580,7 +580,7 @@
 		}
 
 
-		function fetch_blog_deleted_records()
+		function get_blog_deleted_records()
 		{
 			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`,`status` FROM `blog` WHERE `status` = 0"))
 			{
@@ -758,7 +758,7 @@
 
 		function permanent_delete_blog_category_by_id($delete_id)
 		{
-			if($stmt_delete = $this->con->prepare("DELETE FROM `news_category` where `newsCategoryID` = ?"))
+			if($stmt_delete = $this->con->prepare("DELETE FROM `blog_category` where `blogCategoryID` = ?"))
 			{
 				$stmt_delete->bind_param("i",$delete_id);
 
