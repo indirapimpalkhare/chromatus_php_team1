@@ -984,6 +984,35 @@
 			}
 		}
 
+		function get_all_image_details_by_id($id){
+			if($stmt_select = $this->con->prepare("SELECT `imageID`, `image`, `image_text` FROM `homepage` where `imageID` = ?"))
+			{
+				$stmt_select->bind_param("s",$id);
+				$stmt_select->bind_result($image_id, $image, $image_text);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+
+					while($stmt_select->fetch())
+					{
+						$data[0] = $image_id;
+						$data[1] = $image;
+						$data[2] = $image_text;
+						
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
 		function get_all_trashed_image_details(){
 			if($stmt_select = $this->con->prepare("SELECT `imageID`, `image`, `image_text`,`display` FROM `homepage` where `status` = 0"))
 			{
