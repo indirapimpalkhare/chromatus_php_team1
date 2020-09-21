@@ -12,7 +12,8 @@
     $pr_metadesc  =  "";
     $pr_desc      =  "";
     $pr_permalink =  "";
-
+    $pr_image = "";
+    $target_dir = "img/uploads/";
     $common_msg  =  "";
     $common_msg1 =  "";
     $flag = 0;
@@ -24,12 +25,21 @@
         $pr_metadesc  =  $_POST['pr-metaDesc'];
         $pr_desc      =  $_POST['pr-desc'];
         $pr_permalink =  $_POST['pr-permalink'];
-
-
+        $target_file = $target_dir . basename($_FILES["pr_image"]["name"]);
+        $pr_image = $_FILES['pr_image']['name'];
+        echo $pr_image;
+        
         if($flag==0)
         {
-            $db->add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink);
-            $common_msg =   "PR Added successfully.";
+            if (move_uploaded_file($_FILES['pr_image']['tmp_name'], $target_file))
+            {
+                $db->add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink);
+                $common_msg =   "PR Added successfully.";
+            }
+            else 
+            {
+                $common_msg = "Sorry, there was an error adding PR.";
+            }
         }
 
     }
@@ -123,6 +133,12 @@
 
                                                                                 <input type="text" name="pr-title" placeholder="Enter PR Title" required>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter PR Title</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" required accept="image/*">
+                                                                                <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
                                                                             </div>
                                                                         </div>
 
