@@ -13,9 +13,7 @@
     $blog_desc      =  "";
     $blog_image = "";
     $target_dir = "img/uploads/";
-
     $blog_permalink =  "";
-
     $common_msg  =  "";
     $common_msg1 =  "";
     $flag = 0;

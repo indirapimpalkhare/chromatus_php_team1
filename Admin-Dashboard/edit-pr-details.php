@@ -29,6 +29,8 @@
 	$result_metaDesc    = "";
 	$result_description = "";
 	$result_permalink 	= "";
+    $pr_image           = "";
+    $target_dir         = "img/uploads/";
 
 	
 	if(!empty($pr_data))
@@ -38,8 +40,11 @@
 	$result_category			=	$pr_data[2];
 	$result_metaDesc 			=	$pr_data[3];
 	$result_description         =	$pr_data[4];
-	$result_permalink			=	$pr_data[5];
-	 
+	$pr_image_og                =   $pr_data[5];
+    $result_permalink			=	$pr_data[6];
+    
+    echo $pr_image_og;
+    $image_disp = $target_dir ."/". $pr_image_og;
 			
 	}
 	if(isset($_POST['edit']))
@@ -49,16 +54,32 @@
 		$pr_metadesc	=	$_POST['pr-metaDesc']; 
 		$pr_desc		=	$_POST['pr-desc']; 
 		$pr_permalink	=	$_POST['pr-permalink'];
+        if($_FILES["pr_image"]["error"] == 4) 
+        {
+            //means there is no file uploaded
+            $pr_image = $pr_image_og;
+        }
+        else
+        {
+            $pr_image = $_FILES['pr_image']['name'];
+
+            $target_file = $target_dir . basename($_FILES["pr_image"]["name"]);
+    
+            if (move_uploaded_file($_FILES['pr_image']['tmp_name'], $target_file))
+            {
+                $common_msg = "File upload successful";
+            }
+        }
 			 
-			if($db->update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id))
-			{
-					  $common_msg	=	"PR Updated Successfully.";
-			}
-			else
-			{
-					$common_msg1	= "Failed";
+        if($db->update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id))
+        {
+            $common_msg	=	"PR Updated Successfully.";
+        }
+        else
+        {
+            $common_msg1	= "Failed";
 					 
-			}
+        }
 		
 	}   
 	
@@ -67,7 +88,7 @@
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Update News</title>
+    <title> Chromatus Consulting | Update PR</title>
 
  
 
@@ -148,6 +169,16 @@
 
                                                                                 <input type="text" value="<?php echo $result_title; ?>" name="pr-title" placeholder="Enter PR Title" required>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter PR Title</span> 
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" accept="image/*" value = "<?php echo $pr_image?>">
+                                                                                <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
+                                                                                <img src = "<?php echo $image_disp ?>" width="40%" alt="Current Image">
+
+
                                                                             </div>
                                                                         </div>
                                                                     
