@@ -1059,7 +1059,7 @@
 
 		}
 
-		function retsore_image($image_id){
+		function restore_image($image_id){
 			if($stmt_update = $this->con->prepare("UPDATE `homepage` SET `status` = 1 where `imageID` = ?"))
 			{
 				$stmt_update->bind_param("s",$image_id);
@@ -1080,10 +1080,8 @@
 
 // ---- PRESS RELEASE STARTS HERE ---- //
 
-                                                //----- PR Category ------//
-            
-            //------ add ------//
-            
+
+
             function add_pr_category($pr_category)
 			{
 				if($stmt_insert = $this->con->prepare("INSERT INTO `pr_category`(`name`) VALUES (?)"))
@@ -1125,8 +1123,6 @@
 					}
 				}
 			}
-            
-            //-----Display-----//
 			function fetch_pr_deleted_category()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name` FROM `pr_category` where `status` = 0"))
@@ -1155,8 +1151,6 @@
 					}
 				}
 			}
-            
-            //--------delete-----------//
 			function delete_pr_category_by_id($delete_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `status` = 0 where `prCategoryID` = ?"))
@@ -1220,16 +1214,13 @@
 					}
 				}
 			}
-            
-                                                        //------PR Details--------//
-            
-            //------------add-----------//  //done-1
-            function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink)
+
+            function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
 			{
 				$date = date("Y-m-d");
-				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`, `category`, `metaDescription`, `description`, `image`,`permalink`, `dateAdded`) VALUES (?,?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded`) VALUES (?,?,?,?,?,?)"))
 				{
-					$stmt_insert->bind_param("sssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date);
+					$stmt_insert->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
 					if($stmt_insert->execute())
 					{
 						return true;
@@ -1273,13 +1264,13 @@
 					}
 				}
 			}
-            //-----------update-----------// //done-1
+            //-----------update-----------//
 
-            function update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id)
+            function update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?,`permalink`=? where `prID`= ? "))
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `prID`= ? "))
 				{
-					$stmt_update->bind_param("sssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_image,$pr_id);
+					$stmt_update->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id);
 
 					if($stmt_update->execute())
 					{
@@ -1293,10 +1284,10 @@
 			}
             function fetch_pr_full_details_by_id($pr_id)
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `prID` = ?"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `prID` = ?"))
 				{
 					$stmt_select->bind_param("s",$pr_id);
-					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
 
 					if($stmt_select->execute())
 					{
@@ -1310,11 +1301,8 @@
 							$data[2] = $pr_category;
 							$data[3] = $pr_metadesc;
 							$data[4] = $pr_desc;
-                            $data[5] = $pr_image;
-							$data[6] = $pr_permalink;
-							$data[7] = $date_added;
-                            $data[8] = $date_modified;
-                            $data[9] = $status;
+							$data[5] = $pr_permalink;
+							$data[6] = $date;
 
 						}
 						if(!empty($data))
