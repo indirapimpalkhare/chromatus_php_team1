@@ -984,6 +984,37 @@
 			}
 		}
 
+		function get_all_trashed_image_details(){
+			if($stmt_select = $this->con->prepare("SELECT `imageID`, `image`, `image_text`,`display` FROM `homepage` where `status` = 0"))
+			{
+				$stmt_select->bind_result($image_id, $image, $image_text, $display);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+					$counter	=	0;
+
+					while($stmt_select->fetch())
+					{
+						$data[$counter][0] = $image_id;
+						$data[$counter][1] = $image;
+						$data[$counter][2] = $image_text;
+						$data[$counter][3] = $display;
+						//$data[$counter][1] = $category_name;
+						$counter++;
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
 		function add_image($image, $image_text){
 			if($stmt_insert = $this->con->prepare("INSERT INTO `homepage` (`image`, `image_text`) VALUES (?,?)"))
 			{
@@ -1016,7 +1047,7 @@
 		function permanent_delete_image_by_id($image_id){
 			if($stmt_delete = $this->con->prepare("DELETE FROM `homepage` where `imageID` = ?"))
 			{
-				$stmt_delete->bind_param("i",$delete_id);
+				$stmt_delete->bind_param("i",$image_id);
 
 				if($stmt_delete->execute())
 				{
