@@ -786,11 +786,11 @@
 			}
 		}
 
-		function update_blog_full_details_by_id($blog_title,$blog_category,$blog_meta_desc,$blog_desc,$blog_image,$blog_permalink)
+		function update_blog_full_details_by_id($blog_id,$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$blog_image,$blog_permalink)
 		{
 			if($stmt_update = $this->con->prepare("UPDATE `blog` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?, `permalink`=? where `blogID`= ? "))
 			{
-				$stmt_update->bind_param("sssssss",$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$blog_image,$blog_permalink);
+				$stmt_update->bind_param("sssssss",$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$blog_image,$blog_permalink,$blog_id);
 
 				if($stmt_update->execute())
 				{

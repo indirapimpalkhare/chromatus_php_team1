@@ -34,32 +34,44 @@ $target_dir = "img/uploads/";
 $blog_permalink =  "";
 
 
+
 if(!empty($blog_data))
 {
   $blog_title = $blog_data[1];
   $blog_category = $blog_data[2];
   $blog_meta_desc = $blog_data[3];
   $blog_desc = $blog_data[4];
-  $blog_image = $blog_data[5];
+  $blog_image_og = $blog_data[7];
   //echo $blog_image;
-  $blog_permalink = $blog_data[6];
-  $image_disp = $target_dir ."/". $blog_image;
-
-
-
+  $blog_permalink = $blog_data[8];
+  $image_disp = $target_dir ."/". $blog_image_og;
 }
+
 if(isset($_POST['edit']))
 {
-  $target_file = $target_dir . basename($_FILES["blog_image"]["name"]);
+
   $blog_title = $_POST['blog_title'];
+
   $blog_category = $_POST['blog_category'];
   $blog_meta_desc = $_POST['blog_meta_desc'];
   $blog_desc = $_POST['blog_desc'];
-  $blog_image = $_FILES['blog_image']['name'];
-  //echo $blog_image;
   $blog_permalink = $_POST['blog_permalink'];
 
-    if($db->update_blog_full_details_by_id($blog_title,$blog_category,$blog_meta_desc,$blog_desc, $blog_image, $blog_permalink))
+  if($_FILES["blog_image"]["error"] == 4) {
+  //means there is no file uploaded
+    $blog_image = $blog_image_og;
+  }
+  else{
+    $blog_image = $_FILES['blog_image']['name'];
+
+    $target_file = $target_dir . basename($_FILES["blog_image"]["name"]);
+    
+    if (move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_file)){
+      $common_msg = "File upload successful";
+    }
+  }
+
+    if($db->update_blog_full_details_by_id($id,$blog_title,$blog_category,$blog_meta_desc,$blog_desc, $blog_image, $blog_permalink))
     {
           $common_msg	=	"Blog Updated Successfully.";
     }
@@ -68,6 +80,9 @@ if(isset($_POST['edit']))
         $common_msg1	= "Failed";
 
     }
+
+  //echo $blog_image;
+
 
 }
 ?>
@@ -160,9 +175,11 @@ if(isset($_POST['edit']))
 
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <input type="file" name="blog_image" placeholder="Select Blog Image" required accept="image/*" value = "<?php echo $blog_image?>">
-                                                                                <img src = "<?php echo $image_disp ?>" width="20%">
+                                                                                <input type="file" name="blog_image" placeholder="Select Blog Image" accept="image/*" value = "<?php echo $blog_image?>">
                                                                                 <span class="j-tooltip j-tooltip-right-top">Select Blog Image</span>
+                                                                                <img src = "<?php echo $image_disp ?>" width="40%" alt="Current Image">
+
+
                                                                             </div>
                                                                         </div>
 
@@ -208,13 +225,15 @@ if(isset($_POST['edit']))
 
                                                                          <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <textarea name="blog_meta_desc"  placeholder="Enter Meta Description" required value="<?php echo $blog_meta_desc ?>"></textarea>
+                                                                                <textarea name="blog_meta_desc"  placeholder="Enter Meta Description" required><?php echo $blog_meta_desc ?>
+                                                                                </textarea>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Meta Description</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <textarea name="blog_desc" class="ckeditor" placeholder="Enter Description" value="<?php echo $blog_desc ?>"></textarea>
+                                                                                <textarea name="blog_desc" class="ckeditor" placeholder="Enter Description"><?php echo $blog_desc ?>
+                                                                                </textarea>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Description</span>
                                                                             </div>
                                                                         </div>
@@ -238,7 +257,7 @@ if(isset($_POST['edit']))
                                                                 </div>
 
                                                                 <div class="j-footer">
-                                                                    <input type="submit" value="Submit" name="submit_btn" class="btn btn-primary" />
+                                                                    <input type="submit" value="Submit" name="edit" class="btn btn-primary" />
                                                                     <button type="reset" class="btn btn-default m-r-20">Reset</button>
                                                                 </div>
 

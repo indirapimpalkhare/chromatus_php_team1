@@ -122,10 +122,10 @@
                                                 echo "<td>".$datemod."</td>";
                                                 echo "<td>".$blog_category."</td>";
                                                 echo "<td>".$blog_meta_desc."</td>";
-                                                echo "<td>".$blog_image."</td>";
+                                                echo "<td><img src='img/uploads/".$blog_image."' height='20%'></td>";
                                                 echo "<td>".$blog_permalink."</td>";
-                                                echo "<td><a href='edit_blog.php?blog_id=".$blogID."'><i class='fa fa-edit'></i></a></td>";
-                                                echo "<td><a href='view_blogs.php?blog_id=".$blogID."'><i class='fa fa-trash'></i></a></td>";
+                                                echo "<td><a href='edit_blog.php?blog_id=".$blogID."'><i class='fa fa-edit fa-2x'></i></a></td>";
+                                                echo "<td><a href='view_blogs.php?blog_id=".$blogID."'><i class='fa fa-trash fa-2x'></i></a></td>";
                                                 echo "</tr>";
                                                 $counter++;
                                               }
@@ -143,7 +143,7 @@
                                   </div>
                                   <br>
                                   <br>
-                                  <a href='add_blog.php'><i class='fa fa-plus'></i>Add Blog</a>
+                                  <a href='add_blog.php' style="font-size:20px;"><i class='fa fa-plus fa-2x'></i> Add Blog</a>
                               </div>
                             </div>
                         </div>
