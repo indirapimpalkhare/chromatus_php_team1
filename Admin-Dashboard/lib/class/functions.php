@@ -883,9 +883,10 @@
 				}
 			}
 		}
+
+		// HOME //
 		/*
-		//frontend code...
-		function fetch_news_records_by_name($category)
+		function fetch_latest__records_by_name($category)
 		{
 			if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 AND category = ?"))
 			{
@@ -922,9 +923,157 @@
 		} */
 
 		// ---- BLOGS END ---- //
+		// ----- HOMEPAGE ---//
+		//For display
+		function get_all_carousel_images(){
+			if($stmt_select = $this->con->prepare("SELECT `image` FROM `homepage` where `display` = 1 AND `status` = 1"))
+			{
+				$stmt_select->bind_result($image);
 
+				if($stmt_select->execute())
+				{
+					$data = array();
+					$counter	=	0;
 
+					while($stmt_select->fetch())
+					{
+						$data[$counter] = $image;
+						//$data[$counter][1] = $category_name;
+						$counter++;
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+		//dashboard view
+		function get_all_image_details(){
+			if($stmt_select = $this->con->prepare("SELECT `imageID`, `image`, `image_text`,`display` FROM `homepage` where `status` = 1"))
+			{
+				$stmt_select->bind_result($image_id, $image, $image_text, $display);
 
+				if($stmt_select->execute())
+				{
+					$data = array();
+					$counter	=	0;
+
+					while($stmt_select->fetch())
+					{
+						$data[$counter][0] = $image_id;
+						$data[$counter][1] = $image;
+						$data[$counter][2] = $image_text;
+						$data[$counter][3] = $display;
+						//$data[$counter][1] = $category_name;
+						$counter++;
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
+		function add_image($image, $image_text){
+			if($stmt_insert = $this->con->prepare("INSERT INTO `homepage` (`image`, `image_text`) VALUES (?,?)"))
+			{
+				$stmt_insert->bind_param("ss",$image, $image_text);
+
+				if($stmt_insert->execute())
+				{
+					return true;
+				}
+				return false;
+			}
+		}
+
+		function soft_delete_image_by_id($image_id){
+			if($stmt_update = $this->con->prepare("UPDATE `homepage` SET `status` = 0 where `imageID` = ?"))
+			{
+				$stmt_update->bind_param("s",$image_id);
+
+				if($stmt_update->execute())
+				{
+				return true;
+				}
+				else
+				{
+				return false;
+				}
+			}
+		}
+
+		function permanent_delete_image_by_id($image_id){
+			if($stmt_delete = $this->con->prepare("DELETE FROM `homepage` where `imageID` = ?"))
+			{
+				$stmt_delete->bind_param("i",$delete_id);
+
+				if($stmt_delete->execute())
+				{
+					return false;
+				}
+			}
+		}
+
+		function edit_image($image_id, $image, $image_text){
+			if($stmt_update = $this->con->prepare("UPDATE `homepage` SET `image`= ?, `image_text` = ? where `imageID`= ?"))
+			{
+				$stmt_update->bind_param("sss", $image, $image_text,$image_id);
+
+				if($stmt_update->execute())
+				{
+				return true;
+				}
+				else
+				{
+				return false;
+				}
+			}
+		}
+
+		function change_image_display($image_id, $display){
+
+			if($stmt_update = $this->con->prepare("UPDATE `homepage` SET `display`= ? where `imageID`= ?"))
+			{
+				$stmt_update->bind_param("ss", $display, $image_id);
+
+				if($stmt_update->execute())
+				{
+				return true;
+				}
+				else
+				{
+				return false;
+				}
+			}
+
+		}
+
+		function retsore_image($image_id){
+			if($stmt_update = $this->con->prepare("UPDATE `homepage` SET `status` = 1 where `imageID` = ?"))
+			{
+				$stmt_update->bind_param("s",$image_id);
+
+				if($stmt_update->execute())
+				{
+				return true;
+				}
+				else
+				{
+				return false;
+				}
+			}
+		}
 
 
 
