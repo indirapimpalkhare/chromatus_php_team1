@@ -7,147 +7,157 @@
 
       </header>
 <style>
-.pricing-table{
- background-color:#fff;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-@media screen and (max-width:1100px){
-  .pricing-card{
-    flex: 50%;
-  }
-}
-.pricing-table{
-  display: flex;
-  flex-wrap:wrap
-  justify-content: space-around;
-  width: min(1400px, 68%);
-  align-items:center;
-  margin:auto;
- 
+
+  @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.pricing-card{
-  flex: 1;
-  max-width: 300px;
-  height:380px;
-  background-color: #cce6ff;
-  margin: 20px 10px;
+body{
+  background: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrapper{
+  margin-top: 50px;
   text-align: center;
-  cursor: pointer;
-  overflow: hidden;
-  color: #2d2d2d;
-  transition: .3s linear;
+  line-height: 20px;
 }
 
-.pricing-card-header{
-  background-color: #4da6ff;
-  display: inline-block;
-  color: #fff;
-  padding: 12px 30px;
-  border-radius: 0 0 20px 20px;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: .4s linear;
+.wrapper h1{
+  font-family: 'Allura', cursive;
+  font-size: 52px;
+  margin-bottom: 25px;
+  letter-spacing: 10px;
 }
 
-.pricing-card:hover .pricing-card-header{
-  box-shadow: 0 0 0 15em #4da6ff;
-}
-
-.price{
-  font-size: 70px;
-  color: #4da6ff;
-  margin: 40px 0;
-  transition: .2s linear;
-}
-
-.price sup, .price span{
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.pricing-card:hover ,.pricing-card:hover .price{
+.wrapper h1+p{
+  width: 60%;
+  margin: 0 auto 50px;
   color: #fff;
 }
 
-.pricing-card li{
-  font-size: 18px;
-  padding: 8px 0;
-  text-transform: uppercase;
+.wrapper .pricing_wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-.order-btn{
-  display: inline-block;
-  margin-bottom: 18px;
-  margin-top: 15px;
-  border: 2px solid #4da6ff;
-  color: #4da6ff;
-  padding: 15px 35px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: .3s linear;
+.wrapper .pricing_wrapper .pricing_item{
+  background: #fff;
+  margin: 5px 10px;
+  margin-bottom: 50px;
+  width: 320px;
+  padding: 30px 20px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25);
 }
 
-.order-btn:hover{
-  background-color: #4da6ff;
+.wrapper .pricing_wrapper .pricing_item h3{
+  font-size: 26px;
+}
+
+.wrapper .pricing_wrapper .pricing_item p.money{
+  margin: 50px 0 20px;
+  font-size: 52px;
+  color: #248f8f;
+}
+
+.wrapper .pricing_wrapper .pricing_item p.money span{
+  font-size: 14px;
+  color: #000000;
+}
+
+.wrapper .pricing_wrapper .pricing_item p{
+  color: #000000;
+  font-size: 20px;
+}
+
+.wrapper .pricing_wrapper .pricing_item a.btn{
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
   color: #fff;
+  background: #248f8f;
+  padding: 12px;
+  border-radius: 15px;
+  
 }
+
+ .wrapper .pricing_wrapper .pricing_item:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
 </style>
       
-     <div class="main-content " style="">
-        
-     <section class="Contact-us">
-        <div class="contactus-wrapper">
-          <div class="topbanner">
-            <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Pricing</h2></div>
-            <div class="linear-bottom">
-              <div class="title-underline"></div>
-              <br>
-              <div style="color:#4da6ff"><h4>All-inclusive Online PR Distribution</h4></div>
+       <div class="main-content " style="">
+          
+       <section class="Contact-us">
+          <div class="contactus-wrapper">
+            <div class="topbanner">
+              <div id="page-heading"><h2 class="text-center text-capitalize topbannerheading">Pricing</h2></div>
+              <div class="linear-bottom">
+                <div class="title-underline"></div>
+                <br>
+                <div style="color:#000000"><h4>All-inclusive Online PR Distribution</h4></div>
+              </div>
+
             </div>
-
-          </div>
+          
         
-      <div class="pricing-table">
-        <div class="pricing-card">
-          <h3 class="pricing-card-header">Basic</h3>
-          <div class="price"><sup>$</sup>99<span>/MO</span></div>
-          <ul>
-            <li><strong>1</strong> Press Release</li>
-          </ul>
-          <a href="contact.php" class="order-btn">Order Now</a>
-        </div>
-
-        <div class="pricing-card">
-          <h3 class="pricing-card-header">Standard</h3>
-          <div class="price"><sup>$</sup>199<span>/MO</span></div>
-          <ul>
-            <li><strong>10</strong> Press Release</li>    
-          </ul>
-          <a href="contact.php" class="order-btn">Order Now</a>
-        </div>
-
-        <div class="pricing-card">
-          <h3 class="pricing-card-header">Premium</h3>
-          <div class="price"><sup>$</sup>999<span>/MO</span></div>
-          <ul>
-            <li><strong>100</strong> Press Release</li>  
-          </ul>
-          <a href="contact.php" class="order-btn">Order Now</a>
-        </div> 
-      </div>
+        <div class="wrapper">
       
- 
-        <!-- Contact Us -->     
-     
-        </div>
-        
-      </section>
-</div>
-    <?php require_once('include/footer.php'); ?>
+     <div class="pricing_wrapper">
+       <div class="pricing_item">
+         <h2><b>Basic</b></h2>
+         <p class="money">
+           $99<br><span>per month</span>
+         </p>
+         <p> <ul>
+              <li><h5>1 Press Release</h5></li>    
+            </ul>
+         </p>
+         <br>
+          <a href="contact.php" class="btn">Contact Us</a>
+       </div>
+
+       <div class="pricing_item">
+         <h2><b>Standard</b></h2>
+         <p class="money">
+           $199<br><span>per month</span>
+         </p>
+         <p>
+          <ul>
+              <li><h5>10 Press Release</h5></li>    
+            </ul>
+         </p>
+         <br>
+         <a href="contact.php" class="btn">Contact Us</a>
+       </div>
+       
+       <div class="pricing_item">
+         <h2><b>Premium</b></h2>
+         <p class="money">
+           $999<br><span>per month</span>
+         </p>
+         
+           <p>
+          <ul>
+              <li><h5>100 Press Release</h5></li>    
+            </ul>
+         </p>
+         <br>
+         <a href="contact.php" class="btn">Contact Us</a>
+       </div>
+    </div>
+    
+  </div>
+  </div>
+  </section>
+   </div>
+      <?php require_once('include/footer.php'); ?>
   </body>
-</html>
+  </html>
