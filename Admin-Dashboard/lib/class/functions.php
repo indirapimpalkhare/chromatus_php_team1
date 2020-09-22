@@ -389,7 +389,7 @@
 			//Contact Us Code
 			function set_contact($name,$email,$mobno,$companyname,$country,$position,$msg)
 			{
-				if($stmt_insert = $this->con->prepare("INSERT INTO `contact_uc`(`name`, `email`, `mobile`, `company`, `country`, `position`, `message`) VALUES (?,?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `contact_us`(`name`, `email`, `mobile`, `company`, `country`, `position`, `message`) VALUES (?,?,?,?,?,?,?)"))
 				{
 					$stmt_insert->bind_param("sssssss",$name,$email,$mobno,$companyname,$country,$position,$msg);
 
@@ -404,7 +404,7 @@
 
 			function fetch_contact_details()
 			{
-				if($stmt_select = $this->con->prepare("SELECT`contactID`, `name`, `email`, `mobile`, `company`, `country`, `position`, `message`, `date` FROM `contact_uc` where `status` = 1"))
+				if($stmt_select = $this->con->prepare("SELECT`contactID`, `name`, `email`, `mobile`, `company`, `country`, `position`, `message`, `date` FROM `contact_us` where `status` = 1"))
 				{
 					$stmt_select->bind_result($contact_id,$sender_name,$sender_email,$sender_mobile,$sender_company,$sender_country,$sender_position,$msg,$date);
 
@@ -440,7 +440,7 @@
 			}
 			function fetch_deleted_contact_details()
 			{
-				if($stmt_select = $this->con->prepare("SELECT`contactID`, `name`, `email`, `mobile`, `company`, `country`, `position`, `message`, `date` FROM `contact_uc` where `status` = 0"))
+				if($stmt_select = $this->con->prepare("SELECT`contactID`, `name`, `email`, `mobile`, `company`, `country`, `position`, `message`, `date` FROM `contact_us` where `status` = 0"))
 				{
 					$stmt_select->bind_result($contact_id,$sender_name,$sender_email,$sender_mobile,$sender_company,$sender_country,$sender_position,$msg,$date);
 
@@ -476,7 +476,7 @@
 			}
 			function delete_mail_by_id($delete_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `contact_uc` SET `status` = 0 where `contactID` = ?"))
+				if($stmt_update = $this->con->prepare("UPDATE `contact_us` SET `status` = 0 where `contactID` = ?"))
 				{
 					$stmt_update->bind_param("s",$delete_id);
 
@@ -494,7 +494,7 @@
 
 			function permanent_mail_by_id($delete_id)
 			{
-				if($stmt_delete = $this->con->prepare("DELETE FROM `contact_uc` where `contactID` = ?"))
+				if($stmt_delete = $this->con->prepare("DELETE FROM `contact_us` where `contactID` = ?"))
 				{
 					$stmt_delete->bind_param("i",$delete_id);
 
@@ -507,7 +507,7 @@
 
 			function restore_deleted_mail_by_id($restore_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `contact_uc` SET `status` = 1 where `contactID` = ?"))
+				if($stmt_update = $this->con->prepare("UPDATE `contact_us` SET `status` = 1 where `contactID` = ?"))
 				{
 					$stmt_update->bind_param("s",$restore_id);
 
