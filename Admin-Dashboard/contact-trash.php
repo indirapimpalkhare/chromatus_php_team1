@@ -1,14 +1,15 @@
 <?php
 	require_once("lib/class/functions.php");
 	$db = new functions();
-	$common_msg1 = "";
-	$common_msg  = "";
-	/*if(!isset($_SESSION['current_admin']))
+	if(!isset($_SESSION['current_admin']))
 	{	
 		header("Location:index.php");
-	}*/
-	 
-	 $common_msg ="";
+	}
+
+	$common_msg1 = "";
+	$common_msg  = "";
+	$common_msg ="";
+	
 	if(isset($_GET['del_contact_id']))
 	{
 		$delete_id = $_GET['del_contact_id'];		

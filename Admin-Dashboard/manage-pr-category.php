@@ -11,11 +11,13 @@
     {
     $delete_id = $_GET['del_category_id'];      
     
-    $db->delete_news_category_by_id($delete_id);
+    $db->delete_pr_category_by_id($delete_id);
     $common_msg1 =   "Category deleted successfully.";
     }  
    
-    $news_category  =  ""; 
+    $pr_category  =  "";
+    $pr_category_image = "";
+    $target_dir = "img/uploads/";
     
     $common_msg  =  "";
     $flag = 0;
@@ -23,12 +25,22 @@
     if(isset($_POST['submit_btn']))
     { 
        
-        $news_category  =  $_POST['news-category'];  
+        $pr_category  =  $_POST['pr-category'];
+        $target_file = $target_dir . basename($_FILES["pr_category_image"]["name"]);
+        $pr_category_image = $_FILES['pr_category_image']['name'];
         if($flag==0)
         { 
+            if (move_uploaded_file($_FILES['pr_category_image']['tmp_name'], $target_file))
+            {
+                 $db->add_pr_category($pr_category,$pr_category_image);    
+                $common_msg =   "Category Added successfully.";
+            }
+            else 
+            {
+                $common_msg = "Sorry, there was an error adding PR.";
+            }
             
-            $db->add_news_category($news_category);    
-            $common_msg =   "Category Added successfully.";
+           
         }
         
     }
@@ -40,7 +52,7 @@
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Manage News Category</title>
+    <title> Chromatus Consulting | Manage PR Category</title>
 
  
 
@@ -86,8 +98,8 @@
                                 <div class="page-wrapper">
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10">Manage News Category</h5>
-                                            <p class="text-muted m-b-10">You Can Manage News Category here..</p>
+                                            <h5 class="m-b-10">Manage PR Category</h5>
+                                            <p class="text-muted m-b-10">You Can Manage PR Category here..</p>
                                         </div>
                                     </div>
                                     <div class="page-body">
@@ -95,8 +107,8 @@
                                           <div class="col-sm-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                    <h5>Add News Category</h5>
-                                                    <span>You can Add News Category here...</span>
+                                                    <h5>Add PR Category</h5>
+                                                    <span>You can Add PR Category here...</span>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12"> 
@@ -118,10 +130,19 @@
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
 
-                                                                                <input type="text" name="news-category" placeholder="Enter News Category" required>
-                                                                                <span class="j-tooltip j-tooltip-right-top">Enter News Category</span> 
+                                                                                <input type="text" name="pr-category" placeholder="Enter PR Category" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter PR Category</span> 
                                                                             </div>
                                                                         </div>
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <div style="margin-bottom:10px; font-size:2 0px;">Insert Image :  <input type="file" name="pr_category_image" placeholder="Select PR Category Image" required accept="image/*">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
 
                                                                 <div class="j-footer"> 
                                                                     <input type="submit" value="Submit" name="submit_btn" class="btn btn-primary" />        
@@ -133,15 +154,14 @@
                                                     </div>     
                                                 </div>
                                             </div>    
-                                                
-
-                                        </div>
+                                        </div> 
+                                        
                                         <div class="col-sm-12">
 
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5> News Category</h5>
-                                                        <span>You can Update & Delete your News Category here...</span>
+                                                        <h5> PR Category</h5>
+                                                        <span>You can Update and Delete your PR Category here...</span>
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="col-md-12"> 
@@ -159,35 +179,41 @@
                                                                     <tr>
                                                                 
                                                                         <th style="width=30;text-align:center;" >Sr. No</th>
-                                                                        <th style="width=30;text-align:center;" >News Category</th>                      
-                                                                        <th style="width=30;text-align:center;">Option</th> 
-                                                                        <th style="width=30;text-align:center;">Option</th> 
+                                                                        <th style="width=30;text-align:center;" >PR Category</th>         <th style="width=30;text-align:center;" >Image</th>  
+                                                                        <th style="width=30;text-align:center;">Update</th> 
+                                                                        <th style="width=30;text-align:center;">Send to Trash</th> 
                                                                                                                                 
                                                                     </tr>
                                                                     
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-                                                                    $get_news_category   =   $db->fetch_news_category();
-                                                                            if(!empty($get_news_category))
+                                                                    $get_pr_category   =   $db->fetch_pr_category();
+                                                                            if(!empty($get_pr_category))
                                                                             {
                                                                                 $counter    =   0;
                                                                                 
-                                                                                foreach($get_news_category as $record)
+                                                                                foreach($get_pr_category as $record)
                                                                                 {
                                                                                     
-                                                                                    $got_id             =   $get_news_category[$counter][0]; 
-                                                                                    $got_news_category  =   $get_news_category[$counter][1];
+                                                                                    $got_id             =   $get_pr_category[$counter][0]; 
+                                                                                    $got_pr_category  =   $get_pr_category[$counter][1];
+                                                                                    $got_pr_category_image  =   $get_pr_category[$counter][2];
                                                                             
                                                         
                                                                                       
                                                                 ?>
                                                                     <tr>
-                                                                        <td><?php echo $counter + 1 ;?></td>
-                                                                        <td><?php echo $got_news_category ;?></td> 
-                                                                        <td><a href="edit-news-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+                                                                        <td style="text-align:center;"><?php echo $counter + 1 ;?></td>
+                                                                        
+                                                                        <td><?php echo $got_pr_category ;?></td> 
+                                                                        <td><?php echo $got_pr_category_image ;?></td> 
+                                                                        
+                                                                        <td style="text-align:center;"><a href="edit-pr-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>           
+                                                                        
+                                                                        <td style="text-align:center;"><a  href="manage-pr-category.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
                                                                             
-                                                                        <td><a href="manage-news-category.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+                                                                        
                                                                       </tr>
                                                                     <?php
                                                                         $counter++;
@@ -209,7 +235,7 @@
   
                                                 </div>
 
-                                            </div>               
+                                            </div>              
                                     </div>
                                 </div>
                             </div>

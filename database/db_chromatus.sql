@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 08:23 PM
+-- Generation Time: Sep 22, 2020 at 03:03 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `user_pass` varchar(100) NOT NULL,
+  `mobile` varchar(12) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `first_name`, `last_name`, `user_pass`, `mobile`, `email`, `image`) VALUES
+(1, 'Aniket', 'Bable', 'abc#123', '1234567890', 'testadmin@gmail.com', 'profile-icon1.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blog`
 --
 
@@ -33,12 +56,20 @@ CREATE TABLE `blog` (
   `category` varchar(30) NOT NULL,
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
-  `dateAdded` datetime NOT NULL,
-  `dateModified` datetime DEFAULT NULL,
+  `dateAdded` date NOT NULL,
+  `dateModified` date DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `permalink` varchar(256) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`blogID`, `title`, `category`, `metaDescription`, `description`, `dateAdded`, `dateModified`, `image`, `permalink`, `status`) VALUES
+(1, 'Covid19', '', 'Test', '<p>test</p>\r\n', '2020-09-20', '2020-09-20', 'Screenshot from 2020-08-20 18-52-26.png', '', 0),
+(2, 'Covid19', 'Chemical', 'TestT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ', '<p>Test</p>\r\n', '2020-09-21', '2020-09-21', '1999.png', '', 1);
 
 -- --------------------------------------------------------
 
@@ -53,13 +84,35 @@ CREATE TABLE `blog_category` (
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `blog_category`
+--
+
+INSERT INTO `blog_category` (`blogCategoryID`, `name`, `image`, `status`) VALUES
+(1, 'Transport', 'test.jpg', 1),
+(2, 'Chemicalllyuu', 'test.jpg', 1),
+(3, 'Healthcare', 'test.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact_uc`
+-- Table structure for table `chromatus_info`
 --
 
-CREATE TABLE `contact_uc` (
+CREATE TABLE `chromatus_info` (
+  `infoID` int(11) NOT NULL,
+  `linkedinLink` varchar(256) NOT NULL,
+  `facebookLink` varchar(256) NOT NULL,
+  `twitterLink` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
   `contactID` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -67,7 +120,9 @@ CREATE TABLE `contact_uc` (
   `company` varchar(30) NOT NULL,
   `country` varchar(30) NOT NULL,
   `position` varchar(30) NOT NULL,
-  `message` text NOT NULL
+  `message` text NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -90,32 +145,21 @@ CREATE TABLE `faq` (
 --
 
 CREATE TABLE `homepage` (
-  `homeSettingID` int(11) NOT NULL,
-  `slider1Image` varchar(256) NOT NULL,
-  `slider2Image` varchar(256) NOT NULL,
-  `slider3Image` varchar(256) NOT NULL,
-  `slider1Text` varchar(256) NOT NULL,
-  `slider2Text` varchar(256) NOT NULL,
-  `slider3Text` varchar(256) NOT NULL,
-  `linkedinLink` varchar(256) NOT NULL,
-  `facebookLink` varchar(256) NOT NULL,
-  `twitterLink` varchar(256) NOT NULL,
-  `contactNumber` varchar(15) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `industry`
---
-
-CREATE TABLE `industry` (
-  `industryID` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `imageID` int(11) NOT NULL,
   `image` varchar(256) NOT NULL,
+  `image_text` varchar(256) NOT NULL,
+  `display` tinyint(1) NOT NULL DEFAULT 1,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `homepage`
+--
+
+INSERT INTO `homepage` (`imageID`, `image`, `image_text`, `display`, `status`) VALUES
+(8, 'placeholder1.jpg', 'Car 1', 1, 1),
+(9, 'placeholder2.jpg', 'Car 2', 1, 1),
+(10, 'placeholder3.jpg', 'Car 3', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -186,12 +230,25 @@ CREATE TABLE `press_release` (
   `author` varchar(30) NOT NULL,
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
-  `dateAdded` datetime NOT NULL,
-  `dateModified` datetime DEFAULT NULL,
+  `dateAdded` date NOT NULL,
+  `dateModified` date DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `permalink` varchar(256) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `isAccepted` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_category`
+--
+
+CREATE TABLE `pr_category` (
+  `prCategoryID` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `image` varchar(256) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -235,12 +292,20 @@ CREATE TABLE `user` (
   `mobile` int(10) NOT NULL,
   `subscription` varchar(30) DEFAULT NULL,
   `remainingPR` int(11) NOT NULL DEFAULT 0,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0
+  `company` varchar(30) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `position` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blog`
@@ -255,9 +320,15 @@ ALTER TABLE `blog_category`
   ADD PRIMARY KEY (`blogCategoryID`);
 
 --
--- Indexes for table `contact_uc`
+-- Indexes for table `chromatus_info`
 --
-ALTER TABLE `contact_uc`
+ALTER TABLE `chromatus_info`
+  ADD PRIMARY KEY (`infoID`);
+
+--
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`contactID`);
 
 --
@@ -270,13 +341,7 @@ ALTER TABLE `faq`
 -- Indexes for table `homepage`
 --
 ALTER TABLE `homepage`
-  ADD PRIMARY KEY (`homeSettingID`);
-
---
--- Indexes for table `industry`
---
-ALTER TABLE `industry`
-  ADD PRIMARY KEY (`industryID`);
+  ADD PRIMARY KEY (`imageID`);
 
 --
 -- Indexes for table `news`
@@ -297,6 +362,12 @@ ALTER TABLE `press_release`
   ADD PRIMARY KEY (`prID`);
 
 --
+-- Indexes for table `pr_category`
+--
+ALTER TABLE `pr_category`
+  ADD PRIMARY KEY (`prCategoryID`);
+
+--
 -- Indexes for table `terms_and_conditions`
 --
 ALTER TABLE `terms_and_conditions`
@@ -313,22 +384,34 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `blogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blog_category`
 --
 ALTER TABLE `blog_category`
-  MODIFY `blogCategoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `blogCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `contact_uc`
+-- AUTO_INCREMENT for table `chromatus_info`
 --
-ALTER TABLE `contact_uc`
-  MODIFY `contactID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `chromatus_info`
+  MODIFY `infoID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `contactID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `faq`
@@ -340,13 +423,13 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `homepage`
 --
 ALTER TABLE `homepage`
-  MODIFY `homeSettingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `news_category`
@@ -359,6 +442,12 @@ ALTER TABLE `news_category`
 --
 ALTER TABLE `press_release`
   MODIFY `prID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pr_category`
+--
+ALTER TABLE `pr_category`
+  MODIFY `prCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `terms_and_conditions`

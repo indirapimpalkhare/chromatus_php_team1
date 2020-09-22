@@ -1,3 +1,21 @@
+<?php
+	require_once("lib/class/functions.php");
+	$db = new functions();
+	if(!isset($_SESSION['current_admin']))
+	{
+		header("Location:index.php");
+	}
+    
+	$common_msg ="";
+	 if(isset($_GET['blog_id']))
+	 {
+		$delete_id = $_GET['blog_id'];
+
+		$db->delete_blog_details_by_id($delete_id);
+		$common_msg	=	"News record deleted successfully.";
+	 }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,46 +73,78 @@
                                 <div class="page-wrapper">
 
                                     <!-- Side Bar Code -->
-                                    <div class = "table-responsive">
-                                    <table class="table table-hover table-sm">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col">Sr. No.</th>
-                                          <th scope="col">Title</th>
-                                          <th scope="col">Author</th>
-                                          <th scope="col">Summary</th>
-                                          <th scope="col">Created Date</th>
-                                          <th scope="col">Last Modified</th>
-                                          <th scope="col">Category</th>
-                                          <th scope="col">Meta Description</th>
-                                          <th scope="col">Created Date</th>
-                                          <th scope="col">Last Modified</th>
-                                          <th scope="col">Image</th>
-                                          <th scope="col">Permalink</th>
-                                          <th scope="col">Status</th>
-                                          <th>Edit</th>
-                                          <th>Delete</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td>1</th>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td><a href="" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
-                                          <td><a href="" class="btn btn-primary"><i class="fa fa-trash"></i></a></td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                          <td>Otto</td>
-                                          <td><a href="edit_blog.php" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
-                                          <td><a href="delete_blog.php" class="btn btn-primary"><i class="fa fa-trash"></i></a></td>
-                                        </tr>
+
+                                        <?php
+
+      																	$get_blogs	=	$db->get_blogs();
+      																			if(!empty($get_blogs))
+      																			{
+      																				$counter	=	0;
+                                              ?>
+                                              <div class = "table-responsive">
+                                              <table class="table table-hover table-sm">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">Sr. No.</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Summary</th>
+                                                    <th scope="col">Created Date</th>
+                                                    <th scope="col">Last Modified</th>
+                                                    <th scope="col">Category</th>
+                                                    <th scope="col">Meta Description</th>
+                                                    <th scope="col">Image</th>
+                                                    <th scope="col">Permalink</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <?php
+      																				foreach($get_blogs as $data)
+      																				{
+
+                                                 $blogID = $get_blogs[$counter][0];
+                                    						 $blog_title = $get_blogs[$counter][1];
+                                    						 $blog_category = $get_blogs[$counter][2];
+                                    						 $blog_meta_desc = $get_blogs[$counter][3];
+                                    						 $blog_desc = $get_blogs[$counter][4];
+                                    						 $date_added = $get_blogs[$counter][5];
+                                    						 $datemod = $get_blogs[$counter][6];
+                                    						 $blog_image = $get_blogs[$counter][7];
+                                    						 $blog_permalink = $get_blogs[$counter][8];
+                                                 $status = $get_blogs[$counter][9];
+
+                                                echo "<tr>";
+                                                $c = $counter + 1;
+                                                echo "<td>".$c."</td>";
+                                                echo "<td>".$blog_title."</td>";
+                                                echo "<td>".$blog_desc."</td>";
+                                                echo "<td>".$date_added."</td>";
+                                                echo "<td>".$datemod."</td>";
+                                                echo "<td>".$blog_category."</td>";
+                                                echo "<td>".$blog_meta_desc."</td>";
+                                                echo "<td><img src='img/uploads/".$blog_image."' height='20%'></td>";
+                                                echo "<td>".$blog_permalink."</td>";
+                                                echo "<td><a href='edit_blog.php?blog_id=".$blogID."'><i class='fa fa-edit fa-2x'></i></a></td>";
+                                                echo "<td><a href='view_blogs.php?blog_id=".$blogID."'><i class='fa fa-trash fa-2x'></i></a></td>";
+                                                echo "</tr>";
+                                                $counter++;
+                                              }
+
+                                            }
+                                            else {
+                                              echo "No blogs";
+                                            }
+
+                                          ?>
+
                                       </tbody>
                                   </table>
+
                                   </div>
+                                  <br>
+                                  <br>
+                                  <a href='add_blog.php' style="font-size:20px;"><i class='fa fa-plus fa-2x'></i> Add Blog</a>
                               </div>
                             </div>
                         </div>

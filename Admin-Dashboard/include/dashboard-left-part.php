@@ -19,21 +19,21 @@
                </a>
                <ul class="pcoded-submenu">
                   <li class="">
-                     <a href="#">
+                     <a href="add-pr.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Add Reports</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
 			         <li class="">
-                     <a href="view_reports.php">
+                     <a href="view-pr.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">View Reports</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="manage-pr-category.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Manage Category</span>
                      <span class="pcoded-mcaret"></span>
@@ -47,7 +47,7 @@
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="pr-trash.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
@@ -63,7 +63,7 @@
                </a>
                <ul class="pcoded-submenu">
                   <li class="">
-                     <a href="#">
+                     <a href="add_blog.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Add Blogs</span>
                      <span class="pcoded-mcaret"></span>
@@ -77,14 +77,14 @@
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="view_blog_categories.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Manage Category</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="trash_blog.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>
@@ -160,14 +160,14 @@
                </a>
                <ul class="pcoded-submenu">
                   <li class="">
-                     <a href="#">
+                     <a href="manage_home.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Manage</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="trash_home.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>

@@ -1,4 +1,39 @@
-
+<?php
+   require_once("lib/class/functions.php");
+   $db = new functions();
+   
+   if(isset($_SESSION['current_admin']))
+   {
+      $login_name =  $_SESSION['current_admin'];
+   }
+   
+   $login_email   =  $_SESSION['current_admin'];
+                     
+   $user_data     =  array();
+   $user_data     =  $db->get_user_data_from_email($login_email);
+   
+   $result_id        =  "";
+   $result_fname     =  "";
+   $result_lname     =  ""; 
+   $result_mobile    =  "";
+   $result_image     =  "";
+   $result_email     =  "";
+   $result_password  =  "";
+   
+   if(!empty($user_data))
+   {  
+      $result_id     =  $user_data[0];
+      $result_fname  =  $user_data[1];
+      $result_lname  =  $user_data[2];
+      $result_password= $user_data[3];
+      $result_mobile =  $user_data[4];
+      $result_email  =  $user_data[5];
+      $result_image  =  $user_data[6];
+   }
+   
+   
+   
+?>
   <nav class="navbar header-navbar pcoded-header">
                <div class="navbar-wrapper">
                   <div class="navbar-logo">
@@ -37,19 +72,19 @@
                      <ul class="nav-right"> 
                         <li class="user-profile header-notification">
                            <a href="#!">
-                           <img src="assets/images/profile/profile-icon.png" class="img-radius" alt="User-Profile-Image">
-                           <span><?php echo "Admin"; ?></span>
+                           <img src="assets/images/profile/<?php echo $result_image ?>" class="img-radius" alt="User-Profile-Image">
+                           <span><?php echo $result_fname; ?></span>
                            <i class="ti-angle-down"></i>
                            </a>
                            <ul class="show-notification profile-notification">
                                
                               <li>
-                                 <a href="#">
+                                 <a href="user-profile.php">
                                  <i class="ti-user"></i> Profile
                                  </a>
                               </li>  
                               <li>
-                                 <a href="#">
+                                 <a href="logout.php?admin">
                                  <i class="ti-layout-sidebar-left"></i> Logout
                                  </a>
                               </li>

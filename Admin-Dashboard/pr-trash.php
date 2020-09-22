@@ -8,32 +8,32 @@
     
 	$common_msg ="";
 	$common_msg1 ="";
-	if(isset($_GET['del_news_id']))
+	if(isset($_GET['del_pr_id']))
 	{
-		$delete_id = $_GET['del_news_id'];		
+		$delete_id = $_GET['del_pr_id'];		
 
-		$db->permanent_delete_news_details_by_id($delete_id);
-		$common_msg1	=	"News record Deleted successfully.";
+		$db->permanent_delete_pr_details_by_id($delete_id);
+		$common_msg1	=	"PR record Deleted successfully.";
 	}
-	if(isset($_GET['restore_news_id']))
+	if(isset($_GET['restore_pr_id']))
 	{
-		$restore_id = $_GET['restore_news_id'];		
+		$restore_id = $_GET['restore_pr_id'];		
 
-		$db->restore_deleted_news_details_by_id($restore_id);
-		$common_msg	=	"News record Restored successfully.";
+		$db->restore_deleted_pr_details_by_id($restore_id);
+		$common_msg	=	"PR record Restored successfully.";
 	}
 	if(isset($_GET['del_category_id']))
 	{
 		$delete_id = $_GET['del_category_id'];		
 
-		$db->permanent_delete_news_category_by_id($delete_id);
+		$db->permanent_delete_pr_category_by_id($delete_id);
 		$common_msg1	="Category record Deleted successfully.";
 	} 
 	if(isset($_GET['restore_category_id']))
 	{
 		$restore_id = $_GET['restore_category_id'];		
 
-		$db->restore_deleted_news_category_by_id($restore_id);
+		$db->restore_deleted_pr_category_by_id($restore_id);
 		$common_msg	=	"Category record Restored successfully.";
 	}
 	 
@@ -42,7 +42,7 @@
 <html lang="en">
  
 <head>
-    <title> Admin | News Record </title>
+    <title> Admin | PR Trash </title>
 
  
 
@@ -101,8 +101,8 @@
 
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10"><i class="fa fa-trash-o"></i> News Record's & Categories Trash</h5>
-                                            <p class="text-muted m-b-10">You can Access Deleted News Records here!!</p>
+                                            <h5 class="m-b-10"><i class="fa fa-trash-o"></i> PR Record's & PR Categories Trash</h5>
+                                            <p class="text-muted m-b-10">You can Access Deleted PR Records here!!</p>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-12"> 
@@ -129,8 +129,8 @@
 
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>News Record Trash</h5>
-                                                        <span>You Can Restore & Permanently Deleted News Records From here..</span>
+                                                        <h5>PR Record Trash</h5>
+                                                        <span>You Can Restore & Permanently Deleted PR Records From here..</span>
                                                     </div>
 													
 													 <div class="card-block">
@@ -140,11 +140,14 @@
                                                                     <tr>
                                                                 
 																		<th style="width=30;text-align:center;" >Sr. No</th>
-																		<th style="width=30;text-align:center;" >News Title</th> 
-																		<th style="width=30;text-align:center;" >News Category</th> 
-																		<th style="width=30;text-align:center;" >News Meta Description</th> 
+																		<th style="width=30;text-align:center;" >PR Title</th>
+																		<th style="width=30;text-align:center;" >Author</th> 
+																		<th style="width=30;text-align:center;" >PR Category</th> 
+																		<th style="width=30;text-align:center;" >PR Meta Description</th> 
+																		<th style="width=30;text-align:center;" >Image</th>
 																		<th style="width=30;text-align:center;" >Permalink</th> 
-																		<th style="width=30;text-align:center;" >Date</th> 						 
+																		<th style="width=30;text-align:center;" >Date added</th>
+																		<th style="width=30;text-align:center;" >Date modified</th>
 																		<th style="width=30;text-align:center;">Restore</th>
 																		<th style="width=30;text-align:center;">Delete</th> 	
 																		 	
@@ -154,35 +157,42 @@
                                                                 </thead>
                                                                 <tbody>
 																 	<?php
-																	$get_news	=	$db->fetch_news_deleted_records();
-																			if(!empty($get_news))
+																	$get_pr	=	$db->fetch_pr_deleted_records();
+																			if(!empty($get_pr))
 																			{
 																				$counter	=	0;
 																				
-																				foreach($get_news as $record)
+																				foreach($get_pr as $record)
 																				{
 																					
-																					$got_id				=   $get_news[$counter][0];	
-																					$got_news_title	    =	$get_news[$counter][1];
-																					$got_news_category	=	$get_news[$counter][2];  
-																					$got_news_metaDesc 	=	$get_news[$counter][3];
-																					$got_news_desc	    =	$get_news[$counter][4]; 
-																					$got_news_permalink =	$get_news[$counter][5];
-																					$got_news_date   	=	$get_news[$counter][6]; 
+																					$got_id				=   $get_pr[$counter][0];	
+																					$got_pr_title	    =	$get_pr[$counter][1];
+                                                                                    $got_pr_author	    =	$get_pr[$counter][2];        
+																					$got_pr_category	=	$get_pr[$counter][3];  
+																					$got_pr_metaDesc 	=	$get_pr[$counter][4];
+																					$got_pr_desc	    =	$get_pr[$counter][5]; 
+																					$pr_image	 		= 	$get_pr[$counter][6];
+																					$got_pr_permalink 	= 	$get_pr[$counter][7];
+																					$date_added 		= 	$get_pr[$counter][8];
+																					$date_modified		= 	$get_pr[$counter][9];
+																					$status 			= 	$get_pr[$counter][10];
 														
 																					  
 																?>
                                                                     <tr>
                                                                     	<td><?php echo $counter + 1 ;?></td>
-																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_news_title ;?></td> 
-																		<td><?php echo $got_news_category ;?></td> 
-																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_news_metaDesc ;?></td> 
-																		<td><?php echo $got_news_permalink ;?></td> 	 	
-																		<td><?php echo $got_news_date ;?></td> 
+																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_title ;?></td> 
+																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_author ;?></td> 
+																		<td><?php echo $got_pr_category ;?></td> 
+																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_metaDesc ;?></td> 
+																		<td><?php echo $pr_image ;?></td>
+																		<td><?php echo $got_pr_permalink ;?></td>
+																		<td><?php echo $date_added ;?></td>
+																		<td><?php echo $date_modified ;?></td> 
 																		 
-																		<td class="text-center"><a href="news-trash.php?restore_news_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x"></i></a></td>
+																		<td class="text-center"><a href="pr-trash.php?restore_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x"></i></a></td>
 
-																		<td class="text-center"><a href="news-trash.php?del_news_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+																		<td class="text-center"><a href="pr-trash.php?del_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
 																	  </tr>
 																	<?php
 																		$counter++;
@@ -209,8 +219,8 @@
 
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5> News Category Trash</h5>
-                                                        <span>You can Restore & Permanently Delete your News Category here...</span>
+                                                        <h5> PR Category Trash</h5>
+                                                        <span>You can Restore & Permanently Delete your PR Category here...</span>
                                                     </div>
                                                     
                                                      <div class="card-block">
@@ -220,7 +230,7 @@
                                                                     <tr>
                                                                 
                                                                         <th style="width=30;text-align:center;" >Sr. No</th>
-                                                                        <th style="width=30;text-align:center;" >News Category</th>                      
+                                                                        <th style="width=30;text-align:center;" >PR Category</th>                      
                                                                         <th style="width=30;text-align:center;">Restore</th>
                                                                         <th style="width=30;text-align:center;">Delete</th>  
                                                                         
@@ -230,26 +240,26 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <?php
-                                                                    $get_news_category   =   $db->fetch_news_deleted_category();
-                                                                            if(!empty($get_news_category))
+                                                                    $get_pr_category   =   $db->fetch_pr_deleted_category();
+                                                                            if(!empty($get_pr_category))
                                                                             {
                                                                                 $counter    =   0;
                                                                                 
-                                                                                foreach($get_news_category as $record)
+                                                                                foreach($get_pr_category as $record)
                                                                                 {
                                                                                     
-                                                                                    $got_id             =   $get_news_category[$counter][0]; 
-                                                                                    $got_news_category  =   $get_news_category[$counter][1];
+                                                                                    $got_id             =   $get_pr_category[$counter][0]; 
+                                                                                    $got_pr_category  =   $get_pr_category[$counter][1];
                                                                             
                                                         
                                                                                       
                                                                 ?>
                                                                     <tr>
                                                                         <td><?php echo $counter + 1 ;?></td>
-                                                                        <td><?php echo $got_news_category ;?></td> 
+                                                                        <td><?php echo $got_pr_category ;?></td> 
                       
-                                                                        <td class="text-center"><a href="news-trash.php?restore_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x m-auto"></i></a></td>    
-                                                                        <td class="text-center"><a href="news-trash.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x m-auto"></i></a></td>
+                                                                        <td class="text-center"><a href="pr-trash.php?restore_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x m-auto"></i></a></td>    
+                                                                        <td class="text-center"><a href="pr-trash.php?del_category_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x m-auto"></i></a></td>
                                                                       </tr>
                                                                     <?php
                                                                         $counter++;
@@ -287,7 +297,7 @@
 			</div>
             </div>
         </div>
-    </div>
+
   
     <script src="files/bower_components/jquery/js/jquery.min.js"></script>
     <script src="files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>

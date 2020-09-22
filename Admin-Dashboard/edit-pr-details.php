@@ -6,59 +6,84 @@
 		header("Location:index.php");
 	}
 	
+     
 	$common_msg	="";
 	$common_msg1="";
 	
-	 if(isset($_GET['news-id']))
+	 if(isset($_GET['pr-id']))
 	 {
-		$news_id = $_GET['news-id'];		
-		$_SESSION['news_id'] = $news_id;
+		$pr_id = $_GET['pr-id'];		
+		$_SESSION['pr_id'] = $pr_id;
 	 }
-	 else if(isset($_SESSION['news_id']))
+	 else if(isset($_SESSION['pr_id']))
 	 {
-		 $news_id = $_SESSION['news_id'];
+		 $pr_id = $_SESSION['pr_id'];
 	 }
 	 
 	 
-	$news_data		=	array();
-	$news_data		=	$db->fetch_news_full_details_by_id($news_id);
+	$pr_data		=	array();
+	$pr_data		=	$db->fetch_pr_full_details_by_id($pr_id);
 			
-	
+
 	$result_title	 	= "";
+    $result_author	 	= "";
 	$result_category 	= "";
 	$result_metaDesc    = "";
 	$result_description = "";
 	$result_permalink 	= "";
+    $pr_image           = "";
+    $target_dir         = "img/uploads/";
 
 	
-	if(!empty($news_data))
+	if(!empty($pr_data))
 	{	
 		 
-	$result_title				=	$news_data[1];
-	$result_category			=	$news_data[2];
-	$result_metaDesc 			=	$news_data[3];
-	$result_description         =	$news_data[4];
-	$result_permalink			=	$news_data[5];
-	 
+	$result_title				=	$pr_data[1];
+    $result_author				=	$pr_data[2];    
+	$result_category			=	$pr_data[3];
+	$result_metaDesc 			=	$pr_data[4];
+	$result_description         =	$pr_data[5];
+	$pr_image_og                =   $pr_data[6];
+    $result_permalink			=	$pr_data[7];
+    
+    echo $pr_image_og;
+    $image_disp = $target_dir ."/". $pr_image_og;
 			
 	}
 	if(isset($_POST['edit']))
 	{
-		$news_title		=	$_POST['news-title'];  
-		$news_category	=	$_POST['news-category'];  
-		$news_metadesc	=	$_POST['news-metaDesc']; 
-		$news_desc		=	$_POST['news-desc']; 
-		$news_permalink	=	$_POST['news-permalink'];
+		$pr_title		=	$_POST['pr-title'];
+        $pr_author		=	$_POST['pr-author'];
+		$pr_category	=	$_POST['pr-category'];  
+		$pr_metadesc	=	$_POST['pr-metaDesc']; 
+		$pr_desc		=	$_POST['pr-desc']; 
+		$pr_permalink	=	$_POST['pr-permalink'];
+        if($_FILES["pr_image"]["error"] == 4) 
+        {
+            //means there is no file uploaded
+            $pr_image = $pr_image_og;
+        }
+        else
+        {
+            $pr_image = $_FILES['pr_image']['name'];
+
+            $target_file = $target_dir . basename($_FILES["pr_image"]["name"]);
+    
+            if (move_uploaded_file($_FILES['pr_image']['tmp_name'], $target_file))
+            {
+                $common_msg = "File upload successful";
+            }
+        }
 			 
-			if($db->update_news_full_details_by_id($news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$news_id))
-			{
-					  $common_msg	=	"News Updated Successfully.";
-			}
-			else
-			{
-					$common_msg1	= "Failed";
+        if($db->update_pr_full_details_by_id($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id))
+        {
+            $common_msg	=	"PR Updated Successfully.";
+        }
+        else
+        {
+            $common_msg1	= "Failed";
 					 
-			}
+        }
 		
 	}   
 	
@@ -67,7 +92,7 @@
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Update News</title>
+    <title> Chromatus Consulting | Update PR</title>
 
  
 
@@ -112,8 +137,8 @@
                                 <div class="page-wrapper">
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10">Update News</h5>
-                                            <p class="text-muted m-b-10">You can update your News here..</p>
+                                            <h5 class="m-b-10">Update PR</h5>
+                                            <p class="text-muted m-b-10">You can update your PR here..</p>
                                         </div>
                                     </div>
 
@@ -123,8 +148,8 @@
                                             <div class="col-sm-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                    <h5>Update News Details</h5>
-                                                    <span>Please fill the News Details..</span>
+                                                    <h5>Update PR Details</h5>
+                                                    <span>Please fill the PR Details..</span>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12"> 
@@ -146,19 +171,37 @@
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
 
-                                                                                <input type="text" value="<?php echo $result_title; ?>" name="news-title" placeholder="Enter News Title" required>
-                                                                                <span class="j-tooltip j-tooltip-right-top">Enter News Title</span> 
+                                                                                <input type="text" value="<?php echo $result_title; ?>" name="pr-title" placeholder="Enter PR Title" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter PR Title</span> 
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+
+                                                                                <input type="text" value="<?php echo $result_author; ?>" name="pr-author" placeholder="Enter PR Author" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter PR Author</span> 
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" accept="image/*" value = "<?php echo $pr_image?>">
+                                                                                <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
+                                                                                <img src = "<?php echo $image_disp ?>" width="40%" alt="Current Image">
+
+
                                                                             </div>
                                                                         </div>
                                                                     
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
                                                                                 
-                                                                                <select class="custom-select custom-select-lg mb-3" name="news-category">
+                                                                                <select class="custom-select custom-select-lg mb-3" name="pr-category">
                                                                                   <option selected value="<?php echo $result_category; ?>"><?php echo $result_category; ?></option>	
-                                                                                  <option value="">Select News Category</option>
+                                                                                  <option value="">Select PR Category</option>
                                                                                   <?php
-                                                                                        $get_category = $db->fetch_news_category();
+                                                                                        $get_category = $db->fetch_pr_category();
                                                                                         if(!empty($get_category))
                                                                                         {
                                                                                             $counter    =   0;
@@ -194,19 +237,19 @@
                                                                         
                                                                          <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <textarea  name="news-metaDesc"  placeholder="Enter Meta Description" required ><?php echo $result_metaDesc; ?></textarea>
+                                                                                <textarea  name="pr-metaDesc"  placeholder="Enter Meta Description" required ><?php echo $result_metaDesc; ?></textarea>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Meta Description</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <textarea name="news-desc" class="ckeditor" placeholder="Enter Description" ><?php echo $result_description; ?></textarea>
+                                                                                <textarea name="pr-desc" class="ckeditor" placeholder="Enter Description" ><?php echo $result_description; ?></textarea>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter Description</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <select class="custom-select custom-select-lg mb-3" name="news-permalink">
+                                                                                <select class="custom-select custom-select-lg mb-3" name="pr-permalink">
                                                                                   <option selected value="<?php echo $result_permalink; ?>"><?php echo $result_permalink; ?></option>
                                                                                   <option >Select Permalink</option>
                                                                                   <option value="">perma1</option>

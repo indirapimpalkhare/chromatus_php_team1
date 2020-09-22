@@ -5,8 +5,7 @@
     {   
         header("Location:index.php");
     }
-
-  
+     
     $common_msg ="";
     $common_msg1="";
     
@@ -22,25 +21,45 @@
      
      
     $category_data      =   array();
-    $category_data      =   $db->fetch_news_category_by_id($category_id);
+    $category_data      =   $db->fetch_pr_category_by_id($category_id);
             
     
-   $result_category = "";
+    $result_category    = "";
+    $pr_category_image  = "";
+    $target_dir         = "img/uploads/";
 
     
     if(!empty($category_data))
     {   
          
     $result_category            =   $category_data[0];
+    $pr_category_image_og          =   $category_data[1];
+    $image_disp = $target_dir ."/". $pr_category_image_og;
             
     }
     if(isset($_POST['edit']))
     {
        
-        $category_name  =   $_POST['news-category'];  
+        $category_name  =   $_POST['pr-category'];
+        
+        if($_FILES["pr_category_image"]["error"] == 4) 
+        {
+            //means there is no file uploaded
+            $pr_category_image = $pr_category_image_og;
+        }
+        else
+        {
+            $pr_category_image = $_FILES['pr_category_image']['name'];
 
+            $target_file = $target_dir . basename($_FILES["pr_category_image"]["name"]);
+    
+            if (move_uploaded_file($_FILES['pr_category_image']['tmp_name'], $target_file))
+            {
+                $common_msg = "File upload successful";
+            }
+        }
              
-            if($db->update_news_category_by_id($category_name,$category_id))
+            if($db->update_pr_category_by_id($category_name,$pr_category_image,$category_id))
             {
                       $common_msg   =   "Category Updated Successfully.";
             }
@@ -59,7 +78,7 @@
 <html lang="en">
  
 <head>
-    <title> Chromatus Consulting | Update News Category</title>
+    <title> Chromatus Consulting | Update PR Category</title>
 
  
 
@@ -104,8 +123,8 @@
                                 <div class="page-wrapper">
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10">Update News Category</h5>
-                                            <p class="text-muted m-b-10">You Can Update News Category here..</p>
+                                            <h5 class="m-b-10">Update PR Category</h5>
+                                            <p class="text-muted m-b-10">You Can Update PR Category here..</p>
                                         </div>
                                     </div>
                                     <div class="page-body">
@@ -113,8 +132,8 @@
                                           <div class="col-sm-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                    <h5>Update News Category</h5>
-                                                    <span>You can update News Category here...</span>
+                                                    <h5>Update PR Category</h5>
+                                                    <span>You can update PR Category here...</span>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12"> 
@@ -135,14 +154,27 @@
                                                                         
                                                                         <div class="j-unit">
                                                                             <div class="j-input"> 
-                                                                                <input type="text" name="news-category" value="<?php echo $result_category; ?>" placeholder="Enter News Category" required>
-                                                                                <span class="j-tooltip j-tooltip-right-top">Enter News Category</span> 
+                                                                                <input type="text" name="pr-category" value="<?php echo $result_category; ?>" placeholder="Enter News Category" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter PR Category</span> 
                                                                             </div>
                                                                         </div>
+                                                                        
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" accept="image/*" value = "<?php echo $pr_category_image?>">
+                                                                                <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
+                                                                                <img src = "<?php echo $image_disp ?>" width="40%" alt="Current Image">
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
 
                                                                 <div class="j-footer"> 
                                                                     <input type="submit" value="Update" name="edit" class="btn btn-primary" />        
-                                                                     <a href="manage-news-category.php" class="btn btn-primary">Back</a>
+                                                                     <a href="manage-pr-category.php" class="btn btn-primary">Back</a>
                                                                 </div>
 
                                                             </form>

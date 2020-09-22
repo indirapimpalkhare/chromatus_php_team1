@@ -1,4 +1,13 @@
+<?php 
+require_once("lib/class/functions.php");
+$db = new functions();
 
+if(!isset($_SESSION['current_admin']))
+{  
+   header("Location:index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
