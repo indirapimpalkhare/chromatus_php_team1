@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 22, 2020 at 10:56 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Host: 127.0.0.1
+-- Generation Time: Sep 22, 2020 at 11:27 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,6 +25,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `adminID` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blog`
 --
 
@@ -33,8 +46,8 @@ CREATE TABLE `blog` (
   `category` varchar(30) NOT NULL,
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
-  `dateAdded` datetime NOT NULL,
-  `dateModified` datetime DEFAULT NULL,
+  `dateAdded` date NOT NULL,
+  `dateModified` date DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `permalink` varchar(256) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
@@ -45,8 +58,8 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`blogID`, `title`, `category`, `metaDescription`, `description`, `dateAdded`, `dateModified`, `image`, `permalink`, `status`) VALUES
-(1, 'Covid19', '', 'Test', '<p>test</p>\r\n', '2020-09-20 00:00:00', '2020-09-20 00:00:00', 'Screenshot from 2020-08-20 18-52-26.png', '', 0),
-(2, 'Covid19', 'Chemical', 'TestT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ', '<p>Test</p>\r\n', '2020-09-21 00:00:00', '2020-09-21 00:00:00', '1999.png', '', 1);
+(1, 'Covid19', '', 'Test', '<p>test</p>\r\n', '2020-09-20', '2020-09-20', 'Screenshot from 2020-08-20 18-52-26.png', '', 0),
+(2, 'Covid19', 'Chemical', 'TestT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ', '<p>Test</p>\r\n', '2020-09-21', '2020-09-21', '1999.png', '', 1);
 
 -- --------------------------------------------------------
 
@@ -69,6 +82,19 @@ INSERT INTO `blog_category` (`blogCategoryID`, `name`, `image`, `status`) VALUES
 (1, 'Transport', 'test.jpg', 1),
 (2, 'Chemicalllyuu', 'test.jpg', 1),
 (3, 'Healthcare', 'test.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chromatus_info`
+--
+
+CREATE TABLE `chromatus_info` (
+  `infoID` int(11) NOT NULL,
+  `linkedinLink` varchar(256) NOT NULL,
+  `facebookLink` varchar(256) NOT NULL,
+  `twitterLink` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -192,8 +218,8 @@ CREATE TABLE `press_release` (
   `author` varchar(30) NOT NULL,
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
-  `dateAdded` datetime NOT NULL,
-  `dateModified` datetime DEFAULT NULL,
+  `dateAdded` date NOT NULL,
+  `dateModified` date DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `permalink` varchar(256) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
@@ -254,7 +280,6 @@ CREATE TABLE `user` (
   `mobile` int(10) NOT NULL,
   `subscription` varchar(30) DEFAULT NULL,
   `remainingPR` int(11) NOT NULL DEFAULT 0,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
   `company` varchar(30) NOT NULL,
   `country` varchar(30) NOT NULL,
   `position` varchar(30) NOT NULL
@@ -263,6 +288,12 @@ CREATE TABLE `user` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adminID`);
 
 --
 -- Indexes for table `blog`
@@ -275,6 +306,12 @@ ALTER TABLE `blog`
 --
 ALTER TABLE `blog_category`
   ADD PRIMARY KEY (`blogCategoryID`);
+
+--
+-- Indexes for table `chromatus_info`
+--
+ALTER TABLE `chromatus_info`
+  ADD PRIMARY KEY (`infoID`);
 
 --
 -- Indexes for table `contact_us`
@@ -335,6 +372,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
@@ -345,6 +388,12 @@ ALTER TABLE `blog`
 --
 ALTER TABLE `blog_category`
   MODIFY `blogCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `chromatus_info`
+--
+ALTER TABLE `chromatus_info`
+  MODIFY `infoID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
