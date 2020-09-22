@@ -13,13 +13,13 @@
 			//Admin COde start//
 			function get_password_from_admin($name)
 			{
-				 
+
 				if($stmt_select = $this->con->prepare("Select `user_pass` from `admin` where `email` = ?"))
-				{ 
+				{
 					$stmt_select->bind_param("s",$name);
-					
+
 					$stmt_select->bind_result($result_password);
-					
+
 					if($stmt_select->execute())
 					{
 						if($stmt_select->fetch())
@@ -29,45 +29,45 @@
 					}
 					return false;
 				}
-			}				
-						 
-						
+			}
+
+
 			function get_user_data_from_email($email)
 			{
 					if($stmt_select = $this->con->prepare("SELECT `id`, `first_name`, `last_name`, `user_pass`, `mobile`, `email`, `image` FROM `admin` WHERE `email` = ?"))
 					{
 						$stmt_select->bind_param("s",$email);
-						
+
 						$stmt_select->bind_result($result_id,$result_fname,$result_lname,$result_user_pass,$result_mobno,$result_email,$result_image);
-						
+
 						if($stmt_select->execute())
 						{
 							$data_container	=	array();
-							
+
 							if($stmt_select->fetch())
 							{
 								$data_container[0]	=	$result_id;
 								$data_container[1]	=	$result_fname;
-								$data_container[2]	=	$result_lname; 
+								$data_container[2]	=	$result_lname;
 								$data_container[3]	=	$result_user_pass;
 								$data_container[4]	=	$result_mobno;
 								$data_container[5]	=	$result_email;
 								$data_container[6]	=	$result_image;
-								
+
 								return $data_container;
 							}
 						}
 						return false;
 					}
-			}	
+			}
 			function get_user_password($email)
 			{
 				if($stmt_select = $this->con->prepare("Select `user_pass` from `admin` where `email` = ?"))
 				{
 					$stmt_select->bind_param("s",$email);
-					
+
 					$stmt_select->bind_result($result_password);
-					
+
 					if($stmt_select->execute())
 					{
 						if($stmt_select->fetch())
@@ -76,15 +76,15 @@
 						}
 					}
 					return false;
-				}		
+				}
 			}
 			function update_user($u_fname,$u_lname,$u_mobile,$u_email,$actual_image_name,$email)
 			{
-				
+
 				if($stmt_update = $this->con->prepare("UPDATE `admin` set `first_name`=?,`last_name`= ?,`mobile`= ?,`email`= ?,`image`= ? WHERE `email` = ?"))
 				{
 					$stmt_update->bind_param("ssssss",$u_fname,$u_lname,$u_mobile,$u_email,$actual_image_name,$email);
-					
+
 					if($stmt_update->execute())
 					{
 						return true;
@@ -98,9 +98,9 @@
 			function update_user_password($email,$new_pwd)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `admin` SET `user_pass`=? WHERE `email` = ?"))
-			
+
 				$stmt_update->bind_param("ss",$new_pwd,$email);
-				
+
 				if($stmt_update->execute())
 				{
 					return true;
@@ -109,10 +109,10 @@
 				{
 					return false;
 				}
-			}	
-			 
-			
-					
+			}
+
+
+
 
 
 			//News Page Code Starts
@@ -627,9 +627,9 @@
 					}
 				}
 			}
- 
+
 			//Contact Us ENDS
-			
+
 
 		// ---- BLOGS FUNCTIONS ---- //
 		function add_blog($blog_title,$blog_category,$blog_meta_desc,$blog_desc,$blog_image,$blog_permalink)
@@ -990,10 +990,46 @@
 				}
 			}
 		}
+		function fetch_blog_records_by_category($category)
+		{
+			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateModified`,`image`,`permalink` FROM `blog` where `status` = 1 AND category = ?"))
+			{
+				$stmt_select->bind_param("s",$category);
+				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc, $datemod, $blog_image, $blog_permalink);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+					$counter	=	0;
+
+					while($stmt_select->fetch())
+					{
+						$data[0] = $blogID;
+						$data[1] = $blog_title;
+						$data[2] = $blog_category;
+						$data[3] = $blog_meta_desc;
+						$data[4] = $blog_desc;
+						$data[5] = $datemod;
+						$data[6] = $blog_image;
+						$data[7] = $blog_permalink;
+
+						$counter++;
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
 
 		// HOME //
 		/*
-		function fetch_latest__records_by_name($category)
+		function fetch_latest_records_by_name($category)
 		{
 			if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 AND category = ?"))
 			{
@@ -1681,4 +1717,3 @@
     //---Write code here-----//
 	}	//class end
 ?>
- 
