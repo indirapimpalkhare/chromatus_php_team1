@@ -521,6 +521,7 @@
 					}
 				}
 			}
+			//Contact Us ENDS
 			
 		}	//class end
 ?>
