@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2020 at 03:03 PM
+-- Generation Time: Sep 22, 2020 at 03:31 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,7 +57,7 @@ CREATE TABLE `blog` (
   `category` varchar(30) NOT NULL,
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
-  `dateAdded` date NOT NULL,
+  `dateAdded` date NOT NULL DEFAULT current_timestamp(),
   `dateModified` date DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `permalink` varchar(256) NOT NULL,
@@ -103,7 +104,8 @@ CREATE TABLE `chromatus_info` (
   `infoID` int(11) NOT NULL,
   `linkedinLink` varchar(256) NOT NULL,
   `facebookLink` varchar(256) NOT NULL,
-  `twitterLink` varchar(256) NOT NULL
+  `twitterLink` varchar(256) NOT NULL,
+  `number` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -174,7 +176,7 @@ CREATE TABLE `news` (
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
   `permalink` varchar(255) NOT NULL,
-  `date` date NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -230,7 +232,7 @@ CREATE TABLE `press_release` (
   `author` varchar(30) NOT NULL,
   `metaDescription` varchar(1000) NOT NULL,
   `description` text NOT NULL,
-  `dateAdded` date NOT NULL,
+  `dateAdded` date NOT NULL DEFAULT current_timestamp(),
   `dateModified` date DEFAULT NULL,
   `image` varchar(256) DEFAULT NULL,
   `permalink` varchar(256) NOT NULL,
