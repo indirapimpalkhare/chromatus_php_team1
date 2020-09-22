@@ -24,22 +24,42 @@
     $category_data      =   $db->fetch_pr_category_by_id($category_id);
             
     
-   $result_category = "";
+    $result_category    = "";
+    $pr_category_image  = "";
+    $target_dir         = "img/uploads/";
 
     
     if(!empty($category_data))
     {   
          
     $result_category            =   $category_data[0];
+    $pr_category_image_og          =   $category_data[1];
+    $image_disp = $target_dir ."/". $pr_category_image_og;
             
     }
     if(isset($_POST['edit']))
     {
        
-        $category_name  =   $_POST['pr-category'];  
+        $category_name  =   $_POST['pr-category'];
+        
+        if($_FILES["pr_category_image"]["error"] == 4) 
+        {
+            //means there is no file uploaded
+            $pr_category_image = $pr_category_image_og;
+        }
+        else
+        {
+            $pr_category_image = $_FILES['pr_category_image']['name'];
 
+            $target_file = $target_dir . basename($_FILES["pr_category_image"]["name"]);
+    
+            if (move_uploaded_file($_FILES['pr_category_image']['tmp_name'], $target_file))
+            {
+                $common_msg = "File upload successful";
+            }
+        }
              
-            if($db->update_pr_category_by_id($category_name,$category_id))
+            if($db->update_pr_category_by_id($category_name,$pr_category_image,$category_id))
             {
                       $common_msg   =   "Category Updated Successfully.";
             }
@@ -138,6 +158,17 @@
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter PR Category</span> 
                                                                             </div>
                                                                         </div>
+                                                                        
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" accept="image/*" value = "<?php echo $pr_category_image?>">
+                                                                                <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
+                                                                                <img src = "<?php echo $image_disp ?>" width="40%" alt="Current Image">
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        
                                                                     </div>
                                                                 </div>
 

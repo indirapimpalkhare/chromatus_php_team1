@@ -139,11 +139,14 @@
                                                                     <tr>
                                                                 
 																		<th style="width=30;text-align:center;" >Sr. No</th>
-																		<th style="width=30;text-align:center;" >PR Title</th> 
+																		<th style="width=30;text-align:center;" >PR Title</th>
+																		<th style="width=30;text-align:center;" >Author</th> 
 																		<th style="width=30;text-align:center;" >PR Category</th> 
 																		<th style="width=30;text-align:center;" >PR Meta Description</th> 
+																		<th style="width=30;text-align:center;" >Image</th>
 																		<th style="width=30;text-align:center;" >Permalink</th> 
-																		<th style="width=30;text-align:center;" >Date</th> 						 
+																		<th style="width=30;text-align:center;" >Date added</th>
+																		<th style="width=30;text-align:center;" >Date modified</th>
 																		<th style="width=30;text-align:center;">Restore</th>
 																		<th style="width=30;text-align:center;">Delete</th> 	
 																		 	
@@ -163,21 +166,28 @@
 																					
 																					$got_id				=   $get_pr[$counter][0];	
 																					$got_pr_title	    =	$get_pr[$counter][1];
-																					$got_pr_category	=	$get_pr[$counter][2];  
-																					$got_pr_metaDesc 	=	$get_pr[$counter][3];
-																					$got_pr_desc	    =	$get_pr[$counter][4]; 
-																					$got_pr_permalink =	$get_pr[$counter][5];
-																					$got_pr_date   	=	$get_pr[$counter][6]; 
+                                                                                    $got_pr_author	    =	$get_pr[$counter][2];        
+																					$got_pr_category	=	$get_pr[$counter][3];  
+																					$got_pr_metaDesc 	=	$get_pr[$counter][4];
+																					$got_pr_desc	    =	$get_pr[$counter][5]; 
+																					$pr_image	 		= 	$get_pr[$counter][6];
+																					$got_pr_permalink 	= 	$get_pr[$counter][7];
+																					$date_added 		= 	$get_pr[$counter][8];
+																					$date_modified		= 	$get_pr[$counter][9];
+																					$status 			= 	$get_pr[$counter][10];
 														
 																					  
 																?>
                                                                     <tr>
                                                                     	<td><?php echo $counter + 1 ;?></td>
 																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_title ;?></td> 
+																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_author ;?></td> 
 																		<td><?php echo $got_pr_category ;?></td> 
 																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_metaDesc ;?></td> 
-																		<td><?php echo $got_pr_permalink ;?></td> 	 	
-																		<td><?php echo $got_pr_date ;?></td> 
+																		<td><?php echo $pr_image ;?></td>
+																		<td><?php echo $got_pr_permalink ;?></td>
+																		<td><?php echo $date_added ;?></td>
+																		<td><?php echo $date_modified ;?></td> 
 																		 
 																		<td class="text-center"><a href="pr-trash.php?restore_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x"></i></a></td>
 

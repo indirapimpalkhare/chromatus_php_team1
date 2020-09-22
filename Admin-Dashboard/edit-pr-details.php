@@ -25,6 +25,7 @@
 			
 
 	$result_title	 	= "";
+    $result_author	 	= "";
 	$result_category 	= "";
 	$result_metaDesc    = "";
 	$result_description = "";
@@ -37,11 +38,12 @@
 	{	
 		 
 	$result_title				=	$pr_data[1];
-	$result_category			=	$pr_data[2];
-	$result_metaDesc 			=	$pr_data[3];
-	$result_description         =	$pr_data[4];
-	$pr_image_og                =   $pr_data[5];
-    $result_permalink			=	$pr_data[6];
+    $result_author				=	$pr_data[2];    
+	$result_category			=	$pr_data[3];
+	$result_metaDesc 			=	$pr_data[4];
+	$result_description         =	$pr_data[5];
+	$pr_image_og                =   $pr_data[6];
+    $result_permalink			=	$pr_data[7];
     
     echo $pr_image_og;
     $image_disp = $target_dir ."/". $pr_image_og;
@@ -49,7 +51,8 @@
 	}
 	if(isset($_POST['edit']))
 	{
-		$pr_title		=	$_POST['pr-title'];  
+		$pr_title		=	$_POST['pr-title'];
+        $pr_author		=	$_POST['pr-author'];
 		$pr_category	=	$_POST['pr-category'];  
 		$pr_metadesc	=	$_POST['pr-metaDesc']; 
 		$pr_desc		=	$_POST['pr-desc']; 
@@ -71,7 +74,7 @@
             }
         }
 			 
-        if($db->update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id))
+        if($db->update_pr_full_details_by_id($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id))
         {
             $common_msg	=	"PR Updated Successfully.";
         }
@@ -169,6 +172,14 @@
 
                                                                                 <input type="text" value="<?php echo $result_title; ?>" name="pr-title" placeholder="Enter PR Title" required>
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter PR Title</span> 
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+
+                                                                                <input type="text" value="<?php echo $result_author; ?>" name="pr-author" placeholder="Enter PR Author" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter PR Author</span> 
                                                                             </div>
                                                                         </div>
                                                                         

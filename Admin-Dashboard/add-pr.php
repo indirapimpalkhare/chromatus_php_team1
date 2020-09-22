@@ -8,6 +8,7 @@
 
 
     $pr_title     =  "";
+    $pr_author     =  "";
     $pr_category  =  "";
     $pr_metadesc  =  "";
     $pr_desc      =  "";
@@ -21,6 +22,7 @@
     if(isset($_POST['submit_btn']))
     {
         $pr_title     =  $_POST['pr-title'];
+        $pr_author     =  $_POST['pr-author'];
         $pr_category  =  $_POST['pr-category'];
         $pr_metadesc  =  $_POST['pr-metaDesc'];
         $pr_desc      =  $_POST['pr-desc'];
@@ -33,7 +35,7 @@
         {
             if (move_uploaded_file($_FILES['pr_image']['tmp_name'], $target_file))
             {
-                $db->add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink);
+                $db->add_pr($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink);
                 $common_msg =   "PR Added successfully.";
             }
             else 
@@ -137,8 +139,15 @@
                                                                         </div>
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" required accept="image/*">
-                                                                                <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
+
+                                                                                <input type="text" name="pr-author" placeholder="Enter author name" required>
+                                                                                <span class="j-tooltip j-tooltip-right-top">Enter Author Name</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <div style="margin-bottom:10px; font-size:2 0px;">Insert Image :  <input type="file" name="pr_image" placeholder="Select PR Image" required accept="image/*">
+                                                                                </div>
                                                                             </div>
                                                                         </div>
 
