@@ -1140,26 +1140,28 @@
 
 // ---- PRESS RELEASE STARTS HERE ---- //
 
-
-
-            function add_pr_category($pr_category)
+                                                //----- PR Category ------//
+            
+            //------ add ------//
+            
+            function add_pr_category($pr_category,$pr_category_image)
 			{
-				if($stmt_insert = $this->con->prepare("INSERT INTO `pr_category`(`name`) VALUES (?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `pr_category`(`name`,`image`) VALUES (?,?)"))
 				{
-					$stmt_insert->bind_param("s",$pr_category);
+					$stmt_insert->bind_param("ss",$pr_category,$pr_category_image);
 
 					if($stmt_insert->execute())
 					{
 						return true;
 					}
-					return false;
+                    echo"false";
 				}
 			}
 			function fetch_pr_category()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name` FROM `pr_category` where `status` = 1"))
+				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name`,`image` FROM `pr_category` where `status` = 1"))
 				{
-					$stmt_select->bind_result($category_id,$category_name);
+					$stmt_select->bind_result($category_id,$category_name,$category_image);
 
 					if($stmt_select->execute())
 					{
@@ -1170,6 +1172,7 @@
 						{
 							$data[$counter][0] = $category_id;
 							$data[$counter][1] = $category_name;
+                            $data[$counter][2] = $category_image;    
 							$counter++;
 						}
 						if(!empty($data))
@@ -1183,11 +1186,13 @@
 					}
 				}
 			}
+            
+            //-----Display-----//
 			function fetch_pr_deleted_category()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name` FROM `pr_category` where `status` = 0"))
+				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name`,`image` FROM `pr_category` where `status` = 0"))
 				{
-					$stmt_select->bind_result($category_id,$category_name);
+					$stmt_select->bind_result($category_id,$category_name,$category_image);
 
 					if($stmt_select->execute())
 					{
@@ -1198,6 +1203,7 @@
 						{
 							$data[$counter][0] = $category_id;
 							$data[$counter][1] = $category_name;
+                            $data[$counter][2] = $category_image;
 							$counter++;
 						}
 						if(!empty($data))
@@ -1211,6 +1217,8 @@
 					}
 				}
 			}
+            
+            //--------delete-----------//
 			function delete_pr_category_by_id($delete_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `status` = 0 where `prCategoryID` = ?"))
@@ -1232,9 +1240,9 @@
 
             function update_pr_category_by_id($category_name,$category_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ? where `prCategoryID`= ?"))
+				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ?,`image`=? where `prCategoryID`= ?"))
 				{
-					$stmt_update->bind_param("ss",$category_name,$category_id);
+					$stmt_update->bind_param("sss",$category_name,$category_image,$category_id,);
 
 					if($stmt_update->execute())
 					{
@@ -1249,10 +1257,10 @@
 
             function fetch_pr_category_by_id($category_id)
 			{
-				if($stmt_select = $this->con->prepare("SELECT `name` FROM `pr_category` where `prCategoryID` = ?"))
+				if($stmt_select = $this->con->prepare("SELECT `name`,`image` FROM `pr_category` where `prCategoryID` = ?"))
 				{
 					$stmt_select->bind_param("s",$category_id);
-					$stmt_select->bind_result($category_name);
+					$stmt_select->bind_result($category_name,$category_image);
 
 					if($stmt_select->execute())
 					{
@@ -1262,6 +1270,7 @@
 						while($stmt_select->fetch())
 						{
 							$data[0] = $category_name;
+                            $data[1] = $category_image;
 						}
 						if(!empty($data))
 						{
@@ -1274,13 +1283,16 @@
 					}
 				}
 			}
-
-            function add_pr($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink)
+            
+                                                        //------PR Details--------//
+            
+            //------------add-----------//  //done-1
+            function add_pr($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink)
 			{
 				$date = date("Y-m-d");
-				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded`) VALUES (?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`,`author`, `category`, `metaDescription`, `description`, `image`,`permalink`, `dateAdded`) VALUES (?,?,?,?,?,?,?,?)"))
 				{
-					$stmt_insert->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
+					$stmt_insert->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date);
 					if($stmt_insert->execute())
 					{
 						return true;
@@ -1292,9 +1304,9 @@
         // -------view------- //
             function fetch_pr_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `status` = 1"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1"))
 				{
-					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
 					if($stmt_select->execute())
 					{
@@ -1305,11 +1317,15 @@
 						{
 							$data[$counter][0] = $pr_id;
 							$data[$counter][1] = $pr_title;
-							$data[$counter][2] = $pr_category;
-							$data[$counter][3] = $pr_metadesc;
-							$data[$counter][4] = $pr_desc;
-							$data[$counter][5] = $pr_permalink;
-							$data[$counter][6] = $date;
+                            $data[$counter][2] = $pr_author;
+							$data[$counter][3] = $pr_category;
+							$data[$counter][4] = $pr_metadesc;
+							$data[$counter][5] = $pr_desc;
+                            $data[$counter][6] = $pr_image;
+							$data[$counter][7] = $pr_permalink;
+                            $data[$counter][8] = $date_added;
+                            $data[$counter][9] = $date_modified;
+							$data[$counter][10] = $status;
 
 							$counter++;
 						}
@@ -1324,13 +1340,13 @@
 					}
 				}
 			}
-            //-----------update-----------//
+            //-----------update-----------// //done-1
 
-            function update_pr_full_details_by_id($pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id)
+            function update_pr_full_details_by_id($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`permalink`=? where `prID`= ? "))
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`author`=?,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?,`permalink`=? where `prID`= ? "))
 				{
-					$stmt_update->bind_param("ssssss",$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_id);
+					$stmt_update->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_image,$pr_id);
 
 					if($stmt_update->execute())
 					{
@@ -1342,12 +1358,13 @@
 					}
 				}
 			}
+            //done-1
             function fetch_pr_full_details_by_id($pr_id)
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `prID` = ?"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `prID` = ?"))
 				{
 					$stmt_select->bind_param("s",$pr_id);
-					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
 					if($stmt_select->execute())
 					{
@@ -1358,11 +1375,15 @@
 						{
 							$data[0] = $pr_id;
 							$data[1] = $pr_title;
-							$data[2] = $pr_category;
-							$data[3] = $pr_metadesc;
-							$data[4] = $pr_desc;
-							$data[5] = $pr_permalink;
-							$data[6] = $date;
+                            $data[2] = $pr_author;
+							$data[3] = $pr_category;
+							$data[4] = $pr_metadesc;
+							$data[5] = $pr_desc;
+                            $data[6] = $pr_image;
+							$data[7] = $pr_permalink;
+							$data[8] = $date_added;
+                            $data[9] = $date_modified;
+                            $data[10] = $status;
 
 						}
 						if(!empty($data))
@@ -1376,9 +1397,10 @@
 					}
 				}
 			}
-
-            //-----------soft delete-----------//
-
+            
+            //-----------soft delete-----------//   
+            
+            //----done-2----//
             function delete_pr_details_by_id($delete_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `status` = 0 where `prID` = ?"))
@@ -1396,13 +1418,14 @@
 				}
 			}
 
-            //-----------trash-----------//
-
+            //-----------trash-----------//  
+            
+            //---done-1---//
 			function fetch_pr_deleted_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `dateAdded` FROM `press_release` where `status` = 0"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 0"))
 				{
-					$stmt_select->bind_result($pr_id,$pr_title,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$date);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
 					if($stmt_select->execute())
 					{
@@ -1413,11 +1436,15 @@
 						{
 							$data[$counter][0] = $pr_id;
 							$data[$counter][1] = $pr_title;
-							$data[$counter][2] = $pr_category;
-							$data[$counter][3] = $pr_metadesc;
-							$data[$counter][4] = $pr_desc;
-							$data[$counter][5] = $pr_permalink;
-							$data[$counter][6] = $date;
+                            $data[$counter][2] = $pr_author;
+							$data[$counter][3] = $pr_category;
+							$data[$counter][4] = $pr_metadesc;
+							$data[$counter][5] = $pr_desc;
+                            $data[$counter][6] = $pr_image;
+							$data[$counter][7] = $pr_permalink;
+                            $data[$counter][8] = $date_added;
+                            $data[$counter][9] = $date_modified;
+							$data[$counter][10] = $status;
 
 							$counter++;
 						}
@@ -1432,7 +1459,7 @@
 					}
 				}
 			}
-
+            //----done-2----//
 			function permanent_delete_pr_details_by_id($delete_id)
 			{
 				if($stmt_delete = $this->con->prepare("delete FROM `press_release` where `prId` = ?"))
@@ -1445,6 +1472,7 @@
 					}
 				}
 			}
+            //-----done-2----//
 			function restore_deleted_pr_details_by_id($restore_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `status` = 1 where `prID` = ?"))
@@ -1461,7 +1489,7 @@
 					}
 				}
 			}
-
+            //----done-2-----//
             function permanent_delete_pr_category_by_id($delete_id)
 			{
 				if($stmt_delete = $this->con->prepare("DELETE FROM `pr_category` where `prCategoryID` = ?"))
@@ -1474,7 +1502,8 @@
 					}
 				}
 			}
-
+            
+            //---done-2-----//
 			function restore_deleted_pr_category_by_id($restore_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `status` = 1 where `prCategoryID` = ?"))

@@ -44,6 +44,7 @@ if(!empty($blog_data))
   $blog_image_og = $blog_data[7];
   //echo $blog_image;
   $blog_permalink = $blog_data[8];
+  $image_disp = "";
   $image_disp = $target_dir ."/". $blog_image_og;
 }
 
@@ -65,7 +66,7 @@ if(isset($_POST['edit']))
     $blog_image = $_FILES['blog_image']['name'];
 
     $target_file = $target_dir . basename($_FILES["blog_image"]["name"]);
-    
+
     if (move_uploaded_file($_FILES['blog_image']['tmp_name'], $target_file)){
       $common_msg = "File upload successful";
     }

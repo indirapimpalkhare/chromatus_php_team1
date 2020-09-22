@@ -14,7 +14,9 @@
     $common_msg1 =   "Category deleted successfully.";
     }  
    
-    $pr_category  =  ""; 
+    $pr_category  =  "";
+    $pr_category_image = "";
+    $target_dir = "img/uploads/";
     
     $common_msg  =  "";
     $flag = 0;
@@ -22,12 +24,22 @@
     if(isset($_POST['submit_btn']))
     { 
        
-        $pr_category  =  $_POST['pr-category'];  
+        $pr_category  =  $_POST['pr-category'];
+        $target_file = $target_dir . basename($_FILES["pr_category_image"]["name"]);
+        $pr_category_image = $_FILES['pr_category_image']['name'];
         if($flag==0)
         { 
+            if (move_uploaded_file($_FILES['pr_category_image']['tmp_name'], $target_file))
+            {
+                 $db->add_pr_category($pr_category,$pr_category_image);    
+                $common_msg =   "Category Added successfully.";
+            }
+            else 
+            {
+                $common_msg = "Sorry, there was an error adding PR.";
+            }
             
-            $db->add_pr_category($pr_category);    
-            $common_msg =   "Category Added successfully.";
+           
         }
         
     }
@@ -121,6 +133,12 @@
                                                                                 <span class="j-tooltip j-tooltip-right-top">Enter PR Category</span> 
                                                                             </div>
                                                                         </div>
+                                                                        <div class="j-unit">
+                                                                            <div class="j-input">
+                                                                                <div style="margin-bottom:10px; font-size:2 0px;">Insert Image :  <input type="file" name="pr_category_image" placeholder="Select PR Category Image" required accept="image/*">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                         
                                                                     </div>
                                                                 </div>
@@ -160,7 +178,7 @@
                                                                     <tr>
                                                                 
                                                                         <th style="width=30;text-align:center;" >Sr. No</th>
-                                                                        <th style="width=30;text-align:center;" >PR Category</th>                      
+                                                                        <th style="width=30;text-align:center;" >PR Category</th>         <th style="width=30;text-align:center;" >Image</th>  
                                                                         <th style="width=30;text-align:center;">Update</th> 
                                                                         <th style="width=30;text-align:center;">Send to Trash</th> 
                                                                                                                                 
@@ -179,6 +197,7 @@
                                                                                     
                                                                                     $got_id             =   $get_pr_category[$counter][0]; 
                                                                                     $got_pr_category  =   $get_pr_category[$counter][1];
+                                                                                    $got_pr_category_image  =   $get_pr_category[$counter][2];
                                                                             
                                                         
                                                                                       
@@ -187,6 +206,7 @@
                                                                         <td style="text-align:center;"><?php echo $counter + 1 ;?></td>
                                                                         
                                                                         <td><?php echo $got_pr_category ;?></td> 
+                                                                        <td><?php echo $got_pr_category_image ;?></td> 
                                                                         
                                                                         <td style="text-align:center;"><a href="edit-pr-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>           
                                                                         
