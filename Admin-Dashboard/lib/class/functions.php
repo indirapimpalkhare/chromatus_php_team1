@@ -1243,7 +1243,7 @@
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ?,`image`=? where `prCategoryID`= ?"))
 				{
-					$stmt_update->bind_param("sss",$category_name,$category_image,$category_id,);
+					$stmt_update->bind_param("sss",$category_name,$category_image,$category_id);
 
 					if($stmt_update->execute())
 					{
