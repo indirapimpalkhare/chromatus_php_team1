@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2020 at 10:41 AM
+-- Generation Time: Sep 22, 2020 at 10:56 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -73,10 +73,10 @@ INSERT INTO `blog_category` (`blogCategoryID`, `name`, `image`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact_uc`
+-- Table structure for table `contact_us`
 --
 
-CREATE TABLE `contact_uc` (
+CREATE TABLE `contact_us` (
   `contactID` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -119,10 +119,9 @@ CREATE TABLE `homepage` (
 --
 
 INSERT INTO `homepage` (`imageID`, `image`, `image_text`, `display`, `status`) VALUES
-(4, 'h.png', 'Test test test test test test', 1, 0),
-(5, 'Screenshot from 2020-08-17 18-14-33.png', 'Test test', 1, 0),
-(6, 'jgotman.png', 'Flowchart', 1, 1),
-(7, '1999.png', 'Test test', 1, 1);
+(8, 'placeholder1.jpg', 'Car 1', 1, 1),
+(9, 'placeholder2.jpg', 'Car 2', 1, 1),
+(10, 'placeholder3.jpg', 'Car 3', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -278,9 +277,9 @@ ALTER TABLE `blog_category`
   ADD PRIMARY KEY (`blogCategoryID`);
 
 --
--- Indexes for table `contact_uc`
+-- Indexes for table `contact_us`
 --
-ALTER TABLE `contact_uc`
+ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`contactID`);
 
 --
@@ -348,9 +347,9 @@ ALTER TABLE `blog_category`
   MODIFY `blogCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `contact_uc`
+-- AUTO_INCREMENT for table `contact_us`
 --
-ALTER TABLE `contact_uc`
+ALTER TABLE `contact_us`
   MODIFY `contactID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -363,7 +362,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `homepage`
 --
 ALTER TABLE `homepage`
-  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `news`
