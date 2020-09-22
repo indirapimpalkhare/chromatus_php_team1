@@ -8,7 +8,7 @@
       </header>
 <style>
 
-  @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+  
 
 *{
   margin: 0;
@@ -17,7 +17,7 @@
 
 body{
   background: #fff;
-  font-family: 'Josefin Sans', sans-serif;
+  
 }
 
 .wrapper{
@@ -27,7 +27,7 @@ body{
 }
 
 .wrapper h1{
-  font-family: 'Allura', cursive;
+  
   font-size: 52px;
   margin-bottom: 25px;
   letter-spacing: 10px;
