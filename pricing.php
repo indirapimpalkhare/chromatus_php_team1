@@ -116,9 +116,9 @@ body{
          <p class="money">
            $99<br><span>per month</span>
          </p>
-         <p> <ul>
-              <li><h5>1 Press Release</h5></li>    
-            </ul>
+         <p> 
+              <h5>1 Press Release</h5>   
+            
          </p>
          <br>
           <a href="contact.php" class="btn">Contact Us</a>
@@ -130,9 +130,9 @@ body{
            $199<br><span>per month</span>
          </p>
          <p>
-          <ul>
-              <li><h5>10 Press Release</h5></li>    
-            </ul>
+          
+              <h5>10 Press Release</h5>   
+            
          </p>
          <br>
          <a href="contact.php" class="btn">Contact Us</a>
@@ -145,9 +145,9 @@ body{
          </p>
          
            <p>
-          <ul>
-              <li><h5>100 Press Release</h5></li>    
-            </ul>
+          
+              <h5>100 Press Release</h5>   
+            
          </p>
          <br>
          <a href="contact.php" class="btn">Contact Us</a>
