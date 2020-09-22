@@ -5,7 +5,7 @@
     {
         header("Location:index.php");
     }
-    
+
     $common_msg1 = "";
     if(isset($_GET['del_image_id']))
     {
@@ -202,7 +202,7 @@
                                                                 				echo "<tr>";
 																																				$s = $counter + 1;
                                                                         echo "<td>".$s. "</td>";
-                                                                        echo "<td><img src='img/uploads/carousel/".$image."'height='30%'></td>";
+                                                                        echo "<td><img src='img/uploads/carousel/".$image."'height='10%'></td>";
                                                                         echo "<td>".$image_text."</td>";
                                                                         if($display == 1){
                                                                           $ch = 0;

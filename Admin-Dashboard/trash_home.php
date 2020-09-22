@@ -5,7 +5,7 @@
 	{
 		header("Location:index.php");
 	}
-  
+
 	$common_msg ="";
 	$common_msg1 ="";
 	if(isset($_GET['del_image_id']) && isset($_GET['image']))
@@ -160,7 +160,7 @@
                                                                       echo "<tr>";
                                                                       $s = $counter + 1;
                                                                       echo "<td>".$s. "</td>";
-                                                                      echo "<td><img src='img/uploads/carousel/".$image."'height='30%'></td>";
+                                                                      echo "<td><img src='img/uploads/carousel/".$image."'height='10%'></td>";
                                                                       echo "<td>".$image_text."</td>";
                                                                       echo "<td><a href='trash_home.php?restore_image_id=".$image_id."' class='Edit_option'><i class='fa fa-repeat fa-2x'></i></a></td>";
                                                                       echo "<td><a href='trash_home.php?del_image_id=".$image_id."&image=".$image."' class='delete_option'><i class='fa fa-trash-o fa-2x'></i></a></td>";
