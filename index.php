@@ -1,3 +1,9 @@
+<?php
+
+require_once("Admin-Dashboard/lib/class/functions.php");
+$db = new functions();
+
+ ?>
 <!doctype html>
   <html lang="en">
       <head>
@@ -16,20 +22,33 @@
         <!--Header Start-->
         <?php require_once('include/nav.php'); ?>
         <!--Header Ends-->
-
         <div class = "imgbox">
-          <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="assets/images/placeholder1.jpg" class="center-fit" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="assets/images/placeholder2.jpg" class="center-fit" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="assets/images/placeholder3.jpg" class="center-fit" alt="...">
-              </div>
-            </div>
+        <?php
+              $counter=0;
+              $get_carousel = $db->get_all_carousel_images();
+              if(!empty($get_carousel))
+              {
+                ?>
+
+                  <div id="carouselHomePage" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+              <?php
+                        foreach($get_carousel as $image)
+                        {
+                            $img  =   $get_carousel[$counter][0];
+                            $text = $get_carousel[$counter][1];
+                            if($counter == 0){
+                            echo "<div class='carousel-item active'>" ;
+                            }
+                            else{
+                              echo "<div class='carousel-item'>" ;
+                            }
+                            echo "<img src='Admin-Dashboard/img/uploads/carousel/".$img."' class='center-fit' alt='".$text."'>";
+                            echo "</div>";
+                            $counter++;
+                          }
+                ?>
+
             <a class="carousel-control-prev" href="#carouselHomePage" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -40,6 +59,7 @@
             </a>
           </div>
         </div>
+      <?php } ?>
 
         <div class="our_services">
         <div class = "row m-4 pt-4 mt-4">

@@ -926,9 +926,9 @@
 		// ----- HOMEPAGE ---//
 		//For display
 		function get_all_carousel_images(){
-			if($stmt_select = $this->con->prepare("SELECT `image` FROM `homepage` where `display` = 1 AND `status` = 1"))
+			if($stmt_select = $this->con->prepare("SELECT `image`, `image_text` FROM `homepage` where `display` = 1 AND `status` = 1"))
 			{
-				$stmt_select->bind_result($image);
+				$stmt_select->bind_result($image,$text);
 
 				if($stmt_select->execute())
 				{
@@ -937,7 +937,8 @@
 
 					while($stmt_select->fetch())
 					{
-						$data[$counter] = $image;
+						$data[$counter][0] = $image;
+						$data[$counter][1] = $text;
 						//$data[$counter][1] = $category_name;
 						$counter++;
 					}
@@ -999,7 +1000,7 @@
 						$data[0] = $image_id;
 						$data[1] = $image;
 						$data[2] = $image_text;
-						
+
 					}
 					if(!empty($data))
 					{
@@ -1141,9 +1142,9 @@
 // ---- PRESS RELEASE STARTS HERE ---- //
 
                                                 //----- PR Category ------//
-            
+
             //------ add ------//
-            
+
             function add_pr_category($pr_category,$pr_category_image)
 			{
 				if($stmt_insert = $this->con->prepare("INSERT INTO `pr_category`(`name`,`image`) VALUES (?,?)"))
@@ -1172,7 +1173,7 @@
 						{
 							$data[$counter][0] = $category_id;
 							$data[$counter][1] = $category_name;
-                            $data[$counter][2] = $category_image;    
+                            $data[$counter][2] = $category_image;
 							$counter++;
 						}
 						if(!empty($data))
@@ -1186,7 +1187,7 @@
 					}
 				}
 			}
-            
+
             //-----Display-----//
 			function fetch_pr_deleted_category()
 			{
@@ -1217,7 +1218,7 @@
 					}
 				}
 			}
-            
+
             //--------delete-----------//
 			function delete_pr_category_by_id($delete_id)
 			{
@@ -1283,9 +1284,9 @@
 					}
 				}
 			}
-            
+
                                                         //------PR Details--------//
-            
+
             //------------add-----------//  //done-1
             function add_pr($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink)
 			{
@@ -1397,9 +1398,9 @@
 					}
 				}
 			}
-            
-            //-----------soft delete-----------//   
-            
+
+            //-----------soft delete-----------//
+
             //----done-2----//
             function delete_pr_details_by_id($delete_id)
 			{
@@ -1418,8 +1419,8 @@
 				}
 			}
 
-            //-----------trash-----------//  
-            
+            //-----------trash-----------//
+
             //---done-1---//
 			function fetch_pr_deleted_records()
 			{
@@ -1502,7 +1503,7 @@
 					}
 				}
 			}
-            
+
             //---done-2-----//
 			function restore_deleted_pr_category_by_id($restore_id)
 			{
