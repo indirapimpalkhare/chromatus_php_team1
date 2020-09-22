@@ -99,7 +99,7 @@
                                 <div class="page-wrapper">
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10">Manage Blog Category</h5>
+                                            <h5 class="m-b-10">Manage Carousel Image</h5>
 
                                         </div>
                                     </div>
@@ -107,9 +107,7 @@
                                         <div class="row">
                                           <div class="col-sm-12">
                                                 <div class="card">
-                                                    <div class="card-header">
-                                                    <h5>Add Blog Category</h5>
-                                                </div>
+
                                                 <div class="form-group row">
                                                     <div class="col-md-12">
                                                         <div class="common_msg" style="color:green;font-size:17px;margin-left: 340px;">
@@ -213,7 +211,7 @@
                                                                           $ch = 1;
                                                                           echo "<td><a href='manage_home.php?display_change_id=".$image_id."&display=".$ch."' class='delete_option'><i class='fa fa-eye-slash fa-2x'></i></a></td>";
                                                                         }
-                                                                        echo "<td><a href='edit_home.php?category_id=".$image_id."' class='Edit_option'><i class='fa fa-pencil-square-o fa-2x'></i></a></td>";
+                                                                        echo "<td><a href='edit_home.php?image_id=".$image_id."' class='Edit_option'><i class='fa fa-pencil-square-o fa-2x'></i></a></td>";
 																																				echo "<td><a href='manage_home.php?del_image_id=".$image_id."' class='delete_option'><i class='fa fa-trash-o fa-2x'></i></a></td>";
 																																				echo "</tr>";
 
