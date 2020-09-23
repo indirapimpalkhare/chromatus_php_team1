@@ -911,18 +911,43 @@
 		}
 		function update_blog_category_by_id($category_name,$category_id)
 		{
-			if($stmt_update = $this->con->prepare("UPDATE `blog_category` SET `name`= ? where `blogCategoryID`= ?"))
+			if($stmt_select = $this->con->prepare("SELECT `name` FROM `blog_category` WHERE `blogCategoryID` = ?"))
 			{
-				$stmt_update->bind_param("ss",$category_name,$category_id);
+				$stmt_select->bind_param("s",$category_id);
+				$stmt_select->bind_result($og_category_name);
+				if($stmt_select->execute()){
+					while($stmt_select->fetch()){
+						$og = $og_category_name;
+					}
+					echo $og;
+					if(!empty($og)){
+						echo "Need additional update?";
+						if($stmt_update = $this->con->prepare("UPDATE `blog_category` SET `name`= ? where `blogCategoryID`= ?")){
+							$stmt_update->bind_param("ss",$category_name,$category_id);
+							echo "Ready";
+							if($stmt_update->execute()){
+								echo "first update success";
+								if($stmt_update_blog = $this->con->prepare("UPDATE `blog` SET `category`= ? where `category`= ?")){
+									$stmt_update_blog->bind_param("ss",$category_name,$og_category_name);
+									if($stmt_update_blog->execute()){
+										echo "All success";
+										return true;
+									}
+								}
+							}
+						}
+					}
+					else{
+						if($stmt_update_blog = $this->con->prepare("UPDATE `blog` SET `category`= ? where `category`= ?")){
+							$stmt_update_blog->bind_param("ss",$category_name,$og_category_name);
+							if($stmt_update_blog->execute()){
+								echo "All success";
+								return true;
+							}
+						}
+					}
+				}
 
-				if($stmt_update->execute())
-				{
-				return true;
-				}
-				else
-				{
-				return false;
-				}
 			}
 		}
 		function fetch_blog_full_details_by_id($blog_id)
