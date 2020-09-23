@@ -1382,7 +1382,7 @@
 
 
 
-            function update_pr_category_by_id($category_name,$category_id)
+            function update_pr_category_by_id($category_name,$category_image,$category_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ?,`image`=? where `prCategoryID`= ?"))
 				{
@@ -1448,7 +1448,7 @@
         // -------view------- //
             function fetch_pr_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 "))
 				{
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
@@ -1542,7 +1542,7 @@
 				}
 			}
 
-            //-----------soft delete-----------//
+            // -----------soft delete-----------//
 
             //----done-2----//
             function delete_pr_details_by_id($delete_id)
@@ -1664,6 +1664,71 @@
 					}
 				}
 			}
+            
+            // pending reports//
+            
+            function fetch_pr_records_pending()
+			{
+                 
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `isAccepted` = 0 and `status`=1"))
+				{
+                    
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
+                    
+					if($stmt_select->execute())
+					{
+                         
+						$data = array();
+						$counter	=	0;
+                    
+						while($stmt_select->fetch())
+						{
+                            
+							$data[$counter][0] = $pr_id;
+							$data[$counter][1] = $pr_title;
+                            $data[$counter][2] = $pr_author;
+							$data[$counter][3] = $pr_category;
+							$data[$counter][4] = $pr_metadesc;
+							$data[$counter][5] = $pr_desc;
+                            $data[$counter][6] = $pr_image;
+							$data[$counter][7] = $pr_permalink;
+                            $data[$counter][8] = $date_added;
+                            $data[$counter][9] = $date_modified;
+							$data[$counter][10] = $status;
+                            
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+
+
+            function accept_pr_details_by_id($accept_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `isAccepted` = 1 where `prID` = ?"))
+				{
+					$stmt_update->bind_param("s",$accept_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+            
+            
 
 
 

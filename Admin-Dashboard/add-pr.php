@@ -29,7 +29,7 @@
         $pr_permalink =  $_POST['pr-permalink'];
         $target_file = $target_dir . basename($_FILES["pr_image"]["name"]);
         $pr_image = $_FILES['pr_image']['name'];
-        echo $pr_image;
+        
         
         if($flag==0)
         {

@@ -46,7 +46,6 @@
 	$pr_image_og                =   $pr_data[6];
     $result_permalink			=	$pr_data[7];
     
-    echo $pr_image_og;
     $image_disp = $target_dir ."/". $pr_image_og;
 			
 	}

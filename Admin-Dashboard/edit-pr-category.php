@@ -161,7 +161,7 @@
                                                                         
                                                                         <div class="j-unit">
                                                                             <div class="j-input">
-                                                                                <input type="file" name="pr_image" placeholder="Select PR Image" accept="image/*" value = "<?php echo $pr_category_image?>">
+                                                                                <input type="file" name="pr_category_image" placeholder="Select PR Image" accept="image/*" value = "<?php echo $pr_category_image?>">
                                                                                 <span class="j-tooltip j-tooltip-right-top">Select PR Image</span>
                                                                                 <img src = "<?php echo $image_disp ?>" width="40%" alt="Current Image">
 

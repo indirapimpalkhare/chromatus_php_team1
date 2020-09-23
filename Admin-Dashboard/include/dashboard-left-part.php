@@ -40,7 +40,7 @@
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="pending-reports.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Pending Reports</span>
                      <span class="pcoded-mcaret"></span>
