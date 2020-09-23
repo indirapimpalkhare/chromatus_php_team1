@@ -109,11 +109,11 @@
                         <div class="blog-card">
                           <h5 class="blog-card-title"><?php echo $blog_title ?></h5>
                           <div class="row blog-card-body">
-                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/img/uploads/<?php echo $blog_image ?>" alt="Blogs Image">
-                            <p class="blog-card-text col-8 col-md-8 col-lg-8 "><?php echo $blog_meta_desc ?></p>
+                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/img/uploads/<?php echo $blog_image; ?>" alt="Blogs Image">
+                            <p class="blog-card-text col-8 col-md-8 col-lg-8 "><?php echo $blog_meta_desc; ?></p>
                           </div>
                           <div class="row">
-                            <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
+                            <div class="ml-auto mr-3"><a href="blogs_read_more.php?blog-id=<?php echo $blogID; ?>" class="blog-card-btn">Read More..</a></div>
                           </div>
                         </div>
                       <hr>
