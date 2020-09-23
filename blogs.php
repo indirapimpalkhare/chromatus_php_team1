@@ -1,3 +1,13 @@
+<?php
+  require_once("Admin-Dashboard/lib/class/functions.php");
+  $db = new functions();
+
+  $category = 'All';
+  if(isset($_GET['blog-cat']))
+  {
+    $category = $_GET['blog-cat'];
+  }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,74 +48,80 @@
                    <div class="cat-box-wrapper">
                      <ul class="cat-box-list">
                         <li class="cat-box-heading">Category</li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Chemical and Materials</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Automation and Transport</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Consumer Goods</span></li>
+                        <a href="blogs.php?blog-cat=All" ><li class="cat-box-item <?php if($category == 'All'){ echo "cat-box-item-active"; } ?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">All</span></li></a>
+                        <?php
+                              $get_category = $db->get_blog_categories();
+                              if(!empty($get_category))
+                              {
+                                  $counter    =   0;
 
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Electronics and Semiconductors</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Foods and Beverages</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Internet and Communication</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Life Science</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Sports</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Machinery and Equipment</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Packaging</span></li>
-                        <li class="cat-box-item"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">Miscellaneous</span></li>
+                                  foreach($get_category as $record)
+                                  {
+                                      $result_category  =   $get_category[$counter][1];
+
+
+                        ?>
+                        <a href="blogs.php?blog-cat=<?php echo $result_category ?>"  ><li class="cat-box-item <?php if($category == $result_category){echo "cat-box-item-active"; }?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text"><?php echo $result_category ?></span></li></a>
+                        <?php
+                              $counter++;
+                              }
+
+                          }
+                          else
+                          {
+                        ?>
+                        <option value="">Empty Cateogry</option>
+                        <?php
+                          }
+                        ?>
                      </ul>
                     </div>
                   </div>
                   <div class="col-md-8" >
                     <div class="row">
+
+                      <?php
+                            if($category == 'All')
+                            {
+                              $get_blogs=$db->get_blogs();
+                            }
+                            else
+                            {
+                            $get_blogs = $db->fetch_blog_records_by_category($category);
+                            }
+                            if(!empty($get_blogs))
+                            {
+                                $counter    =   0;
+
+                                foreach($get_blogs as $record)
+                                {
+                                  $blogID = $get_blogs[$counter][0];
+                                  $blog_title = $get_blogs[$counter][1];
+                                  $blog_category = $get_blogs[$counter][2];
+                                  $blog_meta_desc = $get_blogs[$counter][3];
+                                  $blog_desc = $get_blogs[$counter][4];
+                                  $datemod = $get_blogs[$counter][6];
+                                  $blog_image = $get_blogs[$counter][7];
+                                  $blog_permalink = $get_blogs[$counter][8];
+                      ?>
+
                       <div class="col">
                         <div class="blog-card">
-                          <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
-
+                          <h5 class="blog-card-title"><?php echo $blog_title ?></h5>
                           <div class="row blog-card-body">
-                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">
-                            <p class="blog-card-text col-8 col-md-8 col-lg-8 ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/img/uploads/<?php echo $blog_image ?>" alt="Blogs Image">
+                            <p class="blog-card-text col-8 col-md-8 col-lg-8 "><?php echo $blog_meta_desc ?></p>
                           </div>
                           <div class="row">
                             <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
                           </div>
                         </div>
                       <hr>
-
-                      <div class="blog-card">
-                        <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
-
-                        <div class="row blog-card-body">
-                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">
-                          <p class="blog-card-text  col-8 col-md-8 col-lg-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        </div>
-                        <div class="row">
-                          <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
-                        </div>
+                    <?php
+                      $counter++;
+                  }
+                  } ?>
                       </div>
-                      <hr>
-                      <div class="blog-card">
-                        <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
-
-                        <div class="row blog-card-body">
-                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">
-                          <p class="blog-card-text  col-8 col-md-8 col-lg-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        </div>
-                         <div class="row">
-                            <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
-                         </div>
-                      <hr>
-                       <div class="blog-card">
-                        <h5 class="blog-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloremagna aliqua.</h5>
-
-                        <div class="row blog-card-body">
-                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Blogs Image">
-                          <p class="blog-card-text  col-8 col-md-8 col-lg-8">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        </div>
-                        <div class="row">
-                          <div class="ml-auto mr-3"><a href="#" class="blog-card-btn">Read More..</a></div>
-                        </div>
-                        
-                      </div>
-                      <hr>
-                    </div>
                   </div>
                   </div>
                 </div>
