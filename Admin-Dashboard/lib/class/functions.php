@@ -992,10 +992,10 @@
 		}
 		function fetch_blog_records_by_category($category)
 		{
-			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateModified`,`image`,`permalink` FROM `blog` where `status` = 1 AND category = ?"))
+			if($stmt_select = $this->con->prepare("SELECT `blogID`,`title`,`category`,`metaDescription`,`description`,`dateAdded`,`dateModified`,`image`,`permalink`,`status` FROM `blog` where `status` = 1 AND category = ?"))
 			{
 				$stmt_select->bind_param("s",$category);
-				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc, $datemod, $blog_image, $blog_permalink);
+				$stmt_select->bind_result($blogID,$blog_title,$blog_category,$blog_meta_desc,$blog_desc,$date_added, $datemod, $blog_image, $blog_permalink, $status);
 
 				if($stmt_select->execute())
 				{
@@ -1004,14 +1004,16 @@
 
 					while($stmt_select->fetch())
 					{
-						$data[0] = $blogID;
-						$data[1] = $blog_title;
-						$data[2] = $blog_category;
-						$data[3] = $blog_meta_desc;
-						$data[4] = $blog_desc;
-						$data[5] = $datemod;
-						$data[6] = $blog_image;
-						$data[7] = $blog_permalink;
+						$data[$counter][0] = $blogID;
+						$data[$counter][1] = $blog_title;
+						$data[$counter][2] = $blog_category;
+						$data[$counter][3] = $blog_meta_desc;
+						$data[$counter][4] = $blog_desc;
+						$data[$counter][5] = $date_added;
+						$data[$counter][6] = $datemod;
+						$data[$counter][7] = $blog_image;
+						$data[$counter][8] = $blog_permalink;
+						$data[$counter][9] = $status;
 
 						$counter++;
 					}
@@ -1664,26 +1666,26 @@
 					}
 				}
 			}
-            
+
             // pending reports//
-            
+
             function fetch_pr_records_pending()
 			{
-                 
+
 				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `isAccepted` = 0 and `status`=1"))
 				{
-                    
+
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
-                    
+
 					if($stmt_select->execute())
 					{
-                         
+
 						$data = array();
 						$counter	=	0;
-                    
+
 						while($stmt_select->fetch())
 						{
-                            
+
 							$data[$counter][0] = $pr_id;
 							$data[$counter][1] = $pr_title;
                             $data[$counter][2] = $pr_author;
@@ -1695,7 +1697,7 @@
                             $data[$counter][8] = $date_added;
                             $data[$counter][9] = $date_modified;
 							$data[$counter][10] = $status;
-                            
+
 							$counter++;
 						}
 						if(!empty($data))
@@ -1727,8 +1729,8 @@
 					}
 				}
 			}
-            
-            
+
+
 
 
 
