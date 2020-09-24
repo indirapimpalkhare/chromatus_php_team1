@@ -75,15 +75,45 @@ $db = new functions();
               </div>
             </div>
           </div>
+          <?php
+            $get_pr		=	array();
+            $get_pr		=	$db->get_latest_pr();
+            if(!empty($get_pr))
+            {
+              $counter	=	0;
+
+              foreach($get_pr as $record)
+              {
+
+                $got_id				=   $get_pr[$counter][0];
+                $got_pr_title	    =	$get_pr[$counter][1];
+                $got_pr_author	    =	$get_pr[$counter][2];
+                $got_pr_category	=	$get_pr[$counter][3];
+                $got_pr_metaDesc 	=	$get_pr[$counter][4];
+                $got_pr_desc	    =	$get_pr[$counter][5];
+                $pr_image	 		= 	$get_pr[$counter][6];
+                $got_pr_permalink 	= 	$get_pr[$counter][7];
+                $date_added 		= 	$get_pr[$counter][8];
+                $date_modified		= 	$get_pr[$counter][9];
+                $status 			= 	$get_pr[$counter][10];
+
+           ?>
           <div class = "col-md-4 align-self-end">
             <div class="card">
               <div class="card-header">
-                Press Release
+                Latest Press Release
               </div>
               <div class="card-body">
-                <h5 class="card-title">Placeholder</h5>
-                <p class="card-text">Placeholder</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title"><?php echo $got_pr_title ?> </h5>
+                <p class="card-text"><?php echo $got_pr_metaDesc?> </p>
+                <a href="pr_read_more.php?pr_id=<?php echo $got_id ?>" class="btn btn-primary">Read More...</a>
+                <hr>
+                <?php
+                  $counter++;
+                }
+              }
+
+                ?>
               </div>
             </div>
           </div>
