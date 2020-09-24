@@ -1475,7 +1475,7 @@
         // -------view------- //
             function fetch_pr_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 "))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 ORDER BY `dateAdded` DESC"))
 				{
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
@@ -1756,21 +1756,15 @@
 			}
 
 
+//frontend code...
 
-
-
-
-
-/*
-
-			//frontend code...
-
-			function fetch_news_records_by_name($category)
+			function fetch_pr_records_by_name($category)
 			{
-				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 AND category = ?"))
+                
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 and category = ? ORDER BY `dateAdded` DESC"))
 				{
 					$stmt_select->bind_param("s",$category);
-					$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
 					if($stmt_select->execute())
 					{
@@ -1779,13 +1773,17 @@
 
 						while($stmt_select->fetch())
 						{
-							$data[$counter][0] = $news_id;
-							$data[$counter][1] = $news_title;
-							$data[$counter][2] = $news_category;
-							$data[$counter][3] = $news_metadesc;
-							$data[$counter][4] = $news_desc;
-							$data[$counter][5] = $news_permalink;
-							$data[$counter][6] = $date;
+							$data[$counter][0] = $pr_id;
+							$data[$counter][1] = $pr_title;
+							$data[$counter][2] = $pr_author;
+                            $data[$counter][3] = $pr_category;
+							$data[$counter][4] = $pr_metadesc;
+							$data[$counter][5] = $pr_desc;
+                            $data[$counter][6] = $pr_image;
+							$data[$counter][7] = $pr_permalink;
+							$data[$counter][8] = $date_added;
+                            $data[$counter][9] = $date_modified;
+                            $data[$counter][10]= $status;
 
 							$counter++;
 						}
@@ -1801,7 +1799,7 @@
 				}
 			}
 
-*/
+
 
 //----PR for HOME Page -----///
 function get_latest_pr()
