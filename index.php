@@ -137,7 +137,7 @@ $db = new functions();
               </div>
 
               <div class="service">
-                <i class=""></i>
+                <i class="fa fa-balance-scale"></i>
                 <h2>Competitive Benchmarking</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>
@@ -149,7 +149,7 @@ $db = new functions();
               </div>
 
               <div class="service">
-                <i class="fas fa-apple-alt"></i>
+                <i class="fa fa-smile-o"></i>
                 <h2>Customer Satisfaction Surveys</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>
@@ -167,7 +167,7 @@ $db = new functions();
               </div>
 
               <div class="service">
-                <i class="far fa-angry"></i>
+                <i class="fa fa-bar-chart"></i>
                 <h2>Field Survey</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>
