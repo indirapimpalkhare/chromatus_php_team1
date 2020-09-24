@@ -75,6 +75,11 @@ $db = new functions();
               </div>
             </div>
           </div>
+          <div class = "col-md-4 align-self-end">
+            <div class="card">
+              <div class="card-header">
+                Latest Press Release
+              </div>
           <?php
             $get_pr		=	array();
             $get_pr		=	$db->get_latest_pr();
@@ -98,11 +103,7 @@ $db = new functions();
                 $status 			= 	$get_pr[$counter][10];
 
            ?>
-          <div class = "col-md-4 align-self-end">
-            <div class="card">
-              <div class="card-header">
-                Latest Press Release
-              </div>
+
               <div class="card-body">
                 <h5 class="card-title"><?php echo $got_pr_title ?> </h5>
                 <p class="card-text"><?php echo $got_pr_metaDesc?> </p>
@@ -112,6 +113,13 @@ $db = new functions();
                   $counter++;
                 }
               }
+            else{
+              ?>
+                  <div class="card-body">
+                    <h5 class="card-title">No latest Press Release </h5>
+                    <hr>
+            <?php
+            }
 
                 ?>
               </div>
