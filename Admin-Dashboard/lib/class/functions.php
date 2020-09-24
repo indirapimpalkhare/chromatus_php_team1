@@ -1806,7 +1806,7 @@
 //----PR for HOME Page -----///
 function get_latest_pr()
 	{
-		if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 ORDER BY `prID` DESC LIMIT 8 "))
+		if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` WHERE `status` = 1 AND `isAccepted` = 1 ORDER BY `prID` DESC  LIMIT 5 "))
 		{
 			$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
@@ -1846,5 +1846,42 @@ function get_latest_pr()
 
     // ---- Press release Ends here ----  //
     //---Write code here-----//
+
+		//Get latest news
+		function get_latest_news()
+		{
+			if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 ORDER BY `newsID` DESC LIMIT 5"))
+			{
+				$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+					$counter	=	0;
+
+					while($stmt_select->fetch())
+					{
+						$data[$counter][0] = $news_id;
+						$data[$counter][1] = $news_title;
+						$data[$counter][2] = $news_category;
+						$data[$counter][3] = $news_metadesc;
+						$data[$counter][4] = $news_desc;
+						$data[$counter][5] = $news_permalink;
+						$data[$counter][6] = $date;
+
+						$counter++;
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
 	}	//class end
 ?>

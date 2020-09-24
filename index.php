@@ -68,13 +68,48 @@ $db = new functions();
               <div class="card-header">
                 Latest Report
               </div>
+              <?php
+                $get_news		=	array();
+                $get_news		=	$db->get_latest_news();
+                if(!empty($get_news))
+                {
+                  $counter_n	=	0;
+
+                  foreach($get_news as $record)
+                  {
+
+                    $got_id				=   $get_news[$counter_n][0];
+                    $got_news_title	    =	$get_news[$counter_n][1];
+                    $got_news_category	=	$get_news[$counter_n][2];
+                    $got_news_metaDesc 	=	$get_news[$counter_n][3];
+                    $got_news_desc	    =	$get_news[$counter_n][4];
+                    $got_news_permalink =	$get_news[$counter_n][5];
+                    $got_news_date   	=	$get_news[$counter_n][6];
+
+               ?>
               <div class="card-body">
-                <h5 class="card-title">Placeholder</h5>
-                <p class="card-text">Placeholder</p>
-                <a href="#" class="btn btn-primary">Go</a>
+                <h5 class="card-title"><?php echo $got_news_title; ?></h5>
+                <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $got_news_date; ?></small></p>
+                <p class="card-text"><?php echo $got_news_metaDesc; ?></p>
+                <a href="news-desc.php?news-id=<?php echo $got_id; ?>" class="btn btn-primary">Read More...</a>
+                <hr>
+              </div>
+                <?php
+                  $counter_n++;
+                }
+              }
+            else{
+              ?>
+                  <div class="card-body">
+                    <h5 class="card-title">No latest Press Release </h5>
+                    <hr>
+                  </div>
+            <?php
+            }
+
+                ?>
               </div>
             </div>
-          </div>
           <div class = "col-md-4 align-self-end">
             <div class="card">
               <div class="card-header">
@@ -104,11 +139,14 @@ $db = new functions();
 
            ?>
 
+
               <div class="card-body">
                 <h5 class="card-title"><?php echo $got_pr_title ?> </h5>
+                <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $got_pr_added; ?></small></p>
                 <p class="card-text"><?php echo $got_pr_metaDesc?> </p>
                 <a href="pr_read_more.php?pr_id=<?php echo $got_id ?>" class="btn btn-primary">Read More...</a>
                 <hr>
+              </div>
                 <?php
                   $counter++;
                 }
@@ -118,6 +156,7 @@ $db = new functions();
                   <div class="card-body">
                     <h5 class="card-title">No latest Press Release </h5>
                     <hr>
+                  </div>
             <?php
             }
 
