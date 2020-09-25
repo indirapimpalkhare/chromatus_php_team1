@@ -5,7 +5,7 @@
     {
         header("Location:index.php");
     }
-    
+
     $common_msg ="";
     $common_msg1="";
 
@@ -142,7 +142,7 @@
 
                                                                 <div class="j-footer">
                                                                     <input type="submit" value="Update" name="edit" class="btn btn-primary" />
-                                                                     <a href="manage-blog-category.php" class="btn btn-primary">Back</a>
+                                                                     <a href="edit_blog_category.php" class="btn btn-primary">Back</a>
                                                                 </div>
 
                                                             </form>
