@@ -1817,14 +1817,14 @@ function get_latest_pr()
 				{
 					$data[$counter][0] = $pr_id;
 					$data[$counter][1] = $pr_title;
-												$data[$counter][2] = $pr_author;
+				    $data[$counter][2] = $pr_author;
 					$data[$counter][3] = $pr_category;
 					$data[$counter][4] = $pr_metadesc;
 					$data[$counter][5] = $pr_desc;
-												$data[$counter][6] = $pr_image;
+					$data[$counter][6] = $pr_image;
 					$data[$counter][7] = $pr_permalink;
-												$data[$counter][8] = $date_added;
-												$data[$counter][9] = $date_modified;
+					$data[$counter][8] = $date_added;
+					$data[$counter][9] = $date_modified;
 					$data[$counter][10] = $status;
 
 					$counter++;
@@ -1880,6 +1880,195 @@ function get_latest_pr()
 				}
 			}
 		}
+            
+        
+        //-----FAQ Starts here-----//
+            
+            
+        function add_faq($question,$answer)
+			{
+
+				if($stmt_insert = $this->con->prepare("INSERT INTO `faq`(`question`,`answer`) VALUES (?,?)"))
+				{
+					$stmt_insert->bind_param("ss",$question,$answer);
+
+					if($stmt_insert->execute())
+					{
+						return true;
+					}
+					return false;
+				}
+			}
+            
+            
+        function fetch_faq_records()
+			{
+				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer`,`status` FROM `faq` where `status` = 1"))
+				{
+					$stmt_select->bind_result($faq_id,$question,$answer,$status);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+						$counter	=	0;
+
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $faq_id;
+							$data[$counter][1] = $question;
+							$data[$counter][2] = $answer;
+							$data[$counter][3] = $status;
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+            
+            
+            function delete_faq_details_by_id($delete_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `status` = 0 where `faqID` = ?"))
+				{
+					$stmt_update->bind_param("s",$delete_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+            
+            function fetch_faq_full_details_by_id($faq_id)
+			{
+				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer` FROM `faq` where `faqID` = ?"))
+				{
+					$stmt_select->bind_param("s",$faq_id);
+					$stmt_select->bind_result($faq_id,$question,$answer);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+
+
+						while($stmt_select->fetch())
+						{
+							$data[0] = $faq_id;
+							$data[1] = $question;
+							$data[2] = $answer;
+
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+            
+            
+            function update_faq_full_details_by_id($question,$answer,$faq_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `question`= ? ,`answer`= ? where `faqID`= ? "))
+				{
+					$stmt_update->bind_param("sss",$question,$answer,$faq_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+            
+			function fetch_faq_deleted_records()
+			{
+				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer` ,`status` FROM `faq` where `status` = 0"))
+				{
+					$stmt_select->bind_result($faq_id,$question,$answer,$status);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+						$counter	=	0;
+
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $faq_id;
+							$data[$counter][1] = $question;
+							$data[$counter][2] = $answer;
+							$data[$counter][3] = $status;
+
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+			
+			function permanent_delete_faq_details_by_id($delete_id)
+			{
+				if($stmt_delete = $this->con->prepare("delete FROM `faq` where `faqId` = ?"))
+				{
+					$stmt_delete->bind_param("i",$delete_id);
+
+					if($stmt_delete->execute())
+					{
+						return false;
+					}
+				}
+			}
+			function restore_deleted_faq_details_by_id($restore_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `status` = 1 where `faqID` = ?"))
+				{
+					$stmt_update->bind_param("s",$restore_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+
+
+
+            
+            
+            
+        //------FAQ Ends here-----//
+        
+            
+        
 
 	}	//class end
 ?>
