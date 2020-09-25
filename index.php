@@ -144,7 +144,7 @@ $db = new functions();
                 <h5 class="card-title"><?php echo $got_pr_title ?> </h5>
                 <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $got_pr_added; ?></small></p>
                 <p class="card-text"><?php echo $got_pr_metaDesc?> </p>
-                <a href="pr_read_more.php?pr_id=<?php echo $got_id ?>" class="btn btn-primary">Read More...</a>
+                <a href="pr_description.php?pr-id=<?php echo $got_id ?>" class="btn btn-primary">Read More...</a>
                 <hr>
               </div>
                 <?php
