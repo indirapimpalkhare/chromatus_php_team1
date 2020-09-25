@@ -14,7 +14,7 @@
     $pr_desc      =  "";
     $pr_permalink =  "";
     $pr_image = "";
-    $target_dir = "img/uploads/";
+    $target_dir = "assets/images/pressRelease/";
     $common_msg  =  "";
     $common_msg1 =  "";
     $flag = 0;

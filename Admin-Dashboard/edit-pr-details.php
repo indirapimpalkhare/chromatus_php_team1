@@ -32,7 +32,7 @@
 	$result_description = "";
 	$result_permalink 	= "";
     $pr_image           = "";
-    $target_dir         = "img/uploads/";
+    $target_dir         = "assets/images/pressRelease/";
 
 	
 	if(!empty($pr_data))
@@ -267,7 +267,7 @@
 
                                                                 <div class="j-footer"> 
                                                                     <input type="submit" value="Update" name="edit" class="btn btn-primary" />
-                                                                    <a href="view-news.php" class="btn btn-primary">Back</a>
+                                                                    <a href="view-pr.php" class="btn btn-primary">Back</a>
                                                                 </div>
 
                                                             </form>

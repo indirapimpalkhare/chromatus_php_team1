@@ -22,6 +22,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
+
   <title>Press Release - Chromatus Consulting</title>
 </head>
 
@@ -118,11 +119,11 @@
                 ?>
                
                 <div class="pr-card" >
-                    <h5 class="pr-card-title"><?php echo $result_title; ?></h5>
-                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - <?php echo $result_author; ?>  </i> &emsp; <i class="fa fa-calendar">  <?php echo $result_date_added; ?></i></h6>
+                    <div style="font-weight: bold;" class="card-title"><?php echo $result_title; ?></div>
+                    <div> &nbsp; <i class="fa fa-user fa-0.5x">  By - <?php echo $result_author; ?>  </i> &emsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_added; ?></i></div>
 					<div class="row pr-card-body">
-                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard\img\uploads\<?php echo $result_image; ?>" alt="Press Release Image">
-                        <p class="pr-card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/pressRelease/<?php echo $result_image; ?>" alt="Press Release Image">
+                        <p class="card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>
 					</div>
 					<div class="row">
                          <div class="ml-auto mr-3"><a href="pr_description.php?pr-id=<?php echo $result_id; ?>" class="pr-card-btn">Read More..</a></div>

@@ -26,7 +26,7 @@
     
     $result_category    = "";
     $pr_category_image  = "";
-    $target_dir         = "img/uploads/";
+    $target_dir         = "assets/images/pressRelease/category/";
 
     
     if(!empty($category_data))

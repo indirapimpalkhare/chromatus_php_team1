@@ -1517,7 +1517,7 @@
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`author`=?,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?,`permalink`=? where `prID`= ? "))
 				{
-					$stmt_update->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_image,$pr_id);
+					$stmt_update->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id);
 
 					if($stmt_update->execute())
 					{

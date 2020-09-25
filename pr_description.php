@@ -123,7 +123,7 @@ if(!isset($_SESSION)){
                     <h3 class="pr-title"><?php echo $pr_title; ?></h3>
                     <span class="text-muted"><i class="fa fa-user fa-0.5x">  By - <?php echo $pr_author; ?></i> &emsp; <i class="fa fa-calendar"></i> <?php echo $pr_date; ?>&emsp;   <i class="fa fa-industry"></i> <?php echo $pr_category; ?></span>
                     <hr>
-                    <img style="width:250px;height: 250px;" class="rounded img-fluid" src="Admin-Dashboard\img\uploads\<?php echo $pr_image; ?>" >
+                    <img style="width:250px;height: 250px;" class="rounded img-fluid" src="Admin-Dashboard/assets/images/pressRelease/<?php echo $pr_image; ?>" >
 
                     <p><?php echo $pr_description;?><p>
                   </div>

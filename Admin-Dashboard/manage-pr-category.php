@@ -17,7 +17,7 @@
    
     $pr_category  =  "";
     $pr_category_image = "";
-    $target_dir = "img/uploads/";
+    $target_dir = "assets/images/pressRelease/category/";
     
     $common_msg  =  "";
     $flag = 0;
