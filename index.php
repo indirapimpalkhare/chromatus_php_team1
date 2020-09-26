@@ -5,6 +5,12 @@ $db = new functions();
 
  ?>
 <!doctype html>
+<style>
+.scroll {
+    max-height: 500px;
+    overflow-y: auto;
+}
+</style>
   <html lang="en">
       <head>
           <!-- Required meta tags -->
@@ -63,11 +69,12 @@ $db = new functions();
 
         <div class="our_services">
         <div class = "row m-4 pt-4 mt-4">
-          <div class = "col-md-8 align-self-start">
+          <div class = "col-md-6 align-self-start">
             <div class="card">
               <div class="card-header">
-                Latest Report
+                Latest News
               </div>
+              <div class="scroll">
               <?php
                 $get_news		=	array();
                 $get_news		=	$db->get_latest_news();
@@ -110,11 +117,13 @@ $db = new functions();
                 ?>
               </div>
             </div>
-          <div class = "col-md-4 align-self-end">
+            </div>
+          <div class = "col-md-6 align-self-end">
             <div class="card">
               <div class="card-header">
                 Latest Press Release
               </div>
+              <div class="scroll">
           <?php
             $get_pr		=	array();
             $get_pr		=	$db->get_latest_pr();
@@ -142,7 +151,7 @@ $db = new functions();
 
               <div class="card-body">
                 <h5 class="card-title"><?php echo $got_pr_title ?> </h5>
-                <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $got_pr_added; ?></small></p>
+                <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $date_added; ?></small></p>
                 <p class="card-text"><?php echo $got_pr_metaDesc?> </p>
                 <a href="pr_description.php?pr-id=<?php echo $got_id ?>" class="btn btn-primary">Read More...</a>
                 <hr>
@@ -161,6 +170,7 @@ $db = new functions();
             }
 
                 ?>
+              </div>
               </div>
             </div>
           </div>
