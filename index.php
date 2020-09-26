@@ -49,7 +49,7 @@ $db = new functions();
                             else{
                               echo "<div class='carousel-item'>" ;
                             }
-                            echo "<img src='Admin-Dashboard/assets/images/carousel/".$img."' class='center-fit' alt='".$text."'>";
+                            echo "<img src='Admin-Dashboard/assets/images/home/".$img."' class='center-fit' alt='".$text."'>";
                             echo "</div>";
                             $counter++;
                           }
