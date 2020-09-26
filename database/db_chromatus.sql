@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 25, 2020 at 11:52 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Host: localhost
+-- Generation Time: Sep 26, 2020 at 09:38 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -90,9 +89,17 @@ CREATE TABLE `blog_category` (
 --
 
 INSERT INTO `blog_category` (`blogCategoryID`, `name`, `image`, `status`) VALUES
-(1, 'Transport', 'test.jpg', 1),
-(2, 'Chemicalllyuu', 'test.jpg', 1),
-(3, 'Healthcare', 'test.jpg', 1);
+(4, 'Automation and Transport', 'automationAndTransport.jpg', 1),
+(5, 'Chemicals and Materials', 'chemicalsAndMaterials.jpg', 1),
+(6, 'Consumer Goods', 'consumerGoods.jpg', 1),
+(7, 'Electronics and Semiconductors', 'electronicsAndSemiconductors.jpg', 1),
+(8, 'Food and Beverages', 'foodsAndBeverages.jpg', 1),
+(9, 'Internet and Communication', 'internetAndCommunication.jpg', 1),
+(10, 'Life Science', 'lifeScience.png', 1),
+(11, 'Machinery and Equipment', 'machineryAndEquipment.jpg', 1),
+(12, 'Packaging', 'packaging.jpg', 1),
+(13, 'Sports', 'sports.jpg', 1),
+(14, 'Miscellaneous', 'miscellaneous.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -434,7 +441,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `blog_category`
 --
 ALTER TABLE `blog_category`
-  MODIFY `blogCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `blogCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `chromatus_info`
