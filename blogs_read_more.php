@@ -33,7 +33,7 @@ if(!isset($_SESSION)){
    $blog_desc      =  "";
    $blog_date = "";
    $blog_image = "";
-   $target_dir = "Admin-Dashboard/img/uploads/";
+   $target_dir = "Admin-Dashboard/assets/images/blog/";
    $blog_permalink =  "";
 
 

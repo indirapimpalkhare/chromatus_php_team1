@@ -109,7 +109,7 @@
                         <div class="blog-card">
                           <h5 class="blog-card-title"><?php echo $blog_title ?></h5>
                           <div class="row blog-card-body">
-                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/img/uploads/<?php echo $blog_image; ?>" alt="Blogs Image">
+                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/blog/<?php echo $blog_image; ?>" alt="Blogs Image">
                             <p class="blog-card-text col-8 col-md-8 col-lg-8 "><?php echo $blog_meta_desc; ?></p>
                           </div>
                           <div class="row">

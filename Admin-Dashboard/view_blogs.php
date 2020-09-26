@@ -5,7 +5,7 @@
 	{
 		header("Location:index.php");
 	}
-    
+
 	$common_msg ="";
 	 if(isset($_GET['blog_id']))
 	 {
@@ -123,7 +123,7 @@
                                                 echo "<td>".$datemod."</td>";
                                                 echo "<td>".$blog_category."</td>";
                                                 echo "<td>".$blog_meta_desc."</td>";
-                                                echo "<td><img src='img/uploads/".$blog_image."' height='20%'></td>";
+                                                echo "<td><img src='assets/images/blog/".$blog_image."' height='20%'></td>";
                                                 echo "<td>".$blog_permalink."</td>";
                                                 echo "<td><a href='edit_blog.php?blog_id=".$blogID."'><i class='fa fa-edit fa-2x'></i></a></td>";
                                                 echo "<td><a href='view_blogs.php?blog_id=".$blogID."'><i class='fa fa-trash fa-2x'></i></a></td>";

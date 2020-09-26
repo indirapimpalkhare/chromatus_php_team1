@@ -31,7 +31,7 @@ $blog_category  =  "";
 $blog_meta_desc  =  "";
 $blog_desc      =  "";
 $blog_image = "";
-$target_dir = "img/uploads/";
+$target_dir = "assets/images/blog/";
 $blog_permalink =  "";
 
 

@@ -26,7 +26,7 @@
     $image  =  "";
     $image_text  =  "";
     $common_msg  =  "";
-    $target_dir = "img/uploads/carousel/";
+    $target_dir = "assets/images/carousel/";
     $flag = 0;
 
     if(isset($_POST['submit_btn']))
@@ -202,7 +202,7 @@
                                                                 				echo "<tr>";
 																																				$s = $counter + 1;
                                                                         echo "<td>".$s. "</td>";
-                                                                        echo "<td><img src='img/uploads/carousel/".$image."'height='10%'></td>";
+                                                                        echo "<td><img src='assets/images/carousel/".$image."'height='10%'></td>";
                                                                         echo "<td>".$image_text."</td>";
                                                                         if($display == 1){
                                                                           $ch = 0;

@@ -28,7 +28,7 @@ $image_og =  "";
 $image = "";
 $image_disp = "";
 $image_text  =  "";
-$target_dir = "img/uploads/carousel/";
+$target_dir = "assets/images/home/";
 
 
 

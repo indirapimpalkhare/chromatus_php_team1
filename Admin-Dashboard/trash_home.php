@@ -12,7 +12,7 @@
 	{
 		$image_id = $_GET['del_image_id'];
     $image = $_GET['image'];
-    $image_full_dir = "img/uploads/carousel/".$image;
+    $image_full_dir = "assets/images/home/".$image;
     if(unlink($image_full_dir)){
       $db->permanent_delete_image_by_id($image_id);
   		$common_msg1	=	"Image deleted successfully.";
@@ -160,7 +160,7 @@
                                                                       echo "<tr>";
                                                                       $s = $counter + 1;
                                                                       echo "<td>".$s. "</td>";
-                                                                      echo "<td><img src='img/uploads/carousel/".$image."'height='10%'></td>";
+                                                                      echo "<td><img src='assets/images/home/".$image."'height='10%'></td>";
                                                                       echo "<td>".$image_text."</td>";
                                                                       echo "<td><a href='trash_home.php?restore_image_id=".$image_id."' class='Edit_option'><i class='fa fa-repeat fa-2x'></i></a></td>";
                                                                       echo "<td><a href='trash_home.php?del_image_id=".$image_id."&image=".$image."' class='delete_option'><i class='fa fa-trash-o fa-2x'></i></a></td>";
