@@ -375,6 +375,11 @@ border: 1px solid;
 .pr-box-item-text{
   font-size: 1rem;
 }
+
+.pr-box-item-active{
+  font-weight: bold;
+}
+	
 @media only screen and (max-width: 1052px) {
   .pr-box-item-text{
     font-size: 0.8rem;

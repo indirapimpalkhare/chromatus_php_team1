@@ -33,7 +33,7 @@ if(!isset($_SESSION)){
    $blog_desc      =  "";
    $blog_date = "";
    $blog_image = "";
-   $target_dir = "Admin-Dashboard/img/uploads/";
+   $target_dir = "Admin-Dashboard/assets/images/blog/";
    $blog_permalink =  "";
 
 
@@ -91,7 +91,7 @@ if(!isset($_SESSION)){
                    <div class="cat-box-wrapper">
                      <ul class="cat-box-list">
                         <li class="cat-box-heading">Category</li>
-                        <a href="blog.php?blog-category=All" ><li class="cat-box-item <?php if($category == 'All'){ echo "cat-box-item-active"; } ?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">All</span></li></a>
+                        <a href="blogs.php?blog-cat=All" ><li class="cat-box-item <?php if($category == 'All'){ echo "cat-box-item-active"; } ?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text">All</span></li></a>
                         <?php
                               $get_category = $db->get_blog_categories();
                               if(!empty($get_category))
@@ -104,7 +104,7 @@ if(!isset($_SESSION)){
 
 
                         ?>
-                        <a href="blog.php?blog-category=<?php echo $result_category ?>" ><li class="cat-box-item <?php if($category == $result_category){echo "cat-box-item-active"; }?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text"><?php echo $result_category ?></span></li></a>
+                        <a href="blogs.php?blog-cat=<?php echo $result_category ?>" ><li class="cat-box-item <?php if($category == $result_category){echo "cat-box-item-active"; }?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="cat-box-item-text"><?php echo $result_category ?></span></li></a>
                         <?php
                               $counter++;
                               }

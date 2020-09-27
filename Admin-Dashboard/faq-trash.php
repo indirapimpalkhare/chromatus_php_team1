@@ -2,40 +2,36 @@
 	require_once("lib/class/functions.php");
 	$db = new functions();
 	if(!isset($_SESSION['current_admin']))
-	{
+	{	
 		header("Location:index.php");
 	}
-
+    
 	$common_msg ="";
 	$common_msg1 ="";
-	if(isset($_GET['del_image_id']) && isset($_GET['image']))
+	if(isset($_GET['del_faq_id']))
 	{
-		$image_id = $_GET['del_image_id'];
-    $image = $_GET['image'];
-    $image_full_dir = "assets/images/home/".$image;
-    if(unlink($image_full_dir)){
-      $db->permanent_delete_image_by_id($image_id);
-  		$common_msg1	=	"Image deleted successfully.";
-    }
+		$delete_id = $_GET['del_faq_id'];		
 
-
+		$db->permanent_delete_faq_details_by_id($delete_id);
+		$common_msg1	=	"FAQ record Deleted successfully.";
 	}
-	if(isset($_GET['restore_image_id']))
+	if(isset($_GET['restore_faq_id']))
 	{
-		$restore_id = $_GET['restore_image_id'];
+		$restore_id = $_GET['restore_faq_id'];		
 
-		$db->restore_image($restore_id);
-		$common_msg	=	"Image restored successfully.";
+		$db->restore_deleted_faq_details_by_id($restore_id);
+		$common_msg	=	"FAQ record Restored successfully.";
 	}
 
+	 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
-    <title> Admin | Blog Record </title>
+    <title> Admin | FAQ Trash </title>
 
-
+ 
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -62,8 +58,8 @@
     <link rel="stylesheet" type="text/css" href="files/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="files/assets/css/jquery.mCustomScrollbar.css">
 	<!--Ck Editor -->
-	<script src="https://cdn.ckeditor.com/4.7.2/standard/ckeditor.js"></script>
-
+	<script src="https://cdn.ckeditor.com/4.7.2/standard/ckeditor.js"></script>    
+	
 </head>
 
 <body>
@@ -77,13 +73,13 @@
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
-				<?php require_once('include/navigation.php'); ?>
-
+				<?php require_once('include/navigation.php'); ?>	
+					
 				<div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
-
+                    
 					<?php require_once('include/dashboard-left-part.php'); ?>
-
+				
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
 
@@ -92,11 +88,11 @@
 
                                     <div class="page-header card">
                                         <div class="card-block">
-                                            <h5 class="m-b-10"><i class="fa fa-trash-o"></i> Carousel Trash</h5>
-                                            <p class="text-muted m-b-10">You can Access Deleted Carousel Records here!!</p>
+                                            <h5 class="m-b-10"><i class="fa fa-trash-o"></i> FAQ Trash</h5>
+                                            <p class="text-muted m-b-10">You can Access Deleted FAQ!!</p>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12"> 
                                                 <div class="common_msg" style="color:red;font-size:17px;margin-left: 340px;">
                                                     <?php
                                                         echo $common_msg1;
@@ -104,15 +100,15 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12"> 
                                                 <div class="common_msg" style="color:green;font-size:17px;margin-left: 340px;">
                                                     <?php
                                                         echo $common_msg;
                                                     ?>
                                                 </div>
                                             </div>
-                                        </div>
-                                        </div>
+                                        </div> 
+                                        </div> 
                                     </div>
                                     <div class="page-body">
                                         <div class="row">
@@ -120,90 +116,93 @@
 
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Carousel Record Trash</h5>
-                                                        <span>You Can Restore & Permanently Deleted Carousel Records From here..</span>
+                                                        <h5>FAQ Trash</h5>
+                                                        <span>You Can Restore & Permanently Deleted FAQ's here</span>
                                                     </div>
-
+													
 													 <div class="card-block">
                                                         <div class="dt-responsive table-responsive">
                                                             <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">
-                                                              <thead>
-                                                                  <tr>
+                                                                <thead>
+                                                                    <tr>
+                                                                
+																		<th style="width=30;text-align:center;" >Sr. No</th>
+																		<th style="width=30;text-align:center;" >Question</th>
+																		<th style="width=30;text-align:center;" >Answer</th>
+																		<th style="width=30;text-align:center;">Restore</th>
+																		<th style="width=30;text-align:center;">Delete</th> 	
+																		 	
+																																
+																	</tr>
+																	
+                                                                </thead>
+                                                                <tbody>
+																 	<?php
+																	        $get_faq	=	$db->fetch_faq_deleted_records();
+																			if(!empty($get_faq))
+																			{
+																				$counter	=	0;
+																				
+																				foreach($get_faq as $record)
+																				{
+																					
+																					$got_id			=   $get_faq[$counter][0];	
+																					$question	    =	$get_faq[$counter][1];
+                                                                                    $answer	        =	$get_faq[$counter][2];   
+																					$status 		= 	$get_faq[$counter][3];
+														
+																					  
+																?>
+                                                                    <tr>
+                                                                    	<td><?php echo $counter + 1 ;?></td>
+																		
+																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $question ;?></td> 
+																		
+																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $answer ;?></td>
+																		 
+																		<td class="text-center"><a href="faq-trash.php?restore_faq_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-repeat fa-2x"></i></a></td>
 
-                                                                      <th style="width=30;text-align:center;" >Sr. No</th>
-                                                                      <th style="width=30;text-align:center;" >Image</th>
-                                                                      <th style="width=30;text-align:center;" >Caption</th>
-                                                                      <th style="width=30;text-align:center;">Restore</th>
-                                                                      <th style="width=30;text-align:center;">Delete</th>
-
-                                                                  </tr>
-
-                                                              </thead>
-                                                              <tbody>
-                                                                  <?php
-                                                                  $get_image_details   =   $db->get_all_trashed_image_details();
-                                                                          if(!empty($get_image_details))
-                                                                          {
-                                                                              $counter    =   0;
-
-                                                                              foreach($get_image_details as $record)
-                                                                              {
-
-                                                                                  $image_id = $get_image_details[$counter][0];
-                                                                                  $image  =  $get_image_details[$counter][1];
-                                                                                  $image_text = $get_image_details[$counter][2];
-                                                                                  //$display  =  $get_image_details[$counter][3];
-
-
-
-
-                                                                      echo "<tr>";
-                                                                      $s = $counter + 1;
-                                                                      echo "<td>".$s. "</td>";
-                                                                      echo "<td><img src='assets/images/home/".$image."'height='10%'></td>";
-                                                                      echo "<td>".$image_text."</td>";
-                                                                      echo "<td><a href='trash_home.php?restore_image_id=".$image_id."' class='Edit_option'><i class='fa fa-repeat fa-2x'></i></a></td>";
-                                                                      echo "<td><a href='trash_home.php?del_image_id=".$image_id."&image=".$image."' class='delete_option'><i class='fa fa-trash-o fa-2x'></i></a></td>";
-                                                                      echo "</tr>";
-
-                                                                      $counter++;
-                                                                      }
-
-                                                                  }
-                                                                  else
-                                                                  {
-                                                                 echo "<tr><td colspan='2'>No data to list</td></tr>";
-
-                                                                  }
-                                                              ?>
-                                                              </tbody>
+																		<td class="text-center"><a href="faq-trash.php?del_faq_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+																	  </tr>
+																	<?php
+																		$counter++;
+																		}
+																		
+																	}
+																	else
+																	{
+																?>		<tr>
+																			<td colspan="6">No data to list</td>
+																		</tr>
+																<?php
+																	}				
+																?>	
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
-
+  
                                                 </div>
 
                                             </div>
-
-
-                                                </div>
-
-                                            </div>
+                                       
                                         </div>
                                     </div>
-
-
+                                    
+                                     
 
                                 </div>
                             </div>
 
-
+                             
                         </div>
                     </div>
                 </div>
 			</div>
+            </div>
+        </div>
 
-
+  
     <script src="files/bower_components/jquery/js/jquery.min.js"></script>
     <script src="files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script src="files/bower_components/popper.js/js/popper.min.js"></script>
@@ -224,6 +223,6 @@
     <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="files/assets/js/script.js"></script>
 	<script src="js/custom.js"></script>
-
+	
 </body>
 </html>

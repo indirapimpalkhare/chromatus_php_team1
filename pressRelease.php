@@ -1,3 +1,15 @@
+<?php
+  require_once("Admin-Dashboard/lib/class/functions.php");
+  $db = new functions();
+
+  $category = 'All';
+  if(isset($_GET['pr-category']))
+  {
+    $category = $_GET['pr-category'];    
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
 
   <title>Press Release - Chromatus Consulting</title>
 </head>
@@ -34,100 +47,105 @@
                 <div class="pr-box-wrapper">
                      <ul class="pr-box-list"> 
                         <li class="pr-box-heading">Category</li>  
-                        <li class="pr-box-item"> <i class="fa fa-magic"></i> <span class="pr-box-item-text">  Chemical and Materials</span></li>   
-						
-                        <li class="pr-box-item"><i class="fa fa-subway"></i> <span class="pr-box-item-text">Automation and Transport</span></li>
                         
-						<li class="pr-box-item"><i class="fa fa-truck"></i> <span class="cat-box-item-text">Consumer Goods</span></li> 
+                        <a href="pressRelease.php?pr-category=All"><li class="pr-box-item <?php if($category == 'All'){ echo "pr-box-item-active"; } ?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="pr-box-item-text">All</span></li></a>
+                        <?php
+                            $get_category = $db->fetch_pr_category();
+                            if(!empty($get_category))
+                            {
+                                $counter    =   0;
+                                  
+                                foreach($get_category as $record)
+                                {
+                                    $result_category  =   $get_category[$counter][1];
+                                  
+
+                        ?>  
+                                    <a href="pressRelease.php?pr-category=<?php echo $result_category ?>"  ><li class="pr-box-item <?php if($category == $result_category){echo "pr-box-item-active"; }?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="pr-box-item-text"><?php echo $result_category ?></span></li></a>   
+                        <?php
+                                    $counter++;
+                                }
+                              
+                            }
+                            else
+                            {
+                        ?>  
+                                <option value="">Empty Cateogry</option>
+                        <?php
+                            }               
+                        ?>
                         
-                        <li class="pr-box-item"><i class="fa fa-bolt"></i> <span class="pr-box-item-text">Electronics and Semiconductors</span></li>
-                        
-						<li class="pr-box-item"><i class="fa fa-glass"></i> <span class="pr-box-item-text">Foods and Beverages</span></li>
-                        
-						<li class="pr-box-item"> <i class="fa fa-wifi"></i> <span class="pr-box-item-text">Internet and Communication</span></li>
-                        
-						<li class="pr-box-item"><i class="fa fa-life-ring"></i> <span class="pr-box-item-text">Life Science</span></li>             
-                        
-						<li class="pr-box-item"><i class="fa fa-child"></i> <span class="pr-box-item-text">Sports</span></li>                
-                        
-						<li class="pr-box-item"><i class="fa fa-space-shuttle"></i> <span class="pr-box-item-text">Machinery and Equipment</span></li>
-                        
-						<li class="pr-box-item"><i class="fa fa-dropbox"></i> <span class="pr-box-item-text">Packaging</span></li>                
-                        
-						<li class="pr-box-item"><i class="fa fa-angle-double-right"></i> <span class="pr-box-item-text">Miscellaneous</span></li> 
-                     </ul>
-                    </div>   
-                </div>
+                    </ul>
+                </div>   
+            </div>
 
 
             <div class="col-md-8">
 			 <div class="row">
-               <div class="col">
+                 <div class="col">
+                  <?php
+                 
+                              if($category == 'All')
+                              {
+                                $get_pr=$db->fetch_pr_records();
+                                
+                              }
+                              else
+                              {
+                                $get_pr = $db->fetch_pr_records_by_name($category);
+                                  
+                              }
+                                
+                              if(!empty($get_pr))
+                              {
+                                  
+                                  $counter    =   0;
+                                  
+                                  foreach($get_pr as $record)
+                                  {
+                                      
+                                      $result_id        =   $get_pr[$counter][0];
+                                      $result_title     =   $get_pr[$counter][1];   
+                                      $result_author    =   $get_pr[$counter][2];
+                                      $result_category  =   $get_pr[$counter][3];
+                                      $result_metadesc  =   $get_pr[$counter][4];
+                                      $result_desc      =   $get_pr[$counter][5];
+                                      $result_image     =   $get_pr[$counter][6];
+                                      $result_permalink =   $get_pr[$counter][7];
+                                      $result_date_added=   $get_pr[$counter][8];
+                                      $result_date_modi =   $get_pr[$counter][9];
+                                      $result_status    =   $get_pr[$counter][10];
+
+                ?>
+               
                 <div class="pr-card" >
-                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
+                    <div style="font-weight: bold;" class="card-title"><?php echo $result_title; ?></div>
+                    <div> &nbsp; <i class="fa fa-user fa-0.5x">  By - <?php echo $result_author; ?>  </i> &emsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_added; ?></i></div>
 					<div class="row pr-card-body">
-                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
+                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/pressRelease/<?php echo $result_image; ?>" alt="Press Release Image">
+                        <p class="card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>
 					</div>
 					<div class="row">
-                         <div class="ml-auto mr-3"><a href="pr_description.php" class="pr-card-btn">Read More..</a></div>
+                         <div class="ml-auto mr-3"><a href="pr_description.php?pr-id=<?php echo $result_id; ?>" class="pr-card-btn">Read More..</a></div>
                     </div>
                 </div>
 				<hr>
-                
-                <div class="pr-card" >
-                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row pr-card-body">
-                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
-					</div>
-					<div class="row">
-                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
-                    </div>
-                </div>
-				<hr>
-				
-                <div class="pr-card" >
-                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row pr-card-body">
-                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
-					</div>
-					<div class="row">
-                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
-                    </div>
-                </div>
-				<hr>
-				
-                <div class="pr-card" >
-                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row pr-card-body">
-                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
-					</div>
-					<div class="row">
-                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
-                    </div>
-                </div>
-				<hr>
-				
-                 <div class="pr-card" >
-                    <h5 class="pr-card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h5>
-                    <h6> &nbsp; <i class="fa fa-user fa-0.5x">  By - Author </i> &emsp; <i class="fa fa-calendar">  01/01/2020</i></h6>
-					<div class="row pr-card-body">
-                        <img class="pr-card-image col-8 col-md-8 col-lg-4" src="assets/images/blog-image/200x200.png" alt="Press Release Image">
-                        <p class="pr-card-text  col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis maxime fugiat ut necessitatibus, totam voluptates voluptatem impedit obcaecati, repellendus vero ipsum! Porro veritatis tenetur dolores eius natus unde facere laudantium, id adipisci et dignissimos, itaque? Repellat accusamus voluptatum dicta laboriosam hic eum consectetur, recusandae dignissimos expedita? Ut consequuntur amet sint ducimus vel sequi sapiente velit consequatur suscipit praesentium voluptatibus ea, neque voluptatum id necessitatibus at delectus nisi dolores magni quas tenetur illo asperiores unde deserunt. Aut dolores rerum ut iusto illo corporis doloremque libero asperiores hic quisquam, nobis nemo consectetur explicabo, dolorum illum provident, praesentium. Amet cumque eos maiores quaerat!</p>
-					</div>
-					<div class="row">
-                         <div class="ml-auto mr-3"><a href="#" class="pr-card-btn">Read More..</a></div>
-                    </div>
-                </div>
-				<hr>
-				
+				<?php
+                                    $counter++;
+                              }
+                              
+                          }
+                          else
+                          {
+                        ?>
+                        <div class="oops-text"> 
+                        <span class="text-center">Oops!! No PR Available Right Now!!!!! </span> 
+                        </div>
+                        <?php
+                          }
+                        ?>
+              
+            
                 <div>
                     Page : 
                 </div>

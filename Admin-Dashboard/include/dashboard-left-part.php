@@ -183,21 +183,21 @@
                </a>
                <ul class="pcoded-submenu">
                   <li class="">
-                     <a href="#">
+                     <a href="add-faq.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Add FAQ's</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
                   <li class="">
-                     <a href="#">
+                     <a href="view-faq.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">View FAQ's</span>
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
                    <li class="">
-                     <a href="#">
+                     <a href="faq-trash.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                      <span class="pcoded-mtext">Trash</span>
                      <span class="pcoded-mcaret"></span>

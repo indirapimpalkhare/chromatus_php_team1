@@ -5,6 +5,12 @@ $db = new functions();
 
  ?>
 <!doctype html>
+<style>
+.scroll {
+    max-height: 500px;
+    overflow-y: auto;
+}
+</style>
   <html lang="en">
       <head>
           <!-- Required meta tags -->
@@ -43,7 +49,7 @@ $db = new functions();
                             else{
                               echo "<div class='carousel-item'>" ;
                             }
-                            echo "<img src='Admin-Dashboard/img/uploads/carousel/".$img."' class='center-fit' alt='".$text."'>";
+                            echo "<img src='Admin-Dashboard/assets/images/home/".$img."' class='center-fit' alt='".$text."'>";
                             echo "</div>";
                             $counter++;
                           }
@@ -63,27 +69,108 @@ $db = new functions();
 
         <div class="our_services">
         <div class = "row m-4 pt-4 mt-4">
-          <div class = "col-md-8 align-self-start">
+          <div class = "col-md-6 align-self-start">
             <div class="card">
               <div class="card-header">
-                Latest Report
+                Latest News
               </div>
+              <div class="scroll">
+              <?php
+                $get_news		=	array();
+                $get_news		=	$db->get_latest_news();
+                if(!empty($get_news))
+                {
+                  $counter_n	=	0;
+
+                  foreach($get_news as $record)
+                  {
+
+                    $got_id				=   $get_news[$counter_n][0];
+                    $got_news_title	    =	$get_news[$counter_n][1];
+                    $got_news_category	=	$get_news[$counter_n][2];
+                    $got_news_metaDesc 	=	$get_news[$counter_n][3];
+                    $got_news_desc	    =	$get_news[$counter_n][4];
+                    $got_news_permalink =	$get_news[$counter_n][5];
+                    $got_news_date   	=	$get_news[$counter_n][6];
+
+               ?>
               <div class="card-body">
-                <h5 class="card-title">Placeholder</h5>
-                <p class="card-text">Placeholder</p>
-                <a href="#" class="btn btn-primary">Go</a>
+                <h5 class="card-title"><?php echo $got_news_title; ?></h5>
+                <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $got_news_date; ?></small></p>
+                <p class="card-text"><?php echo $got_news_metaDesc; ?></p>
+                <a href="news-desc.php?news-id=<?php echo $got_id; ?>" class="btn btn-primary">Read More...</a>
+                <hr>
+              </div>
+                <?php
+                  $counter_n++;
+                }
+              }
+            else{
+              ?>
+                  <div class="card-body">
+                    <h5 class="card-title">No latest Press Release </h5>
+                    <hr>
+                  </div>
+            <?php
+            }
+
+                ?>
               </div>
             </div>
-          </div>
-          <div class = "col-md-4 align-self-end">
+            </div>
+          <div class = "col-md-6 align-self-end">
             <div class="card">
               <div class="card-header">
-                Press Release
+                Latest Press Release
               </div>
+              <div class="scroll">
+          <?php
+            $get_pr		=	array();
+            $get_pr		=	$db->get_latest_pr();
+            if(!empty($get_pr))
+            {
+              $counter	=	0;
+
+              foreach($get_pr as $record)
+              {
+
+                $got_id				=   $get_pr[$counter][0];
+                $got_pr_title	    =	$get_pr[$counter][1];
+                $got_pr_author	    =	$get_pr[$counter][2];
+                $got_pr_category	=	$get_pr[$counter][3];
+                $got_pr_metaDesc 	=	$get_pr[$counter][4];
+                $got_pr_desc	    =	$get_pr[$counter][5];
+                $pr_image	 		= 	$get_pr[$counter][6];
+                $got_pr_permalink 	= 	$get_pr[$counter][7];
+                $date_added 		= 	$get_pr[$counter][8];
+                $date_modified		= 	$get_pr[$counter][9];
+                $status 			= 	$get_pr[$counter][10];
+
+           ?>
+
+
               <div class="card-body">
-                <h5 class="card-title">Placeholder</h5>
-                <p class="card-text">Placeholder</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title"><?php echo $got_pr_title ?> </h5>
+                <p class="card-text"><small><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $date_added; ?></small></p>
+                <p class="card-text"><?php echo $got_pr_metaDesc?> </p>
+                <a href="pr_description.php?pr-id=<?php echo $got_id ?>" class="btn btn-primary">Read More...</a>
+                <hr>
+              </div>
+                <?php
+                  $counter++;
+                }
+              }
+            else{
+              ?>
+                  <div class="card-body">
+                    <h5 class="card-title">No latest Press Release </h5>
+                    <hr>
+                  </div>
+            <?php
+            }
+
+                ?>
+              </div>
               </div>
             </div>
           </div>
@@ -99,7 +186,7 @@ $db = new functions();
               </div>
 
               <div class="service">
-                <i class=""></i>
+                <i class="fa fa-balance-scale"></i>
                 <h2>Competitive Benchmarking</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>
@@ -111,7 +198,7 @@ $db = new functions();
               </div>
 
               <div class="service">
-                <i class="fas fa-apple-alt"></i>
+                <i class="fa fa-smile-o"></i>
                 <h2>Customer Satisfaction Surveys</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>
@@ -129,7 +216,7 @@ $db = new functions();
               </div>
 
               <div class="service">
-                <i class="far fa-angry"></i>
+                <i class="fa fa-bar-chart"></i>
                 <h2>Field Survey</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
               </div>

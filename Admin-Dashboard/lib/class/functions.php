@@ -1475,7 +1475,7 @@
         // -------view------- //
             function fetch_pr_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 "))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 ORDER BY `dateAdded` DESC"))
 				{
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
@@ -1517,7 +1517,7 @@
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`author`=?,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?,`permalink`=? where `prID`= ? "))
 				{
-					$stmt_update->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_permalink,$pr_image,$pr_id);
+					$stmt_update->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id);
 
 					if($stmt_update->execute())
 					{
@@ -1756,21 +1756,15 @@
 			}
 
 
+//frontend code...
 
-
-
-
-
-/*
-
-			//frontend code...
-
-			function fetch_news_records_by_name($category)
+			function fetch_pr_records_by_name($category)
 			{
-				if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 AND category = ?"))
+                
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 and category = ? ORDER BY `dateAdded` DESC"))
 				{
 					$stmt_select->bind_param("s",$category);
-					$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
 					if($stmt_select->execute())
 					{
@@ -1779,13 +1773,17 @@
 
 						while($stmt_select->fetch())
 						{
-							$data[$counter][0] = $news_id;
-							$data[$counter][1] = $news_title;
-							$data[$counter][2] = $news_category;
-							$data[$counter][3] = $news_metadesc;
-							$data[$counter][4] = $news_desc;
-							$data[$counter][5] = $news_permalink;
-							$data[$counter][6] = $date;
+							$data[$counter][0] = $pr_id;
+							$data[$counter][1] = $pr_title;
+							$data[$counter][2] = $pr_author;
+                            $data[$counter][3] = $pr_category;
+							$data[$counter][4] = $pr_metadesc;
+							$data[$counter][5] = $pr_desc;
+                            $data[$counter][6] = $pr_image;
+							$data[$counter][7] = $pr_permalink;
+							$data[$counter][8] = $date_added;
+                            $data[$counter][9] = $date_modified;
+                            $data[$counter][10]= $status;
 
 							$counter++;
 						}
@@ -1801,11 +1799,276 @@
 				}
 			}
 
-*/
 
+
+//----PR for HOME Page -----///
+function get_latest_pr()
+	{
+		if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` WHERE `status` = 1 AND `isAccepted` = 1 ORDER BY `prID` DESC  LIMIT 5 "))
+		{
+			$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
+
+			if($stmt_select->execute())
+			{
+				$data = array();
+				$counter	=	0;
+
+				while($stmt_select->fetch())
+				{
+					$data[$counter][0] = $pr_id;
+					$data[$counter][1] = $pr_title;
+				    $data[$counter][2] = $pr_author;
+					$data[$counter][3] = $pr_category;
+					$data[$counter][4] = $pr_metadesc;
+					$data[$counter][5] = $pr_desc;
+					$data[$counter][6] = $pr_image;
+					$data[$counter][7] = $pr_permalink;
+					$data[$counter][8] = $date_added;
+					$data[$counter][9] = $date_modified;
+					$data[$counter][10] = $status;
+
+					$counter++;
+				}
+				if(!empty($data))
+				{
+					return $data;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+	}
 
 
     // ---- Press release Ends here ----  //
     //---Write code here-----//
+
+		//Get latest news
+		function get_latest_news()
+		{
+			if($stmt_select = $this->con->prepare("SELECT `newsID`,`title`, `category`, `metaDescription`, `description`, `permalink`, `date` FROM `news` where `status` = 1 ORDER BY `newsID` DESC LIMIT 5"))
+			{
+				$stmt_select->bind_result($news_id,$news_title,$news_category,$news_metadesc,$news_desc,$news_permalink,$date);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+					$counter	=	0;
+
+					while($stmt_select->fetch())
+					{
+						$data[$counter][0] = $news_id;
+						$data[$counter][1] = $news_title;
+						$data[$counter][2] = $news_category;
+						$data[$counter][3] = $news_metadesc;
+						$data[$counter][4] = $news_desc;
+						$data[$counter][5] = $news_permalink;
+						$data[$counter][6] = $date;
+
+						$counter++;
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+            
+        
+        //-----FAQ Starts here-----//
+            
+            
+        function add_faq($question,$answer)
+			{
+
+				if($stmt_insert = $this->con->prepare("INSERT INTO `faq`(`question`,`answer`) VALUES (?,?)"))
+				{
+					$stmt_insert->bind_param("ss",$question,$answer);
+
+					if($stmt_insert->execute())
+					{
+						return true;
+					}
+					return false;
+				}
+			}
+            
+            
+        function fetch_faq_records()
+			{
+				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer`,`status` FROM `faq` where `status` = 1"))
+				{
+					$stmt_select->bind_result($faq_id,$question,$answer,$status);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+						$counter	=	0;
+
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $faq_id;
+							$data[$counter][1] = $question;
+							$data[$counter][2] = $answer;
+							$data[$counter][3] = $status;
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+            
+            
+            function delete_faq_details_by_id($delete_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `status` = 0 where `faqID` = ?"))
+				{
+					$stmt_update->bind_param("s",$delete_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+            
+            function fetch_faq_full_details_by_id($faq_id)
+			{
+				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer` FROM `faq` where `faqID` = ?"))
+				{
+					$stmt_select->bind_param("s",$faq_id);
+					$stmt_select->bind_result($faq_id,$question,$answer);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+
+
+						while($stmt_select->fetch())
+						{
+							$data[0] = $faq_id;
+							$data[1] = $question;
+							$data[2] = $answer;
+
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+            
+            
+            function update_faq_full_details_by_id($question,$answer,$faq_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `question`= ? ,`answer`= ? where `faqID`= ? "))
+				{
+					$stmt_update->bind_param("sss",$question,$answer,$faq_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+            
+			function fetch_faq_deleted_records()
+			{
+				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer` ,`status` FROM `faq` where `status` = 0"))
+				{
+					$stmt_select->bind_result($faq_id,$question,$answer,$status);
+
+					if($stmt_select->execute())
+					{
+						$data = array();
+						$counter	=	0;
+
+						while($stmt_select->fetch())
+						{
+							$data[$counter][0] = $faq_id;
+							$data[$counter][1] = $question;
+							$data[$counter][2] = $answer;
+							$data[$counter][3] = $status;
+
+							$counter++;
+						}
+						if(!empty($data))
+						{
+							return $data;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
+			}
+			
+			function permanent_delete_faq_details_by_id($delete_id)
+			{
+				if($stmt_delete = $this->con->prepare("delete FROM `faq` where `faqId` = ?"))
+				{
+					$stmt_delete->bind_param("i",$delete_id);
+
+					if($stmt_delete->execute())
+					{
+						return false;
+					}
+				}
+			}
+			function restore_deleted_faq_details_by_id($restore_id)
+			{
+				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `status` = 1 where `faqID` = ?"))
+				{
+					$stmt_update->bind_param("s",$restore_id);
+
+					if($stmt_update->execute())
+					{
+					return true;
+					}
+					else
+					{
+					return false;
+					}
+				}
+			}
+
+
+
+            
+            
+            
+        //------FAQ Ends here-----//
+        
+            
+        
+
 	}	//class end
 ?>
