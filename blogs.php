@@ -43,7 +43,7 @@
           </div>
 
           <div  class="container">
-            <div class = "row mb-5">
+        <div class = "row mb-5">
               <div class="col-md-4 ">
                 <div class="cat-box-wrapper">
                   <ul class="cat-box-list">
@@ -79,6 +79,7 @@
             </div>
             <div class="col-md-8" >
               <div class="row">
+                <div class="col">
 
                 <?php
                   if($category == 'All')
@@ -105,26 +106,25 @@
                       $blog_permalink = $get_blogs[$counter][8];
                 ?>
 
-                      <div class="col">
-                        <div class="blog-card">
-                          <h5 class="blog-card-title"><?php echo $blog_title ?></h5>
-                          <div class="row blog-card-body">
-                            <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/blog/<?php echo $blog_image; ?>" alt="Blogs Image">
-                            <p class="blog-card-text col-8 col-md-8 col-lg-8 "><?php echo $blog_meta_desc; ?></p>
-                          </div>
-                          <div class="row">
-                            <div class="ml-auto mr-3"><a href="blogs_read_more.php?blog-id=<?php echo $blogID; ?>" class="blog-card-btn">Read More..</a></div>
-                          </div>
+                      <div class="blog-card">
+                        <h5 class="blog-card-title"><?php echo $blog_title ?></h5>
+                        <div class="row blog-card-body">
+                          <img class="blog-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/blog/<?php echo $blog_image; ?>" alt="Blogs Image">
+                          <p class="blog-card-text col-8 col-md-8 col-lg-8 "><?php echo $blog_meta_desc; ?></p>
                         </div>
-                        <hr>
+                        <div class="row">
+                          <div class="ml-auto mr-3"><a href="blogs_read_more.php?blog-id=<?php echo $blogID; ?>" class="blog-card-btn">Read More..</a></div>
+                        </div>
+                      </div>
+                      <hr>
                   <?php
                       $counter++;
                     }
                   }
                   ?>
-                      </div>
-                    </div>
-                  </div>
+                </div>
+              </div>
+            </div>
                 </div>
               </div>
             </div>
