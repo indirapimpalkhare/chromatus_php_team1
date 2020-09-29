@@ -317,14 +317,15 @@ background: #182955;
 
 }
 .pr-card-image{
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 150px;
 
 }
 .pr-card-text{
   font-size: 0.9rem;
   text-align: justify;
   text-indent: 10%;
+  height: 191px;
   overflow: hidden;
 
 }

@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet"> 
 
 
   <title>Press Release - Chromatus Consulting</title>
@@ -58,10 +59,11 @@
                                 foreach($get_category as $record)
                                 {
                                     $result_category  =   $get_category[$counter][1];
+                                    $fa  =   $get_category[$counter][3];
                                   
 
                         ?>  
-                                    <a href="pressRelease.php?pr-category=<?php echo $result_category ?>"  ><li class="pr-box-item <?php if($category == $result_category){echo "pr-box-item-active"; }?>"><i class="fa fa-angle-double-right cat-box-fa"></i> <span class="pr-box-item-text"><?php echo $result_category ?></span></li></a>   
+                                    <a href="pressRelease.php?pr-category=<?php echo $result_category ?>"  ><li class="pr-box-item <?php if($category == $result_category){echo "pr-box-item-active"; }?>"><i class="<?php echo $fa ?>"></i> <span class="pr-box-item-text"><?php echo $result_category ?></span></li></a>   
                         <?php
                                     $counter++;
                                 }
@@ -119,11 +121,11 @@
                 ?>
                
                 <div class="pr-card" >
-                    <div style="font-weight: bold;" class="card-title"><?php echo $result_title; ?></div>
-                    <div> &nbsp; <i class="fa fa-user fa-0.5x">  By - <?php echo $result_author; ?>  </i> &emsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_added; ?></i></div>
+                    <div style="font-family: 'Noto Sans', sans-serif;" ><?php echo $result_title; ?></div>
+                    <div pr-card-text> &nbsp; <i class="fa fa-user fa-0.5x"> <?php echo $result_author; ?>  </i> &nbsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_added; ?></i></div>
 					<div class="row pr-card-body">
                         <img class="pr-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/pressRelease/<?php echo $result_image; ?>" alt="Press Release Image">
-                        <p class="card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>
+                        <p class="pr-card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>
 					</div>
 					<div class="row">
                          <div class="ml-auto mr-3"><a href="pr_description.php?pr-id=<?php echo $result_id; ?>" class="pr-card-btn">Read More..</a></div>

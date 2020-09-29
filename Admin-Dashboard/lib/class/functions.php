@@ -1331,9 +1331,9 @@
 			}
 			function fetch_pr_category()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name`,`image` FROM `pr_category` where `status` = 1"))
+				if($stmt_select = $this->con->prepare("SELECT `prCategoryID`,`name`,`image`,`fa` FROM `pr_category` where `status` = 1"))
 				{
-					$stmt_select->bind_result($category_id,$category_name,$category_image);
+					$stmt_select->bind_result($category_id,$category_name,$category_image,$fa);
 
 					if($stmt_select->execute())
 					{
@@ -1345,6 +1345,7 @@
 							$data[$counter][0] = $category_id;
 							$data[$counter][1] = $category_name;
                             $data[$counter][2] = $category_image;
+                            $data[$counter][3] = $fa;
 							$counter++;
 						}
 						if(!empty($data))
