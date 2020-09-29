@@ -1,5 +1,5 @@
-
-
+<!DOCTYPE HTML>
+<body>
 <?php  
 
 $connect = mysqli_connect("localhost", "root", "", "db_chromatus");
@@ -15,7 +15,7 @@ $result = mysqli_query($connect, $query);
   <div class="modal-dialog cascading-modal" role="document">
     <!--Content-->
     <div class="modal-content">
-
+        <form>
       <!--modal cascading content-->
       <div class="modal-c-tabs">
 
@@ -80,14 +80,14 @@ $result = mysqli_query($connect, $query);
             </div>
         
       </div>
-  
+    </form>
 
 
        <!--panel 2-->
 
 
 
-      
+        
         <div class="tab-pane fade" id="panel2" role="tabpanel">
       <!--Body-->
       <div class="modal-body mx-2">
@@ -335,10 +335,14 @@ $result = mysqli_query($connect, $query);
       </div>
       </div>
     </div>
+
     </div>
     <!--/.Content-->
   </div>
 </div>
+</body>
+</HTML>
+
 <!--end modal-form-->
 
 <script>  

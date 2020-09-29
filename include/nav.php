@@ -1,4 +1,26 @@
+<?php
+  require_once("Admin-Dashboard/lib/class/functions.php");
+  $db = new functions();
+  $contact_data = array();
+  $contact_data = $db->get_contact_links();
 
+  $result_linkedIn  = "";
+  $result_fb      = "";
+  $result_twitter   = "";
+  $result_mobno     = "";
+  $result_email_link  = "";
+
+  if(!empty($contact_data))
+  { 
+    
+    $result_linkedIn  = $contact_data[1];
+    $result_fb        = $contact_data[2];
+    $result_twitter   = $contact_data[3];
+    $result_mobno       = $contact_data[4];
+    $result_email_link  = $contact_data[5];
+    
+  }
+?>
 <!--Navbar Starts-->
 	<section id="header">
 		<div class="">
@@ -8,18 +30,18 @@
 			    </div>
    				<div class="collapse navbar-collapse">
 		        <div class="nav-item header-item">
-		          <a class="nav-link  header-link " href="mailto:info@chromatus.com"><i class="fa fa-envelope ">&nbsp;&nbsp;info@chromatus.com </i></a>
+		          <a class="nav-link  header-link " href="mailto:<?php echo $result_email_link; ?>"><i class="fa fa-envelope ">&nbsp;&nbsp;<?php echo $result_email_link; ?> </i></a>
 		        </div>
 		        <div class="nav-item header-item">
-		          <a class="nav-link header-link"href="tel:7498465144"><i class="fa fa-phone">&nbsp;&nbsp;+91-7498465144</i></a>
+		          <a class="nav-link header-link"href="tel:<?php echo $result_mobno; ?>"><i class="fa fa-phone">&nbsp;&nbsp;+91-<?php echo $result_mobno; ?></i></a>
 		        </div>
 
 		        <div class="nav-item">
 		            <div class="row">
 		            	<div class="nav-item header-item">
-		            		<a class="header-icon linkedin-icon " href="https://www.linkedin.com/company/chromatusconsulting" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
-		        	    	<a class="header-icon fb-icon " href="https://www.facebook.com/Chromatus-Consulting-100467295012830" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
-		         			<a class="header-icon twitter-icon" href="https://twitter.com/Chromatus12" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
+		            		<a class="header-icon linkedin-icon " href="<?php echo $result_linkedIn;?>" target="_blank"><i class="fa fa-linkedin-square  fa-2x"></i></a>
+		        	    	<a class="header-icon fb-icon " href="<?php echo $result_fb; ?>" target="_blank"><i class="fa fa-facebook-official  fa-2x"></i></a>
+		         			<a class="header-icon twitter-icon" href="<?php echo $result_twitter; ?>" target="_blank"><i class="fa fa-twitter-square  fa-2x"></i></a>
 		        		</div>
 		        	</div>
 		        </div>

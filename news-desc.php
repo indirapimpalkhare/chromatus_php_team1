@@ -1,11 +1,8 @@
 <?php
   require_once("Admin-Dashboard/lib/class/functions.php");
   $db = new functions();
-  /*if(!isset($_SESSION['current_admin']))
-  { 
-    header("Location:index.php");
-  }*/
-  session_start(); 
+  
+   
   $common_msg ="";
   $common_msg1="";
   

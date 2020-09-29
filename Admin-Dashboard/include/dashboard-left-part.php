@@ -143,6 +143,13 @@
                      <span class="pcoded-mcaret"></span>
                      </a>
                   </li>
+                  <li class="">
+                     <a href="manage-contact-links.php">
+                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                     <span class="pcoded-mtext">Manage Contact Links</span>
+                     <span class="pcoded-mcaret"></span>
+                     </a>
+                  </li>
                    <li class="">
                      <a href="contact-trash.php">
                      <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
