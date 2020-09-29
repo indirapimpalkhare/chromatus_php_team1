@@ -14,6 +14,27 @@
     $country     = "";
     $position    = "";
     $msg         = "";
+
+    $contact_data = array();
+    $contact_data = $db->get_contact_links();
+
+    $result_linkedIn    = "";
+    $result_fb          = "";
+    $result_twitter     = "";
+    $result_mobno       = "";
+    $result_email_link  = "";
+
+    if(!empty($contact_data))
+    {   
+        
+        $result_linkedIn    =   $contact_data[1];
+        $result_fb          =   $contact_data[2];
+        $result_twitter     =   $contact_data[3];
+        $result_mobno       =   $contact_data[4];
+        $result_email_link  =   $contact_data[5];
+        
+        
+    }
     
     if(isset($_POST['submit']))
     {
@@ -297,14 +318,14 @@
                 <h4>Contact Us!</h4>
                      <p>Contact us and we'll get back to you within 24 hours.</p>
 
-                     <div class="footercno" style="color:#0076D9;"><a href="mailto:info@chromatus.com " target="_top"><i class="fa fa-envelope" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;info@chromatus.com  </a></div>
+                     <div class="footercno" style="color:#0076D9;"><a href="mailto:<?php echo $result_email_link; ?>" target="_top"><i class="fa fa-envelope" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;<?php echo $result_email_link; ?></a></div>
                      
-                     <div class="footercno" style="margin-top: 15px;color:#0076D9;"><a href="tel:++917498465144"><i class="fa fa-phone" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;+91 7498465144&nbsp;&nbsp;</a></div>
+                     <div class="footercno" style="margin-top: 15px;color:#0076D9;"><a href="tel:+91<?php echo $result_mobno; ?>"><i class="fa fa-phone" aria-hidden="true" style="color: #000;"></i>&nbsp;&nbsp;+91 <?php echo $result_mobno; ?>&nbsp;&nbsp;</a></div>
                      <hr>
                      <h4>Follow us on social media</h4><h6>&nbsp;</h6>
-                    <a href="https://www.facebook.com/Chromatus-Consulting-100467295012830" class="fa fa-facebook-official fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
-                    <a href="https://twitter.com/Chromatus12" class="fa fa-twitter-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
-                    <a href="https://www.linkedin.com/company/chromatusconsulting" class="fa fa-linkedin-square fa-2x fa-icon con_icon"></a> &nbsp;&nbsp;
+                    <a href="<?php echo $result_fb; ?>" class="fa fa-facebook-official fa-2x fa-icon con_icon" target="_blank"></a> &nbsp;&nbsp;
+                    <a href="<?php echo $result_twitter; ?>" class="fa fa-twitter-square fa-2x fa-icon con_icon" target="_blank"></a> &nbsp;&nbsp;
+                    <a href="<?php echo $result_linkedIn; ?>" class="fa fa-linkedin-square fa-2x fa-icon con_icon" target="_blank"></a> &nbsp;&nbsp;
                    
                 </div>
             </div>

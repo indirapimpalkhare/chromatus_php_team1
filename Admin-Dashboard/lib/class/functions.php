@@ -628,6 +628,7 @@
 				}
 			}
 
+			
 			//Contact Us ENDS
 
 
@@ -2067,8 +2068,118 @@ function get_latest_pr()
             
         //------FAQ Ends here-----//
         
-            
+        function update_linkedIn($linkedIn)
+        {
+        	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `linkedinLink`= ? where `infoID`= 1"))
+        	{
+        		$stmt_update->bind_param("s",$linkedIn);
+        		if($stmt_update->execute())
+        		{
+        			return true;
+        		}
+        		else
+        		{
+        			return false;
+        		}
+        	}
+        } 
+
+        function update_fb($fb)
+        {
+        	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `facebookLink`= ? where `infoID`= 1"))
+        	{
+        		$stmt_update->bind_param("s",$fb);
+        		if($stmt_update->execute())
+        		{
+        			return true;
+        		}
+        		else
+        		{
+        			return false;
+        		}
+        	}
+        } 
+
+        function update_twitter($twitter)
+        {
+        	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `twitterLink`= ? where `infoID`= 1"))
+        	{
+        		$stmt_update->bind_param("s",$twitter);
+        		if($stmt_update->execute())
+        		{
+        			return true;
+        		}
+        		else
+        		{
+        			return false;
+        		}
+        	}
+        }    
         
+        function update_mobno($mobno)
+        {
+        	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `number`= ? where `infoID`= 1"))
+        	{
+        		$stmt_update->bind_param("s",$mobno);
+        		if($stmt_update->execute())
+        		{
+        			return true;
+        		}
+        		else
+        		{
+        			return false;
+        		}
+        	}
+        }
+
+         function update_email($email)
+        {
+        	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `gmail`= ? where `infoID`= 1"))
+        	{
+        		$stmt_update->bind_param("s",$email);
+        		if($stmt_update->execute())
+        		{
+        			return true;
+        		}
+        		else
+        		{
+        			return false;
+        		}
+        	}
+        }
+
+        function get_contact_links()
+		{
+			if($stmt_select = $this->con->prepare("SELECT `infoID`, `linkedinLink`, `facebookLink`, `twitterLink`, `number`, `gmail` FROM `chromatus_info` WHERE `infoID` = 1 "))
+			{
+				$stmt_select->bind_result($id,$linkedIn,$fb,$twitter,$mobno,$email);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+			
+
+					while($stmt_select->fetch())
+					{
+						$data[0] = $id;
+						$data[1] = $linkedIn;
+						$data[2] = $fb;
+						$data[3] = $twitter;
+						$data[4] = $mobno;
+						$data[5] = $email;
+						
+					}
+					if(!empty($data))
+					{
+						return $data;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
 
 	}	//class end
 ?>
