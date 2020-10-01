@@ -66,9 +66,10 @@ $db = new functions();
           </div>
         </div>
       <?php } ?>
+        <br>
 
-        <div class="our_services">
-        <div class = "row m-4 pt-4 mt-4">
+        <div style="background-image: url('home-bg.jpg'); background-size: 100% 100%;" class="our_services">
+        <div  class = "row m-4 pt-4 mt-4">
           <div class = "col-md-6 align-self-start">
             <div class="card">
               <div class="card-header">
