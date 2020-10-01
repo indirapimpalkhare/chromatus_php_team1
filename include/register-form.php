@@ -1,11 +1,6 @@
 <!DOCTYPE HTML>
 <body>
-<?php  
 
-$connect = mysqli_connect("localhost", "root", "", "db_chromatus");
-$query = "SELECT * FROM user";
-$result = mysqli_query($connect, $query);
- ?>  
 
 
 <!-- start Model-form-->
@@ -15,10 +10,8 @@ $result = mysqli_query($connect, $query);
   <div class="modal-dialog cascading-modal" role="document">
     <!--Content-->
     <div class="modal-content">
-        <form>
-      <!--modal cascading content-->
+    <!--modal cascading content-->
       <div class="modal-c-tabs">
-
         <!--nav tabs-->
         <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
           <li class="nav-item">
@@ -33,17 +26,13 @@ $result = mysqli_query($connect, $query);
     
         <!--Tab panels-->
         <div class="tab-content">
+         <!--panel 1-->
+        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
 
-          <!--panel 1-->
-          <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-
-      <!--Body-->
-
-      <div class="modal-body mx-2">
-        <!--Body-->
+        <div class="modal-body mx-2">
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
         <div class="md-form mb-3">
-        
-          <input type="email" name="l-email" class="form-control validate" placeholder="Email">
+            <input type="email" name="l-email" class="form-control validate" placeholder="Email">
         </div>
 
         <div class="md-form pb-3">
@@ -53,10 +42,11 @@ $result = mysqli_query($connect, $query);
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" href="index.php">Login </button>
+          <button type="button" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" name="login_bt">Login </button>
         </div>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Login
-          with:</p>
+          with:
+        </p>
 
         <div class="row my-3 d-flex justify-content-center">
           <!--Facebook-->
@@ -71,44 +61,41 @@ $result = mysqli_query($connect, $query);
         </div>
       </div>
       <!--Footer of login_pg-->
-       <div class="modal-footer">
+        <div class="modal-footer">
               <div class="options text-center text-md-right mt-1">
                 <p>Not a member? <a href="" class="blue-text">Register</a></p>
                 
               </div>
-              <button type="button" id="submit" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-            </div>
-        
-      </div>
-    </form>
+              <button type="button" id="close_bt" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+        </div>
+      </form>    
+  </div>
+    
 
 
        <!--panel 2-->
-
-
-
-        
         <div class="tab-pane fade" id="panel2" role="tabpanel">
-      <!--Body-->
-      <div class="modal-body mx-2">
-        <!--Body-->
+        
+        <div class="modal-body mx-2">
+       
+        <form action="action.php" method="POST">
         <div class="form-row">
-        <div class="form-group col-md-6">
-        <input type="text" name="f_name" class="form-control validate" placeholder="First Name" autocomplete="off">
+            <div class="form-group col-md-6">
+                <input type="text" name="f_name" class="form-control validate" placeholder="First Name" autocomplete="off">
+            </div>
+            <div class="form-group col-md-6">
+                 <input type="text" name="l_name" class="form-control validate" placeholder="Last Name" autocomplete="off">
+            </div>
         </div>
-       <div class="form-group col-md-6">
-         <input type="text" name="l_name" class="form-control validate" placeholder="Last Name" autocomplete="off">
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" name="company" class="form-control validate" placeholder="Company Name" autocomplete="off">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" name="company" class="form-control validate" placeholder="Company Name" autocomplete="off">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="mobile" class="form-control validate" placeholder="Contact Number" autocomplete="off">
+            </div>
         </div>
-          <div class="form-group col-md-6">
-          <input type="text" name="number" class="form-control validate" placeholder="Contact Number" autocomplete="off">
-        </div>
-      </div>
 
         <div class="form-row">      
         <div class="form-group col-md-6">
@@ -292,16 +279,13 @@ $result = mysqli_query($connect, $query);
                           </select>
          </div>
         <div class="form-group col-md-6">
-          <input type="text" id="position" class="form-control validate" placeholder="Position" autocomplete="off">
+          <input type="text" name="position" class="form-control validate" placeholder="Position" autocomplete="off">
         </div>
-      </div>
-
-      
-        
-
+        </div>
 
         <div class="text-center mb-3">
-          <button type="button" name="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" href="panel1">Submit</button>
+          <button type="button" name="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" >
+            Submit</button>
         </div>
 
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign up
@@ -318,6 +302,7 @@ $result = mysqli_query($connect, $query);
           <button type="button" class="btn btn-primary btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button>
           
         </div>
+    
 
         <!--footter of reg_pg-->
         <div class="modal-footer">
@@ -326,16 +311,14 @@ $result = mysqli_query($connect, $query);
                 
               </div>
               <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-            </div>
-        
+        </div>
+        </form>
       </div>
       </div>
 
-      
       </div>
       </div>
     </div>
-
     </div>
     <!--/.Content-->
   </div>
@@ -344,61 +327,3 @@ $result = mysqli_query($connect, $query);
 </HTML>
 
 <!--end modal-form-->
-
-<script>  
-$(document).ready(function(){
- $('#panel2').on("submit", function(event){  
-  event.preventDefault();  
-  if($('#f_name').val() == "")  
-  {  
-   alert(" first Name is required");  
-  } 
-  else if($('#l_name').val() == "")  
-  {  
-   alert(" last Name is required");  
-  }  
-  else if($('#company').val() == '')  
-  {  
-   alert("company name  is required");  
-  }  
-  else if($('#number').val() == '')
-  {  
-   alert("number is required");  
-  }
-  else if($('#email').val() == '')
-  {  
-   alert("email is required");  
-  }
-  else if($('#password').val() == '')
-  {  
-   alert("password is required");  
-  }
-  else if($('#country').val() == '')
-  {  
-   alert("country is required");  
-  }
-  else if($('#position').val() == '')
-  {  
-   alert("position is required");  
-  }
-   
-  else  
-  {  
-   $.ajax({  
-    url:"action.php",  
-    method:"POST",  
-    data:$('#panel2').serialize(),  
-    beforeSend:function(){  
-     $('#submit').val("Inserting");  
-    },  
-    success:function(data){  
-     $('#panel2')[0].reset();  
-     $('#elegantModalForm').modal('hide');  
-     $('#user_table').html(data);  
-    }  
-   });  
-  }  
- });
-
-
- </script>
