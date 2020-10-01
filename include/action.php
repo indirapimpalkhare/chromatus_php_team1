@@ -1,7 +1,9 @@
 <?php
+echo "hii";
     include 'config.php';
     if(isset($_POST['submit']))
     {
+        echo "hii";
         $f_name=$_POST['f_name'];
         $l_name=$_POST['l_name'];
         $company=$_POST['company'];

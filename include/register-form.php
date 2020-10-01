@@ -1,3 +1,37 @@
+<?php
+    //echo "inside php";
+    //include 'config.php';
+    if(isset($_POST['submit']))
+    {
+        //echo "inside submit if loop";
+        $f_name=$_POST['f_name'];
+        $l_name=$_POST['l_name'];
+        $company=$_POST['company'];
+        $mobile=$_POST['mobile'];
+        $email=$_POST['email'];
+        $password=$_POST['password'];
+        $country=$_POST['country'];
+        $position=$_POST['position'];
+        $con = new mysqli("localhost","root","","db_chromatus");
+
+        $query = "insert into user(`f_name`,`l_name`,`company`,`mobile`,`email`,`password`,`country`,`position`) VALUES('$f_name','$l_name','$company','$mobile','$email','$password','$country','$position')";
+        $query_run = mysqli_query($con,$query);
+        if($query_run)
+        {
+            echo '<script> alert("data saved"); </script>';
+            header('Location:index.php');
+        }
+        else
+        {
+            echo '<script> alert("data not saved"); </script>';
+
+        }    
+
+    }
+
+?>
+
+
 <!DOCTYPE HTML>
 <body>
 
@@ -78,7 +112,7 @@
         
         <div class="modal-body mx-2">
        
-        <form action="action.php" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input type="text" name="f_name" class="form-control validate" placeholder="First Name" autocomplete="off">
@@ -284,7 +318,7 @@
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" name="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" >
+          <button type="submit" name="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" >
             Submit</button>
         </div>
 
