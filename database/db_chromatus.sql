@@ -329,14 +329,15 @@ CREATE TABLE `user` (
   `userID` int(11) NOT NULL,
   `f_name` varchar(30) NOT NULL,
   `l_name` varchar(30) NOT NULL,
-  `company` varchar(30) NOT NULL,
-  `mobile` int(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `country` varchar(30) NOT NULL,
-  `position` varchar(30) NOT NULL,
+  `mobile` int(10) NOT NULL,
   `subscription` varchar(30) DEFAULT NULL,
-  `remainingPR` int(11) NOT NULL DEFAULT 0
+  `remainingPR` int(11) NOT NULL DEFAULT 0,
+  `company` varchar(30) NOT NULL,
+  `country` varchar(30) NOT NULL,
+  `position` varchar(30) NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
