@@ -122,7 +122,7 @@
                
                 <div class="pr-card" >
                     <div style="font-family: 'Noto Sans', sans-serif;" ><?php echo $result_title; ?></div>
-                    <div pr-card-text> &nbsp; <i class="fa fa-user fa-0.5x"> <?php echo $result_author; ?>  </i> &nbsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_added; ?></i></div>
+                    <div pr-card-text> &nbsp; <i class="fa fa-user fa-0.5x"> <?php echo $result_author; ?>  </i> &nbsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_modi; ?></i></div>
 					<div class="row pr-card-body">
                         <img class="pr-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/pressRelease/<?php echo $result_image; ?>" alt="Press Release Image">
                         <p class="pr-card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>

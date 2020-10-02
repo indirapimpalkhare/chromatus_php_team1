@@ -1413,19 +1413,49 @@
 
             function update_pr_category_by_id($category_name,$category_image,$category_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ?,`image`=? where `prCategoryID`= ?"))
-				{
-					$stmt_update->bind_param("sss",$category_name,$category_image,$category_id);
+                if($stmt_select = $this->con->prepare("SELECT `name` FROM `pr_category` WHERE `prCategoryID` = ?"))
+                {
+                    $stmt_select->bind_param("s",$category_id);
+                    $stmt_select->bind_result($og_category_name);
+                    if($stmt_select->execute()){
+                        while($stmt_select->fetch())
+                        {
+                            $og = $og_category_name;
+                        }
+                        echo $og;
+                        if(!empty($og))
+                        {
+                            echo "Need additional update?";
+                            if($stmt_update = $this->con->prepare("UPDATE `pr_category` SET `name`= ?,`image`=? where `prCategoryID`= ?"))
+                            {
+                                $stmt_update->bind_param("sss",$category_name,$category_image,$category_id);
+                                if($stmt_update->execute())
+                                {
+								    echo "first update success";
+								    if($stmt_update_pr = $this->con->prepare("UPDATE `press_release` SET `category`= ? where `category`= ?"))
+                                    {
+								        $stmt_update_pr->bind_param("ss",$category_name,$og_category_name);
+								        if($stmt_update_pr->execute())
+                                        {
+								            echo "All success";
+								            return true;
+								        }
+								    }
+							     }
+                            }
+                        }
+                        else{
+                            if($stmt_update_pr = $this->con->prepare("UPDATE `pr` SET `category`= ? where `category`= ?")){
+                                $stmt_update_pr->bind_param("ss",$category_name,$og_category_name);
+                                if($stmt_update_pr->execute()){
+                                    echo "All success";
+                                    return true;
+                                }
+                            }
+                        }
+                    }
 
-					if($stmt_update->execute())
-					{
-					return true;
-					}
-					else
-					{
-					return false;
-					}
-				}
+                }
 			}
 
             function fetch_pr_category_by_id($category_id)
@@ -1463,9 +1493,9 @@
             function add_pr($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink)
 			{
 				$date = date("Y-m-d");
-				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`,`author`, `category`, `metaDescription`, `description`, `image`,`permalink`, `dateAdded`) VALUES (?,?,?,?,?,?,?,?)"))
+				if($stmt_insert = $this->con->prepare("INSERT INTO `press_release` (`title`,`author`, `category`, `metaDescription`, `description`, `image`,`permalink`, `dateAdded`,`dateModified`) VALUES (?,?,?,?,?,?,?,?,?)"))
 				{
-					$stmt_insert->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date);
+					$stmt_insert->bind_param("sssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date,$date);
 					if($stmt_insert->execute())
 					{
 						return true;
@@ -1477,7 +1507,7 @@
         // -------view------- //
             function fetch_pr_records()
 			{
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 ORDER BY `dateAdded` DESC"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 ORDER BY `prID` DESC"))
 				{
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);
 
@@ -1517,9 +1547,10 @@
 
             function update_pr_full_details_by_id($pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id)
 			{
-				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`author`=?,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?,`permalink`=? where `prID`= ? "))
+				if($stmt_update = $this->con->prepare("UPDATE `press_release` SET `title`= ? ,`author`=?,`category`= ? ,`metaDescription`=  ? ,`description`= ? ,`image` = ?,`permalink`=?,`dateModified` = ? where `prID`= ? "))
 				{
-					$stmt_update->bind_param("ssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$pr_id);
+					$date = date("Y-m-d");
+                    $stmt_update->bind_param("sssssssss",$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date,$pr_id);
 
 					if($stmt_update->execute())
 					{
@@ -1763,7 +1794,7 @@
 			function fetch_pr_records_by_name($category)
 			{
                 
-				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 and category = ? ORDER BY `dateAdded` DESC"))
+				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 and category = ? ORDER BY `prID` DESC"))
 				{
 					$stmt_select->bind_param("s",$category);
 					$stmt_select->bind_result($pr_id,$pr_title,$pr_author,$pr_category,$pr_metadesc,$pr_desc,$pr_image,$pr_permalink,$date_added,$date_modified,$status);

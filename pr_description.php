@@ -47,7 +47,7 @@ if(!isset($_SESSION)){
   $pr_description = $pr_data[5];
   $pr_image    = $pr_data[6];
   $pr_permalink   = $pr_data[7];
-  $pr_date        = $pr_data[8];
+  $pr_date        = $pr_data[9];
  
    }
 
@@ -159,7 +159,7 @@ if(!isset($_SESSION)){
 
                               <div class="card-body">
                                 <a href="pr_description.php?pr-id=<?php echo $got_id ?>"  class="card-title"><?php echo $got_pr_title ?> </a>
-                                <p class="card-text"><small>  <i class="fa fa-calendar">  <?php echo $date_added; ?></i> &nbsp;  By- <?php echo $got_pr_author; ?> </small></p>
+                                <p class="card-text"><small>  <i class="fa fa-calendar">  <?php echo $date_modified; ?></i> &nbsp;  By- <?php echo $got_pr_author; ?> </small></p>
 
                                 <hr>
                               </div>
