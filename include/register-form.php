@@ -1,9 +1,26 @@
 <?php
     //echo "inside php";
     //include 'config.php';
-    if(isset($_POST['submit']))
+    require_once("Admin-Dashboard/lib/class/functions.php");
+    $db = new functions();
+
+    $f_name="";
+    $l_name="";
+    $company="";
+    $mobile="";
+    $email="";
+    $password="";
+    $country="";
+    $position="";
+    $email		=	"";
+  	$password	=	"";
+  	$name_error	=	"";
+  	$password_error	=	"";
+  	$flag_1 =	0;
+    $flag = 0;
+    if(isset($_POST['register_btn']))
     {
-        //echo "inside submit if loop";
+        echo "inside submit if loop";
         $f_name=$_POST['f_name'];
         $l_name=$_POST['l_name'];
         $company=$_POST['company'];
@@ -12,22 +29,41 @@
         $password=$_POST['password'];
         $country=$_POST['country'];
         $position=$_POST['position'];
-        $con = new mysqli("localhost","root","","db_chromatus");
 
-        $query = "insert into user(`f_name`,`l_name`,`company`,`mobile`,`email`,`password`,`country`,`position`) VALUES('$f_name','$l_name','$company','$mobile','$email','$password','$country','$position')";
-        $query_run = mysqli_query($con,$query);
-        if($query_run)
-        {
-            echo '<script> alert("data saved"); </script>';
-            header('Location:index.php');
+        if($flag == 0){
+          echo "Flag 0";
+          $db->new_user_register($f_name, $l_name, $company, $mobile, $email, $password, $country, $position);
+          echo '<script> alert("You have been successfully registered!"); </script>';
         }
         else
         {
-            echo '<script> alert("data not saved"); </script>';
-
-        }    
-
+            echo '<script> alert("Sorry! There was an error while registering. Please try again."); </script>';
+        }
     }
+
+
+  	if(isset($_POST['login_btn']))
+  	{
+        //echo "login";
+  	    $email    = $_POST['user_email'];
+  	    $password = $_POST['password'];
+
+  		if($flag_1==0)
+  		{
+  			$result = $db->verify_user($email,$password);
+        //echo $result;
+  			if($result == 1)
+  			{
+          $_SESSION['current_user'] = $email;
+          echo '<script> alert("Login success!"); </script>';
+  				#header("Location:user_dashboard.php");
+  			}
+  			else
+  			{
+            echo '<script> alert("Sorry! Please enter valid login credentials."); </script>';
+  			}
+  		}
+  	}
 
 ?>
 
@@ -57,7 +93,7 @@
           </li>
 
         </ul>
-    
+
         <!--Tab panels-->
         <div class="tab-content">
          <!--panel 1-->
@@ -66,81 +102,75 @@
         <div class="modal-body mx-2">
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
         <div class="md-form mb-3">
-            <input type="email" name="l-email" class="form-control validate" placeholder="Email">
+            <input type="email" name="user_email" class="form-control validate" placeholder="Email" required>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" name="i-password" class="form-control validate" placeholder=" Password">
-          
+          <input type="password" name="password" class="form-control validate" placeholder=" Password" required>
+
           <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1"> Password?</a></p>
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" name="login_bt">Login </button>
+          <input type="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" name="login_btn">Login</button>
         </div>
-        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Login
+        <!--p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Login
           with:
         </p>
 
         <div class="row my-3 d-flex justify-content-center">
-          <!--Facebook-->
+          <Facebook>
           <button type="button" class="btn btn-primary  btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook-official text-center"></i></button>
 
-          <!--Google +-->
+          <!Google +>
           <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-google-plus"></i></button>
 
-          <!--Twitter-->
+          <!Twitter>
           <button type="button" class="btn btn-primary btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button>
-          
-        </div>
+
+        </div-->
       </div>
       <!--Footer of login_pg-->
-        <div class="modal-footer">
-              <div class="options text-center text-md-right mt-1">
-                <p>Not a member? <a href="" class="blue-text">Register</a></p>
-                
-              </div>
-              <button type="button" id="close_bt" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-        </div>
-      </form>    
+
+      </form>
   </div>
-    
+
 
 
        <!--panel 2-->
         <div class="tab-pane fade" id="panel2" role="tabpanel">
-        
+
         <div class="modal-body mx-2">
-       
+
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" name="f_name" class="form-control validate" placeholder="First Name" autocomplete="off">
+                <input type="text" name="f_name" class="form-control validate" placeholder="First Name" autocomplete="off" required>
             </div>
             <div class="form-group col-md-6">
-                 <input type="text" name="l_name" class="form-control validate" placeholder="Last Name" autocomplete="off">
+                 <input type="text" name="l_name" class="form-control validate" placeholder="Last Name" autocomplete="off" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" name="company" class="form-control validate" placeholder="Company Name" autocomplete="off">
+                <input type="text" name="company" class="form-control validate" placeholder="Company Name" autocomplete="off" required>
             </div>
             <div class="form-group col-md-6">
-                <input type="text" name="mobile" class="form-control validate" placeholder="Contact Number" autocomplete="off">
+                <input type="text" name="mobile" class="form-control validate" placeholder="Contact Number" autocomplete="off" required minlength="10" maxlength="10">
             </div>
         </div>
 
-        <div class="form-row">      
+        <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="email" name="email" class="form-control validate" placeholder="Email" autocomplete="off">
+          <input type="email" name="email" class="form-control validate" placeholder="Email" autocomplete="off" required>
          </div>
         <div class="form-group col-md-6">
-          <input type="password" name="password" class="form-control validate" placeholder="Password" autocomplete="off">
+          <input type="password" name="password" class="form-control validate" placeholder="Password" autocomplete="off" required>
         </div>
       </div>
 
-      <div class="form-row">      
+      <div class="form-row">
         <div class="form-group col-md-6">
           <select class="form-control" id="country" name="country" required >
             <option value="" selected="selected">-- Select Country --</option>
@@ -313,39 +343,15 @@
                           </select>
          </div>
         <div class="form-group col-md-6">
-          <input type="text" name="position" class="form-control validate" placeholder="Position" autocomplete="off">
+          <input type="text" name="position" class="form-control validate" placeholder="Position" autocomplete="off" required>
         </div>
         </div>
 
         <div class="text-center mb-3">
-          <button type="submit" name="submit" class="btn  btn-primary blue-gradient btn-block btn-rounded z-depth-1a" >
-            Submit</button>
+          <input type="submit" name="register_btn" class="btn btn-primary blue-gradient btn-block btn-rounded z-depth-1a" value="Submit">
+
         </div>
 
-        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign up
-          with:</p>
-
-        <div class="row my-3 d-flex justify-content-center">
-          <!--Facebook-->
-          <button type="button" class="btn btn-primary  btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook-official text-center"></i></button>
-
-          <!--Google +-->
-          <button type="button" class="btn btn-danger btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-google-plus"></i></button>
-
-          <!--Twitter-->
-          <button type="button" class="btn btn-primary btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button>
-          
-        </div>
-    
-
-        <!--footter of reg_pg-->
-        <div class="modal-footer">
-              <div class="options text-center text-md-right mt-1">
-                <p>Already have a account? <a href="" class="blue-text">Login</a></p>
-                
-              </div>
-              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-        </div>
         </form>
       </div>
       </div>

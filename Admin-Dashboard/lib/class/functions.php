@@ -628,7 +628,7 @@
 				}
 			}
 
-			
+
 			//Contact Us ENDS
 
 
@@ -1793,7 +1793,7 @@
 
 			function fetch_pr_records_by_name($category)
 			{
-                
+
 				if($stmt_select = $this->con->prepare("SELECT `prID`,`title`,`author`, `category`, `metaDescription`, `description`,`image`, `permalink`, `dateAdded`,`dateModified`,`status` FROM `press_release` where `status` = 1 and `isAccepted` = 1 and category = ? ORDER BY `prID` DESC"))
 				{
 					$stmt_select->bind_param("s",$category);
@@ -1913,11 +1913,11 @@ function get_latest_pr()
 				}
 			}
 		}
-            
-        
+
+
         //-----FAQ Starts here-----//
-            
-            
+
+
         function add_faq($question,$answer)
 			{
 
@@ -1932,8 +1932,8 @@ function get_latest_pr()
 					return false;
 				}
 			}
-            
-            
+
+
         function fetch_faq_records()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer`,`status` FROM `faq` where `status` = 1"))
@@ -1964,8 +1964,8 @@ function get_latest_pr()
 					}
 				}
 			}
-            
-            
+
+
             function delete_faq_details_by_id($delete_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `status` = 0 where `faqID` = ?"))
@@ -1982,7 +1982,7 @@ function get_latest_pr()
 					}
 				}
 			}
-            
+
             function fetch_faq_full_details_by_id($faq_id)
 			{
 				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer` FROM `faq` where `faqID` = ?"))
@@ -2013,8 +2013,8 @@ function get_latest_pr()
 					}
 				}
 			}
-            
-            
+
+
             function update_faq_full_details_by_id($question,$answer,$faq_id)
 			{
 				if($stmt_update = $this->con->prepare("UPDATE `faq` SET `question`= ? ,`answer`= ? where `faqID`= ? "))
@@ -2031,7 +2031,7 @@ function get_latest_pr()
 					}
 				}
 			}
-            
+
 			function fetch_faq_deleted_records()
 			{
 				if($stmt_select = $this->con->prepare("SELECT `faqID`,`question`, `answer` ,`status` FROM `faq` where `status` = 0"))
@@ -2063,7 +2063,7 @@ function get_latest_pr()
 					}
 				}
 			}
-			
+
 			function permanent_delete_faq_details_by_id($delete_id)
 			{
 				if($stmt_delete = $this->con->prepare("delete FROM `faq` where `faqId` = ?"))
@@ -2095,11 +2095,11 @@ function get_latest_pr()
 
 
 
-            
-            
-            
+
+
+
         //------FAQ Ends here-----//
-        
+
         function update_linkedIn($linkedIn)
         {
         	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `linkedinLink`= ? where `infoID`= 1"))
@@ -2114,7 +2114,7 @@ function get_latest_pr()
         			return false;
         		}
         	}
-        } 
+        }
 
         function update_fb($fb)
         {
@@ -2130,7 +2130,7 @@ function get_latest_pr()
         			return false;
         		}
         	}
-        } 
+        }
 
         function update_twitter($twitter)
         {
@@ -2146,8 +2146,8 @@ function get_latest_pr()
         			return false;
         		}
         	}
-        }    
-        
+        }
+
         function update_mobno($mobno)
         {
         	if($stmt_update = $this->con->prepare("UPDATE `chromatus_info` SET `number`= ? where `infoID`= 1"))
@@ -2189,7 +2189,7 @@ function get_latest_pr()
 				if($stmt_select->execute())
 				{
 					$data = array();
-			
+
 
 					while($stmt_select->fetch())
 					{
@@ -2199,7 +2199,7 @@ function get_latest_pr()
 						$data[3] = $twitter;
 						$data[4] = $mobno;
 						$data[5] = $email;
-						
+
 					}
 					if(!empty($data))
 					{
@@ -2212,6 +2212,52 @@ function get_latest_pr()
 				}
 			}
 		}
+
+		function new_user_register($f_name, $l_name, $company, $mobile, $email, $password, $country, $position){
+			echo "inside function";
+			if($stmt_insert = $this->con->prepare("INSERT INTO `user`(`f_name`,`l_name`,`email`,`password`,`mobile`,`company`,`country`,`position`) VALUES (?,?,?,?,?,?,?,?)"))
+			{
+				echo "First if";
+				$stmt_insert->bind_param("ssssssss",$f_name, $l_name, $email, $password, $mobile, $company, $country, $position);
+
+				if($stmt_insert->execute())
+				{
+					echo "executed";
+					return true;
+				}
+				echo $stmt_insert -> error;
+				return false;
+			}
+		}
+
+		function verify_user($email,$password){
+			//echo "HELLO?";
+			if($stmt_select = $this->con->prepare("SELECT `email`,`password` FROM `user` WHERE `email` = ? AND `password` = ?"))
+			{
+				$stmt_select->bind_param("ss",$email,$password);
+				$stmt_select->bind_result($email, $password);
+
+				if($stmt_select->execute())
+				{
+					$data = array();
+					while($stmt_select->fetch())
+					{
+						$data[0] = $email;
+						$data[1] = $password;
+					}
+					if(!empty($data))
+					{
+						return 1;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+		}
+
+
 
 	}	//class end
 ?>
