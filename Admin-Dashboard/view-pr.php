@@ -81,7 +81,7 @@
                                     <div class="page-header card">
                                         <div class="card-block">
                                             <h5 class="m-b-10"> PR Records</h5>
-                                            <p class="text-muted m-b-10">You can edit your PR Records</p>
+                                            <p class="text-muted m-b-10">You can view,edit,delete your PR Records</p>
                                         </div>
                                     </div>
 
@@ -91,10 +91,6 @@
                                             <div class="col-sm-12">
 
                                                 <div class="card">
-                                                    <div class="card-header">
-                                                        <h5> PR Records</h5>
-                                                        <span>You Can Edit or Delete Record From here..</span>
-                                                    </div>
 													<div class="form-group row">
 														<div class="col-md-12"> 
 															<div class="common_msg" style="color:red;font-size:17px;margin-left: 340px;">
@@ -155,7 +151,7 @@
 																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_author ;?></td> 
 																		<td><?php echo $got_pr_category ;?></td> 
 																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_metaDesc ;?></td> 
-																		<td><?php echo $pr_image ;?></td>
+																		<td><img src='assets/images/pressRelease/<?php echo $pr_image ;?>' height='100px' width='200px'></td>
 																		<td><?php echo $got_pr_permalink ;?></td>
 																		<td><?php echo $date_added ;?></td>
 																		<td><?php echo $date_modified ;?></td>  

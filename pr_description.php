@@ -4,10 +4,10 @@
   /*if(!isset($_SESSION['current_admin']))
   {
     header("Location:index.php");
-  }*/
+  }
 if(!isset($_SESSION)){
   session_start();
-}
+}*/
 
   $common_msg ="";
   $common_msg1="";
@@ -98,6 +98,44 @@ if(!isset($_SESSION)){
                   
                   <div class="vl col-md-3 mt-5">
                    <div class="cat-box-wrapper">
+                    <ul > 
+                        <li style="list-style-type:none;" class="pr-box-heading">Latest Releases</li>  
+                         <?php
+                            $get_pr		=	array();
+                            $get_pr		=	$db->get_latest_pr();
+                            if(!empty($get_pr))
+                            {
+                              $counter	=	0;
+                              foreach($get_pr as $record)
+                              {
+                                if($counter<3)
+                                {
+
+                                $got_id				=   $get_pr[$counter][0];
+                                $got_pr_title	    =	$get_pr[$counter][1];
+                                $got_pr_author	    =	$get_pr[$counter][2];
+                                $got_pr_permalink 	= 	$get_pr[$counter][7];
+                                $date_added 		= 	$get_pr[$counter][8];
+                                $date_modified		= 	$get_pr[$counter][9];
+
+                           ?>
+
+
+                              <div class="card-body">
+                                <a href="pr_description.php?pr-id=<?php echo $got_id ?>"  class="card-title"><?php echo $got_pr_title ?> </a>
+                                <p class="card-text"><small>  <i class="fa fa-calendar">  <?php echo $date_modified; ?></i> &nbsp;  By- <?php echo $got_pr_author; ?> </small></p>
+
+                                <hr>
+                              </div>
+                                <?php
+                                  $counter++;
+                                }
+                                }
+                              }?>
+                       
+                        
+                    </ul>
+                    <br>
                      <ul class="pr-box-list"> 
                         <li class="pr-box-heading">Category</li>  
                         
@@ -131,47 +169,7 @@ if(!isset($_SESSION)){
                         
                     </ul>
                     </div>
-                    <br>
-                    
-                    
-                     <ul > 
-                        <li style="list-style-type:none;" class="pr-box-heading">Latest Releases</li>  
-                         <?php
-                            $get_pr		=	array();
-                            $get_pr		=	$db->get_latest_pr();
-                            if(!empty($get_pr))
-                            {
-                              $counter	=	0;
-                              foreach($get_pr as $record)
-                              {
-                                if($counter<5)
-                                {
-
-                                $got_id				=   $get_pr[$counter][0];
-                                $got_pr_title	    =	$get_pr[$counter][1];
-                                $got_pr_author	    =	$get_pr[$counter][2];
-                                $got_pr_permalink 	= 	$get_pr[$counter][7];
-                                $date_added 		= 	$get_pr[$counter][8];
-                                $date_modified		= 	$get_pr[$counter][9];
-
-                           ?>
-
-
-                              <div class="card-body">
-                                <a href="pr_description.php?pr-id=<?php echo $got_id ?>"  class="card-title"><?php echo $got_pr_title ?> </a>
-                                <p class="card-text"><small>  <i class="fa fa-calendar">  <?php echo $date_modified; ?></i> &nbsp;  By- <?php echo $got_pr_author; ?> </small></p>
-
-                                <hr>
-                              </div>
-                                <?php
-                                  $counter++;
-                                }
-                                }
-                              }?>
-                       
-                        
-                    </ul>
-            
+                            
                   </div>
                 </div>
               </div>
@@ -180,3 +178,5 @@ if(!isset($_SESSION)){
         <?php require_once('include/footer.php'); ?>
   </body>
 </html>
+
+

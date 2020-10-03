@@ -102,7 +102,6 @@
                                     <div class="page-header card">
                                         <div class="card-block">
                                             <h5 class="m-b-10"><i class="fa fa-trash-o"></i> PR Record's & PR Categories Trash</h5>
-                                            <p class="text-muted m-b-10">You can Access Deleted PR Records here!!</p>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-12"> 
@@ -185,7 +184,7 @@
 																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_author ;?></td> 
 																		<td><?php echo $got_pr_category ;?></td> 
 																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_metaDesc ;?></td> 
-																		<td><?php echo $pr_image ;?></td>
+																		<td><img src='assets/images/pressRelease/<?php echo $pr_image ;?>' height='100px' width='200px'></td>
 																		<td><?php echo $got_pr_permalink ;?></td>
 																		<td><?php echo $date_added ;?></td>
 																		<td><?php echo $date_modified ;?></td> 

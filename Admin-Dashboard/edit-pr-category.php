@@ -131,10 +131,6 @@
                                         <div class="row">
                                           <div class="col-sm-12">
                                                 <div class="card">
-                                                    <div class="card-header">
-                                                    <h5>Update PR Category</h5>
-                                                    <span>You can update PR Category here...</span>
-                                                </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12"> 
                                                         <div class="common_msg" style="color:green;font-size:17px;margin-left: 340px;">

@@ -29,7 +29,7 @@
 <html lang="en">
  
 <head>
-    <title> Admin | PR Record </title>
+    <title> Admin | Pending PR Record </title>
 
  
 
@@ -88,7 +88,7 @@
                                     <div class="page-header card">
                                         <div class="card-block">
                                             <h5 class="m-b-10"> Pending PR Records</h5>
-                                            <p class="text-muted m-b-10">You can accept your pending PR Records</p>
+                                            <p class="text-muted m-b-10">You can approve pending PR Records from here</p>
                                         </div>
                                     </div>
 
@@ -98,10 +98,6 @@
                                             <div class="col-sm-12">
 
                                                 <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>Pending PR Records</h5>
-                                                        <span>You Can Accept / Edit / delete pending PR Record From here..</span>
-                                                    </div>
 													<div class="form-group row">
 														<div class="col-md-12"> 
 															<div class="common_msg" style="color:red;font-size:17px;margin-left: 340px;">
@@ -166,17 +162,17 @@
 																		<td style="max-width: 250px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_author ;?></td> 
 																		<td><?php echo $got_pr_category ;?></td> 
 																		<td style="max-width: 400px;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><?php echo $got_pr_metaDesc ;?></td> 
-																		<td><?php echo $pr_image ;?></td>
+																		<td><img src='assets/images/pressRelease/<?php echo $pr_image ;?>' height='100px' width='200px'></td>
 																		<td><?php echo $got_pr_permalink ;?></td>
 																		<td><?php echo $date_added ;?></td>
 																		<td><?php echo $date_modified ;?></td>  
 																		 
 																		 
-																		<td><a href="edit-pr-details.php?pr-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+																		<td style="text-align:center;"><a href="edit-pr-details.php?pr-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
 																		
-																		<td><a href="pending-reports.php?accept_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-check fa-2x"></i></a></td>
+																		<td style="text-align:center;"><a href="pending-reports.php?accept_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-check fa-2x"></i></a></td>
 																				
-																		<td><a href="pending-reports.php?del_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
+																		<td style="text-align:center;"><a href="pending-reports.php?del_pr_id=<?php echo $got_id; ?>" class="delete_option"><i class="fa fa-trash-o fa-2x"></i></a></td>
 																	  </tr>
 																	<?php
 																		$counter++;

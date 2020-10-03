@@ -99,7 +99,6 @@
                                     <div class="page-header card">
                                         <div class="card-block">
                                             <h5 class="m-b-10">Manage PR Category</h5>
-                                            <p class="text-muted m-b-10">You Can Manage PR Category here..</p>
                                         </div>
                                     </div>
                                     <div class="page-body">
@@ -207,7 +206,7 @@
                                                                         <td style="text-align:center;"><?php echo $counter + 1 ;?></td>
                                                                         
                                                                         <td><?php echo $got_pr_category ;?></td> 
-                                                                        <td><?php echo $got_pr_category_image ;?></td> 
+                                                                        <td><img src='assets/images/pressRelease/category/<?php echo $got_pr_category_image;?>' height='100px' width='200px'></td>
                                                                         
                                                                         <td style="text-align:center;"><a href="edit-pr-category.php?category-id=<?php echo $got_id; ?>" class="Edit_option"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>           
                                                                         

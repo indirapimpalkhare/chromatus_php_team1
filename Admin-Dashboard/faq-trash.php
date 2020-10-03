@@ -29,7 +29,7 @@
 <html lang="en">
  
 <head>
-    <title> Admin | FAQ Trash </title>
+    <title> Chromatus Consulting | FAQ Trash </title>
 
  
 
@@ -114,12 +114,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
 
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h5>FAQ Trash</h5>
-                                                        <span>You Can Restore & Permanently Deleted FAQ's here</span>
-                                                    </div>
-													
+                                                <div class="card">													
 													 <div class="card-block">
                                                         <div class="dt-responsive table-responsive">
                                                             <table id="multi-colum-dt" class="table table-striped table-bordered nowrap">

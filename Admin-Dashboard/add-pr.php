@@ -109,10 +109,6 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="card">
-                                                    <div class="card-header">
-                                                    <h5>Add PR Details</h5>
-                                                    <span>Please Add the PR Details..</span>
-                                                </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-12">
                                                         <div class="common_msg" style="color:green;font-size:17px;margin-left: 340px;">

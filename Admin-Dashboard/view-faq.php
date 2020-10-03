@@ -22,7 +22,7 @@
 <html lang="en">
  
 <head>
-    <title> Admin | PR Record </title>
+    <title> Chromatus Consulting | View FAQ's </title>
 
  
 
@@ -91,10 +91,7 @@
                                             <div class="col-sm-12">
 
                                                 <div class="card">
-                                                    <div class="card-header">
-                                                        <h5> FAQ Records</h5>
-                                                        <span>You Can Edit or Delete FAQ From here..</span>
-                                                    </div>
+                                                    
 													<div class="form-group row">
 														<div class="col-md-12"> 
 															<div class="common_msg" style="color:red;font-size:17px;margin-left: 340px;">
