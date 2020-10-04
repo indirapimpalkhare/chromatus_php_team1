@@ -242,36 +242,7 @@
                   </li>
                </ul>
          </li>
-         <li class="pcoded-hasmenu ">
-            <a href="javascript:void(0)">
-            <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
-            <span class="pcoded-mtext">General</span>
-            <span class="pcoded-mcaret"></span>
-            </a>
-            <ul class="pcoded-submenu">
-               <li class="">
-                  <a href="#">
-                  <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                  <span class="pcoded-mtext">Image</span>
-                  <span class="pcoded-mcaret"></span>
-                  </a>
-               </li>
-               <li class="">
-                  <a href="#">
-                  <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                  <span class="pcoded-mtext">Videos</span>
-                  <span class="pcoded-mcaret"></span>
-                  </a>
-               </li>
-                <li class="">
-                  <a href="#">
-                  <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                  <span class="pcoded-mtext">Trash</span>
-                  <span class="pcoded-mcaret"></span>
-                  </a>
-               </li>
-            </ul>
-         </li>
+         
          <li class="pcoded-hasmenu ">
             <a href="javascript:void(0)">
             <span class="pcoded-micon"><i class="ti-gallery"></i><b>G</b></span>
