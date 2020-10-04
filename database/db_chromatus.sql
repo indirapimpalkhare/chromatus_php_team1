@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 29, 2020 at 02:29 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Host: 127.0.0.1
+-- Generation Time: Oct 04, 2020 at 12:25 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -119,6 +119,13 @@ CREATE TABLE `chromatus_info` (
   `number` varchar(15) NOT NULL,
   `gmail` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chromatus_info`
+--
+
+INSERT INTO `chromatus_info` (`infoID`, `linkedinLink`, `facebookLink`, `twitterLink`, `number`, `gmail`) VALUES
+(1, 'https://www.linkedin.com/company/chromatusconsulting/', 'https://www.facebook.com/Chromatus-2467152553553218/', 'https://twitter.com/Chromatus12', '0123456789', 'info@chromatus.com');
 
 -- --------------------------------------------------------
 
@@ -337,7 +344,6 @@ CREATE TABLE `user` (
   `company` varchar(30) NOT NULL,
   `country` varchar(30) NOT NULL,
   `position` varchar(30) NOT NULL
-  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -448,7 +454,7 @@ ALTER TABLE `blog_category`
 -- AUTO_INCREMENT for table `chromatus_info`
 --
 ALTER TABLE `chromatus_info`
-  MODIFY `infoID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `infoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
