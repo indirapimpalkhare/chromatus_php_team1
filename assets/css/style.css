@@ -307,14 +307,13 @@ background: #182955;
 
 }
 .pr-card-body{
-  padding: 8px;
-  margin-bottom: 5px;
+  padding: 5px;
+  margin-bottom: 0px;
+  
 }
-.pr-card-title{
-  font-size: 1.1rem;
-  font-weight: 800;
-  padding: 10px 0px;
-
+.pr-title:hover{
+  text-decoration: underline;
+	
 }
 .pr-card-image{
   width: 300px;
@@ -325,7 +324,6 @@ background: #182955;
   font-size: 0.9rem;
   text-align: justify;
   text-indent: 10%;
-  height: 191px;
   overflow: hidden;
 
 }

@@ -121,17 +121,16 @@
                 ?>
                
                 <div class="pr-card" >
-                    <div style="font-family: 'Noto Sans', sans-serif;" ><?php echo $result_title; ?></div>
+                    <div style=" font-family: 'Noto Sans', sans-serif; text-align:justify;" ><a onMouseOver="this.style.color='#3E8598'" onMouseOut="this.style.color='#000000'" class="pr-title" style="color:black;" href="pr_description.php?pr-id=<?php echo $result_id; ?>"><?php echo $result_title; ?> </a> </div>
                     <div pr-card-text> &nbsp; <i class="fa fa-user fa-0.5x"> <?php echo $result_author; ?>  </i> &nbsp; &emsp; <i class="fa fa-calendar">  <?php echo $result_date_modi; ?></i></div>
 					<div class="row pr-card-body">
                         <img class="pr-card-image col-8 col-md-8 col-lg-4" src="Admin-Dashboard/assets/images/pressRelease/<?php echo $result_image; ?>" alt="Press Release Image">
                         <p class="pr-card-text  col-12 col-md-8 col-lg-8"><?php echo $result_metadesc; ?></p>
+                        
 					</div>
-					<div class="row">
-                         <div class="ml-auto mr-3"><a href="pr_description.php?pr-id=<?php echo $result_id; ?>" class="pr-card-btn">Read More..</a></div>
-                    </div>
+    	
                 </div>
-				<hr>
+			    
 				<?php
                                     $counter++;
                               }
